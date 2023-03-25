@@ -1,0 +1,90 @@
+create database DingDongFastFood;
+
+create table food(
+	id int not null primary key auto_increment,
+    foodname nvarchar(255) not null,
+    price varchar(15) not null,
+    img  nvarchar(500) not null, 
+    fooddescription text not null,
+    timeupload datetime not null default current_timestamp(),
+    timeupdate datetime not null default current_timestamp()
+);
+create table usercommentfood(
+    id int not null primary key auto_increment,
+	userid int not null,
+    foodid int not null,
+    comments text not null,
+    datecoments datetime not null default current_timestamp(),
+    CONSTRAINT FK_userid FOREIGN KEY (userid) REFERENCES users(id),
+    CONSTRAINT FK_foodid FOREIGN KEY (foodid) REFERENCES food(id)
+);
+create table admincommentfood(
+    id int not null primary key auto_increment,
+	adminid int not null,
+    foodid int not null,
+    comments text not null,
+    datecoments datetime not null default current_timestamp(),
+    CONSTRAINT FK_adminid FOREIGN KEY (adminid) REFERENCES admins(id),
+    CONSTRAINT FK_foodid2 FOREIGN KEY (foodid) REFERENCES food(id)
+);
+
+create table drink(
+	id int not null primary key auto_increment,
+    drinkname nvarchar(255) not null,
+    price varchar(15) not null,
+    img  nvarchar(500) not null, 
+    drinkdescription text not null,
+    timeupload datetime not null default current_timestamp(),
+    timeupdate datetime not null default current_timestamp()
+);
+create table usercommentdrink(
+    id int not null primary key auto_increment,
+	userid int not null,
+    drinkid int not null,
+    comments text not null,
+    datecoments datetime not null default current_timestamp(),
+    CONSTRAINT FK_userid2 FOREIGN KEY (userid) REFERENCES users(id),
+    CONSTRAINT FK_drinkid FOREIGN KEY (drinkid) REFERENCES drink(id)
+);
+create table admincommentdrink(
+    id int not null primary key auto_increment,
+	adminid int not null,
+    drinkid int not null,
+    comments text not null,
+    datecoments datetime not null default current_timestamp(),
+    CONSTRAINT FK_adminid2 FOREIGN KEY (adminid) REFERENCES admins(id),
+    CONSTRAINT FK_drinkid2 FOREIGN KEY (drinkid) REFERENCES drink(id)
+);
+
+create table users(
+    id int not null primary key auto_increment,
+    username varchar(50) not null,
+    passwords varchar(500) not null,
+    timecreate datetime not null default current_timestamp(),
+    timeupdate datetime not null default current_timestamp()
+);
+create table admins(
+    id int not null primary key auto_increment,
+    username varchar(50) not null,
+    passwords varchar(500) not null,
+    timecreate datetime not null default current_timestamp(),
+    timeupdate datetime not null default current_timestamp()
+);
+
+select * from admins;
+select * from users;
+insert into users (username, passwords) values ('ronglun', 'ronglun');
+insert into users (username, passwords) values ('ronglun2', 'ronglun2');
+SELECT username, passwords FROM users where username = "ronglun412";
+update admins set username = 'khangnguyen', passwords = "82304289ee4cd9b6e1da8eaa58a39de1", timeupdate = now()  where id = 57;
+alter table admins drop column avt;
+delete from admins where id = 52;
+SET SQL_SAFE_UPDATES = 0;
+alter table admins add constraint UC_username unique (username);
+alter table users modify column passwords varchar(500) not null;
+select * from drink;
+select * from food;
+select id, foodname, price, img, fooddescription, timeupload, timeupdate from food;
+insert into food (foodname, price, img, fooddescription) values ('cá', '12000', '123.png', 'ngon');
+insert into drink (drinkname, price, img, drinkdescription) values ('cá', '12000', '123.png', 'ngon');
+update food set foodname = 'fish', price = '10.000', fooddescription= 'ổn', img='không có',timeupdate = now()  where id = 1;

@@ -641,6 +641,13 @@
                             break;
                     }
                     break;
+                    
+                case 'showFood':
+                    $food = new product("", "", "", "");
+                    $getfood = 'select id, foodname, price, img, fooddescription, timeupload, timeupdate from food';
+                    $foodlist = $food->getallproduct($getfood);
+                    include '../userview/menu.php';
+                    break;
                 default:
                     header("Location: ../dashboardview/signin.php");
             }

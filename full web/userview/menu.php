@@ -25,7 +25,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1><i>Danh Mục Thức Ăn</i></h1>
+                    <h1 style="color: #FFF;"><i>Danh Mục Thức Ăn</i></h1>
                     <!-- <p class="pt-2"><i>Beast kind form divide night above let moveth bearing darkness.</i></p> -->
                 </div>
             </div>
@@ -144,21 +144,29 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-4 col-md-4 col-sm-6 col-12 mt-3 ">
-                    <div class="card" style="height: 100%;">
-                        <div class="card-img">
-                            <img src="../assets/images/food1.jpg" width="100%" class="img-fluid" alt="">
-                        </div>
-                        <div class="card-body">
-                            <div class="d-flex justify-content-between">
-                                <h5>Mexican Eggrolls</h5>
-                                <span class="style-change">$14.50</span>
-                            </div>
-                            <p class="pt-3">Face together given moveth divided form Of Seasons that fruitful.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-6 col-12 mt-3 ">
+                <?php
+                    if(isset($foodlist)){
+                        foreach($foodlist as $food){
+                            echo '<div class="col-lg-4 col-md-4 col-sm-6 col-12 mt-3 ">';
+                            echo '  <div class="card" style="height: 100%;">';
+                            echo '      <div class="card-img">';
+                            echo '          <img src="'.$food['img'].'" width="100%" class="img-fluid" alt="">';
+                            echo '      </div>';
+                            echo '      <div class="card-body">';
+                            echo '          <div class="d-flex justify-content-between">';
+                            echo '              <h5>'.$food['foodname'].'</h5>';
+                            echo '              <span class="style-change">'.$food['price'].' VNĐ</span>';
+                            echo '          </div>';
+                            echo '          <p class="pt-3">'.$food['fooddescription'].'</p>';
+                            echo '      </div>';
+                            echo '  </div>';
+                            echo '</div>';
+                        }
+                        
+                    }
+                ?>
+
+                <!-- <div class="col-lg-4 col-md-4 col-sm-6 col-12 mt-3 ">
                     <div class="card" style="height: 100%;">
                         <div class="card-img">
                             <img src="../assets/images/food2.jpg" width="100%" class="img-fluid" alt="">
@@ -185,7 +193,7 @@
                             <p class="pt-3">Face together given moveth divided form Of Seasons that fruitful.</p>
                         </div>
                     </div>
-                </div>
+                </div> -->
                 
             </div>
         </div>

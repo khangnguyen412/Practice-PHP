@@ -75,7 +75,7 @@
                         <p>Created god gathered don't you yielding herb you had. And isn't, god was saw. Dominion. Great
                             sixth for in unto was. Open can't tree waters brought. Divide after there. Was. Created god
                             gathered don't you yielding herb you had. And isn't god.</p> -->
-                        <a href="#" class="template-btn mt-3">Xem Danh Mục</a>
+                        <a href="../dashboardcontroler/controler.php?action=showFood" class="template-btn mt-3">Xem Danh Mục</a>
                     </div>
                 </div>
             </div>

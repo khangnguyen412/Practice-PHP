@@ -23,8 +23,8 @@
                 <div class="main-menu">
                     <ul>
                         <li><a href="index2.php">Trang Chủ</a></li>
-                        <li><a href="../dashboardcontroler/controler.php?action=showproduct&show=food">Thức Ăn</a></li>
-                        <li><a href="../dashboardcontroler/controler.php?action=showproduct&show=drink">Đồ Uống</a></li>
+                        <li><a href="../dashboardcontroler/controler.php?action=showFood">Thức Ăn</a></li>
+                        <li><a href="../dashboardcontroler/controler.php?action=showDrink">Đồ Uống</a></li>
                         <li><a href="#contact">Liên Hệ</a></li>
                         <li>
                             <?php

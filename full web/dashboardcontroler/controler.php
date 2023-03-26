@@ -641,7 +641,7 @@
                             break;
                     }
                     break;
-                    
+                // -----------------hiển thị sản phẩm lên menu------------------------------
                 case 'showFood':
                     $food = new product("", "", "", "");
                     $getfood = 'select id, foodname, price, img, fooddescription, timeupload, timeupdate from food';

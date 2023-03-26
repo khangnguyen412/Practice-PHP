@@ -21,15 +21,15 @@
                 <div class="col-md-4">
                     <div class="single-widget single-widget2 my-5 my-md-0">
                         <h5 class="mb-4" id="contact">Địa Chỉ, Liên Hệ</h5>
-                        <div class="d-flex">
+                        <div class="d-flex" style="color: white;">
                             <div class="into-icon">
                                 <i class="fa fa-map-marker"></i>
                             </div>
-                            <div class="info-text">
+                            <div class="">
                                 <p>Địa Chỉ: 106E/37 Lạc Long Quân P.3 Q.11</p>
                             </div>
                         </div>
-                        <div class="d-flex">
+                        <div class="d-flex" style="color: white;">
                             <div class="into-icon">
                                 <i class="fa fa-phone"></i>
                             </div>

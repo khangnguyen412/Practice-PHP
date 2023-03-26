@@ -25,17 +25,13 @@
                             <div class="into-icon">
                                 <i class="fa fa-map-marker"></i>
                             </div>
-                            <div class="">
-                                <p>Địa Chỉ: 106E/37 Lạc Long Quân P.3 Q.11</p>
-                            </div>
+                            <p>Địa Chỉ: 106E/37 Lạc Long Quân P.3 Q.11</p>
                         </div>
                         <div class="d-flex" style="color: white;">
                             <div class="into-icon">
                                 <i class="fa fa-phone"></i>
                             </div>
-                            <div class="info-text">
-                                <p>SĐT: 0911.29.09.12</p>
-                            </div>
+                            <p>SĐT: 0911.29.09.12</p>
                         </div>
                         <!-- <div class="d-flex">
                                 <div class="into-icon">

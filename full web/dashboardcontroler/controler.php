@@ -648,6 +648,20 @@
                     $foodlist = $food->getallproduct($getfood);
                     include '../userview/menu.php';
                     break;
+                // -----------------hiển thị thức ăn lên menu------------------------------
+                case 'showFood':
+                    $food = new product("", "", "", "");
+                    $getfood = 'select id, foodname, price, img, fooddescription, timeupload, timeupdate from food';
+                    $foodlist = $food->getallproduct($getfood);
+                    include '../userview/menu.php';
+                    break;
+                // -----------------hiển thị đồ uống lên menu------------------------------
+                case 'showDrink':
+                    $drink = new product("", "", "", "");
+                    $getdrink = 'select id, drinkname, price, img, drinkdescription, timeupload, timeupdate from drink';
+                    $drinklist = $drink->getallproduct($getdrink);
+                    include '../userview/menu2.php';
+                    break;
                 default:
                     header("Location: ../dashboardview/signin.php");
             }

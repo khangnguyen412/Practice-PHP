@@ -148,6 +148,29 @@
                 <div class="col-lg-12 col-md-12 col-12">
                     <h3>Trà sữa</h3>
                 </div>
+
+                <?php
+                    if(isset($drinklist)){
+                        foreach($drinklist as $drink){
+                            echo '<div class="col-lg-4 col-md-4 col-sm-6 col-12 mt-3 ">';
+                            echo '  <div class="card" style="height: 100%;">';
+                            echo '      <div class="card-img">';
+                            echo '          <img src="'.$drink['img'].'" width="100%" class="img-fluid" alt="">';
+                            echo '      </div>';
+                            echo '      <div class="card-body">';
+                            echo '          <div class="d-flex justify-content-between">';
+                            echo '              <h5>'.$drink['drinkname'].'</h5>';
+                            echo '              <span class="style-change">'.$drink['price'].' VNĐ</span>';
+                            echo '          </div>';
+                            echo '          <p class="pt-3">'.$drink['drinkdescription'].'</p>';
+                            echo '      </div>';
+                            echo '  </div>';
+                            echo '</div>';
+                        }
+                        
+                    }
+                ?>
+
                 <div class="col-lg-4 col-md-4 col-sm-6 col-12 mt-3 ">
                     <div class="card" style="height: 100%;">
                         <div class="card-img">

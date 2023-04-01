@@ -658,7 +658,7 @@
                 // -----------------hiển thị đồ uống lên menu------------------------------
                 case 'showDrink':
                     $drink = new product("", "", "", "");
-                    $getdrink = 'select id, drinkname, price, img, drinkdescription, timeupload, timeupdate from drink';
+                    $getdrink = 'select id, drinkname, price, img, drinkdescription from drink';
                     $drinklist = $drink->getallproduct($getdrink);
                     include '../userview/menu2.php';
                     break;

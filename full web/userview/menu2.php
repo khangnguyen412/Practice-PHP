@@ -170,7 +170,12 @@
                         
                     }
                 ?>
+            </div>
 
+            <div class="row mt-5">
+                <div class="col-lg-12 col-md-12 col-12">
+                    <h3>Cafe</h3>
+                </div>
                 <div class="col-lg-4 col-md-4 col-sm-6 col-12 mt-3 ">
                     <div class="card" style="height: 100%;">
                         <div class="card-img">
@@ -217,55 +222,7 @@
 
             <div class="row mt-5">
                 <div class="col-lg-12 col-md-12 col-12">
-                    <h3>Trà sữa</h3>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-6 col-12 mt-3 ">
-                    <div class="card" style="height: 100%;">
-                        <div class="card-img">
-                            <img src="../assets/images/food1.jpg" width="100%" class="img-fluid" alt="">
-                        </div>
-                        <div class="card-body">
-                            <div class="d-flex justify-content-between">
-                                <h5>Mexican Eggrolls</h5>
-                                <span class="style-change">$14.50</span>
-                            </div>
-                            <p class="pt-3">Face together given moveth divided form Of Seasons that fruitful.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-6 col-12 mt-3 ">
-                    <div class="card" style="height: 100%;">
-                        <div class="card-img">
-                            <img src="../assets/images/food2.jpg" width="100%" class="img-fluid" alt="">
-                        </div>
-                        <div class="card-body">
-                            <div class="d-flex justify-content-between">
-                                <h5>chicken burger</h5>
-                                <span class="style-change">$9.50</span>
-                            </div>
-                            <p class="pt-3">Face together given moveth divided form Of Seasons that fruitful.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-6 col-12 mt-3 ">
-                    <div class="card" style="height: 100%;">
-                        <div class="card-img">
-                            <img src="../assets/images/food3.jpg" width="100%" class="img-fluid" alt="">
-                        </div>
-                        <div class="card-body">
-                            <div class="d-flex justify-content-between">
-                                <h5>topu lasange</h5>
-                                <span class="style-change">$12.50</span>
-                            </div>
-                            <p class="pt-3">Face together given moveth divided form Of Seasons that fruitful.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row mt-5">
-                <div class="col-lg-12 col-md-12 col-12">
-                    <h3>Trà sữa</h3>
+                    <h3>Các loại nước khác</h3>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-6 col-12 mt-3 ">
                     <div class="card" style="height: 100%;">

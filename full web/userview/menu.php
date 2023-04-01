@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <!-- Page Title -->
     <title>Menu</title>
     <?php
-        include 'lib/head.php'
+    include 'lib/head.php'
     ?>
 </head>
+
 <body>
     <!-- Preloader Starts -->
     <div class="preloader">
@@ -15,8 +17,8 @@
     <!-- Preloader End -->
 
     <!-- Header Area Starts -->
-	<?php
-        include 'lib/header.php'
+    <?php
+    include 'lib/header.php'
     ?>
     <!-- Header Area End -->
 
@@ -145,25 +147,24 @@
             </div>
             <div class="row">
                 <?php
-                    if(isset($foodlist)){
-                        foreach($foodlist as $food){
-                            echo '<div class="col-lg-4 col-md-4 col-sm-6 col-12 mt-3 ">';
-                            echo '  <div class="card" style="height: 100%;">';
-                            echo '      <div class="card-img">';
-                            echo '          <img src="'.$food['img'].'" width="100%" class="img-fluid" alt="">';
-                            echo '      </div>';
-                            echo '      <div class="card-body">';
-                            echo '          <div class="d-flex justify-content-between">';
-                            echo '              <h5>'.$food['foodname'].'</h5>';
-                            echo '              <span class="style-change">'.$food['price'].' VNĐ</span>';
-                            echo '          </div>';
-                            echo '          <p class="pt-3">'.$food['fooddescription'].'</p>';
-                            echo '      </div>';
-                            echo '  </div>';
-                            echo '</div>';
-                        }
-                        
+                if (isset($foodlist)) {
+                    foreach ($foodlist as $food) {
+                        echo '<div class="col-lg-4 col-md-4 col-sm-6 col-12 mt-3 ">';
+                        echo '  <div class="card" style="height: 100%;">';
+                        echo '      <div class="card-img">';
+                        echo '          <img src="' . $food['img'] . '" width="100%" class="img-fluid" alt="">';
+                        echo '      </div>';
+                        echo '      <div class="card-body">';
+                        echo '          <div class="d-flex justify-content-between">';
+                        echo '              <h5>' . $food['foodname'] . '</h5>';
+                        echo '              <span class="style-change">' . $food['price'] . ' VNĐ</span>';
+                        echo '          </div>';
+                        echo '          <p class="pt-3">' . $food['fooddescription'] . '</p>';
+                        echo '      </div>';
+                        echo '  </div>';
+                        echo '</div>';
                     }
+                }
                 ?>
 
                 <!-- <div class="col-lg-4 col-md-4 col-sm-6 col-12 mt-3 ">
@@ -194,7 +195,7 @@
                         </div>
                     </div>
                 </div> -->
-                
+
             </div>
         </div>
     </section>
@@ -211,14 +212,37 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <?php
+                if (isset($foodlist)) {
+                    $id = 01;
+                    foreach ($foodlist as $food) {
+                        echo '<div class="row mt-5">';
+                        echo '  <div class="col-lg-6 col-md-6 align-self-center"> ';
+                        echo '      <h1>'.$id.'.</h1>';
+                        echo '      <div>';
+                        echo '          <h3>'.$food['foodname'].'</h3>';
+                        echo '          <span class="style-change">' . $food['price'] . ' VNĐ</span>';
+                        echo '          <a href="#" class="template-btn3 mt-3"> ';
+                        echo '              Xem ngay tại danh mục nước uống<span><i class="fa fa-long-arrow-right"></i></span>  ';
+                        echo '          </a>';
+                        echo '      </div>';
+                        echo '  </div>';
+                        echo '  <div class="col-lg-6 col-md-6 align-self-center mt-4 mt-md-0">    ';
+                        echo '      <img src="' . $food['img'] . '" alt="" class="img-fluid">  ';
+                        echo '  </div> ';
+                        echo '</div> ';
+                        $id++;
+                    }
+                }
+            ?>
+            <!-- <div class="row">
                 <div class="col-lg-6 col-md-6 align-self-center">
                     <h1>01.</h1>
                     <div>
                         <h3>Trà Sữa Truyền Thống</h3>
-                        <!-- <p class="pt-3">Be. Seed saying our signs beginning face give spirit own beast darkness morning
+                        <p class="pt-3">Be. Seed saying our signs beginning face give spirit own beast darkness morning
                             moveth green multiply she'd kind saying one shall, two which darkness have day image god
-                            their night. his subdue so you rule can.</p> -->
+                            their night. his subdue so you rule can.</p>
                         <span class="style-change">18.000 VNĐ</span>
                         <a href="#" class="template-btn3 mt-3">
                             Xem ngay tại danh mục nước uống<span><i class="fa fa-long-arrow-right"></i></span>
@@ -228,8 +252,8 @@
                 <div class="col-lg-6 col-md-6 align-self-center mt-4 mt-md-0">
                     <img src="../assets/images/img/nước uống/trà sữa/trà sữa trân châu.jpg" alt="" class="img-fluid">
                 </div>
-            </div>
-            
+            </div> -->
+
             <div class="row mt-5">
                 <div class="col-lg-6 col-md-6 align-self-center ">
                     <h1>02.</h1>
@@ -296,14 +320,15 @@
 
     <!-- Footer Area Starts -->
     <?php
-        include 'lib/footer.php'
+    include 'lib/footer.php'
     ?>
     <!-- Footer Area End -->
 
 
     <!-- Javascript -->
     <?php
-        include 'lib/js.php'
+    include 'lib/js.php'
     ?>
 </body>
+
 </html>

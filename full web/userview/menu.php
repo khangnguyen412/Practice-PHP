@@ -147,6 +147,7 @@
             </div>
             <div class="row">
                 <?php
+                // var_dump($foodlist);
                 if (isset($foodlist)) {
                     foreach ($foodlist as $food) {
                         echo '<div class="col-lg-4 col-md-4 col-sm-6 col-12 mt-3 ">';
@@ -155,11 +156,20 @@
                         echo '          <img src="' . $food['img'] . '" width="100%" class="img-fluid" alt="">';
                         echo '      </div>';
                         echo '      <div class="card-body">';
-                        echo '          <div class="d-flex justify-content-between">';
-                        echo '              <h5>' . $food['foodname'] . '</h5>';
-                        echo '              <span class="style-change">' . $food['price'] . ' VNĐ</span>';
+                        echo '          <div class="d-flex justify-content-between row">';
+                        echo '              <div class="col-xl-6 col-md-12 col-sm-12">';
+                        echo '                  <h5>' . $food['foodname'] . '</h5>';
+                        echo '              </div>';
+                        echo '              <div class="col-xl-6 col-md-12 col-sm-12">';
+                        echo '                  <span class="style-change"> Giá: ' . $food['price'] . ' VNĐ</span>';
+                        echo '              </div>';
                         echo '          </div>';
                         echo '          <p class="pt-3">' . $food['fooddescription'] . '</p>';
+                        echo '          <div class="d-flex mb-10">';
+                        echo '              <a href="../dashboardcontroler/controler.php?action=showFoodInfo&&id='.$food['id'].'" class="col col-lg-12 btn btn-warning"> ';
+                        echo '                  Xem chi tiết';
+                        echo '              </a>';
+                        echo '          </div>';
                         echo '      </div>';
                         echo '  </div>';
                         echo '</div>';

@@ -41,16 +41,16 @@
             <div class="row">
                 <div class="col-md-12 col-lg-6">
                     <div class="img-fluid">
-                        <img src="../img/img/nền.jpg" alt="" style="height: 100%; width: 100%;">
+                        <img src="<?php echo $drinkinfo[0]['img']?>" alt="" style="height: 100%; width: 100%;">
                     </div>
                 </div>
                 <div class="col-md-12 col-lg-6">
                     <div class="section-top">
-                        <h3 style="font-style: italic;">Trà sữa</h3>
+                        <h3 style="font-style: italic;"><?php echo $drinkinfo[0]['drinkname']?></h3>
                         <p class="pt-3 justify-content-start">
-                            Mô tả: làm từ cá. có những nguyên liệu
+                            Mô tả: <?php echo $drinkinfo[0]['drinkdescription']?>
                         </p>
-                        <h3><span class="style-change">Giá: xxx.xxx VND</span></h3>
+                        <h3><span class="style-change">Giá: <?php echo $drinkinfo[0]['price']?> VND</span></h3>
                         <div class="row">
                             <div class="col-md-12">
                                 <div style="color: #000; font-style: italic; font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; font-size:30px; font-weight:bold;">

@@ -662,6 +662,22 @@
                     $drinklist = $drink->getallproduct($getdrink);
                     include '../userview/menu2.php';
                     break;
+                // -----------------show thông tin thức ăn------------------------------
+                case 'showFoodInfo':
+                    $id = $_GET['id'];
+                    $food = new product("", "", "", "");
+                    $getfood = 'select foodname, price, img, fooddescription, timeupload, timeupdate from food where id ='.$id;
+                    $foodinfo = $food->getallproduct($getfood);
+                    include '../userview/foodinfor.php';
+                    break;
+                // -----------------show thông tin thức ăn------------------------------
+                case 'showDrinkInfo':
+                    $id = $_GET['id'];
+                    $drink = new product("", "", "", "");
+                    $getdrink = 'select drinkname, price, img, drinkdescription, timeupload, timeupdate from drink where id ='.$id;
+                    $drinkinfo = $drink->getallproduct($getdrink);
+                    include '../userview/drinkinfor.php';
+                    break;
                 default:
                     header("Location: ../dashboardview/signin.php");
             }

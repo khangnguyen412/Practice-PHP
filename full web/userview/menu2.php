@@ -183,7 +183,9 @@
                             echo '              </div>';
                             echo '          </div>';
                             echo '          <p class="pt-3">' . $drink['drinkdescription'] . '</p>';
-                            echo '          <div class="d-flex align-items-end">';
+                            echo '      </div>';
+                            echo '      <div class="card-footer">';
+                            echo '          <div class="d-flex" >';
                             echo '              <a href="../dashboardcontroler/controler.php?action=showDrinkInfo&&id='.$drink['id'].'" class="col col-lg-12 btn btn-warning"> ';
                             echo '                  Xem chi tiết';
                             echo '              </a>';

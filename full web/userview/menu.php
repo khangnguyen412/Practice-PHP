@@ -156,7 +156,7 @@
                         echo '          <img src="' . $food['img'] . '" width="100%" class="img-fluid" alt="">';
                         echo '      </div>';
                         echo '      <div class="card-body">';
-                        echo '          <div class="d-flex justify-content-between row">';
+                        echo '          <div class="d-flex justify-content-between row" >';
                         echo '              <div class="col-xl-6 col-md-12 col-sm-12">';
                         echo '                  <h5>' . $food['foodname'] . '</h5>';
                         echo '              </div>';
@@ -165,7 +165,9 @@
                         echo '              </div>';
                         echo '          </div>';
                         echo '          <p class="pt-3">' . $food['fooddescription'] . '</p>';
-                        echo '          <div class="d-flex mb-10">';
+                        echo '      </div>';
+                        echo '      <div class="card-footer">';
+                        echo '          <div class="d-flex" >';
                         echo '              <a href="../dashboardcontroler/controler.php?action=showFoodInfo&&id='.$food['id'].'" class="col col-lg-12 btn btn-warning"> ';
                         echo '                  Xem chi tiết';
                         echo '              </a>';
@@ -232,8 +234,8 @@
                         echo '      <div>';
                         echo '          <h3>'.$food['foodname'].'</h3>';
                         echo '          <span class="style-change">' . $food['price'] . ' VNĐ</span>';
-                        echo '          <a href="#" class="template-btn3 mt-3"> ';
-                        echo '              Xem ngay tại danh mục nước uống<span><i class="fa fa-long-arrow-right"></i></span>  ';
+                        echo '          <a href="#" class="btn btn-warning mt-3"> ';
+                        echo '              Xem thông tin combo <i class="fa fa-long-arrow-right"></i>';
                         echo '          </a>';
                         echo '      </div>';
                         echo '  </div>';
@@ -264,14 +266,14 @@
                 </div>
             </div> -->
 
-            <div class="row mt-5">
+            <!-- <div class="row mt-5">
                 <div class="col-lg-6 col-md-6 align-self-center ">
                     <h1>02.</h1>
                     <div class="">
                         <h3>Combo 1</h3>
-                        <!-- <p class="pt-3">Be. Seed saying our signs beginning face give spirit own beast darkness morning
+                        <p class="pt-3">Be. Seed saying our signs beginning face give spirit own beast darkness morning
                             moveth green multiply she'd kind saying one shall, two which darkness have day image god
-                            their night. his subdue so you rule can.</p> -->
+                            their night. his subdue so you rule can.</p>
                         <span class="style-change">50.000 VNĐ</span>
                         <a href="#" class="template-btn3 mt-3">
                             Xem ngay tại danh mục thức ăn<span><i class="fa fa-long-arrow-right"></i></span>
@@ -281,7 +283,7 @@
                 <div class="col-lg-6 col-md-6 align-self-center mt-4 mt-md-0">
                     <img src="../assets/images/img/thức ăn/mẹc 1.jpg" alt="" class="img-fluid">
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
     <!-- Deshes Area End -->

@@ -100,7 +100,34 @@
             <div class="row">
                 <h3 style="font-style: italic;">Nhận Xét Khách Hàng</h3>
             </div>
-            <div class="row m-2">
+            <?php
+                if (!isset($_SESSION)) {
+                    session_start();
+                }
+                if (isset($_SESSION["islogin"])) {
+                    echo '<div class="row m-2">';
+                    echo '  <div class="col-lg-1 col-md-2 col-4">';
+                    echo '      <img src="../img/user.jpg" alt="" style="height: 100%; width: 100%">';
+                    echo '  </div>';
+                    echo '  <div class="col-lg-11 col-md-10 col-8">';
+                    echo '      <div class="col-lg-12">';
+                    echo '          <h5> Tên Khách Hàng </h5>';
+                    echo '      </div>';
+                    echo '      <div class="col-lg-12">';
+                    echo '          <p>nhận xét của khách hàng</p>';
+                    echo '      </div>';
+                    echo '  </div>';
+                    echo '</div>';
+                    echo '';
+                    echo '';
+                    echo '';
+                    echo '';
+                } else {
+                    echo '<h5>Đăng Nhập Để Xem Bình Luận</h5>';
+                }
+            ?>
+
+            <!-- <div class="row m-2">
                 <div class="col-lg-1 col-md-2 col-4">
                     <img src="../img/user.jpg" alt="" style="height: 100%; width: 100%">
                 </div>
@@ -112,20 +139,7 @@
                         <p>nhận xét của khách hàng</p>
                     </div>
                 </div>
-            </div>
-            <div class="row m-2">
-                <div class="col-lg-1 col-md-2 col-4">
-                    <img src="../img/user.jpg" alt="" style="height: 100%; width: 100%">
-                </div>
-                <div class="col-lg-11 col-md-10 col-8">
-                    <div class="col-lg-12">
-                        <h5> Tên Khách Hàng </h5>
-                    </div>
-                    <div class="col-lg-12">
-                        <p>nhận xét của khách hàng</p>
-                    </div>
-                </div>
-            </div>
+            </div> -->
         </div>
     </section>
     <!-- Food Area End -->

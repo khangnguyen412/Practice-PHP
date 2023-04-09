@@ -678,6 +678,16 @@
                     $drinkinfo = $drink->getallproduct($getdrink);
                     include '../userview/drinkinfor.php';
                     break;
+                // -----------------bình luận thức ăn------------------------------
+                case 'commentFood':
+                    var_dump($_POST);
+                    $iduser = $_POST['iduser'];
+                    $nameuser = $_POST['nameuser'];
+                    $idfood = $_POST['idfood'];
+                    $namefood = $_POST['namefood'];
+                    $comment = $_POST['comment'];
+                    
+                    break;
                 default:
                     header("Location: ../dashboardview/signin.php");
             }

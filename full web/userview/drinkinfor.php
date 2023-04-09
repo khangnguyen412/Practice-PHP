@@ -36,21 +36,36 @@
     <!-- Banner Area End -->
 
     <!-- Food Area Infor -->
+    <?php
+    if(isset($drinkinfo)){
+        foreach ($drinkinfo as $value) {
+            $img = $value['img'];
+            $description = $value['drinkdescription'];
+            $name = $value['drinkname'];
+            $price = $value['price'];
+        }
+    }else{
+        $img = "";
+        $description = "";
+        $name = "";
+        $price = "";
+    }
+    ?>
     <section class="food-area section-padding">
         <div class="container">
             <div class="row">
                 <div class="col-md-12 col-lg-6">
                     <div class="img-fluid">
-                        <img src="<?php echo $drinkinfo[0]['img']?>" alt="" style="height: 100%; width: 100%;">
+                        <img src="<?php echo $img?>" alt="" style="height: 100%; width: 100%;">
                     </div>
                 </div>
                 <div class="col-md-12 col-lg-6">
                     <div class="section-top">
-                        <h3 style="font-style: italic;"><?php echo $drinkinfo[0]['drinkname']?></h3>
+                        <h3 style="font-style: italic;"><?php echo $name?></h3>
                         <p class="pt-3 justify-content-start">
-                            Mô tả: <?php echo $drinkinfo[0]['drinkdescription']?>
+                            Mô tả: <?php echo $description?>
                         </p>
-                        <h3><span class="style-change">Giá: <?php echo $drinkinfo[0]['price']?> VND</span></h3>
+                        <h3><span class="style-change">Giá: <?php echo $price?> VND</span></h3>
                         <div class="row">
                             <div class="col-md-12">
                                 <div style="color: #000; font-style: italic; font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; font-size:30px; font-weight:bold;">
@@ -92,23 +107,24 @@
                 <h3 style="font-style: italic;">Nhận Xét Khách Hàng</h3>
             </div>
             <div class="row m-2">
-                <div class="col-lg-1 col-md-3 col-6">
-                    <img src="../img/user.jpg" alt="" style="height: 100%; width: 100%">
-                </div>
-                <div class="col-lg-11 col-md-9 col-6">
-                    <div class="col-lg-12">
-                        <h5> Tên Khách Hàng </h5>
+                <form action="#">
+                    <h5>Ghi Nhận Xét</h5>
+                    <div class="mt-10">
+                        <input type="text" class="single-input" name="id" value="" readonly hidden>
                     </div>
-                    <div class="col-lg-12">
-                        <p>nhận xét của khách hàng</p>
+                    <div class="mt-10">
+                        <textarea class="single-textarea" placeholder="Nhận Xét Tại" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Message'" required=""></textarea>
                     </div>
-                </div>
+                    <div class="mt-10 d-flex justify-content-end">
+                        <button type="submit" class="template-btn">Đăng Nhận Xét</button>
+                    </div>
+                </form>
             </div>
             <div class="row m-2">
-                <div class="col-lg-1 col-md-3 col-6">
+                <div class="col-lg-1 col-md-2 col-4">
                     <img src="../img/user.jpg" alt="" style="height: 100%; width: 100%">
                 </div>
-                <div class="col-lg-11 col-md-9 col-6">
+                <div class="col-lg-11 col-md-10 col-8">
                     <div class="col-lg-12">
                         <h5> Tên Khách Hàng </h5>
                     </div>

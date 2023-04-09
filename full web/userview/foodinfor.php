@@ -37,29 +37,35 @@
 
     <!-- Food Area Infor -->
     <?php
-        foreach( $foodinfo as $value )
-        {
+    if(isset($foodinfo)){
+        foreach ($foodinfo as $value) {
             $img = $value['img'];
             $description = $value['fooddescription'];
             $name = $value['foodname'];
             $price = $value['price'];
         }
+    }else{
+        $img = "";
+        $description = "";
+        $name = "";
+        $price = "";
+    }
     ?>
     <section class="food-area section-padding">
         <div class="container">
             <div class="row">
                 <div class="col-md-12 col-lg-6">
                     <div class="img-fluid">
-                        <img src="<?php echo $img?>" alt="" style="height: 100%; width: 100%;">
+                        <img src="<?php echo $img ?>" alt="" style="height: 100%; width: 100%;">
                     </div>
                 </div>
                 <div class="col-md-12 col-lg-6">
                     <div class="section-top">
-                        <h3 style="font-style: italic;"><?php echo $name?></h3>
+                        <h3 style="font-style: italic;"><?php echo $name ?></h3>
                         <p class="pt-3 justify-content-start">
-                            Mô tả: <?php echo $description?>
+                            Mô tả: <?php echo $description ?>
                         </p>
-                        <h3><span class="style-change">Giá: <?php echo $price?> VND</span></h3>
+                        <h3><span class="style-change">Giá: <?php echo $price ?> VND</span></h3>
                         <div class="row">
                             <div class="col-md-12">
                                 <div style="color: #000; font-style: italic; font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; font-size:30px; font-weight:bold;">
@@ -101,32 +107,65 @@
                 <h3 style="font-style: italic;">Nhận Xét Khách Hàng</h3>
             </div>
             <?php
-                if (!isset($_SESSION)) {
-                    session_start();
-                }
-                if (isset($_SESSION["islogin"])) {
-                    echo '<div class="row m-2">';
-                    echo '  <div class="col-lg-1 col-md-2 col-4">';
-                    echo '      <img src="../img/user.jpg" alt="" style="height: 100%; width: 100%">';
-                    echo '  </div>';
-                    echo '  <div class="col-lg-11 col-md-10 col-8">';
-                    echo '      <div class="col-lg-12">';
-                    echo '          <h5> Tên Khách Hàng </h5>';
-                    echo '      </div>';
-                    echo '      <div class="col-lg-12">';
-                    echo '          <p>nhận xét của khách hàng</p>';
-                    echo '      </div>';
-                    echo '  </div>';
-                    echo '</div>';
-                    echo '';
-                    echo '';
-                    echo '';
-                    echo '';
-                } else {
-                    echo '<h5>Đăng Nhập Để Xem Bình Luận</h5>';
-                }
+            if (!isset($_SESSION)) {
+                session_start();
+            }
+            if (isset($_SESSION["islogin"])) {
+                echo '<div class="row m-2" >';
+                echo '  <form action="../dashboardcontroler/controler.php?action=commentFood" method="post">';
+                echo '      <h5>Ghi Nhận Xét</h5>';
+                echo '      <div class="mt-10">';
+                echo '          <input type="text" class="single-input" name="iduser" value="'.$_SESSION["id"].'" readonly hidden>';
+                echo '      </div>';
+                echo '      <div class="mt-10">';
+                echo '          <input type="text" class="single-input" name="nameuser" value="'.$_SESSION["username"].'" readonly hidden>';
+                echo '      </div>';
+                echo '      <div class="mt-10">';
+                echo '          <input type="text" class="single-input" name="idfood" value="'.$id.'" readonly hidden>';
+                echo '      </div>';
+                echo '      <div class="mt-10">';
+                echo '          <input type="text" class="single-input" name="namefood" value="'.$name.'" readonly hidden>';
+                echo '      </div>';
+                echo '      <div class="mt-10">';
+                echo '          <textarea class="single-textarea" placeholder="Nhận Xét Tại Đây" name="comment" required=""></textarea>';
+                echo '      </div>';
+                echo '      <div class="mt-10 d-flex justify-content-end">';
+                echo '          <button type="submit" class="template-btn">Đăng Nhận Xét</button>';
+                echo '      </div>';
+                echo '  </form>';
+                echo '</div>';
+                echo '<div class="row m-2">';
+                echo '  <div class="col-lg-1 col-md-2 col-4">';
+                echo '      <img src="../img/user.jpg" alt="" style="height: 100%; width: 100%">';
+                echo '  </div>';
+                echo '  <div class="col-lg-11 col-md-10 col-8">';
+                echo '      <div class="col-lg-12">';
+                echo '          <h5> Tên Khách Hàng </h5>';
+                echo '      </div>';
+                echo '      <div class="col-lg-12">';
+                echo '          <p>nhận xét của khách hàng</p>';
+                echo '      </div>';
+                echo '  </div>';
+                echo '</div>';
+            } else {
+                echo '<h5>Đăng Nhập Để Xem Và Viết Nhận Xét</h5>';
+            }
             ?>
 
+            <!-- <div class="row m-2">
+                <form action="#">
+                    <h5>Ghi Nhận Xét</h5>
+                    <div class="mt-10">
+                        <input type="text" class="single-input" name="id" value="" readonly hidden>
+                    </div>
+                    <div class="mt-10">
+                        <textarea class="single-textarea" placeholder="Nhận Xét Tại" required=""></textarea>
+                    </div>
+                    <div class="mt-10 d-flex justify-content-end">
+                        <button type="submit" class="template-btn">Đăng Nhận Xét</button>
+                    </div>
+                </form>
+            </div> -->
             <!-- <div class="row m-2">
                 <div class="col-lg-1 col-md-2 col-4">
                     <img src="../img/user.jpg" alt="" style="height: 100%; width: 100%">

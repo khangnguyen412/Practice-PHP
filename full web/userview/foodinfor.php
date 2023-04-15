@@ -121,6 +121,9 @@
                 echo '          <input type="text" class="single-input" name="nameuser" value="'.$_SESSION["username"].'" readonly hidden>';
                 echo '      </div>';
                 echo '      <div class="mt-10">';
+                echo '          <input type="text" class="single-input" name="role" value="'.$_SESSION["role"].'" readonly hidden>';
+                echo '      </div>';
+                echo '      <div class="mt-10">';
                 echo '          <input type="text" class="single-input" name="idfood" value="'.$id.'" readonly hidden>';
                 echo '      </div>';
                 echo '      <div class="mt-10">';

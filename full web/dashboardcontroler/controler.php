@@ -680,13 +680,17 @@
                     break;
                 // -----------------bình luận thức ăn------------------------------
                 case 'commentFood':
-                    var_dump($_POST);
                     $iduser = $_POST['iduser'];
                     $nameuser = $_POST['nameuser'];
                     $idfood = $_POST['idfood'];
                     $namefood = $_POST['namefood'];
                     $comment = $_POST['comment'];
-                    
+                    echo $table = ($_POST['role'] == 'admins')? 'admincommentfood': 'usercommentfood';
+                    $arr = array('drinkname'=>$drinkname, 'price'=>$price, 'img'=>$img, 'description'=>$description);
+                    $sql = 'insert into drink (drinkname, price, img, drinkdescription) values (:drinkname, :price, :img, :description)';
+                    $drinkfood = new product("", "", "", "");
+                    $drinkfood->insertproduct($sql, $arr);
+                    header("Location: ../dashboardcontroler/controler.php?action=showproduct&notificationid=4");
                     break;
                 default:
                     header("Location: ../dashboardview/signin.php");

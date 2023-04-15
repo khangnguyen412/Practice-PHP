@@ -78,7 +78,7 @@ insert into users (username, passwords) values ('ronglun2', 'ronglun2');
 SELECT username, passwords FROM users where username = "ronglun412";
 update admins set username = 'khangnguyen', passwords = "82304289ee4cd9b6e1da8eaa58a39de1", timeupdate = now()  where id = 57;
 alter table admins drop column avt;
-delete from admins where id = 52;
+delete from admins where id = 63;
 SET SQL_SAFE_UPDATES = 0;
 alter table admins add constraint UC_username unique (username);
 alter table users modify column passwords varchar(500) not null;
@@ -88,3 +88,6 @@ select id, foodname, price, img, fooddescription, timeupload, timeupdate from fo
 insert into food (foodname, price, img, fooddescription) values ('cá', '12000', '123.png', 'ngon');
 insert into drink (drinkname, price, img, drinkdescription) values ('cá', '12000', '123.png', 'ngon');
 update food set foodname = 'fish', price = '10.000', fooddescription= 'ổn', img='không có',timeupdate = now()  where id = 1;
+insert into admincommentfood (adminid, foodid, comments) values ('63', '1', 'cái này ăn ngon');
+select * from admincommentdrink;
+delete from usercommentdrink where drinkid = 1;

@@ -51,8 +51,17 @@
         }
         public function deleteuser($table, $arr_param){
             $sql = "delete from ".$table." where id = :id";
+            if($table == 'admincommentfood'){
+                $sqlFoodRef = "delete from admincommentfood where adminid = :id";
+                $sqlDrinkRef = "delete from admincommentdrink where adminid = :id";
+            }else{
+                $sqlFoodRef = "delete from usercommentfood where foodid = :id";
+                $sqlDrinkRef = "delete from usercommentdrink where drinkid = :id";
+            }
             $dbCon = new connectDB();
             $dbCon->connectDB();
+            $dbCon->deleteDB($sqlFoodRef, $arr_param);
+            $dbCon->deleteDB($sqlDrinkRef, $arr_param);
             $dbCon->deleteDB($sql, $arr_param);
             $dbCon->disconDB();
         }

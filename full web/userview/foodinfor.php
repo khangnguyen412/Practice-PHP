@@ -137,6 +137,18 @@
                 echo '      </div>';
                 echo '  </form>';
                 echo '</div>';
+                if(!empty($notification)){
+                    echo '<div class="container-fluid pt-4 px-4">';
+                    echo '  <div class="text-center rounded p-4">';
+                    echo '      <div class="alert alert-success alert-dismissible fade show" role="alert">';
+                    echo '          <strong>Thông báo:</strong>' . $notification;
+                    echo '          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>';
+                    echo '      </div>';
+                    echo '  </div>';
+                    echo '</div>';
+                }else{
+                    echo '';
+                }
                 echo '<div class="row m-2">';
                 echo '  <div class="col-lg-1 col-md-2 col-4">';
                 echo '      <img src="../img/user.jpg" alt="" style="height: 100%; width: 100%">';

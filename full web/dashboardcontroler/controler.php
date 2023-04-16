@@ -664,6 +664,7 @@
                     break;
                 // -----------------show thông tin thức ăn------------------------------
                 case 'showFoodInfo':
+                    $notification = (isset($_GET['notificationid']))? $this->notification($_GET['notificationid']): '';
                     $id = $_GET['id'];
                     $food = new product("", "", "", "");
                     $getfood = 'select foodname, price, img, fooddescription, timeupload, timeupdate from food where id ='.$id;
@@ -681,16 +682,16 @@
                 // -----------------bình luận thức ăn------------------------------
                 case 'commentFood':
                     $iduser = $_POST['iduser'];
-                    $nameuser = $_POST['nameuser'];
+                    // $nameuser = $_POST['nameuser'];
                     $idfood = $_POST['idfood'];
-                    $namefood = $_POST['namefood'];
+                    // $namefood = $_POST['namefood'];
                     $comment = $_POST['comment'];
                     echo $table = ($_POST['role'] == 'admins')? 'admincommentfood': 'usercommentfood';
-                    $arr = array('drinkname'=>$drinkname, 'price'=>$price, 'img'=>$img, 'description'=>$description);
-                    $sql = 'insert into drink (drinkname, price, img, drinkdescription) values (:drinkname, :price, :img, :description)';
-                    $drinkfood = new product("", "", "", "");
-                    $drinkfood->insertproduct($sql, $arr);
-                    header("Location: ../dashboardcontroler/controler.php?action=showproduct&notificationid=4");
+                    $arr = array('iduser'=>$iduser, 'idfood'=>$idfood, 'comment'=>$comment);
+                    $sql = 'insert into admincommentfood (adminid, foodid, comments) values (:iduser, :idfood, :comment)';
+                    $commentfood = new comment("", "", "", "");
+                    $commentfood->insertcomment($sql, $arr);
+                    header("Location: ../dashboardcontroler/controler.php?action=showFoodInfo&id=".$idfood."&notificationid=7");
                     break;
                 default:
                     header("Location: ../dashboardview/signin.php");
@@ -747,6 +748,9 @@
                     break;
                 case '6':
                     return ' Cập nhật Sản Phẩm thành công';
+                    break;
+                case '7':
+                    return ' Đăng nhận xét thành công';
                     break;
                 default:
                     return '';

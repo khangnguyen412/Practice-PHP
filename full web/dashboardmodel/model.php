@@ -51,7 +51,7 @@
         }
         public function deleteuser($table, $arr_param){
             $sql = "delete from ".$table." where id = :id";
-            if($table == 'admincommentfood'){
+            if($table == 'admins'){
                 $sqlFoodRef = "delete from admincommentfood where adminid = :id";
                 $sqlDrinkRef = "delete from admincommentdrink where adminid = :id";
             }else{
@@ -201,6 +201,88 @@
             return $arrproduct;
         }
         public function getproductByName($sql ,$arr = array()){
+            $product = array();
+            $dbCon = new connectDB();
+            $dbCon->connectDB();
+            $product = $dbCon->getDB($sql, $arr);
+            $dbCon->disconDB();
+            return $product;
+        }
+    }
+
+    class comment{
+        private $idcomment;
+        private $idproduct;
+        private $iduser;
+        private $comment;
+
+        public function __construct($id, $product, $user, $comment){
+            $this->idcomment = $id;
+            $this->idproduct = $product;
+            $this->iduser = $user;
+            $this->comment = $comment;
+        }
+
+        // get information
+        public function getid(){
+            return $this->idcomment;
+        }
+        public function getidproduct(){
+            return $this->idproduct;
+        }
+        public function getiduser(){
+            return $this->iduser;
+        }
+        public function comment(){
+            return $this->comment;
+        }
+
+        // set information
+        public function setname($id){
+            $this->idcomment = $id;
+        }
+        public function setprice($product){
+            $this->idproduct = $product;
+        }
+        public function setimg($user){
+            $this->iduser = $user;
+        }
+        public function setdescription($comment){
+            $this->comment = $comment;
+        }
+        
+        // process with db
+        public function insertcomment($sql, $arr_param){
+            $dbCon = new connectDB();
+            $dbCon->connectDB();
+            $dbCon->insertDB($sql, $arr_param);
+            $dbCon->disconDB();
+        }
+        public function deletecomment($table, $arr_param){
+            $sql = "delete from ".$table." where id = :id";
+            $dbCon = new connectDB();
+            $dbCon->connectDB();
+            $dbCon->deleteDB($sql, $arr_param);
+            $dbCon->disconDB();
+        }
+        public function getcomment($table, $arr = array()){
+            $sql = "select * from ".$table." where id = :id ;";
+            $product = array();
+            $dbCon = new connectDB();
+            $dbCon->connectDB();
+            $product = $dbCon->getDB($sql, $arr);
+            $dbCon->disconDB();
+            return $product;
+        }
+        public function getallcomment($sql){
+            $arrproduct = array();
+            $dbCon = new connectDB();
+            $dbCon->connectDB();
+            $arrproduct = $dbCon->getDB($sql);
+            $dbCon->disconDB();
+            return $arrproduct;
+        }
+        public function getcommentByName($sql ,$arr = array()){
             $product = array();
             $dbCon = new connectDB();
             $dbCon->connectDB();

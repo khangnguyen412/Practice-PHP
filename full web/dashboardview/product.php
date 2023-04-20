@@ -72,25 +72,25 @@
                             </thead>
                             <tbody>
                                 <?php
-                                    if (isset($foodlist)) {
-                                        foreach ($foodlist as $food) {
-                                            echo '<tr>';
-                                            echo '  <th scope="row">' . $food['id'] . '</th>';
-                                            echo '  <td>' . $food['foodname'] . '</td>';
-                                            echo '  <td>' . $food['img'] . '</td>';
-                                            echo '  <td>' . $food['price'] . '</td>';
-                                            echo '  <td>' . $food['timeupload'] . '</td>';
-                                            echo '  <td>';
-                                            echo '      <div class="row">';
-                                            echo '          <div class="col">';
-                                            echo '              <a href="../dashboardcontroler/controler.php?action=getfood&id=' . $food['id'] . '"   class=" col-xxl-5 col-10 btn btn-success rounded-pill m-2">Cập Nhật</a>';
-                                            echo '              <a href="../dashboardcontroler/controler.php?action=alertdeletefood&id=' . $food['id'] . '&name=' . $food['foodname'] . '" class=" col-xxl-5 col-10 btn btn-danger rounded-pill m-2">Xóa</a>';
-                                            echo '          </div>';
-                                            echo '      </div>';
-                                            echo '  </td>';
-                                            echo '</tr>';
-                                        }
+                                if (isset($foodlist)) {
+                                    foreach ($foodlist as $food) {
+                                        echo '<tr>';
+                                        echo '  <th scope="row">' . $food['id'] . '</th>';
+                                        echo '  <td>' . $food['foodname'] . '</td>';
+                                        echo '  <td>' . $food['img'] . '</td>';
+                                        echo '  <td>' . $food['price'] . '</td>';
+                                        echo '  <td>' . $food['timeupload'] . '</td>';
+                                        echo '  <td>';
+                                        echo '      <div class="row">';
+                                        echo '          <div class="col">';
+                                        echo '              <a href="../dashboardcontroler/controler.php?action=getfood&id=' . $food['id'] . '"   class=" col-xxl-5 col-10 btn btn-success rounded-pill m-2">Cập Nhật</a>';
+                                        echo '              <a href="../dashboardcontroler/controler.php?action=alertdeletefood&id=' . $food['id'] . '&name=' . $food['foodname'] . '" class=" col-xxl-5 col-10 btn btn-danger rounded-pill m-2">Xóa</a>';
+                                        echo '          </div>';
+                                        echo '      </div>';
+                                        echo '  </td>';
+                                        echo '</tr>';
                                     }
+                                }
                                 ?>
                             </tbody>
                         </table>
@@ -163,30 +163,115 @@
                             <thead>
                                 <tr class="text-white">
                                     <!-- <th scope="col"><input class="form-check-input" type="checkbox"></th> -->
-                                    <th scope="col">Tên Hàng</th>
-                                    <th scope="col">Nhận Xét</th>
-                                    <th scope="col">Người Nhận Xét</th>
+                                    <th scope="col">ID người dùng</th>
+                                    <th scope="col">ID sản phẩm</th>
+                                    <th scope="col">Tên sản phẩm</th>
+                                    <th scope="col">Nhận xét</th>
                                     <th scope="col">Thời Gian</th>
-                                    <!-- <th scope="col">Status</th> -->
                                     <th scope="col">Thao Tác</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <!-- <td><input class="form-check-input" type="checkbox"></td> -->
-                                    <td>Cá Viên</td>
-                                    <td>Ngon</td>
-                                    <td>Khang123</td>
-                                    <td>1/12/2022</td>
-                                    <td>
-                                        <div class="row">
-                                            <div class="col">
-                                                <!-- <a href="../dashboardcontroler/controler.php?action=getuserid&id=' . $user['id'] . '" class=" col-xxl-5 col-10 btn btn-success rounded-pill m-2">Cập Nhật</a> -->
-                                                <a href="" class=" col-xxl-11 col-11 btn btn-danger rounded-pill m-2" data-bs-toggle="modal" data-bs-target="#ModalComment">Xóa</a>
-                                            </div>
-                                        </div>
+                                    <td colspan="6">
+                                        <H5 class="d-flex justify-content-center">Quản trị viên nhận xét về thức ăn</H5>
                                     </td>
                                 </tr>
+                                <?php
+                                    if (isset($admincommentfood)) {
+                                        foreach ($admincommentfood as $comment) {
+                                            echo '<tr>';
+                                            echo '  <td>' . $comment['adminid'] . '</td>';
+                                            echo '  <td>' . $comment['foodid'] . '</td>';
+                                            echo '  <td>' . $comment['foodname'] . '</td>';
+                                            echo '  <td>' . $comment['comments'] . '</td>';
+                                            echo '  <td>' . $comment['datecoments'] . '</td>';
+                                            echo '  <td>';
+                                            echo '      <div class="row">';
+                                            echo '          <div class="col">';
+                                            echo '              <a href="../dashboardcontroler/controler.php?action" class="col-xxl-11 col-11 btn btn-danger rounded-pill m-2">Xóa</a>';
+                                            echo '          </div>';
+                                            echo '      </div>';
+                                            echo '  </td>';
+                                            echo '</tr>';
+                                        }
+                                    }
+                                ?>
+                                <tr>
+                                    <td colspan="6">
+                                        <H5 class="d-flex justify-content-center">Người dùng nhận xét về thức ăn</H5>
+                                    </td>
+                                </tr>
+                                <?php
+                                    if (isset($usercommentfood)) {
+                                        foreach ($usercommentfood as $comment) {
+                                            echo '<tr>';
+                                            echo '  <td>' . $comment['userid'] . '</td>';
+                                            echo '  <td>' . $comment['foodid'] . '</td>';
+                                            echo '  <td>' . $comment['foodname'] . '</td>';
+                                            echo '  <td>' . $comment['comments'] . '</td>';
+                                            echo '  <td>' . $comment['datecoments'] . '</td>';
+                                            echo '  <td>';
+                                            echo '      <div class="row">';
+                                            echo '          <div class="col">';
+                                            echo '              <a href="../dashboardcontroler/controler.php?action" class="col-xxl-11 col-11 btn btn-danger rounded-pill m-2">Xóa</a>';
+                                            echo '          </div>';
+                                            echo '      </div>';
+                                            echo '  </td>';
+                                            echo '</tr>';
+                                        }
+                                    }
+                                ?>
+                                <tr>
+                                    <td colspan="6">
+                                        <H5 class="d-flex justify-content-center">Quản trị viên nhận xét về nước uống</H5>
+                                    </td>
+                                </tr>
+                                <?php
+                                    if (isset($admincommentdrink)) {
+                                        foreach ($admincommentdrink as $comment) {
+                                            echo '<tr>';
+                                            echo '  <td>' . $comment['adminid'] . '</td>';
+                                            echo '  <td>' . $comment['drinkid'] . '</td>';
+                                            echo '  <td>' . $comment['drinkname'] . '</td>';
+                                            echo '  <td>' . $comment['comments'] . '</td>';
+                                            echo '  <td>' . $comment['datecoments'] . '</td>';
+                                            echo '  <td>';
+                                            echo '      <div class="row">';
+                                            echo '          <div class="col">';
+                                            echo '              <a href="../dashboardcontroler/controler.php?action" class="col-xxl-11 col-11 btn btn-danger rounded-pill m-2">Xóa</a>';
+                                            echo '          </div>';
+                                            echo '      </div>';
+                                            echo '  </td>';
+                                            echo '</tr>';
+                                        }
+                                    }
+                                ?>
+                                <tr>
+                                    <td colspan="6">
+                                        <H5 class="d-flex justify-content-center">Người Dùng nhận xét về nước uống</H5>
+                                    </td>
+                                </tr>
+                                <?php
+                                    if (isset($usercommentdrink)) {
+                                        foreach ($usercommentdrink as $comment) {
+                                            echo '<tr>';
+                                            echo '  <td>' . $comment['userid'] . '</td>';
+                                            echo '  <td>' . $comment['drinkid'] . '</td>';
+                                            echo '  <td>' . $comment['drinkname'] . '</td>';
+                                            echo '  <td>' . $comment['comments'] . '</td>';
+                                            echo '  <td>' . $comment['datecoments'] . '</td>';
+                                            echo '  <td>';
+                                            echo '      <div class="row">';
+                                            echo '          <div class="col">';
+                                            echo '              <a href="../dashboardcontroler/controler.php?action" class="col-xxl-11 col-11 btn btn-danger rounded-pill m-2">Xóa</a>';
+                                            echo '          </div>';
+                                            echo '      </div>';
+                                            echo '  </td>';
+                                            echo '</tr>';
+                                        }
+                                    }
+                                ?>
                             </tbody>
                         </table>
                     </div>

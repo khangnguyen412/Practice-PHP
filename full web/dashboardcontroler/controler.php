@@ -533,12 +533,28 @@
                 // -----------------hiển thị thức ăn------------------------------
                 case 'showproduct':
                     $notification = (isset($_GET['notificationid']))? $this->notification($_GET['notificationid']): '';
+                    
                     $food = new product("", "", "", "");
                     $getfood = 'select id, foodname, price, img, fooddescription, timeupload, timeupdate from food';
                     $foodlist = $food->getallproduct($getfood);
+                    
                     $drink = new product("", "", "", "");
                     $getdrink = 'select id, drinkname, price, img, drinkdescription, timeupload, timeupdate from drink';
                     $drinklist = $drink->getallproduct($getdrink);
+                    
+                    $comment = new comment("", "", "", "");
+                    $getadmincommentfood = 'select adminid, foodid, foodname, comments, datecoments from admincommentfood inner join food on foodid = food.id';
+                    $admincommentfood = $comment->getallcomment($getadmincommentfood);
+
+                    $getusercommentfood = 'select userid, foodid, foodname, comments, datecoments from usercommentfood inner join food on foodid = food.id;';
+                    $usercommentfood = $comment->getallcomment($getusercommentfood);
+
+                    $getadmincommentdrink = 'select adminid, drinkid, drinkname, comments, datecoments from admincommentdrink inner join drink on drinkid = drink.id;';
+                    $admincommentdrink = $comment->getallcomment($getadmincommentdrink);
+
+                    $getusercommentdrink = 'select userid, drinkid, drinkname, comments, datecoments from usercommentdrink inner join drink on drinkid = drink.id;';
+                    $usercommentdrink = $comment->getallcomment($getusercommentdrink);
+                    
                     include '../dashboardview/product.php';
                     break;
                 // -----------------đăng nhập------------------------------

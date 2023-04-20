@@ -702,9 +702,14 @@
                     $idfood = $_POST['idfood'];
                     // $namefood = $_POST['namefood'];
                     $comment = $_POST['comment'];
-                    echo $table = ($_POST['role'] == 'admins')? 'admincommentfood': 'usercommentfood';
+                    $table = ($_POST['role'] == 'admins')? 'admincommentfood': 'usercommentfood';
                     $arr = array('iduser'=>$iduser, 'idfood'=>$idfood, 'comment'=>$comment);
-                    $sql = 'insert into admincommentfood (adminid, foodid, comments) values (:iduser, :idfood, :comment)';
+                    var_dump($arr);
+                    if($table == 'admincommentfood'){
+                        echo $sql = 'insert into admincommentfood (adminid, foodid, comments) values (:iduser, :idfood, :comment)';
+                    }else{
+                        echo $sql = 'insert into usercommentfood (userid, foodid, comments) values (:iduser, :idfood, :comment)';
+                    };
                     $commentfood = new comment("", "", "", "");
                     $commentfood->insertcomment($sql, $arr);
                     header("Location: ../dashboardcontroler/controler.php?action=showFoodInfo&id=".$idfood."&notificationid=7");

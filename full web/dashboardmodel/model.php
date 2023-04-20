@@ -96,7 +96,7 @@
             if($role == 'admins'){
                 $sql = "SELECT id, username, passwords FROM admins where username = :username";
             }else{
-                $sql = "SELECT username, passwords FROM users where username = :username";
+                $sql = "SELECT id, username, passwords FROM users where username = :username";
             }
             $arr_param = array("username" => $username);
             $getuser = $this->getuserByUsername($sql, $arr_param);

@@ -88,6 +88,9 @@ select id, foodname, price, img, fooddescription, timeupload, timeupdate from fo
 insert into food (foodname, price, img, fooddescription) values ('cá', '12000', '123.png', 'ngon');
 insert into drink (drinkname, price, img, drinkdescription) values ('cá', '12000', '123.png', 'ngon');
 update food set foodname = 'fish', price = '10.000', fooddescription= 'ổn', img='không có',timeupdate = now()  where id = 1;
-insert into admincommentfood (adminid, foodid, comments) values ('63', '1', 'cái này ăn ngon');
+insert into usercommentfood (userid, foodid, comments) values ('63', '1', 'cái này ăn ngon');
 select adminid, drinkid, drinkname, comments, datecoments from admincommentdrink inner join drink on drinkid = drink.id;
 delete from usercommentdrink where drinkid = 1;
+select * from admincommentfood;
+select * from usercommentfood;
+select adminid as id, comments from admincommentfood union select userid, comments from usercommentfood ;

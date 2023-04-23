@@ -106,7 +106,75 @@
             <div class="row">
                 <h3 style="font-style: italic;">Nhận Xét Khách Hàng</h3>
             </div>
-            <div class="row m-2">
+            <?php
+            if (!isset($_SESSION)) {
+                session_start();
+            }
+            if (isset($_SESSION["islogin"])) {
+                echo '<div class="row m-2" >';
+                echo '  <form action="../dashboardcontroler/controler.php?action=commentDrink" method="post">';
+                echo '      <h5>Ghi Nhận Xét</h5>';
+                echo '      <div class="mt-10">';
+                echo '          <input type="text" class="single-input" name="iduser" value="'.$_SESSION["id"].'" readonly hidden>';
+                echo '      </div>';
+                echo '      <div class="mt-10">';
+                echo '          <input type="text" class="single-input" name="nameuser" value="'.$_SESSION["username"].'" readonly hidden>';
+                echo '      </div>';
+                echo '      <div class="mt-10">';
+                echo '          <input type="text" class="single-input" name="role" value="'.$_SESSION["role"].'" readonly hidden>';
+                echo '      </div>';
+                echo '      <div class="mt-10">';
+                echo '          <input type="text" class="single-input" name="iddrink" value="'.$id.'" readonly hidden>';
+                echo '      </div>';
+                echo '      <div class="mt-10">';
+                echo '          <input type="text" class="single-input" name="namedrink" value="'.$name.'" readonly hidden>';
+                echo '      </div>';
+                echo '      <div class="mt-10">';
+                echo '          <textarea class="single-textarea" placeholder="Nhận Xét Tại Đây" name="comment" required=""></textarea>';
+                echo '      </div>';
+                echo '      <div class="mt-10 d-flex justify-content-end">';
+                echo '          <button type="submit" class="template-btn">Đăng Nhận Xét</button>';
+                echo '      </div>';
+                echo '  </form>';
+                echo '</div>';
+                if(!empty($notification)){
+                    echo '<div class="container-fluid pt-4 px-4">';
+                    echo '  <div class="text-center rounded p-4">';
+                    echo '      <div class="alert alert-success alert-dismissible fade show" role="alert">';
+                    echo '          <strong>Thông báo:</strong>' . $notification;
+                    echo '          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>';
+                    echo '      </div>';
+                    echo '  </div>';
+                    echo '</div>';
+                }else{
+                    echo '';
+                }
+                if(!empty($commentlist)){
+                    foreach($commentlist as $comments){
+                        echo '<div class="row m-2">';
+                        echo '  <div class="col-lg-1 col-md-2 col-4">';
+                        echo '      <img src="../img/user.jpg" alt="" style="height: 100%; width: 100%">';
+                        echo '  </div>';
+                        echo '  <div class="col-lg-11 col-md-10 col-8">';
+                        echo '      <div class="col-lg-12">';
+                        echo '          <h5> '.$comments['username'].' </h5>';
+                        echo '      </div>';
+                        echo '      <div class="col-lg-12">';
+                        echo '          <p>'.$comments['comments'].'</p>';
+                        echo '      </div>';
+                        echo '  </div>';
+                        echo '</div>';
+                    }
+                }
+                else{
+                    echo '';
+                }
+                
+            } else {
+                echo '<h5>Đăng Nhập Để Xem Và Viết Nhận Xét</h5>';
+            }
+            ?>
+            <!-- <div class="row m-2">
                 <form action="#">
                     <h5>Ghi Nhận Xét</h5>
                     <div class="mt-10">
@@ -119,8 +187,8 @@
                         <button type="submit" class="template-btn">Đăng Nhận Xét</button>
                     </div>
                 </form>
-            </div>
-            <div class="row m-2">
+            </div> -->
+            <!-- <div class="row m-2">
                 <div class="col-lg-1 col-md-2 col-4">
                     <img src="../img/user.jpg" alt="" style="height: 100%; width: 100%">
                 </div>
@@ -132,7 +200,7 @@
                         <p>nhận xét của khách hàng</p>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
     </section>
     <!-- Food Area End -->

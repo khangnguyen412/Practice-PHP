@@ -149,19 +149,27 @@
                 }else{
                     echo '';
                 }
-                echo '<div class="row m-2">';
-                echo '  <div class="col-lg-1 col-md-2 col-4">';
-                echo '      <img src="../img/user.jpg" alt="" style="height: 100%; width: 100%">';
-                echo '  </div>';
-                echo '  <div class="col-lg-11 col-md-10 col-8">';
-                echo '      <div class="col-lg-12">';
-                echo '          <h5> Tên Khách Hàng </h5>';
-                echo '      </div>';
-                echo '      <div class="col-lg-12">';
-                echo '          <p>nhận xét của khách hàng</p>';
-                echo '      </div>';
-                echo '  </div>';
-                echo '</div>';
+                if(!empty($commentlist)){
+                    foreach($commentlist as $comments){
+                        echo '<div class="row m-2">';
+                        echo '  <div class="col-lg-1 col-md-2 col-4">';
+                        echo '      <img src="../img/user.jpg" alt="" style="height: 100%; width: 100%">';
+                        echo '  </div>';
+                        echo '  <div class="col-lg-11 col-md-10 col-8">';
+                        echo '      <div class="col-lg-12">';
+                        echo '          <h5> '.$comments['username'].' </h5>';
+                        echo '      </div>';
+                        echo '      <div class="col-lg-12">';
+                        echo '          <p>'.$comments['comments'].'</p>';
+                        echo '      </div>';
+                        echo '  </div>';
+                        echo '</div>';
+                    }
+                }
+                else{
+                    echo '';
+                }
+                
             } else {
                 echo '<h5>Đăng Nhập Để Xem Và Viết Nhận Xét</h5>';
             }

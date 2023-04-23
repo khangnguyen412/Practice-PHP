@@ -665,12 +665,12 @@
                     include '../userview/menu.php';
                     break;
                 // -----------------hiển thị thức ăn lên menu------------------------------
-                case 'showFood':
-                    $food = new product("", "", "", "");
-                    $getfood = 'select id, foodname, price, img, fooddescription, timeupload, timeupdate from food';
-                    $foodlist = $food->getallproduct($getfood);
-                    include '../userview/menu.php';
-                    break;
+                // case 'showFood':
+                //     $food = new product("", "", "", "");
+                //     $getfood = 'select id, foodname, price, img, fooddescription, timeupload, timeupdate from food';
+                //     $foodlist = $food->getallproduct($getfood);
+                //     include '../userview/menu.php';
+                //     break;
                 // -----------------hiển thị đồ uống lên menu------------------------------
                 case 'showDrink':
                     $drink = new product("", "", "", "");
@@ -685,6 +685,10 @@
                     $food = new product("", "", "", "");
                     $getfood = 'select foodname, price, img, fooddescription, timeupload, timeupdate from food where id ='.$id;
                     $foodinfo = $food->getallproduct($getfood);
+                    $comment = new comment("", "", "", "");
+                    $getcomment = 'select adminid as id, foodid as idproduct, adminid, admins.username, comments, datecoments from admincommentfood inner join admins on  adminid = admins.id where foodid = '.$id.'
+                    union select userid, foodid, userid, users.username, comments, datecoments from usercommentfood inner join users on userid = users.id where foodid ='.$id.' order by datecoments desc';
+                    $commentlist = $comment->getallcomment($getcomment);
                     include '../userview/foodinfor.php';
                     break;
                 // -----------------show thông tin thức ăn------------------------------
@@ -693,6 +697,10 @@
                     $drink = new product("", "", "", "");
                     $getdrink = 'select drinkname, price, img, drinkdescription, timeupload, timeupdate from drink where id ='.$id;
                     $drinkinfo = $drink->getallproduct($getdrink);
+                    $comment = new comment("", "", "", "");
+                    $getcomment = 'select adminid as id, drinkid as idproduct, adminid, admins.username, comments, datecoments from admincommentdrink inner join admins on  adminid = admins.id where drinkid = '.$id.'
+                    union select userid, drinkid, userid, users.username, comments, datecoments from usercommentdrink inner join users on userid = users.id where drinkid ='.$id.' order by datecoments desc;';
+                    $commentlist = $comment->getallcomment($getcomment);
                     include '../userview/drinkinfor.php';
                     break;
                 // -----------------bình luận thức ăn------------------------------
@@ -713,6 +721,22 @@
                     $commentfood = new comment("", "", "", "");
                     $commentfood->insertcomment($sql, $arr);
                     header("Location: ../dashboardcontroler/controler.php?action=showFoodInfo&id=".$idfood."&notificationid=7");
+                    break;
+                case 'commentDrink':
+                    $iduser = $_POST['iduser'];
+                    $iddrink = $_POST['iddrink'];
+                    $comment = $_POST['comment'];
+                    $table = ($_POST['role'] == 'admins')? 'admincommentfood': 'usercommentfood';
+                    $arr = array('iduser'=>$iduser, 'iddrink'=>$iddrink, 'comment'=>$comment);
+                    var_dump($arr);
+                    // if($table == 'admincommentfood'){
+                    //     echo $sql = 'insert into admincommentfood (adminid, foodid, comments) values (:iduser, :idfood, :comment)';
+                    // }else{
+                    //     echo $sql = 'insert into usercommentfood (userid, foodid, comments) values (:iduser, :idfood, :comment)';
+                    // };
+                    // $commentfood = new comment("", "", "", "");
+                    // $commentfood->insertcomment($sql, $arr);
+                    // header("Location: ../dashboardcontroler/controler.php?action=showFoodInfo&id=".$idfood."&notificationid=7");
                     break;
                 default:
                     header("Location: ../dashboardview/signin.php");

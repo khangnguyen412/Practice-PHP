@@ -46,8 +46,8 @@
     <div class="collapse menu-text hide-on-pc" id="collapseExample">
         <ul class="">
             <li><a href="index2.php">Trang Chủ</a></li>
-            <li><a href="./menu.php">Thức Ăn</a></li>
-            <li><a href="./menu2.php">Đồ Uống</a></li>
+            <li><a href="../dashboardcontroler/controler.php?action=showFood">Thức Ăn</a></li>
+            <li><a href="../dashboardcontroler/controler.php?action=showDrink">Đồ Uống</a></li>
             <li><a href="#contact">Liên Hệ</a></li>
             <li>
                 <?php

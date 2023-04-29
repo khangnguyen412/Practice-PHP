@@ -706,9 +706,7 @@
                 // -----------------bình luận thức ăn------------------------------
                 case 'commentFood':
                     $iduser = $_POST['iduser'];
-                    // $nameuser = $_POST['nameuser'];
                     $idfood = $_POST['idfood'];
-                    // $namefood = $_POST['namefood'];
                     $comment = $_POST['comment'];
                     $table = ($_POST['role'] == 'admins')? 'admincommentfood': 'usercommentfood';
                     $arr = array('iduser'=>$iduser, 'idfood'=>$idfood, 'comment'=>$comment);
@@ -722,21 +720,30 @@
                     $commentfood->insertcomment($sql, $arr);
                     header("Location: ../dashboardcontroler/controler.php?action=showFoodInfo&id=".$idfood."&notificationid=7");
                     break;
+                // -----------------bình luận nước uống------------------------------
                 case 'commentDrink':
                     $iduser = $_POST['iduser'];
                     $iddrink = $_POST['iddrink'];
                     $comment = $_POST['comment'];
-                    $table = ($_POST['role'] == 'admins')? 'admincommentfood': 'usercommentfood';
+                    $table = ($_POST['role'] == 'admins')? 'admincommentdrink': 'usercommentdrink';
                     $arr = array('iduser'=>$iduser, 'iddrink'=>$iddrink, 'comment'=>$comment);
                     var_dump($arr);
-                    // if($table == 'admincommentfood'){
-                    //     echo $sql = 'insert into admincommentfood (adminid, foodid, comments) values (:iduser, :idfood, :comment)';
-                    // }else{
-                    //     echo $sql = 'insert into usercommentfood (userid, foodid, comments) values (:iduser, :idfood, :comment)';
-                    // };
-                    // $commentfood = new comment("", "", "", "");
-                    // $commentfood->insertcomment($sql, $arr);
-                    // header("Location: ../dashboardcontroler/controler.php?action=showFoodInfo&id=".$idfood."&notificationid=7");
+                    if($table == 'admincommentdrink'){
+                        $sql = 'insert into admincommentdrink (adminid, drinkid, comments) values (:iduser, :iddrink, :comment)';
+                    }else{
+                        $sql = 'insert into usercommentdrink (userid, drinkid, comments) values (:iduser, :iddrink, :comment)';
+                    };
+                    $commentfood = new comment("", "", "", "");
+                    $commentfood->insertcomment($sql, $arr);
+                    header("Location: ../dashboardcontroler/controler.php?action=showDrinkInfo&id=".$iddrink."&notificationid=7");
+                    break;
+                // -----------------xóa bình luận thức ăn------------------------------
+                case 'deletecommentFood':
+                    echo 'vào xóa nhận xét thức ăn';
+                    break;
+                // -----------------bình luận nước uống------------------------------
+                case 'deletecommentDrink':
+                    echo 'vào xóa nhận xét nước uống';
                     break;
                 default:
                     header("Location: ../dashboardview/signin.php");
@@ -796,6 +803,9 @@
                     break;
                 case '7':
                     return ' Đăng nhận xét thành công';
+                    break;
+                case '8':
+                    return ' Xóa nhận xét thành công';
                     break;
                 default:
                     return '';

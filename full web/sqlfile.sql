@@ -91,10 +91,13 @@ update food set foodname = 'fish', price = '10.000', fooddescription= 'ổn', im
 insert into usercommentfood (userid, foodid, comments) values ('63', '1', 'cái này ăn ngon');
 select adminid, drinkid, drinkname, comments, datecoments from admincommentdrink inner join drink on drinkid = drink.id;
 delete from usercommentdrink where drinkid = 1;
-select * from admincommentfood;
-select * from usercommentfood;
+select * from admincommentdrink;
+select * from usercommentdrink;
 select adminid as id, foodid as idproduct, adminid, admins.username, comments, datecoments from admincommentfood inner join admins on  adminid = admins.id where foodid = 1
 union select userid, foodid, userid, users.username, comments, datecoments from usercommentfood inner join users on userid = users.id where foodid = 1 order by datecoments desc;
 
 select adminid as id, drinkid as idproduct, adminid, admins.username, comments, datecoments from admincommentdrink inner join admins on  adminid = admins.id where drinkid = 1
 union select userid, drinkid, userid, users.username, comments, datecoments from usercommentdrink inner join users on userid = users.id where drinkid = 1 order by datecoments desc;
+
+select adminid as id, drinkid as idproduct, adminid, admins.username, comments, datecoments from admincommentdrink inner join admins on  adminid = admins.id where drinkid = 18
+                    union select userid, drinkid, userid, users.username, comments, datecoments from usercommentdrink inner join users on userid = users.id where drinkid = 18 order by datecoments desc;

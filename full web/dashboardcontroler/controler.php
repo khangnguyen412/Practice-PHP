@@ -737,13 +737,38 @@
                     $commentfood->insertcomment($sql, $arr);
                     header("Location: ../dashboardcontroler/controler.php?action=showDrinkInfo&id=".$iddrink."&notificationid=7");
                     break;
+                // -----------------Lấy id thông báo xóa nhận xét------------------------------
+                case 'alertdeletefoodcomment':
+                    $id = $_GET['id'];
+                    $datetime = $_GET['datetime'];
+                    $role = $_GET['role'];
+                    $result = '<h4 class="text-warning"> Bạn Muốn Xóa Nhận Xét Này?</h4>';
+                    $button_back = '<a href="../dashboardcontroler/controler.php?action=deletecommentFood&role='.$role.'&id='.$id.'&datetime='.$datetime.'" class="btn btn-warning rounded-pill py-3 w-100 mb-4">Xóa Sản Phẩm</a>';
+                    include '../dashboardview/notification.php';
+                    break;
                 // -----------------xóa bình luận thức ăn------------------------------
                 case 'deletecommentFood':
-                    echo 'vào xóa nhận xét thức ăn';
+                    $notification = (isset($_GET['notificationid']))? $this->notification($_GET['notificationid']): '';
+                    $table = ($_GET['role']=='admin')? "admincommentfood": "usercommentfood";
+                    $id = $_GET['id'];
+                    $datetime = $_GET['datetime'];
+                    $role = ($_GET['role']=='admin')? "adminid": "userid";
+                    $arr = array('id'=>$id, 'datetime'=>$datetime);
+                    $deletecomment = new comment("", "", "", "");
+                    $deletecomment->deletecomment($table, $role, $arr);
+                    header("Location: ../dashboardcontroler/controler.php?action=showproduct&notificationid=8");
+                    break;
+                // -----------------Lấy id thông báo xóa nhận xét------------------------------
+                case 'alertdeletedrinkcommend':
+                    $id = $_GET['id'];
+                    $name = $_GET['name'];
+                    $result = '<h4 class="text-warning"> Bạn Muốn Xóa Nhận Xét Này?</h4>';
+                    $button_back = '<a href="../dashboardcontroler/controler.php?action=deletecommentDrink&id='.$id.'" class="btn btn-warning rounded-pill py-3 w-100 mb-4">Xóa Sản Phẩm</a>';
+                    include '../dashboardview/notification.php';
                     break;
                 // -----------------bình luận nước uống------------------------------
                 case 'deletecommentDrink':
-                    echo 'vào xóa nhận xét nước uống';
+                    echo "đã xóa";
                     break;
                 default:
                     header("Location: ../dashboardview/signin.php");

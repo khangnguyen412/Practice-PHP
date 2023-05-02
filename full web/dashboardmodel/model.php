@@ -258,15 +258,15 @@
             $dbCon->insertDB($sql, $arr_param);
             $dbCon->disconDB();
         }
-        public function deletecomment($table, $arr_param){
-            $sql = "delete from ".$table." where id = :id";
+        public function deletecomment($table, $role, $arr_param){
+            echo $sql = "delete from ".$table." where ".$role." = :id and datecoments = :datetime";
             $dbCon = new connectDB();
             $dbCon->connectDB();
             $dbCon->deleteDB($sql, $arr_param);
             $dbCon->disconDB();
         }
         public function getcomment($table, $arr = array()){
-            $sql = "select * from ".$table." where id = :id ;";
+            $sql = "select * from ".$table." where id = :id";
             $product = array();
             $dbCon = new connectDB();
             $dbCon->connectDB();

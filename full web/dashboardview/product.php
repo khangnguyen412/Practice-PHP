@@ -239,7 +239,7 @@
                                             echo '  <td>';
                                             echo '      <div class="row">';
                                             echo '          <div class="col">';
-                                            echo '              <a href="../dashboardcontroler/controler.php?action=alertdeletedrinkcommend&id='.$comment['adminid'].'&name='.$comment['drinkname'].'" class="col-xxl-11 col-11 btn btn-danger rounded-pill m-2">Xóa</a>';
+                                            echo '              <a href="../dashboardcontroler/controler.php?action=alertdeletedrinkcommend&id='.$comment['adminid'].'&datetime='.$comment['datecoments'].'&role=admin" class="col-xxl-11 col-11 btn btn-danger rounded-pill m-2">Xóa</a>';
                                             echo '          </div>';
                                             echo '      </div>';
                                             echo '  </td>';
@@ -264,7 +264,7 @@
                                             echo '  <td>';
                                             echo '      <div class="row">';
                                             echo '          <div class="col">';
-                                            echo '              <a href="../dashboardcontroler/controler.php?action=alertdeletedrinkcommend&id='.$comment['userid'].'&name='.$comment['drinkname'].'" class="col-xxl-11 col-11 btn btn-danger rounded-pill m-2">Xóa</a>';
+                                            echo '              <a href="../dashboardcontroler/controler.php?action=alertdeletedrinkcommend&id='.$comment['userid'].'&datetime='.$comment['datecoments'].'&role=user" class="col-xxl-11 col-11 btn btn-danger rounded-pill m-2">Xóa</a>';
                                             echo '          </div>';
                                             echo '      </div>';
                                             echo '  </td>';

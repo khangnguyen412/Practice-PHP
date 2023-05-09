@@ -93,6 +93,8 @@ select adminid, drinkid, drinkname, comments, datecoments from admincommentdrink
 delete from usercommentdrink where drinkid = 1 and datecoments = '2023-04-29 22:53:20';
 select * from admincommentfood;
 select * from usercommentfood;
+select * from admincommentdrink;
+select * from usercommentdrink;
 select adminid as id, foodid as idproduct, adminid, admins.username, comments, datecoments from admincommentfood inner join admins on  adminid = admins.id where foodid = 1
 union select userid, foodid, userid, users.username, comments, datecoments from usercommentfood inner join users on userid = users.id where foodid = 1 order by datecoments desc;
 select adminid as id, drinkid as idproduct, adminid, admins.username, comments, datecoments from admincommentdrink inner join admins on  adminid = admins.id where drinkid = 1

@@ -177,9 +177,18 @@
             $dbCon->disconDB();
         }
         public function deleteproduct($table, $arr_param){
+            if($table == 'food'){
+                $sqlAdminRef = "delete from admincommentfood where foodid = :id";
+                $sqlUserRef = "delete from usercommentfood where foodid = :id";
+            }else{
+                $sqlAdminRef = "delete from admincommentdrink where drinkid = :id";
+                $sqlUserRef = "delete from usercommentdrink where drinkid = :id";
+            }
             $sql = "delete from ".$table." where id = :id";
             $dbCon = new connectDB();
             $dbCon->connectDB();
+            $dbCon->deleteDB($sqlAdminRef, $arr_param);
+            $dbCon->deleteDB($sqlUserRef, $arr_param);
             $dbCon->deleteDB($sql, $arr_param);
             $dbCon->disconDB();
         }

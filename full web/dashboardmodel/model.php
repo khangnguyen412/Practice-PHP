@@ -94,9 +94,9 @@
             $usernameDB = '';
             $passwordDB = '';
             if($role == 'admins'){
-                $sql = "SELECT id, username, passwords FROM admins where username = :username";
+                $sql = "SELECT * FROM admins where username = :username";
             }else{
-                $sql = "SELECT id, username, passwords FROM users where username = :username";
+                $sql = "SELECT * FROM users where username = :username";
             }
             $arr_param = array("username" => $username);
             $getuser = $this->getuserByUsername($sql, $arr_param);
@@ -111,9 +111,11 @@
                         session_start();
                     }
                     $_SESSION["islogin"] = true;
-                    $_SESSION['username'] = $usernameDB;
-                    $_SESSION['id'] = $id;
-                    $_SESSION['role'] = ($role == 'admins')? 'admins': 'users';
+                    $_SESSION["username"] = $usernameDB;
+                    $_SESSION["id"] = $id;
+                    $_SESSION["timecreate"] = $getuser[0]["timecreate"];
+                    $_SESSION["timeupdate"] = $getuser[0]["timeupdate"];
+                    $_SESSION["role"] = ($role == 'admins')? 'admins': 'users';
                     return true;
                 }
             }

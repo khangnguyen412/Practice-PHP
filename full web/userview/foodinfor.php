@@ -156,10 +156,15 @@
                         echo '      <img src="../img/user.jpg" alt="" style="height: 100%; width: 100%">';
                         echo '  </div>';
                         echo '  <div class="col-lg-11 col-md-10 col-8">';
-                        echo '      <div class="col-lg-12">';
-                        echo '          <h5> '.$comments['username'].' </h5>';
+                        echo '      <div class="col-lg-12 d-flex justify-content-between">';
+                        echo '          <div class="col-lg-5" style="padding-left: 0px">';
+                        echo '              <h5> '.$comments['username'].' </h5>';
+                        echo '          </div>';
+                        echo '          <div class="col-lg-7">';
+                        echo '              <h5> Ngày Giờ Nhận Xét: '.$comments['datecoments'].' </h5>';
+                        echo '          </div>';
                         echo '      </div>';
-                        echo '      <div class="col-lg-12">';
+                        echo '      <div class="col-lg-12 d-flex">';
                         echo '          <p>'.$comments['comments'].'</p>';
                         echo '      </div>';
                         echo '  </div>';

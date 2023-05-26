@@ -287,7 +287,7 @@
                     $id = $_GET['id'];
                     $name = $_GET['name'];
                     $result = '<h4 class="text-warning"> Bạn muốn xóa người dùng: '.$name.' ?</h4>';
-                    $button_back = '<a href="../dashboardcontroler/controler.php?action=deleteuser&id='.$id.'" class="btn btn-warning rounded-pill py-3 w-100 mb-4">Xóa Sản Phẩm</a>';
+                    $button_back = '<a href="../dashboardcontroler/controler.php?action=deleteuser&id='.$id.'" class="btn btn-warning rounded-pill py-3 w-100 mb-4">Xóa Người Dùng</a>';
                     include '../dashboardview/notification.php';
                     break;
                 // -----------------xóa user------------------------------

@@ -22,7 +22,7 @@
         <!-- Sign In Start -->
         <div class="container-fluid">
             <div class="row h-100 align-items-center justify-content-center" style="min-height: 100vh;">
-                <div class="col-12 col-md-8 col-lg-8 col-xl-8">
+                <div class="col-12 col-md-8 col-lg-6 col-xl-6">
                     <div class="bg-secondary rounded p-4 p-sm-5 my-4 mx-3">
                         <form action="../dashboardcontroler/controler.php" method="post">
                             <div class="d-flex align-items-center justify-content-between mb-3">
@@ -32,20 +32,12 @@
                                         Ding Dong
                                     </h3>
                                 </a>
-                                <h3>Xác Nhận Ngày Tạo Tài Khoản</h3>
+                                <h3>Tìm Tài Khoản</h3>
                             </div>
                             <div class="row">
-                                <div class=" col-4 mb-3">
-                                    <label for="floatingInput">Ngày</label>
-                                    <input type="text" class="form-control" id="floatingInput" name="" placeholder="nhập ngày">
-                                </div>
-                                <div class=" col-4 mb-4">
-                                    <label for="floatingPassword">Tháng</label>
-                                    <input type="text" class="form-control" id="floatingPassword" name="" placeholder="nhập tháng">
-                                </div>
-                                <div class=" col-4 mb-4">
-                                    <label for="floatingPassword">Năm</label>
-                                    <input type="text" class="form-control" id="floatingPassword" name="" placeholder="nhập năm">
+                                <div class="col mb-3">
+                                    <label for="floatingInput">Tên Đăng Nhập</label>
+                                    <input type="text" class="form-control" id="floatingInput" name="" placeholder="nhập tên tài khoảng tại đây">
                                 </div>
                                 <!-- <div class="d-flex text-end mb-4">
                                     <a href="" class="text-warning">Quên Mật Khẩu</a>

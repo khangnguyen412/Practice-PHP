@@ -50,7 +50,7 @@
                                     </label>
                                 </div>
                                 <div class=" col-6 d-flex justify-content-end text-end mb-4">
-                                    <a href="../dashboardview/forgotpassword.php" class="text-warning">Quên Mật Khẩu</a>
+                                    <a href="../dashboardview/findaccount.php" class="text-warning">Quên Mật Khẩu</a>
                                 </div>
                             </div>
                             <button type="submit" value="login" name="useraction" class="btn btn-warning py-3 w-100 mb-4">Đăng Nhập</button>

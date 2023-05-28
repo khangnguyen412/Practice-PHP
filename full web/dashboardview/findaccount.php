@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Đăng Nhập</title>
+    <title>Tìm Tài Khoản</title>
     <?php
     include './lib/head.php'
     ?>
@@ -24,7 +24,7 @@
             <div class="row h-100 align-items-center justify-content-center" style="min-height: 100vh;">
                 <div class="col-12 col-md-8 col-lg-6 col-xl-6">
                     <div class="bg-secondary rounded p-4 p-sm-5 my-4 mx-3">
-                        <form action="../dashboardcontroler/controler.php" method="post">
+                        <form action="../dashboardcontroler/controler.php?" method="post">
                             <div class="d-flex align-items-center justify-content-between mb-3">
                                 <a href="index.html" class="">
                                     <h3 class="text-warning">
@@ -37,17 +37,10 @@
                             <div class="row">
                                 <div class="col mb-3">
                                     <label for="floatingInput">Tên Đăng Nhập</label>
-                                    <input type="text" class="form-control" id="floatingInput" name="" placeholder="nhập tên tài khoảng tại đây">
+                                    <input type="text" class="form-control" id="floatingInput" name="nameAccount" placeholder="nhập tên tài khoảng tại đây">
                                 </div>
-                                <!-- <div class="d-flex text-end mb-4">
-                                    <a href="" class="text-warning">Quên Mật Khẩu</a>
-                                </div> -->
                             </div>
-                            <button type="submit" value="login" name="useraction" class="btn btn-warning py-3 w-100 mb-4">Lấy Lại Mật Khẩu</button>
-                            <!-- <p class="text-center mb-0">Don't have an Account?  -->
-                            <!-- <div class="text-center">
-                                <a href="" class="text-warning">Đăng Ký Tài Khoản</a>
-                            </div> -->
+                            <button type="submit" value="findAccount" name="useraction" class="btn btn-warning py-3 w-100 mb-4">Lấy Lại Mật Khẩu</button>
                         </form>
 
                     </div>

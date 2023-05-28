@@ -664,13 +664,6 @@
                     $foodlist = $food->getallproduct($getfood);
                     include '../userview/menu.php';
                     break;
-                // -----------------hiển thị thức ăn lên menu------------------------------
-                // case 'showFood':
-                //     $food = new product("", "", "", "");
-                //     $getfood = 'select id, foodname, price, img, fooddescription, timeupload, timeupdate from food';
-                //     $foodlist = $food->getallproduct($getfood);
-                //     include '../userview/menu.php';
-                //     break;
                 // -----------------hiển thị đồ uống lên menu------------------------------
                 case 'showDrink':
                     $drink = new product("", "", "", "");
@@ -778,6 +771,11 @@
                     $deletecomment = new comment("", "", "", "");
                     $deletecomment->deletecomment($table, $role, $arr);
                     header("Location: ../dashboardcontroler/controler.php?action=showproduct&notificationid=8");
+                    break;
+                // -----------------Tìm kiếm tài khoản------------------------------
+                case 'findAccount':
+                    $account = $_POST['nameAccount'];
+                    
                     break;
                 default:
                     header("Location: ../dashboardview/signin.php");

@@ -64,6 +64,7 @@
                         }
                     }
                     break;
+
                 // -----------------xóa admin------------------------------
                 case 'deleteadmin':
                     $notification = (isset($_GET['notificationid']))? $this->notification($_GET['notificationid']): '';
@@ -74,6 +75,7 @@
                     $deleteadmin->deleteuser($table, $arr);
                     header("Location: ../dashboardcontroler/controler.php?action=logout");
                     break;
+
                 // -----------------lấy thông tin admin------------------------------
                 case 'getadminid':
                     $id = $_GET['id'];
@@ -83,6 +85,7 @@
                     $infor = $adminInfor->getuser($table, $arr);
                     include '../dashboardview/updateadmin.php';
                     break;
+
                 // -----------------cập nhật tin admin------------------------------
                 case 'updateadmin':
                     $id = $_POST['id'];
@@ -141,6 +144,7 @@
                         }
                     }
                     break;
+                    
                 // -----------------hiển thị danh sách admin------------------------------
                 case 'showadmin':
                     $notification = (isset($_GET['notificationid']))? $this->notification($_GET['notificationid']): '';
@@ -149,6 +153,7 @@
                     $userlist = $user->getalluser($getuser);
                     include '../dashboardview/admin.php';
                     break; 
+
                 // -----------------thêm user------------------------------
                 case 'usercreate':
                     $username = $_POST['username'];
@@ -215,6 +220,7 @@
                         }
                     }
                     break;
+
                 // -----------------lấy thông tin user------------------------------
                 case 'getuserid':
                     $id = $_GET['id'];
@@ -224,6 +230,7 @@
                     $infor = $userInfor->getuser($table, $arr);
                     include '../dashboardview/updateuser.php';
                     break;
+
                 // -----------------cập nhật tin user------------------------------
                 case 'updateuser':
                     $id = $_POST['id'];
@@ -282,6 +289,7 @@
                         }
                     }
                     break;
+
                 // -----------------Lấy id thông báo xóa user------------------------------
                 case 'alertdeleteuser':
                     $id = $_GET['id'];
@@ -290,6 +298,7 @@
                     $button_back = '<a href="../dashboardcontroler/controler.php?action=deleteuser&id='.$id.'" class="btn btn-warning rounded-pill py-3 w-100 mb-4">Xóa Người Dùng</a>';
                     include '../dashboardview/notification.php';
                     break;
+
                 // -----------------xóa user------------------------------
                 case 'deleteuser':
                     $notification = (isset($_GET['notificationid']))? $this->notification($_GET['notificationid']): '';
@@ -300,6 +309,7 @@
                     $deleteuser->deleteuser($table, $arr);
                     header("Location: ../dashboardcontroler/controler.php?action=showuser&notificationid=2");
                     break;
+
                 // -----------------hiển thị danh sách user------------------------------
                 case 'showuser':
                     $notification = (isset($_GET['notificationid']))? $this->notification($_GET['notificationid']): '';
@@ -308,6 +318,7 @@
                     $userlist = $user->getalluser($getuser);
                     include '../dashboardview/user.php';
                     break;
+
                 // -----------------thêm thức ăn------------------------------
                 case 'addfood':
                     $foodname = $_POST['foodname'];
@@ -346,6 +357,7 @@
                         header("Location: ../dashboardcontroler/controler.php?action=showproduct&notificationid=4");
                     }                    
                     break;
+
                 // -----------------lấy thông tin thức ăn------------------------------
                 case 'getfood':
                     $id = $_GET['id'];
@@ -355,6 +367,7 @@
                     $infor = $getproduct->getproduct($table, $arr);
                     include '../dashboardview/updatefood.php';
                     break;
+
                 // -----------------cập nhật thức ăn------------------------------
                 case 'updatefood':
                     $id = $_POST['id'];
@@ -399,6 +412,7 @@
                         header("Location: ../dashboardcontroler/controler.php?action=showproduct&notificationid=6");
                     }                    
                     break;
+
                 // -----------------Lấy id thông báo xóa sản phẩm------------------------------
                 case 'alertdeletefood':
                     $id = $_GET['id'];
@@ -407,6 +421,7 @@
                     $button_back = '<a href="../dashboardcontroler/controler.php?action=deletefood&id='.$id.'" class="btn btn-warning rounded-pill py-3 w-100 mb-4">Xóa Sản Phẩm</a>';
                     include '../dashboardview/notification.php';
                     break;
+
                 // -----------------xóa thức ăn------------------------------
                 case 'deletefood':
                     $notification = (isset($_GET['notificationid']))? $this->notification($_GET['notificationid']): '';
@@ -417,6 +432,7 @@
                     $deleteproduct->deleteproduct($table, $arr);
                     header("Location: ../dashboardcontroler/controler.php?action=showproduct&notificationid=5");
                     break;
+
                 // -----------------thêm nước uống------------------------------
                 case 'adddrink':
                     $drinkname = $_POST['drinkname'];
@@ -455,6 +471,7 @@
                         header("Location: ../dashboardcontroler/controler.php?action=showproduct&notificationid=4");
                     }                    
                     break;
+
                 // -----------------lấy thông tin nước uống------------------------------
                 case 'getdrink':
                     $id = $_GET['id'];
@@ -464,6 +481,7 @@
                     $infor = $getproduct->getproduct($table, $arr);
                     include '../dashboardview/updatedrink.php';
                     break;
+
                 // -----------------cập nhật nước uống------------------------------
                 case 'updatedrink':
                     $id = $_POST['id'];
@@ -476,8 +494,6 @@
                         $img = $_POST['oldimg'];
                     }
                     $table = 'drink';
-                    // var_dump($_POST);
-                    // die;
                     
                     $error = [];
                     if (empty(trim($_POST['drinkname']))) {
@@ -511,6 +527,7 @@
                         header("Location: ../dashboardcontroler/controler.php?action=showproduct&notificationid=6");
                     }                    
                     break;
+                
                 // -----------------Lấy id thông báo xóa sản phẩm------------------------------
                 case 'alertdeletedrink':
                     $id = $_GET['id'];
@@ -519,6 +536,7 @@
                     $button_back = '<a href="../dashboardcontroler/controler.php?action=deletedrink&id='.$id.'" class="btn btn-warning rounded-pill py-3 w-100 mb-4">Xóa Sản Phẩm</a>';
                     include '../dashboardview/notification.php';
                     break;
+                
                 // -----------------xóa nước------------------------------
                 case 'deletedrink':
                     $notification = (isset($_GET['notificationid']))? $this->notification($_GET['notificationid']): '';
@@ -557,6 +575,170 @@
                     
                     include '../dashboardview/product.php';
                     break;
+
+                // -----------------hiển thị thức ăn lên menu------------------------------
+                case 'showFood':
+                    $food = new product("", "", "", "");
+                    $getfood = 'select id, foodname, price, img, fooddescription, timeupload, timeupdate from food';
+                    $foodlist = $food->getallproduct($getfood);
+                    include '../userview/menu.php';
+                    break;
+
+                // -----------------show thông tin thức ăn------------------------------
+                case 'showFoodInfo':
+                    $notification = (isset($_GET['notificationid']))? $this->notification($_GET['notificationid']): '';
+                    $id = $_GET['id'];
+                    $food = new product("", "", "", "");
+                    $getfood = 'select foodname, price, img, fooddescription, timeupload, timeupdate from food where id ='.$id;
+                    $foodinfo = $food->getallproduct($getfood);
+                    $comment = new comment("", "", "", "");
+                    $getcomment = 'select adminid as id, foodid as idproduct, adminid, admins.username, comments, datecoments from admincommentfood inner join admins on  adminid = admins.id where foodid = '.$id.'
+                    union select userid, foodid, userid, users.username, comments, datecoments from usercommentfood inner join users on userid = users.id where foodid ='.$id.' order by datecoments desc';
+                    $commentlist = $comment->getallcomment($getcomment);
+                    include '../userview/foodinfor.php';
+                    break;
+
+                // -----------------nhận xét thức ăn------------------------------
+                case 'commentFood':
+                    $iduser = $_POST['iduser'];
+                    $idfood = $_POST['idfood'];
+                    $comment = $_POST['comment'];
+                    $table = ($_POST['role'] == 'admins')? 'admincommentfood': 'usercommentfood';
+                    $arr = array('iduser'=>$iduser, 'idfood'=>$idfood, 'comment'=>$comment);
+                    var_dump($arr);
+                    if($table == 'admincommentfood'){
+                        echo $sql = 'insert into admincommentfood (adminid, foodid, comments) values (:iduser, :idfood, :comment)';
+                    }else{
+                        echo $sql = 'insert into usercommentfood (userid, foodid, comments) values (:iduser, :idfood, :comment)';
+                    };
+                    $commentfood = new comment("", "", "", "");
+                    $commentfood->insertcomment($sql, $arr);
+                    header("Location: ../dashboardcontroler/controler.php?action=showFoodInfo&id=".$idfood."&notificationid=7");
+                    break;
+
+                // -----------------Lấy id thông báo xóa nhận xét------------------------------
+                case 'alertdeletefoodcomment':
+                    $id = $_GET['id'];
+                    $datetime = $_GET['datetime'];
+                    $role = $_GET['role'];
+                    $result = '<h4 class="text-warning"> Bạn Muốn Xóa Nhận Xét Này?</h4>';
+                    $button_back = '<a href="../dashboardcontroler/controler.php?action=deletecommentFood&role='.$role.'&id='.$id.'&datetime='.$datetime.'" class="btn btn-warning rounded-pill py-3 w-100 mb-4">Xóa Sản Phẩm</a>';
+                    include '../dashboardview/notification.php';
+                    break;
+                
+                // -----------------xóa nhận xét thức ăn------------------------------
+                case 'deletecommentFood':
+                    $notification = (isset($_GET['notificationid']))? $this->notification($_GET['notificationid']): '';
+                    $table = ($_GET['role']=='admin')? "admincommentfood": "usercommentfood";
+                    $id = $_GET['id'];
+                    $datetime = $_GET['datetime'];
+                    $role = ($_GET['role']=='admin')? "adminid": "userid";
+                    $arr = array('id'=>$id, 'datetime'=>$datetime);
+                    $deletecomment = new comment("", "", "", "");
+                    $deletecomment->deletecomment($table, $role, $arr);
+                    header("Location: ../dashboardcontroler/controler.php?action=showproduct&notificationid=8");
+                    break;
+
+                // -----------------hiển thị đồ uống lên menu------------------------------
+                case 'showDrink':
+                    $drink = new product("", "", "", "");
+                    $getdrink = 'select id, drinkname, price, img, drinkdescription from drink';
+                    $drinklist = $drink->getallproduct($getdrink);
+                    include '../userview/menu2.php';
+                    break;
+                
+                // -----------------show thông tin nước uống------------------------------
+                case 'showDrinkInfo':
+                    $id = $_GET['id'];
+                    $drink = new product("", "", "", "");
+                    $getdrink = 'select drinkname, price, img, drinkdescription, timeupload, timeupdate from drink where id ='.$id;
+                    $drinkinfo = $drink->getallproduct($getdrink);
+                    $comment = new comment("", "", "", "");
+                    $getcomment = 'select adminid as id, drinkid as idproduct, adminid, admins.username, comments, datecoments from admincommentdrink inner join admins on  adminid = admins.id where drinkid = '.$id.'
+                    union select userid, drinkid, userid, users.username, comments, datecoments from usercommentdrink inner join users on userid = users.id where drinkid ='.$id.' order by datecoments desc;';
+                    $commentlist = $comment->getallcomment($getcomment);
+                    include '../userview/drinkinfor.php';
+                    break;
+                    
+                // -----------------nhận xét nước uống------------------------------
+                case 'commentDrink':
+                    $iduser = $_POST['iduser'];
+                    $iddrink = $_POST['iddrink'];
+                    $comment = $_POST['comment'];
+                    $table = ($_POST['role'] == 'admins')? 'admincommentdrink': 'usercommentdrink';
+                    $arr = array('iduser'=>$iduser, 'iddrink'=>$iddrink, 'comment'=>$comment);
+                    var_dump($arr);
+                    if($table == 'admincommentdrink'){
+                        $sql = 'insert into admincommentdrink (adminid, drinkid, comments) values (:iduser, :iddrink, :comment)';
+                    }else{
+                        $sql = 'insert into usercommentdrink (userid, drinkid, comments) values (:iduser, :iddrink, :comment)';
+                    };
+                    $commentfood = new comment("", "", "", "");
+                    $commentfood->insertcomment($sql, $arr);
+                    header("Location: ../dashboardcontroler/controler.php?action=showDrinkInfo&id=".$iddrink."&notificationid=7");
+                    break;
+                
+                // -----------------Lấy id thông báo xóa nhận xét------------------------------
+                case 'alertdeletedrinkcommend':
+                    $id = $_GET['id'];
+                    $datetime = $_GET['datetime'];
+                    $role = $_GET['role'];
+                    $result = '<h4 class="text-warning"> Bạn Muốn Xóa Nhận Xét Này?</h4>';
+                    $button_back = '<a href="../dashboardcontroler/controler.php?action=deletecommentDrink&&role='.$role.'&id='.$id.'&datetime='.$datetime.'" class="btn btn-warning rounded-pill py-3 w-100 mb-4">Xóa Sản Phẩm</a>';
+                    include '../dashboardview/notification.php';
+                    break;
+
+                // -----------------xóa nhận xét nước uống------------------------------
+                case 'deletecommentDrink':
+                    $notification = (isset($_GET['notificationid']))? $this->notification($_GET['notificationid']): '';
+                    $table = ($_GET['role']=='admin')? "admincommentdrink": "usercommentdrink";
+                    $id = $_GET['id'];
+                    $datetime = $_GET['datetime'];
+                    $role = ($_GET['role']=='admin')? "adminid": "userid";
+                    $arr = array('id'=>$id, 'datetime'=>$datetime);
+                    $deletecomment = new comment("", "", "", "");
+                    $deletecomment->deletecomment($table, $role, $arr);
+                    header("Location: ../dashboardcontroler/controler.php?action=showproduct&notificationid=8");
+                    break;
+
+                // -----------------Tìm kiếm tài khoản------------------------------
+                case 'findAccount':
+                    $account = $_POST['nameAccount'];
+                    $arr = array('username' => $account);
+                    $sql = "select * from users where username = :username";
+                    $findAccount = new usercontrol("", "", "");
+                    $accountExist = $findAccount -> getuserByUsername($sql, $arr);
+                    if (!empty($accountExist)){
+                        include '../dashboardview/forgotpassword.php';
+                    }else{
+                        $result = '<h4 class="text-warning">Không Tìm Thấy Tài Khoản! Xin Vui Lòng Thử Lại</h4>';
+                        $button_back = '<a href="../dashboardview/findaccount.php" class="btn btn-warning rounded-pill py-3 w-100 mb-4">Thử Lại</a>';
+                        include '../dashboardview/notification.php';
+                    }
+                    break;
+
+                // -----------------Xác nhận ngày tháng------------------------------
+                case 'comfirmAccount':
+                    $userName = $_POST['userName'];
+                    $date = $_POST['date'];
+                    $moth = $_POST['moth'];
+                    $year = $_POST['year'];
+                    $arr = array('username' => $userName);
+                    $sql = "select day(timecreate), month(timecreate), year(timecreate) from users where username = :username";
+                    $getAccount = new usercontrol("", "", "");
+                    $infoAccount = $getAccount -> getuserByUsername($sql, $arr);
+                    $dayAccount = $infoAccount[0]['day(timecreate)'];
+                    $mothAccount = $infoAccount[0]['month(timecreate)'];
+                    $yearAccount = $infoAccount[0]['year(timecreate)'];
+                    if($date == $dayAccount && $moth == $mothAccount && $year == $yearAccount){
+                        echo 'đúng đổi pass';
+                    }else{
+                        $result = '<h4 class="text-warning">Xác Nhận Thông Tin Chưa Đúng! Xin Vui Lòng Thử Lại</h4>';
+                        $button_back = '<a href="../dashboardview/findaccount.php" class="btn btn-warning rounded-pill py-3 w-100 mb-4">Thử Lại</a>';
+                        include '../dashboardview/notification.php';
+                    }
+                    break;
+
                 // -----------------đăng nhập------------------------------
                 case 'login':
                     $username = $_POST['username'];
@@ -574,6 +756,7 @@
                         $this->shownotification(1, $result);
                     }
                     break; 
+                
                 // -----------------đăng xuất------------------------------
                 case 'logout':
                     if (!isset($_SESSION)) {
@@ -583,6 +766,7 @@
                     session_destroy();
                     header("Location: ../dashboardview/signin.php");
                     break;
+
                 // -----------------hiển thị thông báo------------------------------
                 case 'shownotification':
                     $notificationid = $_GET['notificationid'];
@@ -657,126 +841,7 @@
                             break;
                     }
                     break;
-                // -----------------hiển thị sản phẩm lên menu------------------------------
-                case 'showFood':
-                    $food = new product("", "", "", "");
-                    $getfood = 'select id, foodname, price, img, fooddescription, timeupload, timeupdate from food';
-                    $foodlist = $food->getallproduct($getfood);
-                    include '../userview/menu.php';
-                    break;
-                // -----------------hiển thị đồ uống lên menu------------------------------
-                case 'showDrink':
-                    $drink = new product("", "", "", "");
-                    $getdrink = 'select id, drinkname, price, img, drinkdescription from drink';
-                    $drinklist = $drink->getallproduct($getdrink);
-                    include '../userview/menu2.php';
-                    break;
-                // -----------------show thông tin thức ăn------------------------------
-                case 'showFoodInfo':
-                    $notification = (isset($_GET['notificationid']))? $this->notification($_GET['notificationid']): '';
-                    $id = $_GET['id'];
-                    $food = new product("", "", "", "");
-                    $getfood = 'select foodname, price, img, fooddescription, timeupload, timeupdate from food where id ='.$id;
-                    $foodinfo = $food->getallproduct($getfood);
-                    $comment = new comment("", "", "", "");
-                    $getcomment = 'select adminid as id, foodid as idproduct, adminid, admins.username, comments, datecoments from admincommentfood inner join admins on  adminid = admins.id where foodid = '.$id.'
-                    union select userid, foodid, userid, users.username, comments, datecoments from usercommentfood inner join users on userid = users.id where foodid ='.$id.' order by datecoments desc';
-                    $commentlist = $comment->getallcomment($getcomment);
-                    include '../userview/foodinfor.php';
-                    break;
-                // -----------------show thông tin thức ăn------------------------------
-                case 'showDrinkInfo':
-                    $id = $_GET['id'];
-                    $drink = new product("", "", "", "");
-                    $getdrink = 'select drinkname, price, img, drinkdescription, timeupload, timeupdate from drink where id ='.$id;
-                    $drinkinfo = $drink->getallproduct($getdrink);
-                    $comment = new comment("", "", "", "");
-                    $getcomment = 'select adminid as id, drinkid as idproduct, adminid, admins.username, comments, datecoments from admincommentdrink inner join admins on  adminid = admins.id where drinkid = '.$id.'
-                    union select userid, drinkid, userid, users.username, comments, datecoments from usercommentdrink inner join users on userid = users.id where drinkid ='.$id.' order by datecoments desc;';
-                    $commentlist = $comment->getallcomment($getcomment);
-                    include '../userview/drinkinfor.php';
-                    break;
-                // -----------------bình luận thức ăn------------------------------
-                case 'commentFood':
-                    $iduser = $_POST['iduser'];
-                    $idfood = $_POST['idfood'];
-                    $comment = $_POST['comment'];
-                    $table = ($_POST['role'] == 'admins')? 'admincommentfood': 'usercommentfood';
-                    $arr = array('iduser'=>$iduser, 'idfood'=>$idfood, 'comment'=>$comment);
-                    var_dump($arr);
-                    if($table == 'admincommentfood'){
-                        echo $sql = 'insert into admincommentfood (adminid, foodid, comments) values (:iduser, :idfood, :comment)';
-                    }else{
-                        echo $sql = 'insert into usercommentfood (userid, foodid, comments) values (:iduser, :idfood, :comment)';
-                    };
-                    $commentfood = new comment("", "", "", "");
-                    $commentfood->insertcomment($sql, $arr);
-                    header("Location: ../dashboardcontroler/controler.php?action=showFoodInfo&id=".$idfood."&notificationid=7");
-                    break;
-                // -----------------bình luận nước uống------------------------------
-                case 'commentDrink':
-                    $iduser = $_POST['iduser'];
-                    $iddrink = $_POST['iddrink'];
-                    $comment = $_POST['comment'];
-                    $table = ($_POST['role'] == 'admins')? 'admincommentdrink': 'usercommentdrink';
-                    $arr = array('iduser'=>$iduser, 'iddrink'=>$iddrink, 'comment'=>$comment);
-                    var_dump($arr);
-                    if($table == 'admincommentdrink'){
-                        $sql = 'insert into admincommentdrink (adminid, drinkid, comments) values (:iduser, :iddrink, :comment)';
-                    }else{
-                        $sql = 'insert into usercommentdrink (userid, drinkid, comments) values (:iduser, :iddrink, :comment)';
-                    };
-                    $commentfood = new comment("", "", "", "");
-                    $commentfood->insertcomment($sql, $arr);
-                    header("Location: ../dashboardcontroler/controler.php?action=showDrinkInfo&id=".$iddrink."&notificationid=7");
-                    break;
-                // -----------------Lấy id thông báo xóa nhận xét------------------------------
-                case 'alertdeletefoodcomment':
-                    $id = $_GET['id'];
-                    $datetime = $_GET['datetime'];
-                    $role = $_GET['role'];
-                    $result = '<h4 class="text-warning"> Bạn Muốn Xóa Nhận Xét Này?</h4>';
-                    $button_back = '<a href="../dashboardcontroler/controler.php?action=deletecommentFood&role='.$role.'&id='.$id.'&datetime='.$datetime.'" class="btn btn-warning rounded-pill py-3 w-100 mb-4">Xóa Sản Phẩm</a>';
-                    include '../dashboardview/notification.php';
-                    break;
-                // -----------------xóa bình luận thức ăn------------------------------
-                case 'deletecommentFood':
-                    $notification = (isset($_GET['notificationid']))? $this->notification($_GET['notificationid']): '';
-                    $table = ($_GET['role']=='admin')? "admincommentfood": "usercommentfood";
-                    $id = $_GET['id'];
-                    $datetime = $_GET['datetime'];
-                    $role = ($_GET['role']=='admin')? "adminid": "userid";
-                    $arr = array('id'=>$id, 'datetime'=>$datetime);
-                    $deletecomment = new comment("", "", "", "");
-                    $deletecomment->deletecomment($table, $role, $arr);
-                    header("Location: ../dashboardcontroler/controler.php?action=showproduct&notificationid=8");
-                    break;
-                // -----------------Lấy id thông báo xóa nhận xét------------------------------
-                case 'alertdeletedrinkcommend':
-                    $id = $_GET['id'];
-                    $datetime = $_GET['datetime'];
-                    $role = $_GET['role'];
-                    $result = '<h4 class="text-warning"> Bạn Muốn Xóa Nhận Xét Này?</h4>';
-                    $button_back = '<a href="../dashboardcontroler/controler.php?action=deletecommentDrink&&role='.$role.'&id='.$id.'&datetime='.$datetime.'" class="btn btn-warning rounded-pill py-3 w-100 mb-4">Xóa Sản Phẩm</a>';
-                    include '../dashboardview/notification.php';
-                    break;
-                // -----------------bình luận nước uống------------------------------
-                case 'deletecommentDrink':
-                    $notification = (isset($_GET['notificationid']))? $this->notification($_GET['notificationid']): '';
-                    $table = ($_GET['role']=='admin')? "admincommentdrink": "usercommentdrink";
-                    $id = $_GET['id'];
-                    $datetime = $_GET['datetime'];
-                    $role = ($_GET['role']=='admin')? "adminid": "userid";
-                    $arr = array('id'=>$id, 'datetime'=>$datetime);
-                    $deletecomment = new comment("", "", "", "");
-                    $deletecomment->deletecomment($table, $role, $arr);
-                    header("Location: ../dashboardcontroler/controler.php?action=showproduct&notificationid=8");
-                    break;
-                // -----------------Tìm kiếm tài khoản------------------------------
-                case 'findAccount':
-                    $account = $_POST['nameAccount'];
-                    
-                    break;
+
                 default:
                     header("Location: ../dashboardview/signin.php");
             }
@@ -791,6 +856,7 @@
             }
             return false;
         }
+
         private function shownotification($id,$name) {
             switch($id){
                 case 1:
@@ -812,6 +878,7 @@
                     break;
             }
         }
+
         private function notification($name) {
             $notification = $name;
             switch($notification){
@@ -850,7 +917,6 @@
         $action = $_POST['useraction'];
     }else{
         $action = $_GET['action'];
-        // $action = (isset($_GET['action']))? $_GET['action']: '';
     }
     $control = new admincontroler($action)
 ?>

@@ -4,7 +4,7 @@
 <head>
     <title>Đăng Nhập</title>
     <?php
-    include './lib/head.php'
+    include '../dashboardview/lib/head.php'
     ?>
 </head>
 
@@ -34,28 +34,24 @@
                                 </a>
                                 <h3>Xác Nhận Ngày Tạo Tài Khoản</h3>
                             </div>
+                            <?php 
+                                echo '<input type="text" class="form-control" id="floatingInput" name="userName" value='.$accountExist[0]["username"].' placeholder="Username" readonly hidden>';
+                            ?>
                             <div class="row">
                                 <div class=" col-4 mb-3">
                                     <label for="floatingInput">Ngày</label>
-                                    <input type="text" class="form-control" id="floatingInput" name="" placeholder="nhập ngày">
+                                    <input type="text" class="form-control" id="floatingInput" name="date" placeholder="nhập ngày">
                                 </div>
                                 <div class=" col-4 mb-4">
                                     <label for="floatingPassword">Tháng</label>
-                                    <input type="text" class="form-control" id="floatingPassword" name="" placeholder="nhập tháng">
+                                    <input type="text" class="form-control" id="floatingPassword" name="moth" placeholder="nhập tháng">
                                 </div>
                                 <div class=" col-4 mb-4">
                                     <label for="floatingPassword">Năm</label>
-                                    <input type="text" class="form-control" id="floatingPassword" name="" placeholder="nhập năm">
+                                    <input type="text" class="form-control" id="floatingPassword" name="year" placeholder="nhập năm">
                                 </div>
-                                <!-- <div class="d-flex text-end mb-4">
-                                    <a href="" class="text-warning">Quên Mật Khẩu</a>
-                                </div> -->
                             </div>
-                            <button type="submit" value="login" name="useraction" class="btn btn-warning py-3 w-100 mb-4">Lấy Lại Mật Khẩu</button>
-                            <!-- <p class="text-center mb-0">Don't have an Account?  -->
-                            <!-- <div class="text-center">
-                                <a href="" class="text-warning">Đăng Ký Tài Khoản</a>
-                            </div> -->
+                            <button type="submit" value="comfirmAccount" name="useraction" class="btn btn-warning py-3 w-100 mb-4">Lấy Lại Mật Khẩu</button>
                         </form>
 
                     </div>
@@ -66,7 +62,7 @@
     </div>
 
     <?php
-    include './lib/jslib.php'
+    include '../dashboardview/lib/jslib.php'
     ?>
 </body>
 

@@ -99,4 +99,4 @@ select adminid as id, foodid as idproduct, adminid, admins.username, comments, d
 union select userid, foodid, userid, users.username, comments, datecoments from usercommentfood inner join users on userid = users.id where foodid = 1 order by datecoments desc;
 select adminid as id, drinkid as idproduct, adminid, admins.username, comments, datecoments from admincommentdrink inner join admins on  adminid = admins.id where drinkid = 1
 union select userid, drinkid, userid, users.username, comments, datecoments from usercommentdrink inner join users on userid = users.id where drinkid = 1 order by datecoments desc;
-
+select day(timecreate), month(timecreate), year(timecreate) from users where username = 'khangnguyen';

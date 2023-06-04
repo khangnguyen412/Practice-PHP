@@ -4,7 +4,7 @@
 <meta content="" name="description">
 
 <!-- Favicon -->
-<link href="img/favicon.ico" rel="icon">
+<link rel="shortcut icon" href="../assets/images/logo/LOGO-HOP-DEN.jpg" type="image/x-icon">
 
 <!-- Google Web Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">

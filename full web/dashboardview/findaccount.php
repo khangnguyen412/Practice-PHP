@@ -37,7 +37,7 @@
                             <div class="row">
                                 <div class="col mb-3">
                                     <label for="floatingInput">Tên Đăng Nhập</label>
-                                    <input type="text" class="form-control" id="floatingInput" name="nameAccount" placeholder="nhập tên tài khoảng tại đây">
+                                    <input type="text" class="form-control" id="floatingInput" name="nameAccount" placeholder="nhập tên tài khoản tại đây">
                                 </div>
                             </div>
                             <button type="submit" value="findAccount" name="useraction" class="btn btn-warning py-3 w-100 mb-4">Lấy Lại Mật Khẩu</button>

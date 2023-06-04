@@ -82,13 +82,20 @@
                         echo "<div>Tên Tài Khoản: ".$_SESSION["username"]."</div><br>";
                         echo "<div>Ngày Giờ Tạo: ".$_SESSION["timecreate"]."</div><br>";
                         echo "<div>Lần Cuối Cập Nhật: ".$_SESSION["timeupdate"]."</div><br>";
+                        echo "<div>Quyền Truy Cập: ".$_SESSION["role"]."</div><br>";
                     } else {
                         echo '<a href="../dashboardview/signin.php">Đăng Nhập</a>';
                     }
                 ?>
             </div>
             <div class="modal-footer">
-                <a href="./../dashboardcontroler/controler.php?action=userChangePass" class="btn btn-primary">Thay Đổi Mật Khẩu</a>
+                <?php
+                    if($_SESSION["role"] == "admins"){
+                        echo'<a href="./../dashboardcontroler/controler.php?action=showadmin" class="btn btn-primary">Trang Admin</a>';
+                    }else{
+                        echo'<a href="./../dashboardcontroler/controler.php?action=userChangePass&id='.$_SESSION["id"].'" class="btn btn-primary">Thay Đổi Mật Khẩu</a>';
+                    }
+                ?>
                 <a href="./../dashboardcontroler/controler.php?action=logout" class="btn btn-primary">Đăng Xuất</a>
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
                 <!-- <button type="button" class="btn btn-primary">Save changes</button> -->

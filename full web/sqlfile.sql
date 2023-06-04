@@ -75,7 +75,7 @@ select * from admins;
 select * from users;
 insert into users (username, passwords) values ('ronglun', 'ronglun');
 insert into users (username, passwords) values ('ronglun2', 'ronglun2');
-SELECT username, passwords FROM users where username = "ronglun412";
+SELECT * FROM users where username = "khangnguyen";
 update admins set username = 'khangnguyen', passwords = "82304289ee4cd9b6e1da8eaa58a39de1", timeupdate = now()  where id = 57;
 alter table admins drop column avt;
 delete from admins where id = 63;

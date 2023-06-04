@@ -4,7 +4,7 @@
 <head>
     <title>Đăng Ký Tài Khoản</title>
     <?php
-        include './lib/head.php'
+        include '../dashboardview/lib/head.php'
     ?>
 </head>
 
@@ -24,39 +24,33 @@
             <div class="row h-100 align-items-center justify-content-center" style="min-height: 100vh;">
                 <div class="col-12 col-md-8 col-lg-6 ">
                     <div class="bg-secondary rounded p-4 p-sm-5 my-4 mx-3">
-                        <div class="d-flex align-items-center justify-content-between mb-3">
-                            <a href="index.html" class="">
-                                <h3 class="text-warning">
-                                    <img src="../img/img/logo/LOGO-HOP-DEN.jpg" height="40" width="40" alt="" srcset="">
-                                    Ding Dong</h3>
-                            </a>
-                            <h3>Lấy Lại Mật Khẩu</h3>
-                        </div>
-                        <!-- <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="floatingText" placeholder="jhondoe">
-                            <label for="floatingText">Tên Đăng Nhập</label>
-                        </div> -->
-                        <!-- <div class="form-floating mb-3">
-                            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                            <label for="floatingInput">Email </label>
-                        </div> -->
-                        <div class="form-floating mb-4">
-                            <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-                            <label for="floatingPassword">Mật Khẩu Mới</label>
-                        </div>
-                        <div class="form-floating mb-4">
-                            <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-                            <label for="floatingPassword">Xác Nhận Mật Khẩu</label>
-                        </div>
-                        <!-- <div class="d-flex align-items-center justify-content-between mb-4">
-                            <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                        <form action="../dashboardcontroler/controler.php" method="post">
+                            <div class="d-flex align-items-center justify-content-between mb-3">
+                                <a href="index.html" class="">
+                                    <h3 class="text-warning">
+                                        <img src="../img/img/logo/LOGO-HOP-DEN.jpg" height="40" width="40" alt="" srcset="">
+                                        Ding Dong</h3>
+                                </a>
+                                <h3>Lấy Lại Mật Khẩu</h3>
                             </div>
-                            <a href="">Forgot Password</a>
-                        </div> -->
-                        <button type="submit" class="btn btn-warning py-3 w-100 mb-4">Đổi Mật Khẩu</button>
-                        <!-- <p class="text-center mb-0">Đã có tài khoản? <a href="" class="text-warning">Đăng Nhập</a></p> -->
+                            <?php
+                                if(!empty($infoAccount)){
+                                    echo '<input type="text" class="form-control" id="floatingPassword" value='.$infoAccount[0]['id'].' name="id" readonly hidden>';
+                                    echo '<input type="text" class="form-control" id="floatingPassword" value='.$infoAccount[0]['username'].' name="username" readonly hidden>';
+                                }else{
+                                    echo "";
+                                }
+                            ?>
+                            <div class="form-floating mb-4">
+                                <input type="password" class="form-control" name="newPass" id="floatingPassword" placeholder="Password">
+                                <label for="floatingPassword">Mật Khẩu Mới</label>
+                            </div>
+                            <div class="form-floating mb-4">
+                                <input type="password" class="form-control" name="comfirmPass" id="floatingPassword" placeholder="Password">
+                                <label for="floatingPassword">Xác Nhận Mật Khẩu</label>
+                            </div>
+                            <button type="submit" value="backAccount" name="useraction" class="btn btn-warning py-3 w-100 mb-4">Đổi Mật Khẩu</button>
+                        </form>        
                     </div>
                 </div>
             </div>
@@ -65,7 +59,7 @@
     </div>
 
     <?php
-        include './lib/jslib.php'
+        include '../dashboardview/lib/jslib.php'
     ?>
 </body>
 

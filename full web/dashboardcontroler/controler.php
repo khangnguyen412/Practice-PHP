@@ -579,8 +579,10 @@
                 // -----------------hiển thị thức ăn lên menu------------------------------
                 case 'showFood':
                     $food = new product("", "", "", "");
-                    $getfood = 'select id, foodname, price, img, fooddescription, timeupload, timeupdate from food';
+                    $getfood = 'select id, foodname, price, img, fooddescription, timeupload, timeupdate from food where foodname not like "Combo%"';
                     $foodlist = $food->getallproduct($getfood);
+                    $getfood2 = 'select id, foodname, price, img, fooddescription, timeupload, timeupdate from food where foodname like "Combo%"';
+                    $combofoodlist = $food->getallproduct($getfood2);
                     include '../userview/menu.php';
                     break;
 
@@ -724,19 +726,74 @@
                     $moth = $_POST['moth'];
                     $year = $_POST['year'];
                     $arr = array('username' => $userName);
-                    $sql = "select day(timecreate), month(timecreate), year(timecreate) from users where username = :username";
+                    $sql = "select id, username, day(timecreate), month(timecreate), year(timecreate) from users where username = :username";
                     $getAccount = new usercontrol("", "", "");
                     $infoAccount = $getAccount -> getuserByUsername($sql, $arr);
-                    $dayAccount = $infoAccount[0]['day(timecreate)'];
-                    $mothAccount = $infoAccount[0]['month(timecreate)'];
-                    $yearAccount = $infoAccount[0]['year(timecreate)'];
-                    if($date == $dayAccount && $moth == $mothAccount && $year == $yearAccount){
-                        echo 'đúng đổi pass';
+                    $idAcount = $infoAccount[0]['id'];
+                    $userName = $infoAccount[0]['username'];
+                    $dayCreate = $infoAccount[0]['day(timecreate)'];
+                    $mothCreate = $infoAccount[0]['month(timecreate)'];
+                    $yearCreate = $infoAccount[0]['year(timecreate)'];
+                    if($date == $dayCreate && $moth == $mothCreate && $year == $yearCreate){
+                        include '../dashboardview/updatepassword.php';
                     }else{
                         $result = '<h4 class="text-warning">Xác Nhận Thông Tin Chưa Đúng! Xin Vui Lòng Thử Lại</h4>';
                         $button_back = '<a href="../dashboardview/findaccount.php" class="btn btn-warning rounded-pill py-3 w-100 mb-4">Thử Lại</a>';
                         include '../dashboardview/notification.php';
                     }
+                    break;
+
+                // -----------------Xác nhận ngày tháng------------------------------
+                case 'backAccount':
+                    $id = $_POST['id'];
+                    $username = $_POST['username'];
+                    $password = $_POST['newPass'];
+                    $passwordconfirm = $_POST['comfirmPass'];
+                    $table = 'users';
+                    $error = [];
+                    if(empty(trim($_POST['newPass']))) {
+                        $error['password']['required'] = 'Mật Khẩu Không Được Để Trống';
+                    }elseif(strlen(trim($_POST['newPass'])) < 5) {
+                        $error['password']['min'] = 'Mật Khẩu Không Được Dưới 5';
+                    }elseif(strlen(trim($_POST['newPass'])) > 15) {
+                        $error['password']['max'] = 'Mật Khẩu Không Được Quá 15';
+                    }elseif(strpos($_POST['newPass'], ' ') == true){
+                        $error['password']['space'] = 'Mật Khẩu Không Được Có Khoảng Trống';
+                    }else{
+                        $error = [];
+                    }
+                    if (!empty($error["password"]["required"])) {
+                        $this->shownotification(1, $error["password"]["required"]);
+                    } else if (!empty($error["password"]["min"])) {
+                        $this->shownotification(1, $error["password"]["min"]);
+                    } else if (!empty($error["password"]["max"])) {
+                        $this->shownotification(1, $error["password"]["max"]);
+                    } else if (!empty($error["password"]["space"])) {
+                        $this->shownotification(1, $error["password"]["space"]);
+                    }else{
+                        if($password == $passwordconfirm){
+                            $md5Password = md5($password);
+                            $arr = array('id'=> $id, 'username' => $username, 'password' => $md5Password);
+                            $updateuser = new usercontrol("", "", "");
+                            if($updateuser->updateuser($table, $arr) == 'error'){
+                                $this->shownotification(1, "Cập Nhật Mật Khẩu Không Thành Công! Xin Thử Lại");
+                            }else{
+                                $this->shownotification(1, "Cập Nhật Mật Khẩu Thành Công!");
+                            }           
+                        }else{
+                            $this->shownotification(1, "Xác Nhận Mật Khẩu Chưa Khớp");
+                        }
+                    }
+                    break;
+
+                // -----------------Xác nhận ngày tháng------------------------------
+                case 'userChangePass':
+                    $id = $_GET['id'];
+                    $table = 'users';
+                    $arr = array('id'=>$id);
+                    $userInfor = new usercontrol("", "", "");
+                    $infoAccount = $userInfor->getuser($table, $arr);
+                    include '../dashboardview/updatepassword.php';
                     break;
 
                 // -----------------đăng nhập------------------------------
@@ -772,7 +829,7 @@
                     $notificationid = $_GET['notificationid'];
                     switch ($notificationid){
                         case 'addComplete':
-                            $result = 'Đăng Ký Tài Khoản Thành Công';
+                            $result = 'Đăng Ký Tài Khoản Thành Công!<br> Xin hãy ghi nhớ ngày/tháng/năm tạo tài khoản';
                             $this->shownotification(1, $result);
                             break;
                         case 'errorUniqueUser':
@@ -839,9 +896,10 @@
                             $result = 'Sản Phẩm Chưa Có Hình Ảnh';
                             $this->shownotification(3, $result);
                             break;
+                        default:
+                            echo '';
                     }
                     break;
-
                 default:
                     header("Location: ../dashboardview/signin.php");
             }

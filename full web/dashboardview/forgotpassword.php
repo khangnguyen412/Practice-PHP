@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Đăng Nhập</title>
+    <title>Quên Mật Khẩu</title>
     <?php
     include '../dashboardview/lib/head.php'
     ?>

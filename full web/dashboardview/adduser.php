@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Thêm Quản Trị Viên</title>
+    <title>Thêm Quản Khách Hàng</title>
     <?php
     include './lib/head.php'
     ?>

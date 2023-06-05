@@ -644,8 +644,23 @@
                 // -----------------hiển thị đồ uống lên menu------------------------------
                 case 'showDrink':
                     $drink = new product("", "", "", "");
-                    $getdrink = 'select id, drinkname, price, img, drinkdescription from drink';
-                    $drinklist = $drink->getallproduct($getdrink);
+                    $cafeList = 'select id, drinkname, price, img, drinkdescription from drink where drinkname like "Cafe%"';
+                    $cafeList = $drink->getallproduct($cafeList);
+                    
+                    $milkList = 'select id, drinkname, price, img, drinkdescription from drink where drinkname like "Sữa chua%" ';
+                    $milkList = $drink->getallproduct($milkList);
+
+                    $milkTeaList = 'select id, drinkname, price, img, drinkdescription from drink where drinkname like "Trà sữa%" ';
+                    $milkTeaList = $drink->getallproduct($milkTeaList);
+
+                    $caCaoList = 'select id, drinkname, price, img, drinkdescription from drink where drinkname like "Ca Cao%" ';
+                    $caCaoList = $drink->getallproduct($caCaoList);
+
+                    $sodaList = 'select id, drinkname, price, img, drinkdescription from drink where drinkname like "Soda%" ';
+                    $sodaList = $drink->getallproduct($sodaList);
+
+                    $juiceList = 'select id, drinkname, price, img, drinkdescription from drink where drinkname like "Nước ép%" ';
+                    $juiceList = $drink->getallproduct($juiceList);
                     include '../userview/menu2.php';
                     break;
                 

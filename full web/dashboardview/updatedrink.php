@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Cập Nhật Món Ăn</title>
+    <title>Cập Nhật Nước Uống</title>
     <?php
     include '../dashboardview/lib/head.php'
     ?>

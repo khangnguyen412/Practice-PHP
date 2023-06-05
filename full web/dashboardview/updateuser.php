@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Thêm Quản Trị Viên</title>
+    <title>Câp Nhật Khách Hàng</title>
     <?php
     include '../dashboardview/lib/head.php'
     ?>

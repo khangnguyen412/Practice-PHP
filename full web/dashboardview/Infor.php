@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>DarkPan - Bootstrap 5 Admin Template</title>
+    <title>Thông Báo</title>
     <?php
     include '../dashboardview/lib/head.php'
     ?>

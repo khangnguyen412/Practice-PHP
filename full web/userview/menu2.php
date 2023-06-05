@@ -50,8 +50,8 @@
                     <h3>Cafe</h3>
                 </div>
                 <?php
-                    if(isset($drinklist)){
-                        foreach ($drinklist as $drink) {
+                    if(isset($cafeList)){
+                        foreach ($cafeList as $drink) {
                             echo '<div class="col-lg-4 col-md-4 col-sm-6 col-12 mt-3 ">';
                             echo '  <div class="card" style="height: 100%;">';
                             echo '      <div class="card-img">';
@@ -78,6 +78,8 @@
                             echo '  </div>';
                             echo '</div>';
                         }
+                    }else{
+                        echo "<h4>Hiện Chưa Có Nước Uống Cho Danh Mục Này</h4>";
                     }
                 ?>
             </div>
@@ -87,8 +89,8 @@
                     <h3>Sữa Chua</h3>
                 </div>
                 <?php
-                    if(isset($drinklist)){
-                        foreach ($drinklist as $drink) {
+                    if(isset($milkList)){
+                        foreach ($milkList as $drink) {
                             echo '<div class="col-lg-4 col-md-4 col-sm-6 col-12 mt-3 ">';
                             echo '  <div class="card" style="height: 100%;">';
                             echo '      <div class="card-img">';
@@ -115,6 +117,8 @@
                             echo '  </div>';
                             echo '</div>';
                         }
+                    }else{
+                        echo "<h4>Hiện Chưa Có Nước Uống Cho Danh Mục Này</h4>";
                     }
                 ?>
             </div>
@@ -124,8 +128,8 @@
                     <h3>Trà Sữa</h3>
                 </div>
                 <?php
-                    if(isset($drinklist)){
-                        foreach ($drinklist as $drink) {
+                    if(isset($milkTeaList)){
+                        foreach ($milkTeaList as $drink) {
                             echo '<div class="col-lg-4 col-md-4 col-sm-6 col-12 mt-3 ">';
                             echo '  <div class="card" style="height: 100%;">';
                             echo '      <div class="card-img">';
@@ -152,6 +156,8 @@
                             echo '  </div>';
                             echo '</div>';
                         }
+                    }else{
+                        echo "<h4>Hiện Chưa Có Nước Uống Cho Danh Mục Này</h4>";
                     }
                 ?>
             </div>
@@ -161,8 +167,8 @@
                     <h3>Soda</h3>
                 </div>
                 <?php
-                    if(isset($drinklist)){
-                        foreach ($drinklist as $drink) {
+                    if(isset($caCaoList)){
+                        foreach ($caCaoList as $drink) {
                             echo '<div class="col-lg-4 col-md-4 col-sm-6 col-12 mt-3 ">';
                             echo '  <div class="card" style="height: 100%;">';
                             echo '      <div class="card-img">';
@@ -189,6 +195,8 @@
                             echo '  </div>';
                             echo '</div>';
                         }
+                    }else{
+                        echo "<h4>Hiện Chưa Có Nước Uống Cho Danh Mục Này</h4>";
                     }
                 ?>
             </div>
@@ -198,8 +206,8 @@
                     <h3>Ca Cao</h3>
                 </div>
                 <?php
-                    if(isset($drinklist)){
-                        foreach ($drinklist as $drink) {
+                    if(isset($sodaList)){
+                        foreach ($sodaList as $drink) {
                             echo '<div class="col-lg-4 col-md-4 col-sm-6 col-12 mt-3 ">';
                             echo '  <div class="card" style="height: 100%;">';
                             echo '      <div class="card-img">';
@@ -226,6 +234,8 @@
                             echo '  </div>';
                             echo '</div>';
                         }
+                    }else{
+                        echo "<h4>Hiện Chưa Có Nước Uống Cho Danh Mục Này</h4>";
                     }
                 ?>
             </div>
@@ -235,8 +245,8 @@
                     <h3>Nước Ép</h3>
                 </div>
                 <?php
-                    if(isset($drinklist)){
-                        foreach ($drinklist as $drink) {
+                    if(isset($juiceList)){
+                        foreach ($juiceList as $drink) {
                             echo '<div class="col-lg-4 col-md-4 col-sm-6 col-12 mt-3 ">';
                             echo '  <div class="card" style="height: 100%;">';
                             echo '      <div class="card-img">';
@@ -263,6 +273,8 @@
                             echo '  </div>';
                             echo '</div>';
                         }
+                    }else{
+                        echo "<h4>Hiện Chưa Có Nước Uống Cho Danh Mục Này</h4>";
                     }
                 ?>
             </div>

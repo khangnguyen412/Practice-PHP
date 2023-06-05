@@ -49,13 +49,7 @@
                 <div class="col-md-6 align-self-center">
                     <div class="welcome-text mt-5 mt-md-0">
                         <h1 style="color: #000;"><span class="style-change">Danh Mục</span> Nước Uống</h1>
-                        <!-- <p class="pt-3">Created god gathered don't you yielding herb you had. And isn't, god was saw.
-                            Dominion. Great sixth for in unto was. Open can't tree am waters brought. Divide after
-                            there. Was.</p>
-                        <p>Created god gathered don't you yielding herb you had. And isn't, god was saw. Dominion. Great
-                            sixth for in unto was. Open can't tree waters brought. Divide after there. Was. Created god
-                            gathered don't you yielding herb you had. And isn't god.</p> -->
-                        <a href="#" class="template-btn mt-3">Xem Danh Mục</a>
+                        <a href="../dashboardcontroler/controler.php?action=showDrink" class="template-btn mt-3">Xem Danh Mục</a>
                     </div>
                 </div>
             </div>
@@ -68,13 +62,6 @@
                 <div class="col-md-6 align-self-center">
                     <div class="welcome-text mt-5 mt-md-0">
                         <h1 style="color: #000;"><span class="style-change">Danh Mục</span> Thức Ăn</h1>
-                        <!-- <h3><span class="style-change">welcome</span> <br>to food fun</h3> -->
-                        <!-- <p class="pt-3">Created god gathered don't you yielding herb you had. And isn't, god was saw.
-                            Dominion. Great sixth for in unto was. Open can't tree am waters brought. Divide after
-                            there. Was.</p>
-                        <p>Created god gathered don't you yielding herb you had. And isn't, god was saw. Dominion. Great
-                            sixth for in unto was. Open can't tree waters brought. Divide after there. Was. Created god
-                            gathered don't you yielding herb you had. And isn't god.</p> -->
                         <a href="../dashboardcontroler/controler.php?action=showFood" class="template-btn mt-3">Xem Danh Mục</a>
                     </div>
                 </div>
@@ -114,7 +101,6 @@
                 <div class="col-lg-12">
                     <div class="section-top2 text-center">
                         <h3>Các món <span>đặc biệt</span> tại DING DONG</h3>
-                        <!-- <p><i>Beast kind form divide night above let moveth bearing darkness.</i></p> -->
                     </div>
                 </div>
             </div>
@@ -123,9 +109,6 @@
                     <h1>01.</h1>
                     <div>
                         <h3>Trà Sữa Truyền Thống</h3>
-                        <!-- <p class="pt-3">Be. Seed saying our signs beginning face give spirit own beast darkness morning
-                            moveth green multiply she'd kind saying one shall, two which darkness have day image god
-                            their night. his subdue so you rule can.</p> -->
                         <span class="style-change">18.000 VNĐ</span>
                         <a href="#" class="template-btn3 mt-3">
                             Xem ngay tại danh mục nước uống<span><i class="fa fa-long-arrow-right"></i></span>

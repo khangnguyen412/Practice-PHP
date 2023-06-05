@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Đăng Ký Tài Khoản</title>
+    <title>Cập Nhật Khẩu</title>
     <?php
         include '../dashboardview/lib/head.php'
     ?>

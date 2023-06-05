@@ -22,7 +22,7 @@
             <div class="col-lg-6 ">
                 <div class="main-menu">
                     <ul>
-                        <li><a href="../userview/index2.php">Trang Chủ</a></li>
+                        <li><a href="../userview/index.php">Trang Chủ</a></li>
                         <li><a href="../dashboardcontroler/controler.php?action=showFood">Thức Ăn</a></li>
                         <li><a href="../dashboardcontroler/controler.php?action=showDrink">Đồ Uống</a></li>
                         <li><a href="#contact">Liên Hệ</a></li>
@@ -45,7 +45,7 @@
     </div>
     <div class="collapse menu-text hide-on-pc" id="collapseExample">
         <ul class="">
-            <li><a href="../userview/index2.php">Trang Chủ</a></li>
+            <li><a href="../userview/index.php">Trang Chủ</a></li>
             <li><a href="../dashboardcontroler/controler.php?action=showFood">Thức Ăn</a></li>
             <li><a href="../dashboardcontroler/controler.php?action=showDrink">Đồ Uống</a></li>
             <li><a href="#contact">Liên Hệ</a></li>

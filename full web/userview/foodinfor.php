@@ -37,14 +37,14 @@
 
     <!-- Food Area Infor -->
     <?php
-    if(isset($foodinfo)){
+    if (isset($foodinfo)) {
         foreach ($foodinfo as $value) {
             $img = $value['img'];
             $description = $value['fooddescription'];
             $name = $value['foodname'];
             $price = $value['price'];
         }
-    }else{
+    } else {
         $img = "";
         $description = "";
         $name = "";
@@ -75,25 +75,25 @@
                         </div>
                         <div class="row">
                             <div class="col-md-6 col-lg-6 col-12">
-                                <a href="#" class="genric-btn primary circle col-12 m-2 justify-content-center" style="color: #000;">
+                                <a href="https://www.facebook.com/dingdongtrasuaanvat" class="genric-btn primary circle col-12 m-2 justify-content-center" style="color: #000;">
                                     <span style="font-weight: bold; font-size: 20px;">Facebook</span>
                                 </a>
                             </div>
                             <div class="col-md-6 col-lg-6 col-12">
-                                <a href="#" class="genric-btn primary circle col-12 m-2 justify-content-center" style="color: #000;">
-                                    <span style="font-weight: bold; font-size: 20px;">Zalo</span>
+                                <a href="https://www.instagram.com/dingdong_ding.dong/" class="genric-btn primary circle col-12 m-2 justify-content-center" style="color: #000;">
+                                    <span style="font-weight: bold; font-size: 20px;">Instagram</span>
                                 </a>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-6 col-lg-6 col-12">
-                                <a href="#" class="genric-btn primary circle col-12 m-2 justify-content-center" style="color: #000;">
-                                    <span style="font-weight: bold; font-size: 20px;">Liên hệ qua ..</span>
+                                <a href="https://shopeefood.vn/ho-chi-minh/tra-sua-ding-dong-tra-trai-cay-an-vat?shareChannel=copy_link" class="genric-btn primary circle col-12 m-2 justify-content-center" style="color: #000;">
+                                    <span style="font-weight: bold; font-size: 20px;">ShopeeFood</span>
                                 </a>
                             </div>
                             <div class="col-md-6 col-lg-6 col-12">
-                                <a href="#" class="genric-btn primary circle col-12 m-2 justify-content-center" style="color: #000;">
-                                    <span style="font-weight: bold; font-size: 20px;">Liên hệ qua ..</span>
+                                <a href="https://loship.vn/dingdong" class="genric-btn primary circle col-12 m-2 justify-content-center" style="color: #000;">
+                                    <span style="font-weight: bold; font-size: 20px;">Loship</span>
                                 </a>
                             </div>
                         </div>
@@ -115,19 +115,19 @@
                 echo '  <form action="../dashboardcontroler/controler.php?action=commentFood" method="post">';
                 echo '      <h5>Ghi Nhận Xét</h5>';
                 echo '      <div class="mt-10">';
-                echo '          <input type="text" class="single-input" name="iduser" value="'.$_SESSION["id"].'" readonly hidden>';
+                echo '          <input type="text" class="single-input" name="iduser" value="' . $_SESSION["id"] . '" readonly hidden>';
                 echo '      </div>';
                 echo '      <div class="mt-10">';
-                echo '          <input type="text" class="single-input" name="nameuser" value="'.$_SESSION["username"].'" readonly hidden>';
+                echo '          <input type="text" class="single-input" name="nameuser" value="' . $_SESSION["username"] . '" readonly hidden>';
                 echo '      </div>';
                 echo '      <div class="mt-10">';
-                echo '          <input type="text" class="single-input" name="role" value="'.$_SESSION["role"].'" readonly hidden>';
+                echo '          <input type="text" class="single-input" name="role" value="' . $_SESSION["role"] . '" readonly hidden>';
                 echo '      </div>';
                 echo '      <div class="mt-10">';
-                echo '          <input type="text" class="single-input" name="idfood" value="'.$id.'" readonly hidden>';
+                echo '          <input type="text" class="single-input" name="idfood" value="' . $id . '" readonly hidden>';
                 echo '      </div>';
                 echo '      <div class="mt-10">';
-                echo '          <input type="text" class="single-input" name="namefood" value="'.$name.'" readonly hidden>';
+                echo '          <input type="text" class="single-input" name="namefood" value="' . $name . '" readonly hidden>';
                 echo '      </div>';
                 echo '      <div class="mt-10">';
                 echo '          <textarea class="single-textarea" placeholder="Nhận Xét Tại Đây" name="comment" required=""></textarea>';
@@ -137,7 +137,7 @@
                 echo '      </div>';
                 echo '  </form>';
                 echo '</div>';
-                if(!empty($notification)){
+                if (!empty($notification)) {
                     echo '<div class="container-fluid pt-4 px-4">';
                     echo '  <div class="text-center rounded p-4">';
                     echo '      <div class="alert alert-success alert-dismissible fade show" role="alert">';
@@ -146,11 +146,11 @@
                     echo '      </div>';
                     echo '  </div>';
                     echo '</div>';
-                }else{
+                } else {
                     echo '';
                 }
-                if(!empty($commentlist)){
-                    foreach($commentlist as $comments){
+                if (!empty($commentlist)) {
+                    foreach ($commentlist as $comments) {
                         echo '<div class="row m-2">';
                         echo '  <div class="col-lg-1 col-md-2 col-4">';
                         echo '      <img src="../img/LOGO-HOP-DEN.jpg" alt="" style="height: 100%; width: 100%">';
@@ -158,23 +158,21 @@
                         echo '  <div class="col-lg-11 col-md-10 col-8">';
                         echo '      <div class="col-lg-12 d-flex justify-content-between">';
                         echo '          <div class="col-lg-5" style="padding-left: 0px">';
-                        echo '              <h5> '.$comments['username'].' </h5>';
+                        echo '              <h5> ' . $comments['username'] . ' </h5>';
                         echo '          </div>';
                         echo '          <div class="col-lg-7">';
-                        echo '              <h5> Ngày Giờ Nhận Xét: '.$comments['datecoments'].' </h5>';
+                        echo '              <h5> Ngày Giờ Nhận Xét: ' . $comments['datecoments'] . ' </h5>';
                         echo '          </div>';
                         echo '      </div>';
                         echo '      <div class="col-lg-12 d-flex">';
-                        echo '          <p>'.$comments['comments'].'</p>';
+                        echo '          <p>' . $comments['comments'] . '</p>';
                         echo '      </div>';
                         echo '  </div>';
                         echo '</div>';
                     }
-                }
-                else{
+                } else {
                     echo '';
                 }
-                
             } else {
                 echo '<h5>Đăng Nhập Để Xem Và Viết Nhận Xét</h5>';
             }

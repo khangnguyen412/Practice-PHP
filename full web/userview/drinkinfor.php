@@ -75,25 +75,25 @@
                         </div>
                         <div class="row">
                             <div class="col-md-6 col-lg-6 col-12">
-                                <a href="#" class="genric-btn primary circle col-12 m-2 justify-content-center" style="color: #000;">
+                                <a href="https://www.facebook.com/dingdongtrasuaanvat" class="genric-btn primary circle col-12 m-2 justify-content-center" style="color: #000;">
                                     <span style="font-weight: bold; font-size: 20px;">Facebook</span>
                                 </a>
                             </div>
                             <div class="col-md-6 col-lg-6 col-12">
-                                <a href="#" class="genric-btn primary circle col-12 m-2 justify-content-center" style="color: #000;">
-                                    <span style="font-weight: bold; font-size: 20px;">Zalo</span>
+                                <a href="https://www.instagram.com/dingdong_ding.dong/" class="genric-btn primary circle col-12 m-2 justify-content-center" style="color: #000;">
+                                    <span style="font-weight: bold; font-size: 20px;">Instagram</span>
                                 </a>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-6 col-lg-6 col-12">
-                                <a href="#" class="genric-btn primary circle col-12 m-2 justify-content-center" style="color: #000;">
-                                    <span style="font-weight: bold; font-size: 20px;">Liên hệ qua ..</span>
+                                <a href="https://shopeefood.vn/ho-chi-minh/tra-sua-ding-dong-tra-trai-cay-an-vat?shareChannel=copy_link" class="genric-btn primary circle col-12 m-2 justify-content-center" style="color: #000;">
+                                    <span style="font-weight: bold; font-size: 20px;">ShopeeFood</span>
                                 </a>
                             </div>
                             <div class="col-md-6 col-lg-6 col-12">
-                                <a href="#" class="genric-btn primary circle col-12 m-2 justify-content-center" style="color: #000;">
-                                    <span style="font-weight: bold; font-size: 20px;">Liên hệ qua ..</span>
+                                <a href="https://loship.vn/dingdong" class="genric-btn primary circle col-12 m-2 justify-content-center" style="color: #000;">
+                                    <span style="font-weight: bold; font-size: 20px;">Loship</span>
                                 </a>
                             </div>
                         </div>

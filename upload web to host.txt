@@ -1,0 +1,7 @@
+﻿cách upload web lên host infinityfree.net:
+lỗi:  your ftp account quota has been exceed
+-> vào file manage set lại full quyền cho thư mục htdocs
+dùng filezila upload web lên host
+https://forum.infinityfree.net/docs?topic=49306
+https://www.youtube.com/watch?v=O7vSpkOZX-A
+thông tin để kết nối với filezila: FTP detail

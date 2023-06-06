@@ -43,7 +43,7 @@
             <div class="row">
                 <div class="col-md-6 align-self-center">
                     <div class="welcome-img justify-content-center">
-                        <img src="../assets/images/img/nước uống/trà/trà thơm.jpg" class="img-fluid" alt="">
+                        <img src="../assets/images/img/drink/tea/tea3.jpg" class="img-fluid" alt="">
                     </div>
                 </div>
                 <div class="col-md-6 align-self-center">
@@ -53,10 +53,10 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <div class="row mt-5">
                 <div class="col-md-6 align-self-center">
                     <div class="welcome-img ">
-                        <img src="../assets/images/img/thức ăn/258885242_361950392149075_8914161806092327771_n.jpg" class="img-fluid" alt="">
+                        <img src="../assets/images/img/food/food.jpg" class="img-fluid" alt="">
                     </div>
                 </div>
                 <div class="col-md-6 align-self-center">
@@ -109,13 +109,13 @@
                     <div>
                         <h3>Trà Sữa Truyền Thống</h3>
                         <span class="style-change">18.000 VNĐ</span>
-                        <a href="#" class="template-btn3 mt-3">
+                        <a href="../dashboardcontroler/controler.php?action=showDrink" class="template-btn3 mt-3">
                             Xem ngay tại danh mục nước uống<span><i class="fa fa-long-arrow-right"></i></span>
                         </a>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6 align-self-center mt-4 mt-md-0">
-                    <img src="../assets/images/img/nước uống/trà sữa/trà sữa trân châu.jpg" alt="" class="img-fluid">
+                    <img src="../assets/images/img/drink/milkTea.jpg" alt="" class="img-fluid">
                 </div>
             </div>
 
@@ -128,13 +128,13 @@
                             moveth green multiply she'd kind saying one shall, two which darkness have day image god
                             their night. his subdue so you rule can.</p> -->
                         <span class="style-change">50.000 VNĐ</span>
-                        <a href="#" class="template-btn3 mt-3">
+                        <a href="../dashboardcontroler/controler.php?action=showFood" class="template-btn3 mt-3">
                             Xem ngay tại danh mục thức ăn<span><i class="fa fa-long-arrow-right"></i></span>
                         </a>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6 align-self-center mt-4 mt-md-0">
-                    <img src="../assets/images/img/thức ăn/mẹc 1.jpg" alt="" class="img-fluid">
+                    <img src="../assets/images/img/food/combo1.jpg" alt="" class="img-fluid">
                 </div>
             </div>
         </div>

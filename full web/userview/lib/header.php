@@ -4,7 +4,7 @@
         <div class="row">
             <div class="row col-lg-6 col-md-12 col-12 align-items-center justify-content-center">
                 <div class="col-lg-4 col-md-3 col-sm-3 col-4 logo-area">
-                    <a href="index2.php" class="col-lg-12">
+                    <a href="index.php" class="col-lg-12">
                         <img src="../assets/images/logo/LOGO-HOP-DEN.jpg" class="logo" alt="logo">
                     </a>
                 </div>

@@ -382,7 +382,7 @@ textarea:focus {
 .banner-area {
     padding: 400px 0 350px;
     background-color: #b0b0b0;
-    background-image: url("../images/nền.jpg");
+    background-image: url("../images/wallPaper.jpg");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -411,7 +411,7 @@ textarea:focus {
 
 .banner-area2 {
     padding: 210px 0 160px;
-    background-image: url("../images/img/ảnh bìa.jpg");
+    background-image: url("../images/img/wallPaper.jpg");
     position: relative;
     z-index: 1
 }
@@ -432,7 +432,7 @@ textarea:focus {
 }
 
 .menu-bg {
-    background-image: url("../images/img/ảnh bìa2.jpg")
+    background-image: url("../images/img/wallPaper2.jpg")
 }
 
 .contact-bg {

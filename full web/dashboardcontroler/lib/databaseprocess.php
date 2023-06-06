@@ -1,9 +1,9 @@
 <?php
     class connectDB{
         private $servername = "localhost";
-        private $username = "root";
-        private $password = "";
-        private $databasename = "DingDongFastFood";
+        private $username = "root"; //id20869402_admin
+        private $password = ""; //Admin@123
+        private $databasename = "DingDongFastFood"; //id20869402_admin
         private $conDB = NULL;
 
         public function connectDB(){

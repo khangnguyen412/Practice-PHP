@@ -821,7 +821,7 @@
                         if ($role == 'admins'){
                             header("Location: ../dashboardcontroler/controler.php?action=showadmin");
                         }else{
-                            header("Location: ../userview/index2.php");
+                            header("Location: ../userview/index.php");
                         }
                     }else{
                         $result = 'Sai Tên Đăng Nhập Hoặc Mật Khẩu Xin Kiểm Tra Lại';

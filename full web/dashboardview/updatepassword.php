@@ -31,7 +31,7 @@
                                         <img src="../img/img/logo/LOGO-HOP-DEN.jpg" height="40" width="40" alt="" srcset="">
                                         Ding Dong</h3>
                                 </a>
-                                <h3>Lấy Lại Mật Khẩu</h3>
+                                <h3>Đổi Mật Khẩu</h3>
                             </div>
                             <?php
                                 if(!empty($infoAccount)){

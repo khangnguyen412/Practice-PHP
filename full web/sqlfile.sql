@@ -1,5 +1,31 @@
 create database DingDongFastFood;
 
+create table users(
+    id int not null primary key auto_increment,
+    username varchar(50) not null,
+    passwords varchar(500) not null,
+    timecreate datetime not null default current_timestamp(),
+    timeupdate datetime not null default current_timestamp()
+);
+
+create table admins(
+    id int not null primary key auto_increment,
+    username varchar(50) not null,
+    passwords varchar(500) not null,
+    timecreate datetime not null default current_timestamp(),
+    timeupdate datetime not null default current_timestamp()
+);
+
+create table drink(
+	id int not null primary key auto_increment,
+    drinkname nvarchar(255) not null,
+    price varchar(15) not null,
+    img  nvarchar(500) not null, 
+    drinkdescription text not null,
+    timeupload datetime not null default current_timestamp(),
+    timeupdate datetime not null default current_timestamp()
+);
+
 create table food(
 	id int not null primary key auto_increment,
     foodname nvarchar(255) not null,
@@ -18,6 +44,7 @@ create table usercommentfood(
     CONSTRAINT FK_userid FOREIGN KEY (userid) REFERENCES users(id),
     CONSTRAINT FK_foodid FOREIGN KEY (foodid) REFERENCES food(id)
 );
+
 create table admincommentfood(
     id int not null primary key auto_increment,
 	adminid int not null,
@@ -28,15 +55,6 @@ create table admincommentfood(
     CONSTRAINT FK_foodid2 FOREIGN KEY (foodid) REFERENCES food(id)
 );
 
-create table drink(
-	id int not null primary key auto_increment,
-    drinkname nvarchar(255) not null,
-    price varchar(15) not null,
-    img  nvarchar(500) not null, 
-    drinkdescription text not null,
-    timeupload datetime not null default current_timestamp(),
-    timeupdate datetime not null default current_timestamp()
-);
 create table usercommentdrink(
     id int not null primary key auto_increment,
 	userid int not null,
@@ -46,6 +64,7 @@ create table usercommentdrink(
     CONSTRAINT FK_userid2 FOREIGN KEY (userid) REFERENCES users(id),
     CONSTRAINT FK_drinkid FOREIGN KEY (drinkid) REFERENCES drink(id)
 );
+
 create table admincommentdrink(
     id int not null primary key auto_increment,
 	adminid int not null,
@@ -56,25 +75,10 @@ create table admincommentdrink(
     CONSTRAINT FK_drinkid2 FOREIGN KEY (drinkid) REFERENCES drink(id)
 );
 
-create table users(
-    id int not null primary key auto_increment,
-    username varchar(50) not null,
-    passwords varchar(500) not null,
-    timecreate datetime not null default current_timestamp(),
-    timeupdate datetime not null default current_timestamp()
-);
-create table admins(
-    id int not null primary key auto_increment,
-    username varchar(50) not null,
-    passwords varchar(500) not null,
-    timecreate datetime not null default current_timestamp(),
-    timeupdate datetime not null default current_timestamp()
-);
-
 select * from admins;
 select * from users;
 insert into users (username, passwords) values ('ronglun', 'ronglun');
-insert into users (username, passwords) values ('ronglun2', 'ronglun2');
+insert into users (username, passwords) values ('khangnguyen', '82304289ee4cd9b6e1da8eaa58a39de1');
 SELECT * FROM users where username = "khangnguyen";
 update admins set username = 'khangnguyen', passwords = "82304289ee4cd9b6e1da8eaa58a39de1", timeupdate = now()  where id = 57;
 alter table admins drop column avt;

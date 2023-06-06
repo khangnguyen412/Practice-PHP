@@ -26,16 +26,7 @@
             }
         }
 
-        public function updateDB($sql, $arr = array()){
-            // try {
-            //     $conn = $this->conDB;
-            //     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            //     $sql = "fix sql trong databaseprocess";
-            //     $stmt = $conn->prepare($sql);
-            //     $stmt->execute();
-            // } catch (PDOException $e) {
-            //     echo $sql . "<br>" . $e->getMessage();
-            // }   
+        public function updateDB($sql, $arr = array()){ 
             try {
                 $conn = $this->conDB->prepare($sql);
                 $conn->execute($arr);

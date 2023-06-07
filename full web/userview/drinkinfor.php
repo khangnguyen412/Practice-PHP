@@ -23,7 +23,7 @@
     <!-- Header Area End -->
 
     <!-- Banner Area Starts -->
-    <section class="banner-area banner-area2 menu-bg2 text-center">
+    <section class="banner-area banner-area2 menu-bg2 text-center" style="background-image: url('../assets/images/img/wallPaper1.jpg')">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -217,7 +217,7 @@
                 <div class="col-lg-12">
                     <div class="section-top2 text-center">
                         <h3>Xem các ăn vặt khác tại</h3>
-                        <a href="#" class="genric-btn primary circle m-2 justify-content-center" style="color: #000;">
+                        <a href="../userview/index.php" class="genric-btn primary circle m-2 justify-content-center" style="color: #000;">
                             <span style="font-weight: bold; font-size: 20px; color:#000;">Trang Chủ</span>
                         </a>
                     </div>

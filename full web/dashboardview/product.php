@@ -83,8 +83,8 @@
                                         echo '  <td>';
                                         echo '      <div class="row">';
                                         echo '          <div class="col">';
-                                        echo '              <a href="../dashboardcontroler/controler.php?action=getfood&id=' . $food['id'] . '"   class=" col-xxl-5 col-10 btn btn-success rounded-pill m-2">Cập Nhật</a>';
-                                        echo '              <a href="../dashboardcontroler/controler.php?action=alertdeletefood&id=' . $food['id'] . '&name=' . $food['foodname'] . '" class=" col-xxl-5 col-10 btn btn-danger rounded-pill m-2">Xóa</a>';
+                                        echo '              <a href="../dashboardcontroler/controler.php?action=getfood&id=' . $food['id'] . '"   class=" col-xxl-11 col-10 btn btn-success rounded-pill m-2">Cập Nhật</a>';
+                                        echo '              <a href="../dashboardcontroler/controler.php?action=alertdeletefood&id=' . $food['id'] . '&name=' . $food['foodname'] . '" class=" col-xxl-11 col-10 btn btn-danger rounded-pill m-2">Xóa</a>';
                                         echo '          </div>';
                                         echo '      </div>';
                                         echo '  </td>';
@@ -136,9 +136,8 @@
                                         echo '  <td>';
                                         echo '      <div class="row">';
                                         echo '          <div class="col">';
-                                        echo '              <a href="../dashboardcontroler/controler.php?action=getdrink&id=' . $drink['id'] . '"   class=" col-xxl-5 col-10 btn btn-success rounded-pill m-2">Cập Nhật</a>';
-                                        // echo '              <a href="" class=" col-xxl-5 col-10 btn btn-danger rounded-pill m-2" data-bs-toggle="modal" data-bs-target="#ModalFood" >Xóa</a>';
-                                        echo '              <a href="../dashboardcontroler/controler.php?action=alertdeletedrink&id=' . $drink['id'] . '&name=' . $drink['drinkname'] . '" class=" col-xxl-5 col-10 btn btn-danger rounded-pill m-2">Xóa</a>';
+                                        echo '              <a href="../dashboardcontroler/controler.php?action=getdrink&id=' . $drink['id'] . '"   class=" col-xxl-11 col-10 btn btn-success rounded-pill m-2">Cập Nhật</a>';
+                                        echo '              <a href="../dashboardcontroler/controler.php?action=alertdeletedrink&id=' . $drink['id'] . '&name=' . $drink['drinkname'] . '" class=" col-xxl-11 col-10 btn btn-danger rounded-pill m-2">Xóa</a>';
                                         echo '          </div>';
                                         echo '      </div>';
                                         echo '  </td>';

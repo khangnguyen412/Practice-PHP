@@ -7,7 +7,7 @@
     class admincontroler{
         public function __construct($action){
             switch ($action){
-                // -----------------thêm admin------------------------------
+                // -----------------add admin------------------------------
                 case 'admincreate':
                     $username = $_POST['username'];
                     $password = $_POST['password'];
@@ -65,7 +65,65 @@
                     }
                     break;
 
-                // -----------------xóa admin------------------------------
+                // -----------------add user------------------------------
+                case 'usercreate':
+                    $username = $_POST['username'];
+                    $password = $_POST['password'];
+                    $otp = $_POST['otp'];
+                    $error = [];
+                    if (empty(trim($_POST['username']))) {
+                        $error['username']['required'] = 'Tên Tài Khoản Không Được Để Trống';
+                    }elseif(strlen(trim($_POST['username'])) < 5) {
+                        $error['username']['min'] = 'Tên Đăng Nhập Không Được Dưới 5 Ký Tự';
+                    }elseif(strlen(trim($_POST['username'])) > 15) {
+                        $error['username']['max'] = 'Tên Đăng Nhập Không Được Quá 15 Ký Tự';
+                    }elseif(strpos($_POST['username'], ' ') == true){
+                        $error['username']['space'] = 'Tên Đăng Nhập Không Được Có Khoảng Trống';
+                    }elseif(empty(trim($_POST['password']))) {
+                        $error['password']['required'] = 'Mật Khẩu Không Được Để Trống';
+                    }elseif(strlen(trim($_POST['password'])) < 5) {
+                        $error['password']['min'] = 'Mật Khẩu Không Được Dưới 5';
+                    }elseif(strlen(trim($_POST['password'])) > 15) {
+                        $error['password']['max'] = 'Mật Khẩu Không Được Quá 15';
+                    }elseif(strpos($_POST['password'], ' ') == true){
+                        $error['password']['space'] = 'Mật Khẩu Không Được Có Khoảng Trống';
+                    }else{
+                        $error = [];
+                    }
+                    if (!empty($error["username"]["required"])) {
+                        $this->shownotification(4, $error["username"]["required"]);
+                    } else if (!empty($error["username"]["min"])) {
+                        $this->shownotification(4, $error["username"]["min"]);
+                    } else if (!empty($error["username"]["max"])) {
+                        $this->shownotification(4, $error["username"]["max"]);
+                    } else if (!empty($error["username"]["space"])) {
+                        $this->shownotification(4, $error["username"]["space"]);
+                    } else if (!empty($error["password"]["required"])) {
+                        $this->shownotification(4, $error["password"]["required"]);
+                    } else if (!empty($error["password"]["min"])) {
+                        $this->shownotification(4, $error["password"]["min"]);
+                    } else if (!empty($error["password"]["max"])) {
+                        $this->shownotification(4, $error["password"]["max"]);
+                    } else if (!empty($error["password"]["space"])) {
+                        $this->shownotification(4, $error["password"]["space"]);
+                    } else {
+                        if($password == $otp){
+                            $table = 'users';
+                            $password = md5($password);
+                            $arr = array('username' => $username, 'password' => $password);
+                            $adduser = new usercontrol("", "", "");
+                            if($adduser->insertuser($table, $arr) == 'error'){
+                                $this->shownotification(4, 'Tên Tài Khoản Đã Được Đăng Ký Xin Vui Lòng Thử Lại');;
+                            }else{
+                                header("Location: ../dashboardcontroler/controler.php?action=showuser&notificationid=1");
+                            }                            
+                        }else{
+                            $this->shownotification(4, 'Xác Nhận Mật Khẩu Không Đúng');
+                        }
+                    }
+                    break;
+
+                // -----------------delete admin------------------------------
                 case 'deleteadmin':
                     $notification = (isset($_GET['notificationid']))? $this->notification($_GET['notificationid']): '';
                     $table = 'admins';
@@ -76,7 +134,7 @@
                     header("Location: ../dashboardcontroler/controler.php?action=logout");
                     break;
 
-                // -----------------lấy thông tin admin------------------------------
+                // -----------------get info admin------------------------------
                 case 'getadminid':
                     $id = $_GET['id'];
                     $table = 'admins';
@@ -86,7 +144,7 @@
                     include '../dashboardview/updateadmin.php';
                     break;
 
-                // -----------------cập nhật tin admin------------------------------
+                // -----------------update admin------------------------------
                 case 'updateadmin':
                     $id = $_POST['id'];
                     $username = $_POST['username'];
@@ -145,7 +203,7 @@
                     }
                     break;
                     
-                // -----------------hiển thị danh sách admin------------------------------
+                // -----------------show admin------------------------------
                 case 'showadmin':
                     $notification = (isset($_GET['notificationid']))? $this->notification($_GET['notificationid']): '';
                     $user = new usercontrol("", "", "");
@@ -154,14 +212,14 @@
                     include '../dashboardview/admin.php';
                     break; 
 
-                // -----------------thêm user------------------------------
-                case 'usercreate':
+                // -----------------signup------------------------------
+                case 'signup':
                     $username = $_POST['username'];
                     $password = $_POST['password'];
                     $otp = $_POST['otp'];
                     $error = [];
                     if (empty(trim($_POST['username']))) {
-                        $error['username']['required'] = true;
+                        $error['username']['required'] = 'Tên Đăng Nhập Không Được Để Trống';
                     }elseif(strlen(trim($_POST['username'])) < 5) {
                         $error['username']['min'] = 'Tên Đăng Nhập Không Được Dưới 5 Ký Tự';
                     }elseif(strlen(trim($_POST['username'])) > 15) {
@@ -204,16 +262,7 @@
                             if($adduser->insertuser($table, $arr) == 'error'){
                                 header("Location: ../dashboardcontroler/controler.php?action=shownotification&notificationid=errorUniqueUser");
                             }else{
-                                if (!isset($_SESSION)) {
-                                    session_start();
-                                }
-                                if (isset($_SESSION["islogin"]) && $_SESSION["role"] == 'admins') {
-                                    $id = $_SESSION["id"];
-                                    header("Location: ../dashboardcontroler/controler.php?action=showuser&notificationid=1");
-                                } else {
-                                    header("Location: ../dashboardcontroler/controler.php?action=shownotification&notificationid=addComplete");
-                                }
-                                // header("Location: ../dashboardcontroler/controler.php?action=shownotification&notificationid=addComplete");
+                                header("Location: ../dashboardcontroler/controler.php?action=shownotification&notificationid=addComplete");
                             }                            
                         }else{
                             $this->shownotification(1, 'Xác Nhận Mật Khẩu Không Đúng');
@@ -221,7 +270,7 @@
                     }
                     break;
 
-                // -----------------lấy thông tin user------------------------------
+                // -----------------get info user------------------------------
                 case 'getuserid':
                     $id = $_GET['id'];
                     $table = 'users';
@@ -231,7 +280,7 @@
                     include '../dashboardview/updateuser.php';
                     break;
 
-                // -----------------cập nhật tin user------------------------------
+                // -----------------update user------------------------------
                 case 'updateuser':
                     $id = $_POST['id'];
                     $username = $_POST['username'];
@@ -290,7 +339,7 @@
                     }
                     break;
 
-                // -----------------Lấy id thông báo xóa user------------------------------
+                // -----------------get id to delete user------------------------------
                 case 'alertdeleteuser':
                     $id = $_GET['id'];
                     $name = $_GET['name'];
@@ -299,7 +348,7 @@
                     include '../dashboardview/notification.php';
                     break;
 
-                // -----------------xóa user------------------------------
+                // -----------------delete user------------------------------
                 case 'deleteuser':
                     $notification = (isset($_GET['notificationid']))? $this->notification($_GET['notificationid']): '';
                     $table = 'users';
@@ -310,7 +359,7 @@
                     header("Location: ../dashboardcontroler/controler.php?action=showuser&notificationid=2");
                     break;
 
-                // -----------------hiển thị danh sách user------------------------------
+                // -----------------show user------------------------------
                 case 'showuser':
                     $notification = (isset($_GET['notificationid']))? $this->notification($_GET['notificationid']): '';
                     $user = new usercontrol("", "", "");
@@ -319,7 +368,7 @@
                     include '../dashboardview/user.php';
                     break;
 
-                // -----------------thêm thức ăn------------------------------
+                // -----------------add food------------------------------
                 case 'addfood':
                     $foodname = $_POST['foodname'];
                     $price = $_POST['price'];
@@ -331,8 +380,6 @@
                         $error['foodname']['required'] = true;
                     }elseif (empty(trim($_POST['price']))) {
                         $error['price']['required'] = true;
-                    }elseif (empty(trim($_POST['description']))) {
-                        $error['description']['required'] = true;
                     }elseif (empty(trim($_FILES['img']['name']))) {
                         $error['img']['required'] = true;
                     }else{
@@ -343,8 +390,6 @@
                         header("Location: ../dashboardcontroler/controler.php?action=shownotification&notificationid=emptyProductName");
                     } else if (!empty($error["price"]["required"])) {
                         header("Location: ../dashboardcontroler/controler.php?action=shownotification&notificationid=emptyPrice");
-                    } else if (!empty($error["description"]["required"])) {
-                        header("Location: ../dashboardcontroler/controler.php?action=shownotification&notificationid=emptyDescription");
                     } else if (!empty($error["img"]["required"])) {
                         header("Location: ../dashboardcontroler/controler.php?action=shownotification&notificationid=emptyImg");
                     } else {
@@ -358,7 +403,7 @@
                     }                    
                     break;
 
-                // -----------------lấy thông tin thức ăn------------------------------
+                // -----------------get info food------------------------------
                 case 'getfood':
                     $id = $_GET['id'];
                     $table = 'food';
@@ -368,7 +413,7 @@
                     include '../dashboardview/updatefood.php';
                     break;
 
-                // -----------------cập nhật thức ăn------------------------------
+                // -----------------update food------------------------------
                 case 'updatefood':
                     $id = $_POST['id'];
                     $foodname = $_POST['foodname'];
@@ -386,8 +431,6 @@
                         $error['foodname']['required'] = true;
                     }elseif (empty(trim($_POST['price']))) {
                         $error['price']['required'] = true;
-                    }elseif (empty(trim($_POST['description']))) {
-                        $error['description']['required'] = true;
                     }elseif (empty(trim($img))) {
                         $error['img']['required'] = true;
                     }else{
@@ -398,8 +441,6 @@
                         header("Location: ../dashboardcontroler/controler.php?action=shownotification&notificationid=emptyProductName");
                     } else if (!empty($error["price"]["required"])) {
                         header("Location: ../dashboardcontroler/controler.php?action=shownotification&notificationid=emptyPrice");
-                    } else if (!empty($error["description"]["required"])) {
-                        header("Location: ../dashboardcontroler/controler.php?action=shownotification&notificationid=emptyDescription");
                     } else if (!empty($error["img"]["required"])) {
                         header("Location: ../dashboardcontroler/controler.php?action=shownotification&notificationid=emptyImg");
                     } else {
@@ -413,7 +454,7 @@
                     }                    
                     break;
 
-                // -----------------Lấy id thông báo xóa sản phẩm------------------------------
+                // -----------------get id to delete food------------------------------
                 case 'alertdeletefood':
                     $id = $_GET['id'];
                     $name = $_GET['name'];
@@ -422,7 +463,7 @@
                     include '../dashboardview/notification.php';
                     break;
 
-                // -----------------xóa thức ăn------------------------------
+                // -----------------delete food------------------------------
                 case 'deletefood':
                     $notification = (isset($_GET['notificationid']))? $this->notification($_GET['notificationid']): '';
                     $table = 'food';
@@ -433,7 +474,7 @@
                     header("Location: ../dashboardcontroler/controler.php?action=showproduct&notificationid=5");
                     break;
 
-                // -----------------thêm nước uống------------------------------
+                // -----------------add drink------------------------------
                 case 'adddrink':
                     $drinkname = $_POST['drinkname'];
                     $price = $_POST['price'];
@@ -445,8 +486,6 @@
                         $error['drinkname']['required'] = true;
                     }elseif (empty(trim($_POST['price']))) {
                         $error['price']['required'] = true;
-                    }elseif (empty(trim($_POST['description']))) {
-                        $error['description']['required'] = true;
                     }elseif (empty(trim($_FILES['img']['name']))) {
                         $error['img']['required'] = true;
                     }else{
@@ -457,8 +496,6 @@
                         header("Location: ../dashboardcontroler/controler.php?action=shownotification&notificationid=emptyProductName");
                     } else if (!empty($error["price"]["required"])) {
                         header("Location: ../dashboardcontroler/controler.php?action=shownotification&notificationid=emptyPrice");
-                    } else if (!empty($error["description"]["required"])) {
-                        header("Location: ../dashboardcontroler/controler.php?action=shownotification&notificationid=emptyDescription");
                     } else if (!empty($error["img"]["required"])) {
                         header("Location: ../dashboardcontroler/controler.php?action=shownotification&notificationid=emptyImg");
                     } else {
@@ -472,7 +509,7 @@
                     }                    
                     break;
 
-                // -----------------lấy thông tin nước uống------------------------------
+                // -----------------get info drink------------------------------
                 case 'getdrink':
                     $id = $_GET['id'];
                     $table = 'drink';
@@ -482,7 +519,7 @@
                     include '../dashboardview/updatedrink.php';
                     break;
 
-                // -----------------cập nhật nước uống------------------------------
+                // -----------------update drink------------------------------
                 case 'updatedrink':
                     $id = $_POST['id'];
                     $drinkname = $_POST['drinkname'];
@@ -500,8 +537,6 @@
                         $error['drinkname']['required'] = true;
                     }elseif (empty(trim($_POST['price']))) {
                         $error['price']['required'] = true;
-                    }elseif (empty(trim($_POST['description']))) {
-                        $error['description']['required'] = true;
                     }elseif (empty(trim($img))) {
                         $error['img']['required'] = true;
                     }else{
@@ -512,8 +547,6 @@
                         header("Location: ../dashboardcontroler/controler.php?action=shownotification&notificationid=emptyProductName");
                     } else if (!empty($error["price"]["required"])) {
                         header("Location: ../dashboardcontroler/controler.php?action=shownotification&notificationid=emptyPrice");
-                    } else if (!empty($error["description"]["required"])) {
-                        header("Location: ../dashboardcontroler/controler.php?action=shownotification&notificationid=emptyDescription");
                     } else if (!empty($error["img"]["required"])) {
                         header("Location: ../dashboardcontroler/controler.php?action=shownotification&notificationid=emptyImg");
                     } else {
@@ -528,7 +561,7 @@
                     }                    
                     break;
                 
-                // -----------------Lấy id thông báo xóa sản phẩm------------------------------
+                // -----------------get id to delete drink------------------------------
                 case 'alertdeletedrink':
                     $id = $_GET['id'];
                     $name = $_GET['name'];
@@ -537,7 +570,7 @@
                     include '../dashboardview/notification.php';
                     break;
                 
-                // -----------------xóa nước------------------------------
+                // -----------------delete drink------------------------------
                 case 'deletedrink':
                     $notification = (isset($_GET['notificationid']))? $this->notification($_GET['notificationid']): '';
                     $table = 'drink';
@@ -548,7 +581,7 @@
                     header("Location: ../dashboardcontroler/controler.php?action=showproduct&notificationid=5");
                     break;
 
-                // -----------------hiển thị thức ăn------------------------------
+                // -----------------show product and comment------------------------------
                 case 'showproduct':
                     $notification = (isset($_GET['notificationid']))? $this->notification($_GET['notificationid']): '';
                     
@@ -576,7 +609,7 @@
                     include '../dashboardview/product.php';
                     break;
 
-                // -----------------hiển thị thức ăn lên menu------------------------------
+                // -----------------show food list to menu------------------------------
                 case 'showFood':
                     $food = new product("", "", "", "");
                     $getfood = 'select id, foodname, price, img, fooddescription, timeupload, timeupdate from food where foodname not like "Combo%"';
@@ -586,7 +619,7 @@
                     include '../userview/menu.php';
                     break;
 
-                // -----------------show thông tin thức ăn------------------------------
+                // -----------------show food detail------------------------------
                 case 'showFoodInfo':
                     $notification = (isset($_GET['notificationid']))? $this->notification($_GET['notificationid']): '';
                     $id = $_GET['id'];
@@ -600,7 +633,7 @@
                     include '../userview/foodinfor.php';
                     break;
 
-                // -----------------nhận xét thức ăn------------------------------
+                // -----------------food comment------------------------------
                 case 'commentFood':
                     $iduser = $_POST['iduser'];
                     $idfood = $_POST['idfood'];
@@ -618,7 +651,7 @@
                     header("Location: ../dashboardcontroler/controler.php?action=showFoodInfo&id=".$idfood."&notificationid=7");
                     break;
 
-                // -----------------Lấy id thông báo xóa nhận xét------------------------------
+                // -----------------get id to delete comment------------------------------
                 case 'alertdeletefoodcomment':
                     $id = $_GET['id'];
                     $datetime = $_GET['datetime'];
@@ -628,7 +661,7 @@
                     include '../dashboardview/notification.php';
                     break;
                 
-                // -----------------xóa nhận xét thức ăn------------------------------
+                // -----------------delete comment------------------------------
                 case 'deletecommentFood':
                     $notification = (isset($_GET['notificationid']))? $this->notification($_GET['notificationid']): '';
                     $table = ($_GET['role']=='admin')? "admincommentfood": "usercommentfood";
@@ -641,7 +674,7 @@
                     header("Location: ../dashboardcontroler/controler.php?action=showproduct&notificationid=8");
                     break;
 
-                // -----------------hiển thị đồ uống lên menu------------------------------
+                // -----------------show drink list to menu------------------------------
                 case 'showDrink':
                     $drink = new product("", "", "", "");
                     $cafeList = 'select id, drinkname, price, img, drinkdescription from drink where drinkname like "Cafe%"';
@@ -652,6 +685,9 @@
 
                     $milkTeaList = 'select id, drinkname, price, img, drinkdescription from drink where drinkname like "Trà sữa%" ';
                     $milkTeaList = $drink->getallproduct($milkTeaList);
+
+                    $teaList = 'select id, drinkname, price, img, drinkdescription from drink where drinkname like "Trà%" and drinkname not like "Trà sữa %" ';
+                    $teaList = $drink->getallproduct($teaList);
 
                     $caCaoList = 'select id, drinkname, price, img, drinkdescription from drink where drinkname like "Ca Cao%" ';
                     $caCaoList = $drink->getallproduct($caCaoList);
@@ -664,7 +700,7 @@
                     include '../userview/menu2.php';
                     break;
                 
-                // -----------------show thông tin nước uống------------------------------
+                // -----------------show drink detail------------------------------
                 case 'showDrinkInfo':
                     $id = $_GET['id'];
                     $drink = new product("", "", "", "");
@@ -677,7 +713,7 @@
                     include '../userview/drinkinfor.php';
                     break;
                     
-                // -----------------nhận xét nước uống------------------------------
+                // -----------------drink comment------------------------------
                 case 'commentDrink':
                     $iduser = $_POST['iduser'];
                     $iddrink = $_POST['iddrink'];
@@ -695,7 +731,7 @@
                     header("Location: ../dashboardcontroler/controler.php?action=showDrinkInfo&id=".$iddrink."&notificationid=7");
                     break;
                 
-                // -----------------Lấy id thông báo xóa nhận xét------------------------------
+                // -----------------get id to delete comment------------------------------
                 case 'alertdeletedrinkcommend':
                     $id = $_GET['id'];
                     $datetime = $_GET['datetime'];
@@ -705,7 +741,7 @@
                     include '../dashboardview/notification.php';
                     break;
 
-                // -----------------xóa nhận xét nước uống------------------------------
+                // -----------------delete drink comment------------------------------
                 case 'deletecommentDrink':
                     $notification = (isset($_GET['notificationid']))? $this->notification($_GET['notificationid']): '';
                     $table = ($_GET['role']=='admin')? "admincommentdrink": "usercommentdrink";
@@ -718,7 +754,7 @@
                     header("Location: ../dashboardcontroler/controler.php?action=showproduct&notificationid=8");
                     break;
 
-                // -----------------Tìm kiếm tài khoản------------------------------
+                // -----------------find account------------------------------
                 case 'findAccount':
                     $account = $_POST['nameAccount'];
                     $arr = array('username' => $account);
@@ -734,7 +770,7 @@
                     }
                     break;
 
-                // -----------------Xác nhận ngày tháng------------------------------
+                // -----------------Confirm date------------------------------
                 case 'comfirmAccount':
                     $userName = $_POST['userName'];
                     $date = $_POST['date'];
@@ -758,7 +794,7 @@
                     }
                     break;
 
-                // -----------------Xác nhận ngày tháng------------------------------
+                // -----------------update pass from user------------------------------
                 case 'backAccount':
                     $id = $_POST['id'];
                     $username = $_POST['username'];
@@ -801,7 +837,7 @@
                     }
                     break;
 
-                // -----------------Xác nhận ngày tháng------------------------------
+                // -----------------Get user id to update pass------------------------------
                 case 'userChangePass':
                     $id = $_GET['id'];
                     $table = 'users';
@@ -811,7 +847,7 @@
                     include '../dashboardview/updatepassword.php';
                     break;
 
-                // -----------------đăng nhập------------------------------
+                // -----------------login------------------------------
                 case 'login':
                     $username = $_POST['username'];
                     $pass = md5($_POST['password']);
@@ -829,7 +865,7 @@
                     }
                     break; 
                 
-                // -----------------đăng xuất------------------------------
+                // -----------------logout------------------------------
                 case 'logout':
                     if (!isset($_SESSION)) {
                         session_start();
@@ -839,7 +875,7 @@
                     header("Location: ../dashboardview/signin.php");
                     break;
 
-                // -----------------hiển thị thông báo------------------------------
+                // -----------------show notification------------------------------
                 case 'shownotification':
                     $notificationid = $_GET['notificationid'];
                     switch ($notificationid){
@@ -873,7 +909,7 @@
                             break;
                         case 'passwordRequire':
                             $result = 'Mật Khẩu Không Được Để Trống';
-                            $this->shownotification(3, $result);
+                            $this->shownotification(4, $result);
                             break;
                         case 'passwordMin':
                             $result = 'Mật Khẩu Không Được Dưới 5';
@@ -889,7 +925,7 @@
                             break;
                         case 'wrongPassConfirm':
                             $result = 'Xác Nhận Mật Khẩu Không Đúng';
-                            $this->shownotification(3, $result);
+                            $this->shownotification(4, $result);
                             break;
                         case 'errorUpdateAdmin':
                             $result = 'Cập Nhật Thất Bại';
@@ -897,19 +933,15 @@
                             break;
                         case 'emptyProductName':
                             $result = 'Tên Sản Phẩm Không Được Để Trống';
-                            $this->shownotification(3, $result);
+                            $this->shownotification(4, $result);
                             break;        
                         case 'emptyPrice':
                             $result = 'Sản Phẩm Chưa Có Giá';
-                            $this->shownotification(3, $result);
-                            break;
-                        case 'emptyDescription':
-                            $result = 'Sản Phẩm Chưa Có Mô Tả';
-                            $this->shownotification(3, $result);
+                            $this->shownotification(4, $result);
                             break;
                         case 'emptyImg':
                             $result = 'Sản Phẩm Chưa Có Hình Ảnh';
-                            $this->shownotification(3, $result);
+                            $this->shownotification(4, $result);
                             break;
                         default:
                             echo '';
@@ -948,6 +980,14 @@
                     include '../dashboardview/404.php';
                     break;
                 case 4:
+                    $result = '<h3 class="text-warning">'.$name.'</h3>';
+                    $button_back = '<a type="submit" href="../dashboardcontroler/controler.php?action=showadmin" class="btn btn-warning rounded-pill py-3 px-5">Quay Lại Trang Quản Trị</a>';
+                    include '../dashboardview/404.php';
+                    break;
+                case 5:
+                    $result = '<h4 class="text-warning">'.$name.'</h4>';
+                    $button_back = '<a type="submit" href="../dashboardcontroler/controler.php?action=showadmin" class="btn btn-warning py-3 w-100 mb-4">Quay Lại Trang Đăng Nhập</a>';
+                    include '../dashboardview/notification.php';
                     break;
             }
         }

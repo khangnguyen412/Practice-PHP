@@ -38,10 +38,6 @@
                                 <input type="text" name="username" class="form-control" id="floatingText" placeholder="Nhập Tên">
                                 <label for="floatingText">Tên Đăng Nhập</label>
                             </div>
-                            <!-- <div class="form-floating mb-3">
-                            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                            <label for="floatingInput">Email </label>
-                            </div> -->
                             <div class="form-floating mb-4">
                                 <input type="password" name="password" class="form-control" id="floatingPassword" placeholder="Mật Khẩu">
                                 <label for="floatingPassword">Mật Khẩu</label>
@@ -50,14 +46,7 @@
                                 <input type="password" name="otp" class="form-control" id="floatingPassword" placeholder="Nhập Lại Mật Khẩu">
                                 <label for="floatingPassword">Xác Nhận Mật Khẩu</label>
                             </div>
-                            <!-- <div class="d-flex align-items-center justify-content-between mb-4">
-                                <div class="form-check">
-                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                                </div>
-                                <a href="">Forgot Password</a>
-                            </div> -->
-                            <button type="submit" name="useraction" value="usercreate" class="btn btn-warning py-3 w-100 mb-4">Đăng Ký</button>
+                            <button type="submit" name="useraction" value="signup" class="btn btn-warning py-3 w-100 mb-4">Đăng Ký</button>
                             <p class="text-center mb-0">Đã có tài khoản? <a href="" class="text-warning">Đăng Nhập</a></p>
                         </form>
                     </div>

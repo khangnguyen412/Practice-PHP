@@ -75,7 +75,7 @@
                                 <div class="mb-3">
                                     <label for="formFileLg" class="form-label">Chọn Lại Hình Ảnh (Hình Ảnh Đang Chọn: <?php echo $img?>)</label>
                                     <input class="form-control form-control-lg bg-dark" name="img" value="<?php echo $img?>" id="formFileLg" type="file">
-                                    <input class="form-control form-control-lg bg-dark" name="oldimg" value="<?php echo $img?>" id="" type="text" readonly>
+                                    <input class="form-control form-control-lg bg-dark" name="oldimg" value="<?php echo $img?>" id="" type="text" readonly hidden>
                                     <!-- <span name="old" value="">(Hình Ảnh Đang Chọn: )</span> -->
                                 </div>
                                 <button type="submit" name="useraction" value="updatefood" class="btn btn-warning">Cập Nhật Món Ăn</button>

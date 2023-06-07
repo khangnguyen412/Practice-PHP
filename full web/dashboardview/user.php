@@ -79,8 +79,8 @@
                                         echo '  <td>';
                                         echo '      <div class="row">';
                                         echo '          <div class="col">';
-                                        echo '              <a href="../dashboardcontroler/controler.php?action=getuserid&id=' . $user['id'] . '"   class=" col-xxl-5 col-10 btn btn-success rounded-pill m-2">Cập Nhật</a>';
-                                        echo '              <a href="../dashboardcontroler/controler.php?action=alertdeleteuser&id=' . $user['id'] . '&name='.$user['username'].'" class=" col-xxl-5 col-10 btn btn-danger rounded-pill m-2">Xóa</a>';
+                                        echo '              <a href="../dashboardcontroler/controler.php?action=getuserid&id=' . $user['id'] . '"   class=" col-xxl-11 col-10 btn btn-success rounded-pill m-2">Cập Nhật</a>';
+                                        echo '              <a href="../dashboardcontroler/controler.php?action=alertdeleteuser&id=' . $user['id'] . '&name='.$user['username'].'" class=" col-xxl-11 col-10 btn btn-danger rounded-pill m-2">Xóa</a>';
                                         echo '          </div>';
                                         echo '      </div>';
                                         echo '  </td>';

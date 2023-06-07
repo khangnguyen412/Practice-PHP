@@ -23,7 +23,7 @@
     <!-- Header Area End -->
 
     <!-- Banner Area Starts -->
-    <section class="banner-area banner-area2 menu-bg text-center">
+    <section class="banner-area banner-area2 menu-bg text-center" style="background-image: url('../assets/images/img/wallPaper2.jpg')">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">

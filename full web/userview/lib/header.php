@@ -2,7 +2,7 @@
 <header class="header-area" style="z-index: 5;">
     <div class="container">
         <div class="row">
-            <div class="row col-lg-6 col-md-12 col-12 align-items-center justify-content-center">
+            <div class="row col-lg-5 col-md-12 col-12 align-items-center justify-content-center">
                 <div class="col-lg-4 col-md-3 col-sm-3 col-4 logo-area">
                     <a href="index.php" class="col-lg-12">
                         <img src="../assets/images/logo/LOGO-HOP-DEN.jpg" class="logo" alt="logo">
@@ -19,7 +19,7 @@
                     </a>
                 </div>
             </div>
-            <div class="col-lg-6 ">
+            <div class="col-lg-7 ">
                 <div class="main-menu">
                     <ul>
                         <li><a href="../userview/index.php">Trang Chủ</a></li>
@@ -32,7 +32,7 @@
                                 session_start();
                             }
                             if (isset($_SESSION["islogin"])) {
-                                echo '<a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">' . $_SESSION["username"] . '</a>';
+                                echo '<a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">Tài Khoản</a>';
                             } else {
                                 echo '<a href="../dashboardview/signin.php">Đăng Nhập</a>';
                             }
@@ -55,7 +55,7 @@
                     session_start();
                 }
                 if (isset($_SESSION["islogin"])) {
-                    echo '<a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">' . $_SESSION["username"] . '</a>';
+                    echo '<a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">Tài Khoản</a>';
                 } else {
                     echo '<a href="../dashboardview/signin.php">Đăng Nhập</a>';
                 }

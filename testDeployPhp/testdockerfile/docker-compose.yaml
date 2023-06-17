@@ -16,13 +16,19 @@ services:
     mysql:
         image: mariadb:latest
         environment:
-            MYSQL_ROOT_PASSWORD: 'localhost'
-            MYSQL_USER: 'localhost' # tên user
-            MYSQL_PASSWORD: 'khang' # pass 
-            MYSQL_DATABASE: 'test'  # tên data
+            MYSQL_ROOT_PASSWORD: 'admin' # password gốc
+            MYSQL_USER: 'admin' # tên user không dùng được user root
+            MYSQL_PASSWORD: 'admin' # pass 
+            MYSQL_DATABASE: 'test'  # tên data đây là database mặc định khi tạo csdl
         volumes:
             - mysqldata:/var/lib/mysql
         ports:
             - 3306:3306
 volumes:
     mysqldata: {}
+
+# pull image bằng lệnh docker compose up
+# push 3 images sau lên registry để chạy pod k8s
+# ...file-php  
+# mariadb
+# nginx

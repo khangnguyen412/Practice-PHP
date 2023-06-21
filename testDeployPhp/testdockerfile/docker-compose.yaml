@@ -24,11 +24,15 @@ services:
             - mysqldata:/var/lib/mysql
         ports:
             - 3306:3306
+    phpmyadmin:
+        image: phpmyadmin
+        restart: always
+        ports:
+            - 3307:80
+            #server: 192.168.33.10
+            #user: admin
+            #pass: admin
+        environment:
+            - PMA_ARBITRARY=1
 volumes:
     mysqldata: {}
-
-# pull image bằng lệnh docker compose up
-# push 3 images sau lên registry để chạy pod k8s
-# ...file-php  
-# mariadb
-# nginx

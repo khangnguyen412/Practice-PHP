@@ -6,10 +6,10 @@ metadata:
     tier: backend
 spec:
   selector:
-app: nginx
+    app: nginx
     tier: backend
   ports:
   - protocol: TCP
     port: 80
   externalIPs:
-  - your_public_ip
+  - 192.168.33.10

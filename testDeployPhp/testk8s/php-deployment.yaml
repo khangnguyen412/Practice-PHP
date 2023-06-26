@@ -35,7 +35,7 @@ spec:
       containers:
       - name: webapp1
         # image: shawon10/ruetchatbot
-        # image: images
+        image: localhost:5001/testk8sphp
         imagePullPolicy: Always
         ports:
         - containerPort: 8081

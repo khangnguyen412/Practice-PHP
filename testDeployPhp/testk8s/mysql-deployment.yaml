@@ -37,13 +37,13 @@ spec:
         name: mysql
         env:
         - name: MYSQL_ROOT_PASSWORD
-          # value: admin
+          value: admin
         - name: MYSQL_DATABASE
-          # value: test
+          value: test
         - name: MYSQL_USER
-          # value: admin
+          value: admin
         - name: MYSQL_PASSWORD
-          # value: admin
+          value: admin
         args: ["--default-authentication-plugin=mysql_native_password"]
         ports:
         - containerPort: 3306

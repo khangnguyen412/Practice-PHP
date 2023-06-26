@@ -2,5 +2,4 @@ kubernetes deploys:
 php-deployment.yaml
 mysql-pv.yaml
 mysql-deployment.yaml
-
-check pod 
+myPhpAdmin-deployment.yaml

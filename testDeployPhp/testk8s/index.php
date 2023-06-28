@@ -6,10 +6,13 @@
 </head>
 <body>
     <?php 
-       $pdo = new PDO('mysql:dbname=test;host=mysql', 'admin', 'admin', [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
-       $query = $pdo->query('SHOW VARIABLES like "version"');
-       $row = $query->fetch();
-       echo 'MySQL version:' . $row['Value'];
+        echo $host = "mysql";
+        echo "<br>";
+        echo $dbname = "test";
+        $pdo = new PDO('mysql:dbname='.$dbname.';host='.$host.'', 'admin', 'admin', [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
+        $query = $pdo->query('SHOW VARIABLES like "version"');
+        $row = $query->fetch();
+        echo 'MySQL version:' . $row['Value'];
     ?>
 </body>
 </html>

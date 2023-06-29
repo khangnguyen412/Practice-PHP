@@ -6,7 +6,7 @@
 </head>
 <body>
     <?php 
-        echo $host = "mysql";
+        echo $host = "mysql"; // lấy tên của container trong service mysql
         echo "<br>";
         echo $dbname = "test";
         $pdo = new PDO('mysql:dbname='.$dbname.';host='.$host.'', 'admin', 'admin', [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);

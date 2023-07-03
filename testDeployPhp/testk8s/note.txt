@@ -1,5 +1,0 @@
-kubernetes deploys:
-php-deployment.yaml
-mysql-pv.yaml
-mysql-deployment.yaml
-myPhpAdmin-deployment.yaml

@@ -77,10 +77,10 @@ create table admincommentdrink(
 
 select * from admins;
 select * from users;
-insert into users (username, passwords) values ('ronglun', 'ronglun');
-insert into users (username, passwords) values ('khangnguyen', '82304289ee4cd9b6e1da8eaa58a39de1');
-SELECT * FROM users where username = "khangnguyen";
-update admins set username = 'khangnguyen', passwords = "82304289ee4cd9b6e1da8eaa58a39de1", timeupdate = now()  where id = 57;
+insert into users (username, passwords) values ('', '');
+insert into users (username, passwords) values ('', '');
+SELECT * FROM users where username = "";
+update admins set username = '', passwords = "", timeupdate = now()  where id = 57;
 alter table admins drop column avt;
 delete from admins where id = 63;
 SET SQL_SAFE_UPDATES = 0;

@@ -689,19 +689,19 @@
                     $cafeList = 'select id, drinkname, price, img, drinkdescription from drink where drinkname like "Cafe%"';
                     $cafeList = $drink->getallproduct($cafeList);
                     
-                    $milkList = 'select id, drinkname, price, img, drinkdescription from drink where drinkname like "Sữa chua%" ';
+                    $milkList = 'select id, drinkname, price, img, drinkdescription from drink where drinkname like "Sữa chua%" OR drinkname like "Sữa tươi%"';
                     $milkList = $drink->getallproduct($milkList);
 
-                    $milkTeaList = 'select id, drinkname, price, img, drinkdescription from drink where drinkname like "Trà sữa%" ';
+                    $milkTeaList = 'select id, drinkname, price, img, drinkdescription from drink where drinkname like "Trà sữa%" OR drinkname like "Lipton%" ';
                     $milkTeaList = $drink->getallproduct($milkTeaList);
 
-                    $teaList = 'select id, drinkname, price, img, drinkdescription from drink where drinkname like "Trà%" and drinkname not like "Trà sữa %" ';
+                    $teaList = 'select id, drinkname, price, img, drinkdescription from drink where drinkname like "Hồng Trà%" OR drinkname like "Trà%" AND drinkname not like "Trà sữa%"';
                     $teaList = $drink->getallproduct($teaList);
 
                     $caCaoList = 'select id, drinkname, price, img, drinkdescription from drink where drinkname like "Ca Cao%" ';
                     $caCaoList = $drink->getallproduct($caCaoList);
 
-                    $sodaList = 'select id, drinkname, price, img, drinkdescription from drink where drinkname like "Soda%" ';
+                    $sodaList = 'select id, drinkname, price, img, drinkdescription from drink where drinkname like "Soda%" OR drinkname like "Nước Ngọt%"';
                     $sodaList = $drink->getallproduct($sodaList);
 
                     $juiceList = 'select id, drinkname, price, img, drinkdescription from drink where drinkname like "Nước ép%" ';

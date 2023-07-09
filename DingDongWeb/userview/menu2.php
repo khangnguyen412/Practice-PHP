@@ -86,7 +86,7 @@
 
             <div class="row mt-5" >
                 <div class="col-lg-12 col-md-12 col-12">
-                    <h3>Sữa Chua</h3>
+                    <h3>Sữa Chua Và Sữa Tươi</h3>
                 </div>
                 <?php
                     if(isset($milkList)){

@@ -61,10 +61,10 @@
                         echo '      </div>';
                         echo '      <div class="card-body">';
                         echo '          <div class="d-flex justify-content-between row" >';
-                        echo '              <div class="col-xl-6 col-md-12 col-sm-12">';
+                        echo '              <div class="col-xl-12 col-md-12 col-sm-12">';
                         echo '                  <h5>' . $food['foodname'] . '</h5>';
                         echo '              </div>';
-                        echo '              <div class="col-xl-6 col-md-12 col-sm-12">';
+                        echo '              <div class="col-xl-12 col-md-12 col-sm-12">';
                         echo '                  <span class="style-change"> Giá: ' . $food['price'] . ' VNĐ</span>';
                         echo '              </div>';
                         echo '          </div>';
@@ -99,10 +99,10 @@
                         echo '      </div>';
                         echo '      <div class="card-body">';
                         echo '          <div class="d-flex justify-content-between row" >';
-                        echo '              <div class="col-xl-6 col-md-12 col-sm-12">';
+                        echo '              <div class="col-xl-12 col-md-12 col-sm-12">';
                         echo '                  <h5>' . $food['foodname'] . '</h5>';
                         echo '              </div>';
-                        echo '              <div class="col-xl-6 col-md-12 col-sm-12">';
+                        echo '              <div class="col-xl-12 col-md-12 col-sm-12">';
                         echo '                  <span class="style-change"> Giá: ' . $food['price'] . ' VNĐ</span>';
                         echo '              </div>';
                         echo '          </div>';
@@ -137,10 +137,10 @@
                         echo '      </div>';
                         echo '      <div class="card-body">';
                         echo '          <div class="d-flex justify-content-between row" >';
-                        echo '              <div class="col-xl-6 col-md-12 col-sm-12">';
+                        echo '              <div class="col-xl-12 col-md-12 col-sm-12">';
                         echo '                  <h5>' . $food['foodname'] . '</h5>';
                         echo '              </div>';
-                        echo '              <div class="col-xl-6 col-md-12 col-sm-12">';
+                        echo '              <div class="col-xl-12 col-md-12 col-sm-12">';
                         echo '                  <span class="style-change"> Giá: ' . $food['price'] . ' VNĐ</span>';
                         echo '              </div>';
                         echo '          </div>';

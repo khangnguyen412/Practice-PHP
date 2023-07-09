@@ -24,7 +24,7 @@
                     <ul>
                         <li><a href="../userview/index.php">Trang Chủ</a></li>
                         <li><a href="../dashboardcontroler/controler.php?action=showFood">Thức Ăn</a></li>
-                        <li><a href="../dashboardcontroler/controler.php?action=showDrink">Đồ Uống</a></li>
+                        <li><a href="../dashboardcontroler/controler.php?action=showDrink">Nước Uống</a></li>
                         <li><a href="#contact">Liên Hệ</a></li>
                         <li>
                             <?php
@@ -47,7 +47,7 @@
         <ul class="">
             <li><a href="../userview/index.php">Trang Chủ</a></li>
             <li><a href="../dashboardcontroler/controler.php?action=showFood">Thức Ăn</a></li>
-            <li><a href="../dashboardcontroler/controler.php?action=showDrink">Đồ Uống</a></li>
+            <li><a href="../dashboardcontroler/controler.php?action=showDrink">Nước Uống</a></li>
             <li><a href="#contact">Liên Hệ</a></li>
             <li>
                 <?php

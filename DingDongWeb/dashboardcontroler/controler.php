@@ -612,10 +612,19 @@
                 // -----------------show food list to menu------------------------------
                 case 'showFood':
                     $food = new product("", "", "", "");
-                    $getfood = 'select id, foodname, price, img, fooddescription, timeupload, timeupdate from food where foodname not like "Combo%"';
-                    $foodlist = $food->getallproduct($getfood);
-                    $getfood2 = 'select id, foodname, price, img, fooddescription, timeupload, timeupdate from food where foodname like "Combo%"';
-                    $combofoodlist = $food->getallproduct($getfood2);
+                    $getfoodlist = 'select id, foodname, price, img, fooddescription, timeupload, timeupdate from food where foodname not like "Combo%" 
+                                    AND foodname NOT LIKE "lẩu ly tự chọn%" AND foodname NOT LIKE "lẩu ly combo%" ';
+                    $foodlist = $food->getallproduct($getfoodlist);
+                    
+                    $getBuffetHotPot = 'select id, foodname, price, img, fooddescription, timeupload, timeupdate from food where foodname like "Lẩu Ly Tự Chọn%"';
+                    $buffetHotPot = $food->getallproduct($getBuffetHotPot);
+                    
+                    $getComboHotPot = 'select id, foodname, price, img, fooddescription, timeupload, timeupdate from food where foodname like "Lẩu Ly Combo%"';
+                    $comboHotPot = $food->getallproduct($getComboHotPot);
+                    
+                    $getCombo = 'select id, foodname, price, img, fooddescription, timeupload, timeupdate from food where foodname like "Combo%"';
+                    $combofoodlist = $food->getallproduct($getCombo);
+                    
                     include '../userview/menu.php';
                     break;
 
@@ -697,6 +706,9 @@
 
                     $juiceList = 'select id, drinkname, price, img, drinkdescription from drink where drinkname like "Nước ép%" ';
                     $juiceList = $drink->getallproduct($juiceList);
+
+                    $toppingList = 'select id, drinkname, price, img, drinkdescription from drink where drinkname like "Topping%" ';
+                    $toppingList = $drink->getallproduct($toppingList);
                     include '../userview/menu2.php';
                     break;
                 

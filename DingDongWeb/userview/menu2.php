@@ -164,7 +164,7 @@
 
             <div class="row mt-5" >
                 <div class="col-lg-12 col-md-12 col-12">
-                    <h3>Soda</h3>
+                    <h3>Ca Cao</h3>
                 </div>
                 <?php
                     if(isset($caCaoList)){
@@ -203,7 +203,7 @@
 
             <div class="row mt-5" >
                 <div class="col-lg-12 col-md-12 col-12">
-                    <h3>Ca Cao</h3>
+                    <h3>Soda</h3>
                 </div>
                 <?php
                     if(isset($sodaList)){

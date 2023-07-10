@@ -704,7 +704,7 @@
                     $sodaList = 'select id, drinkname, price, img, drinkdescription from drink where drinkname like "Soda%" OR drinkname like "Nước Ngọt%"';
                     $sodaList = $drink->getallproduct($sodaList);
 
-                    $juiceList = 'select id, drinkname, price, img, drinkdescription from drink where drinkname like "Nước ép%" ';
+                    $juiceList = 'select id, drinkname, price, img, drinkdescription from drink where drinkname like "Nước Ép%" ';
                     $juiceList = $drink->getallproduct($juiceList);
 
                     $toppingList = 'select id, drinkname, price, img, drinkdescription from drink where drinkname like "Topping%" ';

@@ -1,4 +1,9 @@
 <!-- Header Area Starts -->
+<?php
+    if (!isset($_SESSION)) {
+        session_start();
+    }
+?>
 <header class="header-area" style="z-index: 5;">
     <div class="container">
         <div class="row">
@@ -23,46 +28,91 @@
                 <div class="main-menu">
                     <ul>
                         <li><a href="../userview/index.php">Trang Chủ</a></li>
-                        <li><a href="../dashboardcontroler/controler.php?action=showFood">Thức Ăn</a></li>
-                        <li><a href="../dashboardcontroler/controler.php?action=showDrink">Nước Uống</a></li>
+
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Thức Ăn
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="../dashboardcontroler/controler.php?action=showFood">Tất Cả Danh Mục</a></li>
+                                <li><a class="dropdown-item" href="#">...</a></li>
+                                <li><a class="dropdown-item" href="#">...</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Nước Uống
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="../dashboardcontroler/controler.php?action=showFood">Tất Cả Danh Mục</a></li>
+                                <li><a class="dropdown-item" href="#">...</a></li>
+                                <li><a class="dropdown-item" href="#">...</a></li>
+                            </ul>
+                        </li>
+
                         <li><a href="#contact">Liên Hệ</a></li>
+
                         <li>
                             <?php
-                            if (!isset($_SESSION)) {
-                                session_start();
-                            }
-                            if (isset($_SESSION["islogin"])) {
-                                echo '<a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">Tài Khoản</a>';
-                            } else {
-                                echo '<a href="../dashboardview/signin.php">Đăng Nhập</a>';
-                            }
+                                if (isset($_SESSION["islogin"])) {
+                                    echo '<a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">Tài Khoản</a>';
+                                } else {
+                                    echo '<a href="../dashboardview/signin.php">Đăng Nhập</a>';
+                                }
                             ?>
                         </li>
+                        
                     </ul>
                 </div>
             </div>
         </div>
     </div>
-    <div class="collapse menu-text hide-on-pc" id="collapseExample">
-        <ul class="">
-            <li><a href="../userview/index.php">Trang Chủ</a></li>
-            <li><a href="../dashboardcontroler/controler.php?action=showFood">Thức Ăn</a></li>
-            <li><a href="../dashboardcontroler/controler.php?action=showDrink">Nước Uống</a></li>
-            <li><a href="#contact">Liên Hệ</a></li>
-            <li>
-                <?php
-                if (!isset($_SESSION)) {
-                    session_start();
-                }
-                if (isset($_SESSION["islogin"])) {
-                    echo '<a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">Tài Khoản</a>';
-                } else {
-                    echo '<a href="../dashboardview/signin.php">Đăng Nhập</a>';
-                }
-                ?>
-            </li>
-        </ul>
+
+    <div class="menu-text hide-on-pc">
+        <nav class="navbar">
+            <div class="collapse navbar-collapse" id="collapseExample">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a href="../userview/index.php">Trang Chủ</a></li>
+
+                    <li class="nav-item dropdown">
+                        <a class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Thức Ăn
+                        </a>
+                        <ul class="bg-body-tertiary dropdown-menu" style="margin: 20px;">
+                            <li><a class="dropdown-item" href="../dashboardcontroler/controler.php?action=showFood">Tất Cả Danh Mục</a></li>
+                            <li><a class="dropdown-item" href="#">...</a></li>
+                            <li><a class="dropdown-item" href="#">...</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Nước Uống
+                        </a>
+                        <ul class="bg-body-tertiary dropdown-menu" style="margin: 20px;">
+                            <li><a class="dropdown-item" href="../dashboardcontroler/controler.php?action=showDrink">Tất Cả Danh Mục</a></li>
+                            <li><a class="dropdown-item" href="#">...</a></li>
+                            <li><a class="dropdown-item" href="#">...</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item"><a href="#contact">Liên Hệ</a></li>
+
+                    <li class="nav-item">
+                        <?php
+                            if (isset($_SESSION["islogin"])) {
+                                echo '<a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">Tài Khoản</a>';
+                            } else {
+                                echo '<a href="../dashboardview/signin.php">Đăng Nhập</a>';
+                            }
+                        ?>
+                    </li>
+                </ul>
+            </div>
+        </nav>
     </div>
+
 </header>
 
 <div class="modal" id="exampleModal" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -74,27 +124,24 @@
             </div>
             <div class="modal-body">
                 <?php
-                    if (!isset($_SESSION)) {
-                        session_start();
-                    }
-                    if (isset($_SESSION["islogin"])) {
-                        echo "<div>ID Tài Khoản: ".$_SESSION["id"]."</div><br>";
-                        echo "<div>Tên Tài Khoản: ".$_SESSION["username"]."</div><br>";
-                        echo "<div>Ngày Giờ Tạo: ".$_SESSION["timecreate"]."</div><br>";
-                        echo "<div>Lần Cuối Cập Nhật: ".$_SESSION["timeupdate"]."</div><br>";
-                        echo "<div>Quyền Truy Cập: ".$_SESSION["role"]."</div><br>";
-                    } else {
-                        echo '<a href="../dashboardview/signin.php">Đăng Nhập</a>';
-                    }
+                if (isset($_SESSION["islogin"])) {
+                    echo "<div>ID Tài Khoản: " . $_SESSION["id"] . "</div><br>";
+                    echo "<div>Tên Tài Khoản: " . $_SESSION["username"] . "</div><br>";
+                    echo "<div>Ngày Giờ Tạo: " . $_SESSION["timecreate"] . "</div><br>";
+                    echo "<div>Lần Cuối Cập Nhật: " . $_SESSION["timeupdate"] . "</div><br>";
+                    echo "<div>Quyền Truy Cập: " . $_SESSION["role"] . "</div><br>";
+                } else {
+                    echo '<a href="../dashboardview/signin.php">Đăng Nhập</a>';
+                }
                 ?>
             </div>
             <div class="modal-footer">
                 <?php
-                    if($_SESSION["role"] == "admins"){
-                        echo'<a href="./../dashboardcontroler/controler.php?action=showadmin" class="btn btn-primary">Trang Admin</a>';
-                    }else{
-                        echo'<a href="./../dashboardcontroler/controler.php?action=userChangePass&id='.$_SESSION["id"].'" class="btn btn-primary">Thay Đổi Mật Khẩu</a>';
-                    }
+                if ($_SESSION["role"] == "admins") {
+                    echo '<a href="./../dashboardcontroler/controler.php?action=showadmin" class="btn btn-primary">Trang Admin</a>';
+                } else {
+                    echo '<a href="./../dashboardcontroler/controler.php?action=userChangePass&id=' . $_SESSION["id"] . '" class="btn btn-primary">Thay Đổi Mật Khẩu</a>';
+                }
                 ?>
                 <a href="./../dashboardcontroler/controler.php?action=logout" class="btn btn-primary">Đăng Xuất</a>
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>

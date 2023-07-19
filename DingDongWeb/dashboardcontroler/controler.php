@@ -2,7 +2,6 @@
     include_once '../dashboardmodel/model.php';
     include_once './lib/uploadfile.php';
     include_once './lib/databaseprocess.php';
-    include_once './lib/checkinfor.php';
 
     class admincontroler{
         public function __construct($action){

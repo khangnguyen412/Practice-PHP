@@ -1,4 +1,9 @@
 <!-- Navbar Start -->
+<?php
+    if (!isset($_SESSION)) {
+        session_start();
+    }
+?>
 <nav class="navbar navbar-expand bg-secondary navbar-dark sticky-top px-4 py-0">
     <a href="index.html" class="navbar-brand d-flex d-lg-none me-4">
         <h2 class="text-primary mb-0">
@@ -14,12 +19,8 @@
     <div class="navbar-nav align-items-center ms-auto">
         <div class="nav-item dropdown">
             <a href="#" class="nav-link d-flex text-warning" data-bs-toggle="dropdown">
-                <!-- <img class="rounded-circle me-lg-2" src="../img/user.jpg" alt="" style="width: 40px; height: 40px;"> -->
                 <span class="d-lg-inline-flex m-2">
                     <?php
-                    if (!isset($_SESSION)) {
-                        session_start();
-                    }
                     if (isset($_SESSION["islogin"]) && $_SESSION["role"] == 'admins') {
                         echo '<h5 class="text-warning">' . $_SESSION["username"] . '</h5>';
                     } else {
@@ -37,9 +38,6 @@
             <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
                 <!-- <a href="#" class="dropdown-item">My Profile</a> -->
                 <?php
-                if (!isset($_SESSION)) {
-                    session_start();
-                }
                 if (isset($_SESSION["islogin"]) && $_SESSION["role"] == 'admins') {
                     $id = $_SESSION["id"];
                     echo '<a href="../dashboardcontroler/controler.php?action=getadminid&id=' . $id . '" class="dropdown-item">Cập Nhật Tài Khoản</a>';
@@ -65,15 +63,12 @@
             </div>
             <div class="modal-footer">
                 <?php
-                    if (!isset($_SESSION)) {
-                        session_start();
-                    }
-                    if (isset($_SESSION["islogin"]) && $_SESSION["role"] == 'admins') {
-                        $id = $_SESSION["id"];
-                        echo '<a href="../dashboardcontroler/controler.php?action=deleteadmin&id=' . $id . '"   class="btn btn-danger rounded-pill m-2">Xóa</a>';
-                    } else {
-                        header("Location: ../dashboardview/signin.php");
-                    }
+                if (isset($_SESSION["islogin"]) && $_SESSION["role"] == 'admins') {
+                    $id = $_SESSION["id"];
+                    echo '<a href="../dashboardcontroler/controler.php?action=deleteadmin&id=' . $id . '"   class="btn btn-danger rounded-pill m-2">Xóa</a>';
+                } else {
+                    header("Location: ../dashboardview/signin.php");
+                }
                 ?>
                 <button type="button" class="btn btn-secondary rounded-pill" data-bs-dismiss="modal">Đóng</button>
             </div>

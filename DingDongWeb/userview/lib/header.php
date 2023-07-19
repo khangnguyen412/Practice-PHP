@@ -4,7 +4,7 @@
         session_start();
     }
 ?>
-<header class="header-area" style="z-index: 5;">
+<header class="header-area" style="z-index: 5; border: solid 1px #000;">
     <div class="container">
         <div class="row">
             <div class="row col-lg-5 col-md-12 col-12 align-items-center justify-content-center">
@@ -35,8 +35,9 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="../dashboardcontroler/controler.php?action=showFood">Tất Cả Danh Mục</a></li>
-                                <li><a class="dropdown-item" href="#">...</a></li>
-                                <li><a class="dropdown-item" href="#">...</a></li>
+                                <li><a class="dropdown-item" href="../dashboardcontroler/controler.php?action=showFood&category=comboHotpot">Combo Lẩu</a></li>
+                                <li><a class="dropdown-item" href="../dashboardcontroler/controler.php?action=showFood&category=buffetHotpot">Lẩu Ly Tự Chọn</a></li>
+                                <li><a class="dropdown-item" href="../dashboardcontroler/controler.php?action=showFood&category=specialCombo">Combo Đặc Biệt</a></li>
                             </ul>
                         </li>
 
@@ -45,9 +46,16 @@
                                 Nước Uống
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="../dashboardcontroler/controler.php?action=showFood">Tất Cả Danh Mục</a></li>
-                                <li><a class="dropdown-item" href="#">...</a></li>
-                                <li><a class="dropdown-item" href="#">...</a></li>
+                                <li><a class="dropdown-item" href="../dashboardcontroler/controler.php?action=showDrink">Tất Cả Danh Mục</a></li>
+                                <li><a class="dropdown-item" href="#">Cafe</a></li>
+                                <li><a class="dropdown-item" href="#">Sữa Chua Và Sữa Tươi</a></li>
+                                <li><a class="dropdown-item" href="#">Trà Sữa</a></li>
+                                <li><a class="dropdown-item" href="#">Ca Cao</a></li>
+                                <li><a class="dropdown-item" href="#">Soda</a></li>
+                                <li><a class="dropdown-item" href="#">Nước Ép</a></li>
+                                <li><a class="dropdown-item" href="#">Trà</a></li>
+                                <li><a class="dropdown-item" href="#">Các Loại Topping</a></li>
+                                <li><a class="dropdown-item" href="#">Nước Uống Khác</a></li>
                             </ul>
                         </li>
 
@@ -81,8 +89,9 @@
                         </a>
                         <ul class="bg-body-tertiary dropdown-menu" style="margin: 20px;">
                             <li><a class="dropdown-item" href="../dashboardcontroler/controler.php?action=showFood">Tất Cả Danh Mục</a></li>
-                            <li><a class="dropdown-item" href="#">...</a></li>
-                            <li><a class="dropdown-item" href="#">...</a></li>
+                            <li><a class="dropdown-item" href="../dashboardcontroler/controler.php?action=showFood&category=comboHotpot">Combo Lẩu</a></li>
+                            <li><a class="dropdown-item" href="../dashboardcontroler/controler.php?action=showFood&category=buffetHotpot">Lẩu Ly Tự Chọn</a></li>
+                            <li><a class="dropdown-item" href="../dashboardcontroler/controler.php?action=showFood&category=specialCombo">Combo Đặc Biệt</a></li>
                         </ul>
                     </li>
 
@@ -92,8 +101,15 @@
                         </a>
                         <ul class="bg-body-tertiary dropdown-menu" style="margin: 20px;">
                             <li><a class="dropdown-item" href="../dashboardcontroler/controler.php?action=showDrink">Tất Cả Danh Mục</a></li>
-                            <li><a class="dropdown-item" href="#">...</a></li>
-                            <li><a class="dropdown-item" href="#">...</a></li>
+                            <li><a class="dropdown-item" href="#">Cafe</a></li>
+                            <li><a class="dropdown-item" href="#">Sữa Chua Và Sữa Tươi</a></li>
+                            <li><a class="dropdown-item" href="#">Trà Sữa</a></li>
+                            <li><a class="dropdown-item" href="#">Ca Cao</a></li>
+                            <li><a class="dropdown-item" href="#">Soda</a></li>
+                            <li><a class="dropdown-item" href="#">Nước Ép</a></li>
+                            <li><a class="dropdown-item" href="#">Trà</a></li>
+                            <li><a class="dropdown-item" href="#">Các Loại Topping</a></li>
+                            <li><a class="dropdown-item" href="#">Nước Uống Khác</a></li>
                         </ul>
                     </li>
 

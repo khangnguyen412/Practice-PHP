@@ -5,7 +5,8 @@
     <!-- Page Title -->
     <title>Menu</title>
     <?php
-    include 'lib/head.php'
+    $url = '../';
+    include '../userview/lib/header.php'
     ?>
 </head>
 
@@ -18,16 +19,16 @@
 
     <!-- Header Area Starts -->
     <?php
-    include 'lib/header.php'
+    include '../userview/lib/navbar.php'
     ?>
     <!-- Header Area End -->
 
     <!-- Banner Area Starts -->
-    <section class="banner-area banner-area2 menu-bg2 text-center" style="background-image: url('../assets/images/img/wallPaper1.jpg')">
+    <section class="banner-area banner-area2 menu-bg text-center">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1><i>Giới thiệu nước uống</i></h1>
+                    <h1><i>Giới thiệu thức ăn</i></h1>
                     <!-- <p class="pt-2"><i>Beast kind form divide night above let moveth bearing darkness.</i></p> -->
                 </div>
             </div>
@@ -37,14 +38,14 @@
 
     <!-- Food Area Infor -->
     <?php
-    if(isset($drinkinfo)){
-        foreach ($drinkinfo as $value) {
+    if (isset($foodinfo)) {
+        foreach ($foodinfo as $value) {
             $img = $value['img'];
-            $description = $value['drinkdescription'];
-            $name = $value['drinkname'];
+            $description = $value['fooddescription'];
+            $name = $value['foodname'];
             $price = $value['price'];
         }
-    }else{
+    } else {
         $img = "";
         $description = "";
         $name = "";
@@ -56,16 +57,16 @@
             <div class="row">
                 <div class="col-md-12 col-lg-6">
                     <div class="img-fluid">
-                        <img src="<?php echo $img?>" alt="" style="height: 100%; width: 100%;">
+                        <img src="<?php echo $img ?>" alt="" style="height: 100%; width: 100%;">
                     </div>
                 </div>
                 <div class="col-md-12 col-lg-6">
                     <div class="section-top">
-                        <h3 style="font-style: italic;"><?php echo $name?></h3>
+                        <h3 style="font-style: italic;"><?php echo $name ?></h3>
                         <p class="pt-3 justify-content-start">
-                            Mô tả: <?php echo $description?>
+                            Mô tả: <?php echo $description ?>
                         </p>
-                        <h3><span class="style-change">Giá: <?php echo $price?> VND</span></h3>
+                        <h3><span class="style-change">Giá: <?php echo $price ?> VND</span></h3>
                         <div class="row">
                             <div class="col-md-12">
                                 <div style="color: #000; font-style: italic; font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; font-size:30px; font-weight:bold;">
@@ -112,22 +113,22 @@
             }
             if (isset($_SESSION["islogin"])) {
                 echo '<div class="row m-2" >';
-                echo '  <form action="../dashboardcontroler/controler.php?action=commentDrink" method="post">';
+                echo '  <form action="../dashboardcontroler/controler.php?action=commentFood" method="post">';
                 echo '      <h5>Ghi Nhận Xét</h5>';
                 echo '      <div class="mt-10">';
-                echo '          <input type="text" class="single-input" name="iduser" value="'.$_SESSION["id"].'" readonly hidden>';
+                echo '          <input type="text" class="single-input" name="iduser" value="' . $_SESSION["id"] . '" readonly hidden>';
                 echo '      </div>';
                 echo '      <div class="mt-10">';
-                echo '          <input type="text" class="single-input" name="nameuser" value="'.$_SESSION["username"].'" readonly hidden>';
+                echo '          <input type="text" class="single-input" name="nameuser" value="' . $_SESSION["username"] . '" readonly hidden>';
                 echo '      </div>';
                 echo '      <div class="mt-10">';
-                echo '          <input type="text" class="single-input" name="role" value="'.$_SESSION["role"].'" readonly hidden>';
+                echo '          <input type="text" class="single-input" name="role" value="' . $_SESSION["role"] . '" readonly hidden>';
                 echo '      </div>';
                 echo '      <div class="mt-10">';
-                echo '          <input type="text" class="single-input" name="iddrink" value="'.$id.'" readonly hidden>';
+                echo '          <input type="text" class="single-input" name="idfood" value="' . $id . '" readonly hidden>';
                 echo '      </div>';
                 echo '      <div class="mt-10">';
-                echo '          <input type="text" class="single-input" name="namedrink" value="'.$name.'" readonly hidden>';
+                echo '          <input type="text" class="single-input" name="namefood" value="' . $name . '" readonly hidden>';
                 echo '      </div>';
                 echo '      <div class="mt-10">';
                 echo '          <textarea class="single-textarea" placeholder="Nhận Xét Tại Đây" name="comment" required=""></textarea>';
@@ -137,7 +138,7 @@
                 echo '      </div>';
                 echo '  </form>';
                 echo '</div>';
-                if(!empty($notification)){
+                if (!empty($notification)) {
                     echo '<div class="container-fluid pt-4 px-4">';
                     echo '  <div class="text-center rounded p-4">';
                     echo '      <div class="alert alert-success alert-dismissible fade show" role="alert">';
@@ -146,39 +147,38 @@
                     echo '      </div>';
                     echo '  </div>';
                     echo '</div>';
-                }else{
+                } else {
                     echo '';
                 }
-                if(!empty($commentlist)){
-                    foreach($commentlist as $comments){
+                if (!empty($commentlist)) {
+                    foreach ($commentlist as $comments) {
                         echo '<div class="row m-2">';
                         echo '  <div class="col-lg-1 col-md-2 col-4">';
-                        echo '      <img src="../img/user.jpg" alt="" style="height: 100%; width: 100%">';
+                        echo '      <img src="../img/LOGO-HOP-DEN.jpg" alt="" style="height: 100%; width: 100%">';
                         echo '  </div>';
                         echo '  <div class="col-lg-11 col-md-10 col-8">';
-                        echo '      <div class="col-lg-12 d-flex justify-content-between row">';
-                        echo '          <div class="col-lg-5 col-md-12" style="padding-left: 0px">';
-                        echo '              <h5> '.$comments['username'].' </h5>';
+                        echo '      <div class="col-lg-12 d-flex justify-content-between">';
+                        echo '          <div class="col-lg-5" style="padding-left: 0px">';
+                        echo '              <h5> ' . $comments['username'] . ' </h5>';
                         echo '          </div>';
-                        echo '          <div class="col-lg-7 col-md-12" style="padding-left: 0px">';
-                        echo '              <h5> Ngày Giờ Nhận Xét: '.$comments['datecoments'].' </h5>';
+                        echo '          <div class="col-lg-7">';
+                        echo '              <h5> Ngày Giờ Nhận Xét: ' . $comments['datecoments'] . ' </h5>';
                         echo '          </div>';
                         echo '      </div>';
                         echo '      <div class="col-lg-12 d-flex">';
-                        echo '          <p> Nhận Xét: '.$comments['comments'].'</p>';
+                        echo '          <p>' . $comments['comments'] . '</p>';
                         echo '      </div>';
                         echo '  </div>';
                         echo '</div>';
                     }
-                }
-                else{
+                } else {
                     echo '';
                 }
-                
             } else {
                 echo '<h5>Đăng Nhập Để Xem Và Viết Nhận Xét</h5>';
             }
             ?>
+
             <!-- <div class="row m-2">
                 <form action="#">
                     <h5>Ghi Nhận Xét</h5>
@@ -186,7 +186,7 @@
                         <input type="text" class="single-input" name="id" value="" readonly hidden>
                     </div>
                     <div class="mt-10">
-                        <textarea class="single-textarea" placeholder="Nhận Xét Tại" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Message'" required=""></textarea>
+                        <textarea class="single-textarea" placeholder="Nhận Xét Tại" required=""></textarea>
                     </div>
                     <div class="mt-10 d-flex justify-content-end">
                         <button type="submit" class="template-btn">Đăng Nhận Xét</button>
@@ -229,14 +229,14 @@
 
     <!-- Footer Area Starts -->
     <?php
-    include 'lib/footer.php'
+    include '../userview/lib/footer.php'
     ?>
     <!-- Footer Area End -->
 
 
     <!-- Javascript -->
     <?php
-    include 'lib/js.php'
+    include '../userview/lib/js.php'
     ?>
 </body>
 

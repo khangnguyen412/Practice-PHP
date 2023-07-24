@@ -5,7 +5,8 @@
     <!-- Page Title -->
     <title>Ding Dong</title>
     <?php
-    include 'lib/head.php'
+    $url = "../";
+    include './lib/header.php'
     ?>
 </head>
 
@@ -18,7 +19,7 @@
 
     <!-- Header Area Starts -->
     <?php
-    include 'lib/header.php'
+    include './lib/navbar.php'
     ?>
     <!-- Header Area End -->
 
@@ -143,14 +144,14 @@
 
     <!-- Footer Area Starts -->
     <?php
-    include 'lib/footer.php'
+    include './lib/footer.php'
     ?>
     <!-- Footer Area End -->
 
 
     <!-- Javascript -->
     <?php
-    include 'lib/js.php'
+    include './lib/js.php'
     ?>
 </body>
 

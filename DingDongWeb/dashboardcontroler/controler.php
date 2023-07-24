@@ -624,7 +624,21 @@
                     $getCombo = 'select id, foodname, price, img, fooddescription, timeupload, timeupdate from food where foodname like "Combo%"';
                     $combofoodlist = $food->getallproduct($getCombo);
                     
-                    include '../userview/menu.php';
+                    $category = $_GET['category'];
+                    switch ($category) {
+                        case 'comboHotpot':
+                            include "../userview/food/comboHotpot.php";
+                            break;
+                        case 'buffetHotpot':
+                            include '../userview/food/buffetHotpot.php';
+                            break;
+                        case 'specialCombo':
+                            include '../userview/food/specialCombo.php';
+                            break;
+                        default:
+                            include '../userview/food/index.php';
+                            break;
+                    }
                     break;
 
                 // -----------------show food detail------------------------------
@@ -638,7 +652,7 @@
                     $getcomment = 'select adminid as id, foodid as idproduct, adminid, admins.username, comments, datecoments from admincommentfood inner join admins on  adminid = admins.id where foodid = '.$id.'
                     union select userid, foodid, userid, users.username, comments, datecoments from usercommentfood inner join users on userid = users.id where foodid ='.$id.' order by datecoments desc';
                     $commentlist = $comment->getallcomment($getcomment);
-                    include '../userview/foodinfor.php';
+                    include '../userview/food/foodinfor.php';
                     break;
 
                 // -----------------food comment------------------------------
@@ -708,7 +722,40 @@
 
                     $toppingList = 'select id, drinkname, price, img, drinkdescription from drink where drinkname like "Topping%" ';
                     $toppingList = $drink->getallproduct($toppingList);
-                    include '../userview/menu2.php';
+
+                    $category = $_GET['category'];
+                    switch ($category) {
+                        case 'cafe':
+                            include "../userview/drink/cafe.php";
+                            break;
+                        case 'milk':
+                            include "../userview/drink/milk.php";
+                            break;
+                        case 'milkTea':
+                            include "../userview/drink/milkTea.php";
+                            break;
+                        case 'caCao':
+                            include "../userview/drink/caCao.php";
+                            break;
+                        case 'soda':
+                            include "../userview/drink/soda.php";
+                            break;
+                        case 'juice':
+                            include "../userview/drink/juice.php";
+                            break;
+                        case 'tea':
+                            include "../userview/drink/tea.php";
+                            break;
+                        case 'topping':
+                            include "../userview/drink/topping.php";
+                            break;
+                        // case 'otherDrink':
+                        //     include "../userview/drink/otherDrink.php";
+                        //     break;
+                        default:
+                            include "../userview/drink/index.php";
+                            break;
+                    }
                     break;
                 
                 // -----------------show drink detail------------------------------
@@ -721,7 +768,7 @@
                     $getcomment = 'select adminid as id, drinkid as idproduct, adminid, admins.username, comments, datecoments from admincommentdrink inner join admins on  adminid = admins.id where drinkid = '.$id.'
                     union select userid, drinkid, userid, users.username, comments, datecoments from usercommentdrink inner join users on userid = users.id where drinkid ='.$id.' order by datecoments desc;';
                     $commentlist = $comment->getallcomment($getcomment);
-                    include '../userview/drinkinfor.php';
+                    include '../userview/drink/drinkinfor.php';
                     break;
                     
                 // -----------------drink comment------------------------------
@@ -1042,5 +1089,5 @@
     }else{
         $action = $_GET['action'];
     }
-    $control = new admincontroler($action)
+    $control = new admincontroler($action);
 ?>

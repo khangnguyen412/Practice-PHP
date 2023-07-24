@@ -4,7 +4,8 @@
     <!-- Page Title -->
     <title>Menu</title>
     <?php
-        include 'lib/head.php'
+        $url = '../';
+        include '../userview/lib/header.php'
     ?>
 </head>
 <body>
@@ -16,7 +17,7 @@
 
     <!-- Header Area Starts -->
     <?php
-        include 'lib/header.php'
+        include '../userview/lib/navbar.php'
     ?>
     <!-- Header Area End -->
 
@@ -361,14 +362,14 @@
     </section>
     
     <?php
-        include 'lib/footer.php'
+        include '../userview/lib/footer.php'
     ?>
     <!-- Footer Area End -->
 
 
     <!-- Javascript -->
     <?php
-        include 'lib/js.php'
+        include '../userview/lib/js.php'
     ?>
 </body>
 </html>

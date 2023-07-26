@@ -627,16 +627,16 @@
                     $category = $_GET['category'];
                     switch ($category) {
                         case 'comboHotpot':
-                            include "../userview/food/comboHotpot.php";
+                            include "../userview/food/category/comboHotpot.php";
                             break;
                         case 'buffetHotpot':
-                            include '../userview/food/buffetHotpot.php';
+                            include '../userview/food/category/buffetHotpot.php';
                             break;
                         case 'specialCombo':
-                            include '../userview/food/specialCombo.php';
+                            include '../userview/food/category/specialCombo.php';
                             break;
                         default:
-                            include '../userview/food/index.php';
+                            include '../userview/food/category/index.php';
                             break;
                     }
                     break;
@@ -726,28 +726,28 @@
                     $category = $_GET['category'];
                     switch ($category) {
                         case 'cafe':
-                            include "../userview/drink/cafe.php";
+                            include "../userview/drink/category/cafe.php";
                             break;
                         case 'milk':
-                            include "../userview/drink/milk.php";
+                            include "../userview/drink/category/milk.php";
                             break;
                         case 'milkTea':
-                            include "../userview/drink/milkTea.php";
+                            include "../userview/drink/category/milkTea.php";
                             break;
                         case 'caCao':
-                            include "../userview/drink/caCao.php";
+                            include "../userview/drink/category/caCao.php";
                             break;
                         case 'soda':
-                            include "../userview/drink/soda.php";
+                            include "../userview/drink/category/soda.php";
                             break;
                         case 'juice':
-                            include "../userview/drink/juice.php";
+                            include "../userview/drink/category/juice.php";
                             break;
                         case 'tea':
-                            include "../userview/drink/tea.php";
+                            include "../userview/drink/category/tea.php";
                             break;
                         case 'topping':
-                            include "../userview/drink/topping.php";
+                            include "../userview/drink/category/topping.php";
                             break;
                         // case 'otherDrink':
                         //     include "../userview/drink/otherDrink.php";
@@ -1006,7 +1006,8 @@
                     }
                     break;
                 default:
-                    header("Location: ../dashboardview/signin.php");
+                    echo 'lỗi';
+                    // header("Location: ../dashboardview/signin.php");
             }
         }
 

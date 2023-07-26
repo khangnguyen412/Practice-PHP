@@ -24,9 +24,9 @@
             <div class="row h-100 align-items-center justify-content-center" style="min-height: 100vh;">
                 <div class="col-12 col-md-8 col-lg-6 ">
                     <div class="bg-secondary rounded p-4 p-sm-5 my-4 mx-3">
-                        <form id= "usercreate" action="../dashboardcontroler/controler.php" method="post">
+                        <form id="usercreate" action="../dashboardcontroler/controler.php" method="post">
                             <div class="d-flex align-items-center justify-content-between mb-3">
-                                <a href="index.html" class="">
+                                <a href="../index.php" class="">
                                     <h3 class="text-warning">
                                         <img src="../img/img/logo/LOGO-HOP-DEN.jpg" height="40" width="40" alt="" srcset="">
                                         Ding Dong
@@ -34,19 +34,22 @@
                                 </a>
                                 <h3>Đăng Ký</h3>
                             </div>
-                            <div class="form-floating mb-4">
-                                <input type="text" name="username" class="form-control" id="floatingText" placeholder="Nhập Tên">
-                                <label for="floatingText">Tên Đăng Nhập</label>
+                            <div class="form-floating form-group mb-4">
+                                <input type="text" name="username" class="form-control" id="username" placeholder="Nhập Tên">
+                                <label for="username">Tên Đăng Nhập</label>
+                                <span class="form-message" style="color: red;"></span>
                             </div>
-                            <div class="form-floating mb-4">
-                                <input type="password" name="password" class="form-control" id="floatingPassword" placeholder="Mật Khẩu">
-                                <label for="floatingPassword">Mật Khẩu</label>
+                            <div class="form-floating form-group mb-4">
+                                <input type="password" name="password" class="form-control" id="password" placeholder="Mật Khẩu">
+                                <label for="password">Mật Khẩu</label>
+                                <span class="form-message" style="color: red;"></span>
                             </div>
-                            <div class="form-floating mb-4">
-                                <input type="password" name="otp" class="form-control" id="floatingPassword" placeholder="Nhập Lại Mật Khẩu">
-                                <label for="floatingPassword">Xác Nhận Mật Khẩu</label>
+                            <div class="form-floating form-group mb-4">
+                                <input type="password" name="otp" class="form-control" id="password_confirmation" placeholder="Nhập Lại Mật Khẩu">
+                                <label for="password_confirmation">Xác Nhận Mật Khẩu</label>
+                                <span class="form-message" style="color: red;"></span>
                             </div>
-                            <button type="submit" name="useraction" value="signup" class="btn btn-warning py-3 w-100 mb-4">Đăng Ký</button>
+                            <button type="submit" name="useraction" value="signup" class="btn btn-warning py-3 w-100 mb-4 form-submit">Đăng Ký</button>
                             <p class="text-center mb-0">Đã có tài khoản? <a href="" class="text-warning">Đăng Nhập</a></p>
                         </form>
                     </div>

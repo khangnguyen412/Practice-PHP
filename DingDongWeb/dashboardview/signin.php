@@ -26,7 +26,7 @@
                     <div class="bg-secondary rounded p-4 p-sm-5 my-4 mx-3">
                         <form action="../dashboardcontroler/controler.php" method="post">
                             <div class="d-flex align-items-center justify-content-between mb-3">
-                                <a href="index.html" class="">
+                                <a href="../index.php" class="">
                                     <h3 class="text-warning">
                                         <img src="../img/img/logo/LOGO-HOP-DEN.jpg" height="40" width="40" alt="" srcset="">
                                         Ding Dong

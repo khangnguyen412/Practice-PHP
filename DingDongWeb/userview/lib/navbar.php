@@ -67,7 +67,7 @@
                                 if (isset($_SESSION["islogin"])) {
                                     echo '<a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">Tài Khoản</a>';
                                 } else {
-                                    echo '<a href="'. $url .'dashboardview/signin.php">Đăng Nhập</a>';
+                                    echo '<a href="../dashboardview/signin.php">Đăng Nhập</a>';
                                 }
                             ?>
                         </li>
@@ -121,7 +121,7 @@
                             if (isset($_SESSION["islogin"])) {
                                 echo '<a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">Tài Khoản</a>';
                             } else {
-                                echo '<a href="dashboardview/signin.php">Đăng Nhập</a>';
+                                echo '<a href="../dashboardview/signin.php">Đăng Nhập</a>';
                             }
                         ?>
                     </li>

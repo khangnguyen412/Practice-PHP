@@ -41,28 +41,25 @@
                     <div class="col-sm-12 col-xl-12">
                         <div class="bg-secondary rounded h-100 p-4">
                             <h6 class="mb-4">Thêm Quản Trị Viên</h6>
-                            <form action="../dashboardcontroler/controler.php" method="post">
+                            <form action="../dashboardcontroler/controler.php" method="post" onsubmit="return validateForm()">
                                 <div class="mb-3">
                                     <label for="exampleInputUsername1" class="form-label">Tên Tài Khoản</label>
-                                    <input type="text" name="username" class="form-control" id="exampleInputUsername1">
+                                    <input type="text" name="username" class="form-control" id="username">
+                                    <span class="form-message" style="color: red;"></span>
                                 </div>
                                 <div class="mb-3">
                                     <label for="exampleInputPassword1" class="form-label">Mật Khẩu</label>
-                                    <input type="password" name="password" class="form-control" id="exampleInputPassword1">
+                                    <input type="password" name="password" class="form-control" id="password">
+                                    <span class="form-message" style="color: red;"></span>
                                 </div>
                                 <div class="mb-3">
                                     <label for="exampleInputPassword1" class="form-label">Xác Nhận Mật Khẩu</label>
-                                    <input type="password" name="passwordconfirm" class="form-control" id="exampleInputPassword1">
+                                    <input type="password" name="passwordconfirm" class="form-control" id="passwordConfirmation">
+                                    <span class="form-message" style="color: red;"></span>
                                 </div>
-                                <!-- <div class="mb-3">
-                                    <label for="formFileLg" class="form-label">Chọn Ảnh Đại Diện</label>
-                                    <input class="form-control form-control-lg bg-dark" id="formFileLg" type="file">
-                                </div> -->
-                                <!-- <button type="submit" value="" name="useraction" class="btn btn-warning">Đăng Nhập</button> -->
                                 <div class="mb-3 d-flex justify-content-end">
                                     <button type="submit" name="useraction" value="admincreate" class="btn btn-warning">Đăng Ký</button>
                                 </div>
-
                             </form>
                         </div>
                     </div>
@@ -83,6 +80,7 @@
     <?php
     include './lib/jslib.php'
     ?>
+    <script src="../js/validate.js"></script>
 </body>
 
 </html>

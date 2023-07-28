@@ -24,7 +24,7 @@
             <div class="row h-100 align-items-center justify-content-center" style="min-height: 100vh;">
                 <div class="col-12 col-md-8 col-lg-6 ">
                     <div class="bg-secondary rounded p-4 p-sm-5 my-4 mx-3">
-                        <form id="usercreate" action="../dashboardcontroler/controler.php" method="post">
+                        <form id="usercreate" action="../dashboardcontroler/controler.php" method="post" onsubmit="return validateForm()">
                             <div class="d-flex align-items-center justify-content-between mb-3">
                                 <a href="../index.php" class="">
                                     <h3 class="text-warning">
@@ -45,8 +45,8 @@
                                 <span class="form-message" style="color: red;"></span>
                             </div>
                             <div class="form-floating form-group mb-4">
-                                <input type="password" name="otp" class="form-control" id="password_confirmation" placeholder="Nhập Lại Mật Khẩu">
-                                <label for="password_confirmation">Xác Nhận Mật Khẩu</label>
+                                <input type="password" name="otp" class="form-control" id="passwordConfirmation" placeholder="Nhập Lại Mật Khẩu">
+                                <label for="passwordConfirmation">Xác Nhận Mật Khẩu</label>
                                 <span class="form-message" style="color: red;"></span>
                             </div>
                             <button type="submit" name="useraction" value="signup" class="btn btn-warning py-3 w-100 mb-4 form-submit">Đăng Ký</button>
@@ -62,6 +62,7 @@
     <?php
     include './lib/jslib.php'
     ?>
+    <script src="../js/validate.js"></script>
 </body>
 
 </html>

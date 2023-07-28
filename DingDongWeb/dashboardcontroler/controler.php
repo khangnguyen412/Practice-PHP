@@ -9,117 +9,31 @@
                 // -----------------add admin------------------------------
                 case 'admincreate':
                     $username = $_POST['username'];
-                    $password = $_POST['password'];
-                    $passwordconfirm = $_POST['passwordconfirm'];
-                    $error = [];
-                    if (empty(trim($_POST['username']))) {
-                        $error['username']['required'] = true;
-                    }elseif(strlen(trim($_POST['username'])) < 5) {
-                        $error['username']['min'] = true;
-                    }elseif(strlen(trim($_POST['username'])) > 15) {
-                        $error['username']['max'] = true;
-                    }elseif(strpos($_POST['username'], ' ') == true){
-                        $error['username']['space'] = true;
-                    }elseif(empty(trim($_POST['password']))) {
-                        $error['password']['required'] = true;
-                    }elseif(strlen(trim($_POST['password'])) < 5) {
-                        $error['password']['min'] = true;
-                    }elseif(strlen(trim($_POST['password'])) > 15) {
-                        $error['password']['max'] = true;
-                    }elseif(strpos($_POST['password'], ' ') == true){
-                        $error['password']['space'] = true;
-                    }else{
-                        $error = [];
-                    }
-                    if (!empty($error["username"]["required"])) {
-                        header("Location: ../dashboardcontroler/controler.php?action=shownotification&notificationid=usernameRequire");
-                    } else if (!empty($error["username"]["min"])) {
-                        header("Location: ../dashboardcontroler/controler.php?action=shownotification&notificationid=usernameMin");
-                    } else if (!empty($error["username"]["max"])) {
-                        header("Location: ../dashboardcontroler/controler.php?action=shownotification&notificationid=usernameMax");
-                    } else if (!empty($error["username"]["space"])) {
-                        header("Location: ../dashboardcontroler/controler.php?action=shownotification&notificationid=usernameSpace");
-                    } else if (!empty($error["password"]["required"])) {
-                        header("Location: ../dashboardcontroler/controler.php?action=shownotification&notificationid=passwordRequire");
-                    } else if (!empty($error["password"]["min"])) {
-                        header("Location: ../dashboardcontroler/controler.php?action=shownotification&notificationid=passwordMin");
-                    } else if (!empty($error["password"]["max"])) {
-                        header("Location: ../dashboardcontroler/controler.php?action=shownotification&notificationid=passwordMax");
-                    } else if (!empty($error["password"]["space"])) {
-                        header("Location: ../dashboardcontroler/controler.php?action=shownotification&notificationid=passwordSpace");
-                    } else {
-                        if($password == $passwordconfirm && $this->isLogin()){
-                            $table = 'admins';
-                            $password = md5($password);
-                            $arr = array('username' => $username, 'password' => $password);
-                            $adduser = new usercontrol("", "", "");
-                            if($adduser->insertuser($table, $arr) == 'error'){
-                                header("Location: ../dashboardcontroler/controler.php?action=shownotification&notificationid=errorUniqueAdmin");
-                            }else{
-                                header("Location: ../dashboardcontroler/controler.php?action=showadmin&notificationid=1");
-                            }           
+                    $password = md5($_POST['password']);
+                    if($this->isLogin()){
+                        $table = 'admins';
+                        $arr = array('username' => $username, 'password' => $password);
+                        $adduser = new usercontrol("", "", "");
+                        if($adduser->insertuser($table, $arr) == 'error'){
+                            header("Location: ../dashboardcontroler/controler.php?action=shownotification&notificationid=errorUniqueAdmin");
                         }else{
-                            header("Location: ../dashboardcontroler/controler.php?action=shownotification&notificationid=wrongPassConfirm");
-                        }
+                            header("Location: ../dashboardcontroler/controler.php?action=showadmin&notificationid=1");
+                        }           
                     }
                     break;
 
                 // -----------------add user------------------------------
                 case 'usercreate':
                     $username = $_POST['username'];
-                    $password = $_POST['password'];
-                    $otp = $_POST['otp'];
-                    $error = [];
-                    if (empty(trim($_POST['username']))) {
-                        $error['username']['required'] = 'Tên Tài Khoản Không Được Để Trống';
-                    }elseif(strlen(trim($_POST['username'])) < 5) {
-                        $error['username']['min'] = 'Tên Đăng Nhập Không Được Dưới 5 Ký Tự';
-                    }elseif(strlen(trim($_POST['username'])) > 15) {
-                        $error['username']['max'] = 'Tên Đăng Nhập Không Được Quá 15 Ký Tự';
-                    }elseif(strpos($_POST['username'], ' ') == true){
-                        $error['username']['space'] = 'Tên Đăng Nhập Không Được Có Khoảng Trống';
-                    }elseif(empty(trim($_POST['password']))) {
-                        $error['password']['required'] = 'Mật Khẩu Không Được Để Trống';
-                    }elseif(strlen(trim($_POST['password'])) < 5) {
-                        $error['password']['min'] = 'Mật Khẩu Không Được Dưới 5';
-                    }elseif(strlen(trim($_POST['password'])) > 15) {
-                        $error['password']['max'] = 'Mật Khẩu Không Được Quá 15';
-                    }elseif(strpos($_POST['password'], ' ') == true){
-                        $error['password']['space'] = 'Mật Khẩu Không Được Có Khoảng Trống';
+                    $password = md5($_POST['password']);
+                    $table = 'users';
+                    $arr = array('username' => $username, 'password' => $password);
+                    $adduser = new usercontrol("", "", "");
+                    if($adduser->insertuser($table, $arr) == 'error'){
+                        $this->shownotification(4, 'Tên Tài Khoản Đã Được Đăng Ký Xin Vui Lòng Thử Lại');;
                     }else{
-                        $error = [];
-                    }
-                    if (!empty($error["username"]["required"])) {
-                        $this->shownotification(4, $error["username"]["required"]);
-                    } else if (!empty($error["username"]["min"])) {
-                        $this->shownotification(4, $error["username"]["min"]);
-                    } else if (!empty($error["username"]["max"])) {
-                        $this->shownotification(4, $error["username"]["max"]);
-                    } else if (!empty($error["username"]["space"])) {
-                        $this->shownotification(4, $error["username"]["space"]);
-                    } else if (!empty($error["password"]["required"])) {
-                        $this->shownotification(4, $error["password"]["required"]);
-                    } else if (!empty($error["password"]["min"])) {
-                        $this->shownotification(4, $error["password"]["min"]);
-                    } else if (!empty($error["password"]["max"])) {
-                        $this->shownotification(4, $error["password"]["max"]);
-                    } else if (!empty($error["password"]["space"])) {
-                        $this->shownotification(4, $error["password"]["space"]);
-                    } else {
-                        if($password == $otp){
-                            $table = 'users';
-                            $password = md5($password);
-                            $arr = array('username' => $username, 'password' => $password);
-                            $adduser = new usercontrol("", "", "");
-                            if($adduser->insertuser($table, $arr) == 'error'){
-                                $this->shownotification(4, 'Tên Tài Khoản Đã Được Đăng Ký Xin Vui Lòng Thử Lại');;
-                            }else{
-                                header("Location: ../dashboardcontroler/controler.php?action=showuser&notificationid=1");
-                            }                            
-                        }else{
-                            $this->shownotification(4, 'Xác Nhận Mật Khẩu Không Đúng');
-                        }
-                    }
+                        header("Location: ../dashboardcontroler/controler.php?action=showuser&notificationid=1");
+                    }                            
                     break;
 
                 // -----------------delete admin------------------------------
@@ -209,63 +123,19 @@
                     $getuser = 'SELECT * FROM admins';
                     $userlist = $user->getalluser($getuser);
                     include '../dashboardview/admin.php';
-                    break; 
+                    break;
 
                 // -----------------signup------------------------------
                 case 'signup':
                     $username = $_POST['username'];
-                    $password = $_POST['password'];
-                    $otp = $_POST['otp'];
-                    $error = [];
-                    if (empty(trim($_POST['username']))) {
-                        $error['username']['required'] = 'Tên Đăng Nhập Không Được Để Trống';
-                    }elseif(strlen(trim($_POST['username'])) < 5) {
-                        $error['username']['min'] = 'Tên Đăng Nhập Không Được Dưới 5 Ký Tự';
-                    }elseif(strlen(trim($_POST['username'])) > 15) {
-                        $error['username']['max'] = 'Tên Đăng Nhập Không Được Quá 15 Ký Tự';
-                    }elseif(strpos($_POST['username'], ' ') == true){
-                        $error['username']['space'] = 'Tên Đăng Nhập Không Được Có Khoảng Trống';
-                    }elseif(empty(trim($_POST['password']))) {
-                        $error['password']['required'] = 'Mật Khẩu Không Được Để Trống';
-                    }elseif(strlen(trim($_POST['password'])) < 5) {
-                        $error['password']['min'] = 'Mật Khẩu Không Được Dưới 5';
-                    }elseif(strlen(trim($_POST['password'])) > 15) {
-                        $error['password']['max'] = 'Mật Khẩu Không Được Quá 15';
-                    }elseif(strpos($_POST['password'], ' ') == true){
-                        $error['password']['space'] = 'Mật Khẩu Không Được Có Khoảng Trống';
-                    }else{
-                        $error = [];
-                    }
-                    if (!empty($error["username"]["required"])) {
-                        $this->shownotification(1, $error["username"]["required"]);
-                    } else if (!empty($error["username"]["min"])) {
-                        $this->shownotification(1, $error["username"]["min"]);
-                    } else if (!empty($error["username"]["max"])) {
-                        $this->shownotification(1, $error["username"]["max"]);
-                    } else if (!empty($error["username"]["space"])) {
-                        $this->shownotification(1, $error["username"]["space"]);
-                    } else if (!empty($error["password"]["required"])) {
-                        $this->shownotification(1, $error["password"]["required"]);
-                    } else if (!empty($error["password"]["min"])) {
-                        $this->shownotification(1, $error["password"]["min"]);
-                    } else if (!empty($error["password"]["max"])) {
-                        $this->shownotification(1, $error["password"]["max"]);
-                    } else if (!empty($error["password"]["space"])) {
-                        $this->shownotification(1, $error["password"]["space"]);
+                    $password = md5($_POST['password']);
+                    $table = 'users';
+                    $arr = array('username' => $username, 'password' => $password);
+                    $adduser = new usercontrol("", "", "");
+                    if ($adduser->insertuser($table, $arr) == 'error') {
+                        header("Location: ../dashboardcontroler/controler.php?action=shownotification&notificationid=errorUniqueUser");
                     } else {
-                        if($password == $otp){
-                            $table = 'users';
-                            $password = md5($password);
-                            $arr = array('username' => $username, 'password' => $password);
-                            $adduser = new usercontrol("", "", "");
-                            if($adduser->insertuser($table, $arr) == 'error'){
-                                header("Location: ../dashboardcontroler/controler.php?action=shownotification&notificationid=errorUniqueUser");
-                            }else{
-                                header("Location: ../dashboardcontroler/controler.php?action=shownotification&notificationid=addComplete");
-                            }                            
-                        }else{
-                            $this->shownotification(1, 'Xác Nhận Mật Khẩu Không Đúng');
-                        }
+                        header("Location: ../dashboardcontroler/controler.php?action=shownotification&notificationid=addComplete");
                     }
                     break;
 

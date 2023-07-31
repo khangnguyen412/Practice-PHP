@@ -61,58 +61,18 @@
                 case 'updateadmin':
                     $id = $_POST['id'];
                     $username = $_POST['username'];
-                    $password = $_POST['password'];
-                    $passwordconfirm = $_POST['passwordconfirm'];
-                    $error = [];
-                    if (empty(trim($_POST['username']))) {
-                        $error['username']['required'] = true;
-                    }elseif(strlen(trim($_POST['username'])) < 5) {
-                        $error['username']['min'] = true;
-                    }elseif(strlen(trim($_POST['username'])) > 15) {
-                        $error['username']['max'] = true;
-                    }elseif(strpos($_POST['username'], ' ') == true){
-                        $error['username']['space'] = true;
-                    }elseif(empty(trim($_POST['password']))) {
-                        $error['password']['required'] = true;
-                    }elseif(strlen(trim($_POST['password'])) < 5) {
-                        $error['password']['min'] = true;
-                    }elseif(strlen(trim($_POST['password'])) > 15) {
-                        $error['password']['max'] = true;
-                    }elseif(strpos($_POST['password'], ' ') == true){
-                        $error['password']['space'] = true;
-                    }else{
-                        $error = [];
-                    }
-                    if (!empty($error["username"]["required"])) {
-                        header("Location: ../dashboardcontroler/controler.php?action=shownotification&notificationid=usernameRequire");
-                    } else if (!empty($error["username"]["min"])) {
-                        header("Location: ../dashboardcontroler/controler.php?action=shownotification&notificationid=usernameMin");
-                    } else if (!empty($error["username"]["max"])) {
-                        header("Location: ../dashboardcontroler/controler.php?action=shownotification&notificationid=usernameMax");
-                    } else if (!empty($error["username"]["space"])) {
-                        header("Location: ../dashboardcontroler/controler.php?action=shownotification&notificationid=usernameSpace");
-                    } else if (!empty($error["password"]["required"])) {
-                        header("Location: ../dashboardcontroler/controler.php?action=shownotification&notificationid=passwordRequire");
-                    } else if (!empty($error["password"]["min"])) {
-                        header("Location: ../dashboardcontroler/controler.php?action=shownotification&notificationid=passwordMin");
-                    } else if (!empty($error["password"]["max"])) {
-                        header("Location: ../dashboardcontroler/controler.php?action=shownotification&notificationid=passwordMax");
-                    } else if (!empty($error["password"]["space"])) {
-                        header("Location: ../dashboardcontroler/controler.php?action=shownotification&notificationid=passwordSpace");
-                    } else {
-                        if($password == $passwordconfirm && $this->isLogin()){
-                            $table = 'admins';
-                            $password = md5($password);
-                            $arr = array('id'=> $id, 'username' => $username, 'password' => $password);
-                            $updateuser = new usercontrol("", "", "");
-                            if($updateuser->updateuser($table, $arr) == 'error'){
-                                header("Location: ../dashboardcontroler/controler.php?action=shownotification&notificationid=errorUpdateAdmin");
-                            }else{
-                                header("Location: ../dashboardcontroler/controler.php?action=showadmin&notificationid=3");
-                            }           
+                    $password = md5($_POST['password']);
+                    if($this->isLogin()){
+                        $table = 'admins';
+                        $arr = array('id'=> $id, 'username' => $username, 'password' => $password);
+                        $updateuser = new usercontrol("", "", "");
+                        if($updateuser->updateuser($table, $arr) == 'error'){
+                            header("Location: ../dashboardcontroler/controler.php?action=shownotification&notificationid=errorUpdateAdmin");
                         }else{
-                            header("Location: ../dashboardcontroler/controler.php?action=shownotification&notificationid=wrongPassConfirm");
-                        }
+                            header("Location: ../dashboardcontroler/controler.php?action=showadmin&notificationid=3");
+                        }           
+                    }else{
+                        header("Location: ../dashboardcontroler/controler.php?action=shownotification&notificationid=wrongPassConfirm");
                     }
                     break;
                     

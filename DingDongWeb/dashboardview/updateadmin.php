@@ -21,7 +21,7 @@
 
         <!-- Sidebar Start -->
         <?php
-            include '../dashboardview/lib/sidebar.php'
+        include '../dashboardview/lib/sidebar.php'
         ?>
         <!-- Sidebar End -->
 
@@ -30,55 +30,48 @@
         <div class="content">
             <!-- Navbar Start -->
             <?php
-                include '../dashboardview/lib/navbar.php'
+            include '../dashboardview/lib/navbar.php'
             ?>
             <!-- Navbar End -->
 
 
             <!-- Form Start -->
+            <?php
+                if (isset($infor[0]['id'])) {
+                    $id = $infor[0]['id'];
+                } else {
+                    $id = 'không có id người dùng';
+                }
+                if (isset($infor[0]['username'])) {
+                    $username = $infor[0]['username'];
+                } else {
+                    $username = 'không có thông tin người dùng';
+                }
+            ?>
             <div class="container-fluid pt-4 px-4">
                 <div class="row">
                     <div class="col-sm-12 col-xl-12">
                         <div class="bg-secondary rounded h-100 p-4">
                             <h6 class="mb-4">Cập Nhật Quản Trị Viên</h6>
-                            <form action="../dashboardcontroler/controler.php" method="post">
-                                <?php
-                                if (isset($infor[0]['id'])) {
-                                    $id = $infor[0]['id'];
-                                } else {
-                                    $id = 'không có id người dùng';
-                                }
-                                if (isset($infor[0]['username'])) {
-                                    $username = $infor[0]['username'];
-                                } else {
-                                    $username = 'không có thông tin người dùng';
-                                }
-                                ?>
-                                <div class="mb-3" hidden>
-                                    <label for="exampleInputUsername1" class="form-label">Id Tài Khoản</label>
-                                    <input type="text" name="id" class="form-control form-control-lg bg-dark" value="<?php echo $id; ?>" id="exampleInputUsername1" readonly>
+                            <form action="../dashboardcontroler/controler.php" method="post" id="myForm" onsubmit="return validateForm()">
+                                <input type="text" name="id" class="form-control form-control-lg bg-dark" value="<?php echo $id; ?>" readonly hidden>
+                                <div class="mb-3">
+                                    <label for="InputUsername" class="form-label">Tên Tài Khoản</label>
+                                    <input type="text" name="username" id="InputUsername" class="form-control form-control-lg bg-dark" value="<?php echo $username; ?>" readonly>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="exampleInputUsername1" class="form-label">Tên Tài Khoản</label>
-                                    <input type="text" name="username" class="form-control form-control-lg bg-dark" value="<?php echo $username; ?>" id="exampleInputUsername1" readonly>
+                                    <label for="password" class="form-label">Mật Khẩu</label>
+                                    <input type="password" name="password" id="password" class="form-control form-control-lg bg-dark">
+                                    <span class="form-message" style="color: red;"></span>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="exampleInputPassword1" class="form-label">Mật Khẩu</label>
-                                    <input type="password" name="password" class="form-control form-control-lg bg-dark" id="exampleInputPassword1">
+                                    <label for="passwordConfirmation" class="form-label">Xác Nhận Mật Khẩu</label>
+                                    <input type="password" name="passwordconfirm" id="passwordConfirmation" class="form-control form-control-lg bg-dark">
+                                    <span class="form-message" style="color: red;"></span>
                                 </div>
-                                <div class="mb-3">
-                                    <label for="exampleInputPassword1" class="form-label">Xác Nhận Mật Khẩu</label>
-                                    <input type="password" name="passwordconfirm" class="form-control form-control-lg bg-dark" id="exampleInputPassword1">
-                                </div>
-                                <!-- <div class="mb-3">
-                                    <label for="formFileLg" class="form-label">Chọn Ảnh Đại Diện</label>
-                                    <input class="form-control form-control-lg bg-dark" id="formFileLg" type="file">
-                                </div> -->
-                                <!-- <button type="submit" value="" name="useraction" class="btn btn-warning">Đăng Nhập</button> -->
                                 <div class="mb-3 d-flex justify-content-end">
                                     <button type="submit" name="useraction" value="updateadmin" class="btn btn-warning">Cập Nhật</button>
                                 </div>
-
                             </form>
                         </div>
                     </div>
@@ -99,6 +92,7 @@
     <?php
     include '../dashboardview/lib/jslib.php'
     ?>
+    <script src="../js/validate.js"></script>
 </body>
 
 </html>

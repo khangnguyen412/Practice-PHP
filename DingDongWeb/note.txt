@@ -1,6 +1,6 @@
 php language: 
 add selection for food, drink => ok
-fix confirm form by js => X
+fix confirm form by js => ok
 split module
 move connect database file (lib folder in controler)
 add a search function for web

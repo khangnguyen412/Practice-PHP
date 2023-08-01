@@ -24,7 +24,7 @@
             <div class="row h-100 align-items-center justify-content-center" style="min-height: 100vh;">
                 <div class="col-12 col-md-8 col-lg-6 ">
                     <div class="bg-secondary rounded p-4 p-sm-5 my-4 mx-3">
-                        <form action="../dashboardcontroler/controler.php" method="post">
+                        <form action="../dashboardcontroler/controler.php" method="post" onsubmit="return validateForm()">
                             <div class="d-flex align-items-center justify-content-between mb-3">
                                 <a href="index.html" class="">
                                     <h3 class="text-warning">
@@ -42,12 +42,14 @@
                                 }
                             ?>
                             <div class="form-floating mb-4">
-                                <input type="password" class="form-control" name="newPass" id="floatingPassword" placeholder="Password">
-                                <label for="floatingPassword">Mật Khẩu Mới</label>
+                                <input type="password" class="form-control" name="newPass" id="password" placeholder="Password">
+                                <label for="password">Mật Khẩu Mới</label>
+                                <span class="form-message" style="color: red;"></span>
                             </div>
                             <div class="form-floating mb-4">
-                                <input type="password" class="form-control" name="comfirmPass" id="floatingPassword" placeholder="Password">
-                                <label for="floatingPassword">Xác Nhận Mật Khẩu</label>
+                                <input type="password" class="form-control" name="comfirmPass" id="passwordConfirmation" placeholder="Password">
+                                <label for="passwordConfirmation">Xác Nhận Mật Khẩu</label>
+                                <span class="form-message" style="color: red;"></span>
                             </div>
                             <button type="submit" value="backAccount" name="useraction" class="btn btn-warning py-3 w-100 mb-4">Đổi Mật Khẩu</button>
                         </form>        
@@ -61,6 +63,7 @@
     <?php
         include '../dashboardview/lib/jslib.php'
     ?>
+    <script src="../js/validate.js"></script>
 </body>
 
 </html>

@@ -113,58 +113,18 @@
                 case 'updateuser':
                     $id = $_POST['id'];
                     $username = $_POST['username'];
-                    $password = $_POST['password'];
-                    $passwordconfirm = $_POST['passwordconfirm'];
-                    $error = [];
-                    if (empty(trim($_POST['username']))) {
-                        $error['username']['required'] = true;
-                    }elseif(strlen(trim($_POST['username'])) < 5) {
-                        $error['username']['min'] = true;
-                    }elseif(strlen(trim($_POST['username'])) > 15) {
-                        $error['username']['max'] = true;
-                    }elseif(strpos($_POST['username'], ' ') == true){
-                        $error['username']['space'] = true;
-                    }elseif(empty(trim($_POST['password']))) {
-                        $error['password']['required'] = true;
-                    }elseif(strlen(trim($_POST['password'])) < 5) {
-                        $error['password']['min'] = true;
-                    }elseif(strlen(trim($_POST['password'])) > 15) {
-                        $error['password']['max'] = true;
-                    }elseif(strpos($_POST['password'], ' ') == true){
-                        $error['password']['space'] = true;
-                    }else{
-                        $error = [];
-                    }
-                    if (!empty($error["username"]["required"])) {
-                        header("Location: ../dashboardcontroler/controler.php?action=shownotification&notificationid=usernameRequire");
-                    } else if (!empty($error["username"]["min"])) {
-                        header("Location: ../dashboardcontroler/controler.php?action=shownotification&notificationid=usernameMin");
-                    } else if (!empty($error["username"]["max"])) {
-                        header("Location: ../dashboardcontroler/controler.php?action=shownotification&notificationid=usernameMax");
-                    } else if (!empty($error["username"]["space"])) {
-                        header("Location: ../dashboardcontroler/controler.php?action=shownotification&notificationid=usernameSpace");
-                    } else if (!empty($error["password"]["required"])) {
-                        header("Location: ../dashboardcontroler/controler.php?action=shownotification&notificationid=passwordRequire");
-                    } else if (!empty($error["password"]["min"])) {
-                        header("Location: ../dashboardcontroler/controler.php?action=shownotification&notificationid=passwordMin");
-                    } else if (!empty($error["password"]["max"])) {
-                        header("Location: ../dashboardcontroler/controler.php?action=shownotification&notificationid=passwordMax");
-                    } else if (!empty($error["password"]["space"])) {
-                        header("Location: ../dashboardcontroler/controler.php?action=shownotification&notificationid=passwordSpace");
-                    } else {
-                        if($password == $passwordconfirm && $this->isLogin()){
-                            $table = 'users';
-                            $password = md5($password);
-                            $arr = array('id'=> $id, 'username' => $username, 'password' => $password);
-                            $updateuser = new usercontrol("", "", "");
-                            if($updateuser->updateuser($table, $arr) == 'error'){
-                                header("Location: ../dashboardcontroler/controler.php?action=shownotification&notificationid=errorUpdateAdmin");
-                            }else{
-                                header("Location: ../dashboardcontroler/controler.php?action=showuser&notificationid=3");
-                            }           
+                    $password = md5($_POST['password']);
+                    if($this->isLogin()){
+                        $table = 'users';
+                        $arr = array('id'=> $id, 'username' => $username, 'password' => $password);
+                        $updateuser = new usercontrol("", "", "");
+                        if($updateuser->updateuser($table, $arr) == 'error'){
+                            header("Location: ../dashboardcontroler/controler.php?action=shownotification&notificationid=errorUpdateAdmin");
                         }else{
-                            header("Location: ../dashboardcontroler/controler.php?action=shownotification&notificationid=wrongPassConfirm");
-                        }
+                            header("Location: ../dashboardcontroler/controler.php?action=showuser&notificationid=3");
+                        }           
+                    }else{
+                        header("Location: ../dashboardcontroler/controler.php?action=shownotification&notificationid=wrongPassConfirm");
                     }
                     break;
 
@@ -466,7 +426,7 @@
                             include '../userview/food/category/specialCombo.php';
                             break;
                         default:
-                            include '../userview/food/category/index.php';
+                            include '../userview/food/index.php';
                             break;
                     }
                     break;
@@ -686,42 +646,14 @@
                 case 'backAccount':
                     $id = $_POST['id'];
                     $username = $_POST['username'];
-                    $password = $_POST['newPass'];
-                    $passwordconfirm = $_POST['comfirmPass'];
+                    $password = md5($_POST['newPass']);
                     $table = 'users';
-                    $error = [];
-                    if(empty(trim($_POST['newPass']))) {
-                        $error['password']['required'] = 'Mật Khẩu Không Được Để Trống';
-                    }elseif(strlen(trim($_POST['newPass'])) < 5) {
-                        $error['password']['min'] = 'Mật Khẩu Không Được Dưới 5';
-                    }elseif(strlen(trim($_POST['newPass'])) > 15) {
-                        $error['password']['max'] = 'Mật Khẩu Không Được Quá 15';
-                    }elseif(strpos($_POST['newPass'], ' ') == true){
-                        $error['password']['space'] = 'Mật Khẩu Không Được Có Khoảng Trống';
-                    }else{
-                        $error = [];
-                    }
-                    if (!empty($error["password"]["required"])) {
-                        $this->shownotification(1, $error["password"]["required"]);
-                    } else if (!empty($error["password"]["min"])) {
-                        $this->shownotification(1, $error["password"]["min"]);
-                    } else if (!empty($error["password"]["max"])) {
-                        $this->shownotification(1, $error["password"]["max"]);
-                    } else if (!empty($error["password"]["space"])) {
-                        $this->shownotification(1, $error["password"]["space"]);
-                    }else{
-                        if($password == $passwordconfirm){
-                            $md5Password = md5($password);
-                            $arr = array('id'=> $id, 'username' => $username, 'password' => $md5Password);
-                            $updateuser = new usercontrol("", "", "");
-                            if($updateuser->updateuser($table, $arr) == 'error'){
-                                $this->shownotification(1, "Cập Nhật Mật Khẩu Không Thành Công! Xin Thử Lại");
-                            }else{
-                                $this->shownotification(1, "Cập Nhật Mật Khẩu Thành Công!");
-                            }           
-                        }else{
-                            $this->shownotification(1, "Xác Nhận Mật Khẩu Chưa Khớp");
-                        }
+                    $arr = array('id' => $id, 'username' => $username, 'password' => $password);
+                    $updateuser = new usercontrol("", "", "");
+                    if ($updateuser->updateuser($table, $arr) == 'error') {
+                        $this->shownotification(1, "Cập Nhật Mật Khẩu Không Thành Công! Xin Thử Lại");
+                    } else {
+                        $this->shownotification(1, "Cập Nhật Mật Khẩu Thành Công!");
                     }
                     break;
 

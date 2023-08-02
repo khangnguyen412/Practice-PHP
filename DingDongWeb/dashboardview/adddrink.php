@@ -40,22 +40,25 @@
                     <div class="col-sm-12 col-xl-12">
                         <div class="bg-secondary rounded h-100 p-4">
                             <h6 class="mb-4">Thêm Đồ Uống</h6>
-                            <form action="../dashboardcontroler/controler.php" method="post" enctype="multipart/form-data">
+                            <form action="../dashboardcontroler/controler.php" method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
                                 <div class="mb-3">
-                                    <label for="exampleInputPassword1" class="form-label">Tên Sản Phẩm</label>
-                                    <input type="text" name="drinkname" class="form-control" id="exampleInputPassword1">
+                                    <label for="drinkname" class="form-label">Tên Sản Phẩm</label>
+                                    <input type="text" name="drinkname" class="form-control" id="productName">
+                                    <span class="form-message" style="color: red;"></span>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="exampleInputPassword1" class="form-label">Giá Tiền</label>
-                                    <input type="text" name="price" class="form-control" id="exampleInputPassword1">
+                                    <label for="price" class="form-label">Giá Tiền</label>
+                                    <input type="text" name="price" class="form-control" id="productPrice">
+                                    <span class="form-message" style="color: red;"></span>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="floatingTextarea">Chú Thích</label>
+                                    <label for="description">Chú Thích</label>
                                     <textarea class="form-control" name="description" placeholder="Ghi Mô Tả Tại Đây" id="floatingTextarea" style="height: 150px;"></textarea>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="formFileLg" class="form-label">Chọn Ảnh</label>
-                                    <input class="form-control form-control-lg bg-dark" name="img" id="formFileLg" type="file">
+                                    <label for="image" class="form-label">Chọn Ảnh</label>
+                                    <input class="form-control form-control-lg bg-dark" name="img" id="productImage" type="file">
+                                    <span class="form-message" style="color: red;"></span>
                                 </div>
                                 <button type="submit" name="useraction" value="adddrink" class="btn btn-warning">Đăng Nước Uống</button>
                             </form>
@@ -81,6 +84,10 @@
     <?php
     include './lib/jslib.php'
     ?>
+    <script src="../js/validateProduct.js"></script>
+    <script>
+
+    </script>
 </body>
 
 </html>

@@ -96,7 +96,7 @@
     <?php
     include '../dashboardview/lib/jslib.php'
     ?>
-    <script src="../js/validate.js"></script>
+    <script src="../js/validateUser.js"></script>
 </body>
 
 </html>

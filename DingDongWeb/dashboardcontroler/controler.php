@@ -268,34 +268,16 @@
                     $drinkname = $_POST['drinkname'];
                     $price = $_POST['price'];
                     $description = $_POST['description'];
-                    $img = '../img/imgupload/'.$_FILES['img']['name'];
-                    
-                    $error = [];
-                    if (empty(trim($_POST['drinkname']))) {
-                        $error['drinkname']['required'] = true;
-                    }elseif (empty(trim($_POST['price']))) {
-                        $error['price']['required'] = true;
-                    }elseif (empty(trim($_FILES['img']['name']))) {
-                        $error['img']['required'] = true;
-                    }else{
-                        $error = [];
-                    }
+                    $img = '../img/imgupload/' . $_FILES['img']['name'];
 
-                    if (!empty($error["drinkname"]["required"])) {
-                        header("Location: ../dashboardcontroler/controler.php?action=shownotification&notificationid=emptyProductName");
-                    } else if (!empty($error["price"]["required"])) {
-                        header("Location: ../dashboardcontroler/controler.php?action=shownotification&notificationid=emptyPrice");
-                    } else if (!empty($error["img"]["required"])) {
-                        header("Location: ../dashboardcontroler/controler.php?action=shownotification&notificationid=emptyImg");
-                    } else {
-                        $uploadFile = new uploadfile();
-                        $uploadFile->uploadimg("img");
-                        $arr = array('drinkname'=>$drinkname, 'price'=>$price, 'img'=>$img, 'description'=>$description);
-                        $sql = 'insert into drink (drinkname, price, img, drinkdescription) values (:drinkname, :price, :img, :description)';
-                        $drinkfood = new product("", "", "", "");
-                        $drinkfood->insertproduct($sql, $arr);
-                        header("Location: ../dashboardcontroler/controler.php?action=showproduct&notificationid=4");
-                    }                    
+                    $uploadFile = new uploadfile();
+                    $uploadFile->uploadimg("img");
+                    
+                    $arr = array('drinkname' => $drinkname, 'price' => $price, 'img' => $img, 'description' => $description);
+                    $sql = 'insert into drink (drinkname, price, img, drinkdescription) values (:drinkname, :price, :img, :description)';
+                    $drinkfood = new product("", "", "", "");
+                    $drinkfood->insertproduct($sql, $arr);
+                    header("Location: ../dashboardcontroler/controler.php?action=showproduct&notificationid=4");
                     break;
 
                 // -----------------get info drink------------------------------

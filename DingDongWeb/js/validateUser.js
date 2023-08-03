@@ -9,7 +9,7 @@ function validateForm() {
     if (document.getElementById("username")) {
         //lấy thành phần cha, giá trị của trường inputs đó
         var username = document.getElementById("username").parentNode.querySelector(".form-message");
-        var usernameValue = document.getElementById("username").value;
+        var usernameValue = document.getElementById("username").value.trim();
 
         // validation rules
         if (usernameValue === "") {
@@ -25,7 +25,7 @@ function validateForm() {
 
     if (document.getElementById("password")) {
         var password = document.getElementById("password").parentNode.querySelector(".form-message");
-        var passwordValue = document.getElementById("password").value;
+        var passwordValue = document.getElementById("password").value.trim();
         if (passwordValue === "") {
             password.innerHTML = "Vui lòng nhập trường này"
             rule = false;
@@ -39,7 +39,7 @@ function validateForm() {
 
     if (document.getElementById("passwordConfirmation")) {
         var passwordConfirm = document.getElementById("passwordConfirmation").parentNode.querySelector(".form-message");
-        var passwordConfirmValue = document.getElementById("passwordConfirmation").value;
+        var passwordConfirmValue = document.getElementById("passwordConfirmation").value.trim();
         if (passwordConfirmValue === "") {
             passwordConfirm.innerHTML = "Vui lòng xác nhận lại mật khẩu"
             rule = false;

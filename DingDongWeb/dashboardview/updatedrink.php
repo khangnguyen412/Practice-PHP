@@ -55,28 +55,30 @@
                                     $description = 'không có mô tả';
                                 }
                             ?>
-                            <form action="../dashboardcontroler/controler.php" method="post" enctype="multipart/form-data">
+                            <form action="../dashboardcontroler/controler.php" method="post" enctype="multipart/form-data" id="myForm" onsubmit="return validateForm()">
                                 <div class="mb-3" hidden>
                                     <label for="exampleInputPassword1" class="form-label">ID</label>
                                     <input type="text" name="id" value="<?php echo $id?>" class="form-control form-control-lg bg-dark" id="exampleInputPassword1" readonly>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="exampleInputPassword1" class="form-label">Tên Món</label>
-                                    <input type="text" name="drinkname" value="<?php echo $drinkname?>" class="form-control form-control-lg bg-dark" id="exampleInputPassword1">
+                                    <label for="productName" class="form-label">Tên Món</label>
+                                    <input type="text" name="drinkname" value="<?php echo $drinkname?>" class="form-control form-control-lg bg-dark" id="productName">
+                                    <span class="form-message" style="color: red;"></span>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="exampleInputPassword1" class="form-label">Giá Tiền</label>
-                                    <input type="text" name="price" value="<?php echo $price?>" class="form-control form-control-lg bg-dark" id="exampleInputPassword1">
+                                    <label for="productPrice" class="form-label">Giá Tiền</label>
+                                    <input type="text" name="price" value="<?php echo $price?>" class="form-control form-control-lg bg-dark" id="productPrice">
+                                    <span class="form-message" style="color: red;"></span>
                                 </div>
                                 <div class="mb-3">
                                     <label for="floatingTextarea">Chú Thích</label>
                                     <textarea name="description" class="form-control form-control-lg bg-dark"  placeholder="Nhập Mô Tả Tại Đây" id="floatingTextarea" style="height: 150px;"><?php echo $description?></textarea>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="formFileLg" class="form-label">Chọn Lại Hình Ảnh (Hình Ảnh Đang Chọn: <?php echo $img?>)</label>
-                                    <input class="form-control form-control-lg bg-dark" name="img" value="<?php echo $img?>" id="formFileLg" type="file">
-                                    <input class="form-control form-control-lg bg-dark" name="oldimg" value="<?php echo $img?>" id="" type="text" readonly hidden>
-                                    <!-- <span name="old" value="">(Hình Ảnh Đang Chọn: )</span> -->
+                                    <label for="productImage" class="form-label">Chọn Lại Hình Ảnh (Hình Ảnh Đang Chọn: <?php echo $img?>)</label>
+                                    <input class="form-control form-control-lg bg-dark" name="img" value="<?php echo $img?>" id="productImage" type="file">
+                                    <input class="form-control form-control-lg bg-dark" name="oldimg" value="<?php echo $img?>" id="productOldImage" type="text" readonly hidden>
+                                    <span class="form-message" style="color: red;"></span>
                                 </div>
                                 <button type="submit" name="useraction" value="updatedrink" class="btn btn-warning">Cập Nhật Nước Uống</button>
                             </form>
@@ -100,8 +102,9 @@
     </div>
 
     <?php
-    include '../dashboardview/lib/jslib.php'
+        include '../dashboardview/lib/jslib.php'
     ?>
+    <script src="../js/validateProduct.js"></script>
 </body>
 
 </html>

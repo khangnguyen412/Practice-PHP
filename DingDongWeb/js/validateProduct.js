@@ -2,38 +2,40 @@ function validateForm() {
     var rule = true;
 
     if (document.getElementById("productName")) {
-        var username = document.getElementById("productName").parentNode.querySelector(".form-message");
-        var usernameValue = document.getElementById("productName").value;
-        if (usernameValue === "") {
-            username.innerHTML = "Vui lòng nhập trường này"
+        var productName = document.getElementById("productName").parentNode.querySelector(".form-message");
+        var productNameValue = document.getElementById("productName").value.trim();
+        if (productNameValue === "") {
+            productName.innerHTML = "Vui lòng nhập trường này"
             rule = false;
         } else {
-            username.innerHTML = ""
+            productName.innerHTML = ""
         }
     }
 
     if (document.getElementById("productPrice")) {
-        var password = document.getElementById("productPrice").parentNode.querySelector(".form-message");
-        var passwordValue = document.getElementById("productPrice").value;
-        if (passwordValue === "") {
-            password.innerHTML = "Vui lòng nhập trường này"
+        var productPrice = document.getElementById("productPrice").parentNode.querySelector(".form-message");
+        var productPriceValue = document.getElementById("productPrice").value.trim();
+        if (productPriceValue === "") {
+            productPrice.innerHTML = "Vui lòng nhập trường này"
             rule = false;
         } else {
-            password.innerHTML = ""
+            productPrice.innerHTML = ""
         }
     }
 
-    if (document.getElementById("productImage")) {
-        var passwordConfirm = document.getElementById("productImage").parentNode.querySelector(".form-message");
-        var passwordConfirmValue = document.getElementById("productImage").value;
-        if (passwordConfirmValue === "") {
-            passwordConfirm.innerHTML = "Vui lòng nhập trường này"
+    if (document.getElementById("productOldImage")) {
+        var productImage = document.getElementById("productOldImage").parentNode.querySelector(".form-message");
+        var productImageValue = document.getElementById("productOldImage").value.trim();
+    } else if (document.getElementById("productImage")) {
+        var productImage = document.getElementById("productImage").parentNode.querySelector(".form-message");
+        var productImageValue = document.getElementById("productImage").value.trim();
+        if (productImageValue === "") {
+            productImage.innerHTML = "Vui lòng nhập trường này"
             rule = false;
         } else {
-            passwordConfirm.innerHTML = ""
+            productImage.innerHTML = ""
         }
     }
-
 
     if (!rule) {
         return false;

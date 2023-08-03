@@ -163,33 +163,15 @@
                     $price = $_POST['price'];
                     $description = $_POST['description'];
                     $img = '../img/imgupload/'.$_FILES['img']['name'];
-                    
-                    $error = [];
-                    if (empty(trim($_POST['foodname']))) {
-                        $error['foodname']['required'] = true;
-                    }elseif (empty(trim($_POST['price']))) {
-                        $error['price']['required'] = true;
-                    }elseif (empty(trim($_FILES['img']['name']))) {
-                        $error['img']['required'] = true;
-                    }else{
-                        $error = [];
-                    }
 
-                    if (!empty($error["foodname"]["required"])) {
-                        header("Location: ../dashboardcontroler/controler.php?action=shownotification&notificationid=emptyProductName");
-                    } else if (!empty($error["price"]["required"])) {
-                        header("Location: ../dashboardcontroler/controler.php?action=shownotification&notificationid=emptyPrice");
-                    } else if (!empty($error["img"]["required"])) {
-                        header("Location: ../dashboardcontroler/controler.php?action=shownotification&notificationid=emptyImg");
-                    } else {
-                        $uploadFile = new uploadfile();
-                        $uploadFile->uploadimg("img");
-                        $arr = array('foodname'=>$foodname, 'price'=>$price, 'img'=>$img, 'description'=>$description);
-                        $sql = 'insert into food (foodname, price, img, fooddescription) values (:foodname, :price, :img, :description)';
-                        $addfood = new product("", "", "", "");
-                        $addfood->insertproduct($sql, $arr);
-                        header("Location: ../dashboardcontroler/controler.php?action=showproduct&notificationid=4");
-                    }                    
+                    $uploadFile = new uploadfile();
+                    $uploadFile->uploadimg("img");
+
+                    $arr = array('foodname'=>$foodname, 'price'=>$price, 'img'=>$img, 'description'=>$description);
+                    $sql = 'insert into food (foodname, price, img, fooddescription) values (:foodname, :price, :img, :description)';
+                    $addfood = new product("", "", "", "");
+                    $addfood->insertproduct($sql, $arr);
+                    header("Location: ../dashboardcontroler/controler.php?action=showproduct&notificationid=4");                  
                     break;
 
                 // -----------------get info food------------------------------
@@ -215,32 +197,15 @@
                     }
                     $table = 'food';
 
-                    $error = [];
-                    if (empty(trim($_POST['foodname']))) {
-                        $error['foodname']['required'] = true;
-                    }elseif (empty(trim($_POST['price']))) {
-                        $error['price']['required'] = true;
-                    }elseif (empty(trim($img))) {
-                        $error['img']['required'] = true;
-                    }else{
-                        $error = [];
-                    }
+                    $uploadFile = new uploadfile();
+                    $uploadFile->uploadimg("img");
 
-                    if (!empty($error["foodname"]["required"])) {
-                        header("Location: ../dashboardcontroler/controler.php?action=shownotification&notificationid=emptyProductName");
-                    } else if (!empty($error["price"]["required"])) {
-                        header("Location: ../dashboardcontroler/controler.php?action=shownotification&notificationid=emptyPrice");
-                    } else if (!empty($error["img"]["required"])) {
-                        header("Location: ../dashboardcontroler/controler.php?action=shownotification&notificationid=emptyImg");
-                    } else {
-                        $uploadFile = new uploadfile();
-                        $uploadFile->uploadimg("img");
-                        $arr = array('id'=>$id, 'foodname'=>$foodname, 'price'=>$price, 'img'=>$img, 'description'=>$description);
-                        $sql = "update ".$table." set foodname = :foodname, price = :price, fooddescription= :description, img= :img, timeupdate = now()  where id = :id";
-                        $updatefood = new product("", "", "", "");
-                        $updatefood->updateproduct($sql, $arr);
-                        header("Location: ../dashboardcontroler/controler.php?action=showproduct&notificationid=6");
-                    }                    
+                    $arr = array('id'=>$id, 'foodname'=>$foodname, 'price'=>$price, 'img'=>$img, 'description'=>$description);
+                    $sql = "update ".$table." set foodname = :foodname, price = :price, fooddescription= :description, img= :img, timeupdate = now()  where id = :id";
+                    $updatefood = new product("", "", "", "");
+                    $updatefood->updateproduct($sql, $arr);
+                    header("Location: ../dashboardcontroler/controler.php?action=showproduct&notificationid=6");
+                                     
                     break;
 
                 // -----------------get id to delete food------------------------------
@@ -303,33 +268,15 @@
                     }
                     $table = 'drink';
                     
-                    $error = [];
-                    if (empty(trim($_POST['drinkname']))) {
-                        $error['drinkname']['required'] = true;
-                    }elseif (empty(trim($_POST['price']))) {
-                        $error['price']['required'] = true;
-                    }elseif (empty(trim($img))) {
-                        $error['img']['required'] = true;
-                    }else{
-                        $error = [];
-                    }
+                    $uploadFile = new uploadfile();
+                    $uploadFile->uploadimg("img");
 
-                    if (!empty($error["drinkname"]["required"])) {
-                        header("Location: ../dashboardcontroler/controler.php?action=shownotification&notificationid=emptyProductName");
-                    } else if (!empty($error["price"]["required"])) {
-                        header("Location: ../dashboardcontroler/controler.php?action=shownotification&notificationid=emptyPrice");
-                    } else if (!empty($error["img"]["required"])) {
-                        header("Location: ../dashboardcontroler/controler.php?action=shownotification&notificationid=emptyImg");
-                    } else {
-                        $uploadFile = new uploadfile();
-                        $uploadFile->uploadimg("img");
-                        $arr = array('id'=>$id, 'drinkname'=>$drinkname, 'price'=>$price, 'img'=>$img, 'description'=>$description);
-                        $sql = "update ".$table." set drinkname = :drinkname, price = :price, drinkdescription= :description, img= :img, timeupdate = now()  where id = :id";
-                        $updatedrink = new product("", "", "", "");
-                        $updatedrink->updateproduct($sql, $arr);
-                        // die;
-                        header("Location: ../dashboardcontroler/controler.php?action=showproduct&notificationid=6");
-                    }                    
+                    $arr = array('id'=>$id, 'drinkname'=>$drinkname, 'price'=>$price, 'img'=>$img, 'description'=>$description);
+                    $sql = "update ".$table." set drinkname = :drinkname, price = :price, drinkdescription= :description, img= :img, timeupdate = now()  where id = :id";
+                    $updatedrink = new product("", "", "", "");
+                    $updatedrink->updateproduct($sql, $arr);
+                    // die;
+                    header("Location: ../dashboardcontroler/controler.php?action=showproduct&notificationid=6");                 
                     break;
                 
                 // -----------------get id to delete drink------------------------------
@@ -434,12 +381,13 @@
                     $comment = $_POST['comment'];
                     $table = ($_POST['role'] == 'admins')? 'admincommentfood': 'usercommentfood';
                     $arr = array('iduser'=>$iduser, 'idfood'=>$idfood, 'comment'=>$comment);
-                    var_dump($arr);
+
                     if($table == 'admincommentfood'){
                         echo $sql = 'insert into admincommentfood (adminid, foodid, comments) values (:iduser, :idfood, :comment)';
                     }else{
                         echo $sql = 'insert into usercommentfood (userid, foodid, comments) values (:iduser, :idfood, :comment)';
                     };
+                    
                     $commentfood = new comment("", "", "", "");
                     $commentfood->insertcomment($sql, $arr);
                     header("Location: ../dashboardcontroler/controler.php?action=showFoodInfo&id=".$idfood."&notificationid=7");

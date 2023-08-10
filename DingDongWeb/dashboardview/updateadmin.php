@@ -53,7 +53,7 @@
                     <div class="col-sm-12 col-xl-12">
                         <div class="bg-secondary rounded h-100 p-4">
                             <h6 class="mb-4">Cập Nhật Quản Trị Viên</h6>
-                            <form action="../dashboardcontroler/controler.php" method="post" id="myForm" onsubmit="return validateForm()">
+                            <form action="../controller/controller.php" method="post" id="myForm" onsubmit="return validateForm()">
                                 <input type="text" name="id" class="form-control form-control-lg bg-dark" value="<?php echo $id; ?>" readonly hidden>
                                 <div class="mb-3">
                                     <label for="InputUsername" class="form-label">Tên Tài Khoản</label>

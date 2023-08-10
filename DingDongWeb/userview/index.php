@@ -50,7 +50,7 @@
                 <div class="col-md-6 align-self-center">
                     <div class="welcome-text mt-5 mt-md-0">
                         <h1 style="color: #000;"><span class="style-change">Danh Mục</span> Nước Uống</h1>
-                        <a href="../dashboardcontroler/controler.php?action=showDrink" class="template-btn mt-3">Xem Danh Mục</a>
+                        <a href="../controller/controller.php?action=showDrink" class="template-btn mt-3">Xem Danh Mục</a>
                     </div>
                 </div>
             </div>
@@ -63,7 +63,7 @@
                 <div class="col-md-6 align-self-center">
                     <div class="welcome-text mt-5 mt-md-0">
                         <h1 style="color: #000;"><span class="style-change">Danh Mục</span> Thức Ăn</h1>
-                        <a href="../dashboardcontroler/controler.php?action=showFood" class="template-btn mt-3">Xem Danh Mục</a>
+                        <a href="../controller/controller.php?action=showFood" class="template-btn mt-3">Xem Danh Mục</a>
                     </div>
                 </div>
             </div>
@@ -110,7 +110,7 @@
                     <div>
                         <h3>Trà Sữa Truyền Thống</h3>
                         <span class="style-change">18.000 VNĐ</span>
-                        <a href="../dashboardcontroler/controler.php?action=showDrink" class="template-btn3 mt-3">
+                        <a href="../controller/controller.php?action=showDrink" class="template-btn3 mt-3">
                             Xem ngay tại danh mục nước uống<span><i class="fa fa-long-arrow-right"></i></span>
                         </a>
                     </div>
@@ -129,7 +129,7 @@
                             moveth green multiply she'd kind saying one shall, two which darkness have day image god
                             their night. his subdue so you rule can.</p> -->
                         <span class="style-change">50.000 VNĐ</span>
-                        <a href="../dashboardcontroler/controler.php?action=showFood" class="template-btn3 mt-3">
+                        <a href="../controller/controller.php?action=showFood" class="template-btn3 mt-3">
                             Xem ngay tại danh mục thức ăn<span><i class="fa fa-long-arrow-right"></i></span>
                         </a>
                     </div>

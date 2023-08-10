@@ -40,9 +40,9 @@
                 <?php
                 if (isset($_SESSION["islogin"]) && $_SESSION["role"] == 'admins') {
                     $id = $_SESSION["id"];
-                    echo '<a href="../dashboardcontroler/controler.php?action=getadminid&id=' . $id . '" class="dropdown-item">Cập Nhật Tài Khoản</a>';
+                    echo '<a href="../controller/controller.php?action=getadminid&id=' . $id . '" class="dropdown-item">Cập Nhật Tài Khoản</a>';
                     echo '<a href="" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#exampleModal" >Xóa Tài Khoản</a>';
-                    echo '<a href="../dashboardcontroler/controler.php?action=logout" class="dropdown-item">Đăng xuất</a>';
+                    echo '<a href="../controller/controller.php?action=logout" class="dropdown-item">Đăng xuất</a>';
                 } else {
                     header("Location: ../dashboardview/signin.php");
                 }
@@ -65,7 +65,7 @@
                 <?php
                 if (isset($_SESSION["islogin"]) && $_SESSION["role"] == 'admins') {
                     $id = $_SESSION["id"];
-                    echo '<a href="../dashboardcontroler/controler.php?action=deleteadmin&id=' . $id . '"   class="btn btn-danger rounded-pill m-2">Xóa</a>';
+                    echo '<a href="../controller/controller.php?action=deleteadmin&id=' . $id . '"   class="btn btn-danger rounded-pill m-2">Xóa</a>';
                 } else {
                     header("Location: ../dashboardview/signin.php");
                 }

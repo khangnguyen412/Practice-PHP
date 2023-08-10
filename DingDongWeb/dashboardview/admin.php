@@ -58,7 +58,7 @@
                                 // }
                                 // if (isset($_SESSION["islogin"])) {
                                 //     $id = $_SESSION["id"];
-                                //     echo '<a type="button" href="../dashboardcontroler/controler.php?action=getadminid&id=' . $id . '" class="btn btn-warning w-100">Cập Nhật Tài Khoản</a>';
+                                //     echo '<a type="button" href="../controller/controller.php?action=getadminid&id=' . $id . '" class="btn btn-warning w-100">Cập Nhật Tài Khoản</a>';
                                 // } else {
                                 //     header("Location: ../dashboardview/signin.php");
                                 // }
@@ -109,8 +109,8 @@
                                         // echo '  <td>';
                                         // echo '      <div class="row">';
                                         // echo '          <div class="col">';
-                                        // echo '              <a href="../dashboardcontroler/controler.php?action=getadminid&id=' . $user['id'] . '"   class=" col-xxl-5 col-10 btn btn-success rounded-pill m-2">Cập Nhật</a>';
-                                        // echo '              <a href="../dashboardcontroler/controler.php?action=deleteadmin&id=' . $user['id'] . '"   class=" col-xxl-5 col-10 btn btn-danger rounded-pill m-2">Xóa</a>';
+                                        // echo '              <a href="../controller/controller.php?action=getadminid&id=' . $user['id'] . '"   class=" col-xxl-5 col-10 btn btn-success rounded-pill m-2">Cập Nhật</a>';
+                                        // echo '              <a href="../controller/controller.php?action=deleteadmin&id=' . $user['id'] . '"   class=" col-xxl-5 col-10 btn btn-danger rounded-pill m-2">Xóa</a>';
                                         // echo '          </div>';
                                         // echo '      </div>';
                                         // echo '  </td>';

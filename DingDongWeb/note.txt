@@ -1,7 +1,8 @@
 php language: 
 add selection for food, drink => ok
 fix confirm form by js => ok
-split module
+rename mvc folder => doing
+split module => pause
 thêm tính năng search (code ở dưới)
 move connect database file (lib folder in controler)
 add a search function for web

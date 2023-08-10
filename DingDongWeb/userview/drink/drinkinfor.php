@@ -113,7 +113,7 @@
             }
             if (isset($_SESSION["islogin"])) {
                 echo '<div class="row m-2" >';
-                echo '  <form action="../dashboardcontroler/controler.php?action=commentDrink" method="post">';
+                echo '  <form action="../controller/controller.php?action=commentDrink" method="post">';
                 echo '      <h5>Ghi Nhận Xét</h5>';
                 echo '      <div class="mt-10">';
                 echo '          <input type="text" class="single-input" name="iduser" value="'.$_SESSION["id"].'" readonly hidden>';

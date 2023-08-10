@@ -1,24 +1,19 @@
 <?php
-    include_once '../dashboardmodel/model.php';
+    include_once '../model/model.php';
     include_once './lib/uploadfile.php';
     include_once './lib/databaseprocess.php';
+    include_once './adminController.php';
 
-    class admincontroler{
+    class Controler{
         public function __construct($action){
+            $adminController = new AdminController();
             switch ($action){
                 // -----------------add admin------------------------------
                 case 'admincreate':
                     $username = $_POST['username'];
                     $password = md5($_POST['password']);
                     if($this->isLogin()){
-                        $table = 'admins';
-                        $arr = array('username' => $username, 'password' => $password);
-                        $adduser = new usercontrol("", "", "");
-                        if($adduser->insertuser($table, $arr) == 'error'){
-                            header("Location: ../dashboardcontroler/controler.php?action=shownotification&notificationid=errorUniqueAdmin");
-                        }else{
-                            header("Location: ../dashboardcontroler/controler.php?action=showadmin&notificationid=1");
-                        }           
+                        $adminController->adminCreate($username, $password);
                     }
                     break;
 
@@ -32,7 +27,7 @@
                     if($adduser->insertuser($table, $arr) == 'error'){
                         $this->shownotification(4, 'Tên Tài Khoản Đã Được Đăng Ký Xin Vui Lòng Thử Lại');;
                     }else{
-                        header("Location: ../dashboardcontroler/controler.php?action=showuser&notificationid=1");
+                        header("Location: ../controller/controller.php?action=showuser&notificationid=1");
                     }                            
                     break;
 
@@ -44,7 +39,7 @@
                     $arr = array('id'=>$id);
                     $deleteadmin = new usercontrol("", "", "");
                     $deleteadmin->deleteuser($table, $arr);
-                    header("Location: ../dashboardcontroler/controler.php?action=logout");
+                    header("Location: ../controller/controller.php?action=logout");
                     break;
 
                 // -----------------get info admin------------------------------
@@ -67,12 +62,12 @@
                         $arr = array('id'=> $id, 'username' => $username, 'password' => $password);
                         $updateuser = new usercontrol("", "", "");
                         if($updateuser->updateuser($table, $arr) == 'error'){
-                            header("Location: ../dashboardcontroler/controler.php?action=shownotification&notificationid=errorUpdateAdmin");
+                            header("Location: ../controller/controller.php?action=shownotification&notificationid=errorUpdateAdmin");
                         }else{
-                            header("Location: ../dashboardcontroler/controler.php?action=showadmin&notificationid=3");
+                            header("Location: ../controller/controller.php?action=showadmin&notificationid=3");
                         }           
                     }else{
-                        header("Location: ../dashboardcontroler/controler.php?action=shownotification&notificationid=wrongPassConfirm");
+                        header("Location: ../controller/controller.php?action=shownotification&notificationid=wrongPassConfirm");
                     }
                     break;
                     
@@ -93,9 +88,9 @@
                     $arr = array('username' => $username, 'password' => $password);
                     $adduser = new usercontrol("", "", "");
                     if ($adduser->insertuser($table, $arr) == 'error') {
-                        header("Location: ../dashboardcontroler/controler.php?action=shownotification&notificationid=errorUniqueUser");
+                        header("Location: ../controller/controller.php?action=shownotification&notificationid=errorUniqueUser");
                     } else {
-                        header("Location: ../dashboardcontroler/controler.php?action=shownotification&notificationid=addComplete");
+                        header("Location: ../controller/controller.php?action=shownotification&notificationid=addComplete");
                     }
                     break;
 
@@ -119,12 +114,12 @@
                         $arr = array('id'=> $id, 'username' => $username, 'password' => $password);
                         $updateuser = new usercontrol("", "", "");
                         if($updateuser->updateuser($table, $arr) == 'error'){
-                            header("Location: ../dashboardcontroler/controler.php?action=shownotification&notificationid=errorUpdateAdmin");
+                            header("Location: ../controller/controller.php?action=shownotification&notificationid=errorUpdateAdmin");
                         }else{
-                            header("Location: ../dashboardcontroler/controler.php?action=showuser&notificationid=3");
+                            header("Location: ../controller/controller.php?action=showuser&notificationid=3");
                         }           
                     }else{
-                        header("Location: ../dashboardcontroler/controler.php?action=shownotification&notificationid=wrongPassConfirm");
+                        header("Location: ../controller/controller.php?action=shownotification&notificationid=wrongPassConfirm");
                     }
                     break;
 
@@ -133,7 +128,7 @@
                     $id = $_GET['id'];
                     $name = $_GET['name'];
                     $result = '<h4 class="text-warning"> Bạn muốn xóa người dùng: '.$name.' ?</h4>';
-                    $button_back = '<a href="../dashboardcontroler/controler.php?action=deleteuser&id='.$id.'" class="btn btn-warning rounded-pill py-3 w-100 mb-4">Xóa Người Dùng</a>';
+                    $button_back = '<a href="../controller/controller.php?action=deleteuser&id='.$id.'" class="btn btn-warning rounded-pill py-3 w-100 mb-4">Xóa Người Dùng</a>';
                     include '../dashboardview/notification.php';
                     break;
 
@@ -145,7 +140,7 @@
                     $arr = array('id'=>$id);
                     $deleteuser = new usercontrol("", "", "");
                     $deleteuser->deleteuser($table, $arr);
-                    header("Location: ../dashboardcontroler/controler.php?action=showuser&notificationid=2");
+                    header("Location: ../controller/controller.php?action=showuser&notificationid=2");
                     break;
 
                 // -----------------show user------------------------------
@@ -171,7 +166,7 @@
                     $sql = 'insert into food (foodname, price, img, fooddescription) values (:foodname, :price, :img, :description)';
                     $addfood = new product("", "", "", "");
                     $addfood->insertproduct($sql, $arr);
-                    header("Location: ../dashboardcontroler/controler.php?action=showproduct&notificationid=4");                  
+                    header("Location: ../controller/controller.php?action=showproduct&notificationid=4");                  
                     break;
 
                 // -----------------get info food------------------------------
@@ -204,7 +199,7 @@
                     $sql = "update ".$table." set foodname = :foodname, price = :price, fooddescription= :description, img= :img, timeupdate = now()  where id = :id";
                     $updatefood = new product("", "", "", "");
                     $updatefood->updateproduct($sql, $arr);
-                    header("Location: ../dashboardcontroler/controler.php?action=showproduct&notificationid=6");
+                    header("Location: ../controller/controller.php?action=showproduct&notificationid=6");
                                      
                     break;
 
@@ -213,7 +208,7 @@
                     $id = $_GET['id'];
                     $name = $_GET['name'];
                     $result = '<h4 class="text-warning"> Bạn Muốn Xóa Sản Phẩm '.$name.'?</h4>';
-                    $button_back = '<a href="../dashboardcontroler/controler.php?action=deletefood&id='.$id.'" class="btn btn-warning rounded-pill py-3 w-100 mb-4">Xóa Sản Phẩm</a>';
+                    $button_back = '<a href="../controller/controller.php?action=deletefood&id='.$id.'" class="btn btn-warning rounded-pill py-3 w-100 mb-4">Xóa Sản Phẩm</a>';
                     include '../dashboardview/notification.php';
                     break;
 
@@ -225,7 +220,7 @@
                     $arr = array('id'=>$id);
                     $deleteproduct = new product("", "", "", "");
                     $deleteproduct->deleteproduct($table, $arr);
-                    header("Location: ../dashboardcontroler/controler.php?action=showproduct&notificationid=5");
+                    header("Location: ../controller/controller.php?action=showproduct&notificationid=5");
                     break;
 
                 // -----------------add drink------------------------------
@@ -242,7 +237,7 @@
                     $sql = 'insert into drink (drinkname, price, img, drinkdescription) values (:drinkname, :price, :img, :description)';
                     $drinkfood = new product("", "", "", "");
                     $drinkfood->insertproduct($sql, $arr);
-                    header("Location: ../dashboardcontroler/controler.php?action=showproduct&notificationid=4");
+                    header("Location: ../controller/controller.php?action=showproduct&notificationid=4");
                     break;
 
                 // -----------------get info drink------------------------------
@@ -276,7 +271,7 @@
                     $updatedrink = new product("", "", "", "");
                     $updatedrink->updateproduct($sql, $arr);
                     // die;
-                    header("Location: ../dashboardcontroler/controler.php?action=showproduct&notificationid=6");                 
+                    header("Location: ../controller/controller.php?action=showproduct&notificationid=6");                 
                     break;
                 
                 // -----------------get id to delete drink------------------------------
@@ -284,7 +279,7 @@
                     $id = $_GET['id'];
                     $name = $_GET['name'];
                     $result = '<h4 class="text-warning"> Bạn Muốn Xóa Sản Phẩm '.$name.'?</h4>';
-                    $button_back = '<a href="../dashboardcontroler/controler.php?action=deletedrink&id='.$id.'" class="btn btn-warning rounded-pill py-3 w-100 mb-4">Xóa Sản Phẩm</a>';
+                    $button_back = '<a href="../controller/controller.php?action=deletedrink&id='.$id.'" class="btn btn-warning rounded-pill py-3 w-100 mb-4">Xóa Sản Phẩm</a>';
                     include '../dashboardview/notification.php';
                     break;
                 
@@ -296,7 +291,7 @@
                     $arr = array('id'=>$id);
                     $deleteproduct = new product("", "", "", "");
                     $deleteproduct->deleteproduct($table, $arr);
-                    header("Location: ../dashboardcontroler/controler.php?action=showproduct&notificationid=5");
+                    header("Location: ../controller/controller.php?action=showproduct&notificationid=5");
                     break;
 
                 // -----------------show product and comment------------------------------
@@ -390,7 +385,7 @@
                     
                     $commentfood = new comment("", "", "", "");
                     $commentfood->insertcomment($sql, $arr);
-                    header("Location: ../dashboardcontroler/controler.php?action=showFoodInfo&id=".$idfood."&notificationid=7");
+                    header("Location: ../controller/controller.php?action=showFoodInfo&id=".$idfood."&notificationid=7");
                     break;
 
                 // -----------------get id to delete comment------------------------------
@@ -399,7 +394,7 @@
                     $datetime = $_GET['datetime'];
                     $role = $_GET['role'];
                     $result = '<h4 class="text-warning"> Bạn Muốn Xóa Nhận Xét Này?</h4>';
-                    $button_back = '<a href="../dashboardcontroler/controler.php?action=deletecommentFood&role='.$role.'&id='.$id.'&datetime='.$datetime.'" class="btn btn-warning rounded-pill py-3 w-100 mb-4">Xóa Sản Phẩm</a>';
+                    $button_back = '<a href="../controller/controller.php?action=deletecommentFood&role='.$role.'&id='.$id.'&datetime='.$datetime.'" class="btn btn-warning rounded-pill py-3 w-100 mb-4">Xóa Sản Phẩm</a>';
                     include '../dashboardview/notification.php';
                     break;
                 
@@ -413,7 +408,7 @@
                     $arr = array('id'=>$id, 'datetime'=>$datetime);
                     $deletecomment = new comment("", "", "", "");
                     $deletecomment->deletecomment($table, $role, $arr);
-                    header("Location: ../dashboardcontroler/controler.php?action=showproduct&notificationid=8");
+                    header("Location: ../controller/controller.php?action=showproduct&notificationid=8");
                     break;
 
                 // -----------------show drink list to menu------------------------------
@@ -506,7 +501,7 @@
                     };
                     $commentfood = new comment("", "", "", "");
                     $commentfood->insertcomment($sql, $arr);
-                    header("Location: ../dashboardcontroler/controler.php?action=showDrinkInfo&id=".$iddrink."&notificationid=7");
+                    header("Location: ../controller/controller.php?action=showDrinkInfo&id=".$iddrink."&notificationid=7");
                     break;
                 
                 // -----------------get id to delete comment------------------------------
@@ -515,7 +510,7 @@
                     $datetime = $_GET['datetime'];
                     $role = $_GET['role'];
                     $result = '<h4 class="text-warning"> Bạn Muốn Xóa Nhận Xét Này?</h4>';
-                    $button_back = '<a href="../dashboardcontroler/controler.php?action=deletecommentDrink&&role='.$role.'&id='.$id.'&datetime='.$datetime.'" class="btn btn-warning rounded-pill py-3 w-100 mb-4">Xóa Sản Phẩm</a>';
+                    $button_back = '<a href="../controller/controller.php?action=deletecommentDrink&&role='.$role.'&id='.$id.'&datetime='.$datetime.'" class="btn btn-warning rounded-pill py-3 w-100 mb-4">Xóa Sản Phẩm</a>';
                     include '../dashboardview/notification.php';
                     break;
 
@@ -529,7 +524,7 @@
                     $arr = array('id'=>$id, 'datetime'=>$datetime);
                     $deletecomment = new comment("", "", "", "");
                     $deletecomment->deletecomment($table, $role, $arr);
-                    header("Location: ../dashboardcontroler/controler.php?action=showproduct&notificationid=8");
+                    header("Location: ../controller/controller.php?action=showproduct&notificationid=8");
                     break;
 
                 // -----------------find account------------------------------
@@ -605,7 +600,7 @@
                     $user = new usercontrol("", "", "");
                     if($user->checkuser($username, $pass, $role)){
                         if ($role == 'admins'){
-                            header("Location: ../dashboardcontroler/controler.php?action=showadmin");
+                            header("Location: ../controller/controller.php?action=showadmin");
                         }else{
                             header("Location: ../userview/index.php");
                         }
@@ -732,12 +727,12 @@
                     break;
                 case 4:
                     $result = '<h3 class="text-warning">'.$name.'</h3>';
-                    $button_back = '<a type="submit" href="../dashboardcontroler/controler.php?action=showadmin" class="btn btn-warning rounded-pill py-3 px-5">Quay Lại Trang Quản Trị</a>';
+                    $button_back = '<a type="submit" href="../controller/controller.php?action=showadmin" class="btn btn-warning rounded-pill py-3 px-5">Quay Lại Trang Quản Trị</a>';
                     include '../dashboardview/404.php';
                     break;
                 case 5:
                     $result = '<h4 class="text-warning">'.$name.'</h4>';
-                    $button_back = '<a type="submit" href="../dashboardcontroler/controler.php?action=showadmin" class="btn btn-warning py-3 w-100 mb-4">Quay Lại Trang Đăng Nhập</a>';
+                    $button_back = '<a type="submit" href="../controller/controller.php?action=showadmin" class="btn btn-warning py-3 w-100 mb-4">Quay Lại Trang Đăng Nhập</a>';
                     include '../dashboardview/notification.php';
                     break;
             }
@@ -782,5 +777,4 @@
     }else{
         $action = $_GET['action'];
     }
-    $control = new admincontroler($action);
-?>
+    $control = new Controler($action);

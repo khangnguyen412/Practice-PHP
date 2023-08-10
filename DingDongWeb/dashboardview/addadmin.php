@@ -41,7 +41,7 @@
                     <div class="col-sm-12 col-xl-12">
                         <div class="bg-secondary rounded h-100 p-4">
                             <h6 class="mb-4">Thêm Quản Trị Viên</h6>
-                            <form action="../dashboardcontroler/controler.php" method="post" onsubmit="return validateForm()">
+                            <form action="../controller/controller.php" method="post" onsubmit="return validateForm()">
                                 <div class="mb-3">
                                     <label for="exampleInputUsername1" class="form-label">Tên Tài Khoản</label>
                                     <input type="text" name="username" class="form-control" id="username">

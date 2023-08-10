@@ -35,10 +35,10 @@
                                 Thức Ăn
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="<?php echo $url ?>dashboardcontroler/controler.php?action=showFood&category=all">Tất Cả Danh Mục</a></li>
-                                <li><a class="dropdown-item" href="<?php echo $url ?>dashboardcontroler/controler.php?action=showFood&category=comboHotpot">Combo Lẩu</a></li>
-                                <li><a class="dropdown-item" href="<?php echo $url ?>dashboardcontroler/controler.php?action=showFood&category=buffetHotpot">Lẩu Ly Tự Chọn</a></li>
-                                <li><a class="dropdown-item" href="<?php echo $url ?>dashboardcontroler/controler.php?action=showFood&category=specialCombo">Combo Đặc Biệt</a></li>
+                                <li><a class="dropdown-item" href="<?php echo $url ?>controller/controller.php?action=showFood&category=all">Tất Cả Danh Mục</a></li>
+                                <li><a class="dropdown-item" href="<?php echo $url ?>controller/controller.php?action=showFood&category=comboHotpot">Combo Lẩu</a></li>
+                                <li><a class="dropdown-item" href="<?php echo $url ?>controller/controller.php?action=showFood&category=buffetHotpot">Lẩu Ly Tự Chọn</a></li>
+                                <li><a class="dropdown-item" href="<?php echo $url ?>controller/controller.php?action=showFood&category=specialCombo">Combo Đặc Biệt</a></li>
                             </ul>
                         </li>
 
@@ -47,16 +47,16 @@
                                 Nước Uống
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="<?php echo $url ?>dashboardcontroler/controler.php?action=showDrink&category=all">Tất Cả Danh Mục</a></li>
-                                <li><a class="dropdown-item" href="<?php echo $url ?>dashboardcontroler/controler.php?action=showDrink&category=cafe">Cafe</a></li>
-                                <li><a class="dropdown-item" href="<?php echo $url ?>dashboardcontroler/controler.php?action=showDrink&category=milk">Sữa Chua Và Sữa Tươi</a></li>
-                                <li><a class="dropdown-item" href="<?php echo $url ?>dashboardcontroler/controler.php?action=showDrink&category=milkTea">Trà Sữa</a></li>
-                                <li><a class="dropdown-item" href="<?php echo $url ?>dashboardcontroler/controler.php?action=showDrink&category=caCao">Ca Cao</a></li>
-                                <li><a class="dropdown-item" href="<?php echo $url ?>dashboardcontroler/controler.php?action=showDrink&category=soda">Soda</a></li>
-                                <li><a class="dropdown-item" href="<?php echo $url ?>dashboardcontroler/controler.php?action=showDrink&category=juice">Nước Ép</a></li>
-                                <li><a class="dropdown-item" href="<?php echo $url ?>dashboardcontroler/controler.php?action=showDrink&category=tea">Trà</a></li>
-                                <li><a class="dropdown-item" href="<?php echo $url ?>dashboardcontroler/controler.php?action=showDrink&category=topping">Các Loại Topping</a></li>
-                                <li><a class="dropdown-item" href="<?php echo $url ?>dashboardcontroler/controler.php?action=showDrink&category=otherDrink">Nước Uống Khác</a></li>
+                                <li><a class="dropdown-item" href="<?php echo $url ?>controller/controller.php?action=showDrink&category=all">Tất Cả Danh Mục</a></li>
+                                <li><a class="dropdown-item" href="<?php echo $url ?>controller/controller.php?action=showDrink&category=cafe">Cafe</a></li>
+                                <li><a class="dropdown-item" href="<?php echo $url ?>controller/controller.php?action=showDrink&category=milk">Sữa Chua Và Sữa Tươi</a></li>
+                                <li><a class="dropdown-item" href="<?php echo $url ?>controller/controller.php?action=showDrink&category=milkTea">Trà Sữa</a></li>
+                                <li><a class="dropdown-item" href="<?php echo $url ?>controller/controller.php?action=showDrink&category=caCao">Ca Cao</a></li>
+                                <li><a class="dropdown-item" href="<?php echo $url ?>controller/controller.php?action=showDrink&category=soda">Soda</a></li>
+                                <li><a class="dropdown-item" href="<?php echo $url ?>controller/controller.php?action=showDrink&category=juice">Nước Ép</a></li>
+                                <li><a class="dropdown-item" href="<?php echo $url ?>controller/controller.php?action=showDrink&category=tea">Trà</a></li>
+                                <li><a class="dropdown-item" href="<?php echo $url ?>controller/controller.php?action=showDrink&category=topping">Các Loại Topping</a></li>
+                                <li><a class="dropdown-item" href="<?php echo $url ?>controller/controller.php?action=showDrink&category=otherDrink">Nước Uống Khác</a></li>
                             </ul>
                         </li>
 
@@ -89,10 +89,10 @@
                             Thức Ăn
                         </a>
                         <ul class="bg-body-tertiary dropdown-menu" style="margin: 20px;">
-                            <li><a class="dropdown-item" href="<?php echo $url ?>dashboardcontroler/controler.php?action=showFood&category=all">Tất Cả Danh Mục</a></li>
-                            <li><a class="dropdown-item" href="<?php echo $url ?>dashboardcontroler/controler.php?action=showFood&category=comboHotpot">Combo Lẩu</a></li>
-                            <li><a class="dropdown-item" href="<?php echo $url ?>dashboardcontroler/controler.php?action=showFood&category=buffetHotpot">Lẩu Ly Tự Chọn</a></li>
-                            <li><a class="dropdown-item" href="<?php echo $url ?>dashboardcontroler/controler.php?action=showFood&category=specialCombo">Combo Đặc Biệt</a></li>
+                            <li><a class="dropdown-item" href="<?php echo $url ?>controller/controller.php?action=showFood&category=all">Tất Cả Danh Mục</a></li>
+                            <li><a class="dropdown-item" href="<?php echo $url ?>controller/controller.php?action=showFood&category=comboHotpot">Combo Lẩu</a></li>
+                            <li><a class="dropdown-item" href="<?php echo $url ?>controller/controller.php?action=showFood&category=buffetHotpot">Lẩu Ly Tự Chọn</a></li>
+                            <li><a class="dropdown-item" href="<?php echo $url ?>controller/controller.php?action=showFood&category=specialCombo">Combo Đặc Biệt</a></li>
                         </ul>
                     </li>
 
@@ -101,7 +101,7 @@
                             Nước Uống
                         </a>
                         <ul class="bg-body-tertiary dropdown-menu" style="margin: 20px;">
-                            <li><a class="dropdown-item" href="<?php echo $url ?>dashboardcontroler/controler.php?action=showDrink">Tất Cả Danh Mục</a></li>
+                            <li><a class="dropdown-item" href="<?php echo $url ?>controller/controller.php?action=showDrink">Tất Cả Danh Mục</a></li>
                             <li><a class="dropdown-item" href="#">Cafe</a></li>
                             <li><a class="dropdown-item" href="#">Sữa Chua Và Sữa Tươi</a></li>
                             <li><a class="dropdown-item" href="#">Trà Sữa</a></li>
@@ -155,12 +155,12 @@
             <div class="modal-footer">
                 <?php
                 if ($_SESSION["role"] == "admins") {
-                    echo '<a href="./'.$url.'dashboardcontroler/controler.php?action=showadmin" class="btn btn-primary">Trang Admin</a>';
+                    echo '<a href="./'.$url.'controller/controller.php?action=showadmin" class="btn btn-primary">Trang Admin</a>';
                 } else {
-                    echo '<a href="./'.$url.'dashboardcontroler/controler.php?action=userChangePass&id=' . $_SESSION["id"] . '" class="btn btn-primary">Thay Đổi Mật Khẩu</a>';
+                    echo '<a href="./'.$url.'controller/controller.php?action=userChangePass&id=' . $_SESSION["id"] . '" class="btn btn-primary">Thay Đổi Mật Khẩu</a>';
                 }
                 ?>
-                <a href="./<?php echo $url ?>dashboardcontroler/controler.php?action=logout" class="btn btn-primary">Đăng Xuất</a>
+                <a href="./<?php echo $url ?>controller/controller.php?action=logout" class="btn btn-primary">Đăng Xuất</a>
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
                 <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
             </div>

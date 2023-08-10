@@ -55,7 +55,7 @@
                                     $description = 'không có mô tả';
                                 }
                             ?>
-                            <form action="../dashboardcontroler/controler.php" method="post" enctype="multipart/form-data" id="myForm" onsubmit="return validateForm()">
+                            <form action="../controller/controller.php" method="post" enctype="multipart/form-data" id="myForm" onsubmit="return validateForm()">
                                 <div class="mb-3" hidden>
                                     <label for="exampleInputPassword1" class="form-label">ID</label>
                                     <input type="text" name="id" value="<?php echo $id?>" class="form-control form-control-lg bg-dark" id="exampleInputPassword1" readonly>

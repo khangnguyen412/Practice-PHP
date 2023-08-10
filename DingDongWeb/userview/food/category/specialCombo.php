@@ -57,7 +57,7 @@
                         echo '      <div>';
                         echo '          <h3>'.$food['foodname'].'</h3>';
                         echo '          <span class="style-change">' . $food['price'] . ' VNĐ</span>';
-                        echo '          <a href="../dashboardcontroler/controler.php?action=showFoodInfo&&id='.$food['id'].'" class="btn btn-warning mt-3"> ';
+                        echo '          <a href="../controller/controller.php?action=showFoodInfo&&id='.$food['id'].'" class="btn btn-warning mt-3"> ';
                         echo '              Xem thông tin combo <i class="fa fa-long-arrow-right"></i>';
                         echo '          </a>';
                         echo '      </div>';

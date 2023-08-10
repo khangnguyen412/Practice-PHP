@@ -71,7 +71,7 @@
                             echo '      </div>';
                             echo '      <div class="card-footer">';
                             echo '          <div class="d-flex" >';
-                            echo '              <a href="../dashboardcontroler/controler.php?action=showDrinkInfo&&id='.$drink['id'].'" class="col col-lg-12 btn btn-warning"> ';
+                            echo '              <a href="../controller/controller.php?action=showDrinkInfo&&id='.$drink['id'].'" class="col col-lg-12 btn btn-warning"> ';
                             echo '                  Xem chi tiết';
                             echo '              </a>';
                             echo '          </div>';
@@ -110,7 +110,7 @@
                             echo '      </div>';
                             echo '      <div class="card-footer">';
                             echo '          <div class="d-flex" >';
-                            echo '              <a href="../dashboardcontroler/controler.php?action=showDrinkInfo&&id='.$drink['id'].'" class="col col-lg-12 btn btn-warning"> ';
+                            echo '              <a href="../controller/controller.php?action=showDrinkInfo&&id='.$drink['id'].'" class="col col-lg-12 btn btn-warning"> ';
                             echo '                  Xem chi tiết';
                             echo '              </a>';
                             echo '          </div>';
@@ -149,7 +149,7 @@
                             echo '      </div>';
                             echo '      <div class="card-footer">';
                             echo '          <div class="d-flex" >';
-                            echo '              <a href="../dashboardcontroler/controler.php?action=showDrinkInfo&&id='.$drink['id'].'" class="col col-lg-12 btn btn-warning"> ';
+                            echo '              <a href="../controller/controller.php?action=showDrinkInfo&&id='.$drink['id'].'" class="col col-lg-12 btn btn-warning"> ';
                             echo '                  Xem chi tiết';
                             echo '              </a>';
                             echo '          </div>';
@@ -188,7 +188,7 @@
                             echo '      </div>';
                             echo '      <div class="card-footer">';
                             echo '          <div class="d-flex" >';
-                            echo '              <a href="../dashboardcontroler/controler.php?action=showDrinkInfo&&id='.$drink['id'].'" class="col col-lg-12 btn btn-warning"> ';
+                            echo '              <a href="../controller/controller.php?action=showDrinkInfo&&id='.$drink['id'].'" class="col col-lg-12 btn btn-warning"> ';
                             echo '                  Xem chi tiết';
                             echo '              </a>';
                             echo '          </div>';
@@ -227,7 +227,7 @@
                             echo '      </div>';
                             echo '      <div class="card-footer">';
                             echo '          <div class="d-flex" >';
-                            echo '              <a href="../dashboardcontroler/controler.php?action=showDrinkInfo&&id='.$drink['id'].'" class="col col-lg-12 btn btn-warning"> ';
+                            echo '              <a href="../controller/controller.php?action=showDrinkInfo&&id='.$drink['id'].'" class="col col-lg-12 btn btn-warning"> ';
                             echo '                  Xem chi tiết';
                             echo '              </a>';
                             echo '          </div>';
@@ -266,7 +266,7 @@
                             echo '      </div>';
                             echo '      <div class="card-footer">';
                             echo '          <div class="d-flex" >';
-                            echo '              <a href="../dashboardcontroler/controler.php?action=showDrinkInfo&&id='.$drink['id'].'" class="col col-lg-12 btn btn-warning"> ';
+                            echo '              <a href="../controller/controller.php?action=showDrinkInfo&&id='.$drink['id'].'" class="col col-lg-12 btn btn-warning"> ';
                             echo '                  Xem chi tiết';
                             echo '              </a>';
                             echo '          </div>';
@@ -305,7 +305,7 @@
                             echo '      </div>';
                             echo '      <div class="card-footer">';
                             echo '          <div class="d-flex" >';
-                            echo '              <a href="../dashboardcontroler/controler.php?action=showDrinkInfo&&id='.$drink['id'].'" class="col col-lg-12 btn btn-warning"> ';
+                            echo '              <a href="../controller/controller.php?action=showDrinkInfo&&id='.$drink['id'].'" class="col col-lg-12 btn btn-warning"> ';
                             echo '                  Xem chi tiết';
                             echo '              </a>';
                             echo '          </div>';
@@ -344,7 +344,7 @@
                             echo '      </div>';
                             echo '      <div class="card-footer">';
                             echo '          <div class="d-flex" >';
-                            echo '              <a href="../dashboardcontroler/controler.php?action=showDrinkInfo&&id='.$drink['id'].'" class="col col-lg-12 btn btn-warning"> ';
+                            echo '              <a href="../controller/controller.php?action=showDrinkInfo&&id='.$drink['id'].'" class="col col-lg-12 btn btn-warning"> ';
                             echo '                  Xem chi tiết';
                             echo '              </a>';
                             echo '          </div>';

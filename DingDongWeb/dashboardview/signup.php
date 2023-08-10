@@ -24,7 +24,7 @@
             <div class="row h-100 align-items-center justify-content-center" style="min-height: 100vh;">
                 <div class="col-12 col-md-8 col-lg-6 ">
                     <div class="bg-secondary rounded p-4 p-sm-5 my-4 mx-3">
-                        <form id="usercreate" action="../dashboardcontroler/controler.php" method="post" onsubmit="return validateForm()">
+                        <form id="usercreate" action="../controller/controller.php" method="post" onsubmit="return validateForm()">
                             <div class="d-flex align-items-center justify-content-between mb-3">
                                 <a href="../index.php" class="">
                                     <h3 class="text-warning">

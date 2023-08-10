@@ -8,9 +8,9 @@
         </a>
         <div class="navbar-nav w-100">
             <a href="../userview/index.php" class="nav-item nav-link text-warning">Trang Chủ</a>
-            <a href="../dashboardcontroler/controler.php?action=showproduct" class="nav-item nav-link text-warning">Danh Mục</a>
-            <a href="../dashboardcontroler/controler.php?action=showadmin" class="nav-item nav-link text-warning">Quản Trị Viên</a>
-            <a href="../dashboardcontroler/controler.php?action=showuser" class="nav-item nav-link text-warning">Khách Hàng</a>
+            <a href="../controller/controller.php?action=showproduct" class="nav-item nav-link text-warning">Danh Mục</a>
+            <a href="../controller/controller.php?action=showadmin" class="nav-item nav-link text-warning">Quản Trị Viên</a>
+            <a href="../controller/controller.php?action=showuser" class="nav-item nav-link text-warning">Khách Hàng</a>
         </div>
     </nav>
 </div>

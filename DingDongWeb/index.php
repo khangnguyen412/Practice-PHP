@@ -1,3 +1,3 @@
 <?php
-    header("Location: ./userview/index.php")
+    header("Location: ./view/userview/index.php")
 ?>

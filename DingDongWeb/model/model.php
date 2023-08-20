@@ -55,8 +55,8 @@
                 $sqlFoodRef = "delete from admincommentfood where adminid = :id";
                 $sqlDrinkRef = "delete from admincommentdrink where adminid = :id";
             }else{
-                $sqlFoodRef = "delete from usercommentfood where foodid = :id";
-                $sqlDrinkRef = "delete from usercommentdrink where drinkid = :id";
+                $sqlFoodRef = "delete from usercommentfood where userid = :id";
+                $sqlDrinkRef = "delete from usercommentdrink where userid = :id";
             }
             $dbCon = new connectDB();
             $dbCon->connectDB();

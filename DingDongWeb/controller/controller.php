@@ -49,7 +49,7 @@
                     $arr = array('id'=>$id);
                     $adminInfor = new usercontrol("", "", "");
                     $infor = $adminInfor->getuser($table, $arr);
-                    include '../dashboardview/updateadmin.php';
+                    include '../view/dashboardview/updateadmin.php';
                     break;
 
                 // -----------------update admin------------------------------
@@ -77,7 +77,7 @@
                     $user = new usercontrol("", "", "");
                     $getuser = 'SELECT * FROM admins';
                     $userlist = $user->getalluser($getuser);
-                    include '../dashboardview/admin.php';
+                    include '../view/dashboardview/admin.php';
                     break;
 
                 // -----------------signup------------------------------
@@ -101,7 +101,7 @@
                     $arr = array('id'=>$id);
                     $userInfor = new usercontrol("", "", "");
                     $infor = $userInfor->getuser($table, $arr);
-                    include '../dashboardview/updateuser.php';
+                    include '../view/dashboardview/updateuser.php';
                     break;
 
                 // -----------------update user------------------------------
@@ -129,7 +129,7 @@
                     $name = $_GET['name'];
                     $result = '<h4 class="text-warning"> Bạn muốn xóa người dùng: '.$name.' ?</h4>';
                     $button_back = '<a href="../controller/controller.php?action=deleteuser&id='.$id.'" class="btn btn-warning rounded-pill py-3 w-100 mb-4">Xóa Người Dùng</a>';
-                    include '../dashboardview/notification.php';
+                    include '../view/dashboardview/notification.php';
                     break;
 
                 // -----------------delete user------------------------------
@@ -149,7 +149,7 @@
                     $user = new usercontrol("", "", "");
                     $getuser = 'SELECT * FROM users';
                     $userlist = $user->getalluser($getuser);
-                    include '../dashboardview/user.php';
+                    include '../view/dashboardview/user.php';
                     break;
 
                 // -----------------add food------------------------------
@@ -176,7 +176,7 @@
                     $arr = array('id'=>$id);
                     $getproduct = new product("", "", "", "");
                     $infor = $getproduct->getproduct($table, $arr);
-                    include '../dashboardview/updatefood.php';
+                    include '../view/dashboardview/updatefood.php';
                     break;
 
                 // -----------------update food------------------------------
@@ -209,7 +209,7 @@
                     $name = $_GET['name'];
                     $result = '<h4 class="text-warning"> Bạn Muốn Xóa Sản Phẩm '.$name.'?</h4>';
                     $button_back = '<a href="../controller/controller.php?action=deletefood&id='.$id.'" class="btn btn-warning rounded-pill py-3 w-100 mb-4">Xóa Sản Phẩm</a>';
-                    include '../dashboardview/notification.php';
+                    include '../view/dashboardview/notification.php';
                     break;
 
                 // -----------------delete food------------------------------
@@ -247,7 +247,7 @@
                     $arr = array('id'=>$id);
                     $getproduct = new product("", "", "", "");
                     $infor = $getproduct->getproduct($table, $arr);
-                    include '../dashboardview/updatedrink.php';
+                    include '../view/dashboardview/updatedrink.php';
                     break;
 
                 // -----------------update drink------------------------------
@@ -280,7 +280,7 @@
                     $name = $_GET['name'];
                     $result = '<h4 class="text-warning"> Bạn Muốn Xóa Sản Phẩm '.$name.'?</h4>';
                     $button_back = '<a href="../controller/controller.php?action=deletedrink&id='.$id.'" class="btn btn-warning rounded-pill py-3 w-100 mb-4">Xóa Sản Phẩm</a>';
-                    include '../dashboardview/notification.php';
+                    include '../view/dashboardview/notification.php';
                     break;
                 
                 // -----------------delete drink------------------------------
@@ -319,7 +319,7 @@
                     $getusercommentdrink = 'select userid, drinkid, drinkname, comments, datecoments from usercommentdrink inner join drink on drinkid = drink.id;';
                     $usercommentdrink = $comment->getallcomment($getusercommentdrink);
                     
-                    include '../dashboardview/product.php';
+                    include '../view/dashboardview/product.php';
                     break;
 
                 // -----------------show food list to menu------------------------------
@@ -341,16 +341,16 @@
                     $category = $_GET['category'];
                     switch ($category) {
                         case 'comboHotpot':
-                            include "../userview/food/category/comboHotpot.php";
+                            include "../view/userview/food/category/comboHotpot.php";
                             break;
                         case 'buffetHotpot':
-                            include '../userview/food/category/buffetHotpot.php';
+                            include '../view/userview/food/category/buffetHotpot.php';
                             break;
                         case 'specialCombo':
-                            include '../userview/food/category/specialCombo.php';
+                            include '../view/userview/food/category/specialCombo.php';
                             break;
                         default:
-                            include '../userview/food/index.php';
+                            include '../view/userview/food/index.php';
                             break;
                     }
                     break;
@@ -366,7 +366,7 @@
                     $getcomment = 'select adminid as id, foodid as idproduct, adminid, admins.username, comments, datecoments from admincommentfood inner join admins on  adminid = admins.id where foodid = '.$id.'
                     union select userid, foodid, userid, users.username, comments, datecoments from usercommentfood inner join users on userid = users.id where foodid ='.$id.' order by datecoments desc';
                     $commentlist = $comment->getallcomment($getcomment);
-                    include '../userview/food/foodinfor.php';
+                    include '../view/userview/food/foodinfor.php';
                     break;
 
                 // -----------------food comment------------------------------
@@ -395,7 +395,7 @@
                     $role = $_GET['role'];
                     $result = '<h4 class="text-warning"> Bạn Muốn Xóa Nhận Xét Này?</h4>';
                     $button_back = '<a href="../controller/controller.php?action=deletecommentFood&role='.$role.'&id='.$id.'&datetime='.$datetime.'" class="btn btn-warning rounded-pill py-3 w-100 mb-4">Xóa Sản Phẩm</a>';
-                    include '../dashboardview/notification.php';
+                    include '../view/dashboardview/notification.php';
                     break;
                 
                 // -----------------delete comment------------------------------
@@ -441,34 +441,34 @@
                     $category = $_GET['category'];
                     switch ($category) {
                         case 'cafe':
-                            include "../userview/drink/category/cafe.php";
+                            include "../view/userview/drink/category/cafe.php";
                             break;
                         case 'milk':
-                            include "../userview/drink/category/milk.php";
+                            include "../view/userview/drink/category/milk.php";
                             break;
                         case 'milkTea':
-                            include "../userview/drink/category/milkTea.php";
+                            include "../view/userview/drink/category/milkTea.php";
                             break;
                         case 'caCao':
-                            include "../userview/drink/category/caCao.php";
+                            include "../view/userview/drink/category/caCao.php";
                             break;
                         case 'soda':
-                            include "../userview/drink/category/soda.php";
+                            include "../view/userview/drink/category/soda.php";
                             break;
                         case 'juice':
-                            include "../userview/drink/category/juice.php";
+                            include "../view/userview/drink/category/juice.php";
                             break;
                         case 'tea':
-                            include "../userview/drink/category/tea.php";
+                            include "../view/userview/drink/category/tea.php";
                             break;
                         case 'topping':
-                            include "../userview/drink/category/topping.php";
+                            include "../view/userview/drink/category/topping.php";
                             break;
                         // case 'otherDrink':
-                        //     include "../userview/drink/otherDrink.php";
+                        //     include "../view/userview/drink/otherDrink.php";
                         //     break;
                         default:
-                            include "../userview/drink/index.php";
+                            include "../view/userview/drink/index.php";
                             break;
                     }
                     break;
@@ -483,7 +483,7 @@
                     $getcomment = 'select adminid as id, drinkid as idproduct, adminid, admins.username, comments, datecoments from admincommentdrink inner join admins on  adminid = admins.id where drinkid = '.$id.'
                     union select userid, drinkid, userid, users.username, comments, datecoments from usercommentdrink inner join users on userid = users.id where drinkid ='.$id.' order by datecoments desc;';
                     $commentlist = $comment->getallcomment($getcomment);
-                    include '../userview/drink/drinkinfor.php';
+                    include '../view/userview/drink/drinkinfor.php';
                     break;
                     
                 // -----------------drink comment------------------------------
@@ -511,7 +511,7 @@
                     $role = $_GET['role'];
                     $result = '<h4 class="text-warning"> Bạn Muốn Xóa Nhận Xét Này?</h4>';
                     $button_back = '<a href="../controller/controller.php?action=deletecommentDrink&&role='.$role.'&id='.$id.'&datetime='.$datetime.'" class="btn btn-warning rounded-pill py-3 w-100 mb-4">Xóa Sản Phẩm</a>';
-                    include '../dashboardview/notification.php';
+                    include '../view/dashboardview/notification.php';
                     break;
 
                 // -----------------delete drink comment------------------------------
@@ -535,11 +535,11 @@
                     $findAccount = new usercontrol("", "", "");
                     $accountExist = $findAccount -> getuserByUsername($sql, $arr);
                     if (!empty($accountExist)){
-                        include '../dashboardview/forgotpassword.php';
+                        include '../view/dashboardview/forgotpassword.php';
                     }else{
                         $result = '<h4 class="text-warning">Không Tìm Thấy Tài Khoản! Xin Vui Lòng Thử Lại</h4>';
-                        $button_back = '<a href="../dashboardview/findaccount.php" class="btn btn-warning rounded-pill py-3 w-100 mb-4">Thử Lại</a>';
-                        include '../dashboardview/notification.php';
+                        $button_back = '<a href="../view/dashboardview/findaccount.php" class="btn btn-warning rounded-pill py-3 w-100 mb-4">Thử Lại</a>';
+                        include '../view/dashboardview/notification.php';
                     }
                     break;
 
@@ -559,11 +559,11 @@
                     $mothCreate = $infoAccount[0]['month(timecreate)'];
                     $yearCreate = $infoAccount[0]['year(timecreate)'];
                     if($date == $dayCreate && $moth == $mothCreate && $year == $yearCreate){
-                        include '../dashboardview/updatepassword.php';
+                        include '../view/dashboardview/updatepassword.php';
                     }else{
                         $result = '<h4 class="text-warning">Xác Nhận Thông Tin Chưa Đúng! Xin Vui Lòng Thử Lại</h4>';
-                        $button_back = '<a href="../dashboardview/findaccount.php" class="btn btn-warning rounded-pill py-3 w-100 mb-4">Thử Lại</a>';
-                        include '../dashboardview/notification.php';
+                        $button_back = '<a href="../view/dashboardview/findaccount.php" class="btn btn-warning rounded-pill py-3 w-100 mb-4">Thử Lại</a>';
+                        include '../view/dashboardview/notification.php';
                     }
                     break;
 
@@ -589,7 +589,7 @@
                     $arr = array('id'=>$id);
                     $userInfor = new usercontrol("", "", "");
                     $infoAccount = $userInfor->getuser($table, $arr);
-                    include '../dashboardview/updatepassword.php';
+                    include '../view/dashboardview/updatepassword.php';
                     break;
 
                 // -----------------login------------------------------
@@ -602,7 +602,7 @@
                         if ($role == 'admins'){
                             header("Location: ../controller/controller.php?action=showadmin");
                         }else{
-                            header("Location: ../userview/index.php");
+                            header("Location: ../view/userview/index.php");
                         }
                     }else{
                         $result = 'Sai Tên Đăng Nhập Hoặc Mật Khẩu Xin Kiểm Tra Lại';
@@ -617,7 +617,7 @@
                     }
                     session_unset();
                     session_destroy();
-                    header("Location: ../dashboardview/signin.php");
+                    header("Location: ../view/dashboardview/signin.php");
                     break;
 
                 // -----------------show notification------------------------------
@@ -694,7 +694,7 @@
                     break;
                 default:
                     echo 'lỗi';
-                    // header("Location: ../dashboardview/signin.php");
+                    // header("Location: ../view/dashboardview/signin.php");
             }
         }
 
@@ -712,28 +712,28 @@
             switch($id){
                 case 1:
                     $result = '<h4 class="text-warning">'.$name.'</h4>';
-                    $button_back = '<a type="submit" href="../dashboardview/signin.php" class="btn btn-warning py-3 w-100 mb-4">Quay Lại Trang Đăng Nhập</a>';
-                    include '../dashboardview/notification.php';
+                    $button_back = '<a type="submit" href="../view/dashboardview/signin.php" class="btn btn-warning py-3 w-100 mb-4">Quay Lại Trang Đăng Nhập</a>';
+                    include '../view/dashboardview/notification.php';
                     break;
                 case 2:
                     $result = '<h4 class="text-warning">'.$name.'</h4>';
-                    $button_back = '<a type="submit" href="../dashboardview/signup.php" class="btn btn-warning py-3 w-100 mb-4">Quay Lại Trang Đăng Nhập</a>';
-                    include '../dashboardview/notification.php';
+                    $button_back = '<a type="submit" href="../view/dashboardview/signup.php" class="btn btn-warning py-3 w-100 mb-4">Quay Lại Trang Đăng Nhập</a>';
+                    include '../view/dashboardview/notification.php';
                     break;
                 case 3:
                     $result = '<h3 class="text-warning">'.$name.'</h3>';
-                    $button_back = '<a type="submit" href="../dashboardview/addadmin.php" class="btn btn-warning rounded-pill py-3 px-5">Quay Lại Trang Đăng Ký</a>';
-                    include '../dashboardview/404.php';
+                    $button_back = '<a type="submit" href="../view/dashboardview/addadmin.php" class="btn btn-warning rounded-pill py-3 px-5">Quay Lại Trang Đăng Ký</a>';
+                    include '../view/dashboardview/404.php';
                     break;
                 case 4:
                     $result = '<h3 class="text-warning">'.$name.'</h3>';
                     $button_back = '<a type="submit" href="../controller/controller.php?action=showadmin" class="btn btn-warning rounded-pill py-3 px-5">Quay Lại Trang Quản Trị</a>';
-                    include '../dashboardview/404.php';
+                    include '../view/dashboardview/404.php';
                     break;
                 case 5:
                     $result = '<h4 class="text-warning">'.$name.'</h4>';
                     $button_back = '<a type="submit" href="../controller/controller.php?action=showadmin" class="btn btn-warning py-3 w-100 mb-4">Quay Lại Trang Đăng Nhập</a>';
-                    include '../dashboardview/notification.php';
+                    include '../view/dashboardview/notification.php';
                     break;
             }
         }

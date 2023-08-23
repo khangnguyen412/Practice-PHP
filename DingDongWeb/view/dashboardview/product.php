@@ -84,8 +84,8 @@
                                         echo '  <td>';
                                         echo '      <div class="row">';
                                         echo '          <div class="col">';
-                                        echo '              <a href="../../controller/controller.php?action=getfood&id=' . $food['id'] . '"   class=" col-xxl-11 col-10 btn btn-success rounded-pill m-2">Cập Nhật</a>';
-                                        echo '              <a href="../../controller/controller.php?action=alertdeletefood&id=' . $food['id'] . '&name=' . $food['foodname'] . '" class=" col-xxl-11 col-10 btn btn-danger rounded-pill m-2">Xóa</a>';
+                                        echo '              <a href="../controller/controller.php?action=getfood&id=' . $food['id'] . '"   class=" col-xxl-11 col-10 btn btn-success rounded-pill m-2">Cập Nhật</a>';
+                                        echo '              <a href="../controller/controller.php?action=alertdeletefood&id=' . $food['id'] . '&name=' . $food['foodname'] . '" class=" col-xxl-11 col-10 btn btn-danger rounded-pill m-2">Xóa</a>';
                                         echo '          </div>';
                                         echo '      </div>';
                                         echo '  </td>';
@@ -137,8 +137,8 @@
                                         echo '  <td>';
                                         echo '      <div class="row">';
                                         echo '          <div class="col">';
-                                        echo '              <a href="../../controller/controller.php?action=getdrink&id=' . $drink['id'] . '"   class=" col-xxl-11 col-10 btn btn-success rounded-pill m-2">Cập Nhật</a>';
-                                        echo '              <a href="../../controller/controller.php?action=alertdeletedrink&id=' . $drink['id'] . '&name=' . $drink['drinkname'] . '" class=" col-xxl-11 col-10 btn btn-danger rounded-pill m-2">Xóa</a>';
+                                        echo '              <a href="../controller/controller.php?action=getdrink&id=' . $drink['id'] . '"   class=" col-xxl-11 col-10 btn btn-success rounded-pill m-2">Cập Nhật</a>';
+                                        echo '              <a href="../controller/controller.php?action=alertdeletedrink&id=' . $drink['id'] . '&name=' . $drink['drinkname'] . '" class=" col-xxl-11 col-10 btn btn-danger rounded-pill m-2">Xóa</a>';
                                         echo '          </div>';
                                         echo '      </div>';
                                         echo '  </td>';
@@ -189,7 +189,7 @@
                                             echo '  <td>';
                                             echo '      <div class="row">';
                                             echo '          <div class="col">';
-                                            echo '              <a href="../../controller/controller.php?action=alertdeletefoodcomment&id='.$comment['adminid'].'&datetime='.$comment['datecoments'].'&role=admin" class="col-xxl-11 col-11 btn btn-danger rounded-pill m-2">Xóa</a>';
+                                            echo '              <a href="../controller/controller.php?action=alertdeletefoodcomment&id='.$comment['adminid'].'&datetime='.$comment['datecoments'].'&role=admin" class="col-xxl-11 col-11 btn btn-danger rounded-pill m-2">Xóa</a>';
                                             echo '          </div>';
                                             echo '      </div>';
                                             echo '  </td>';
@@ -214,7 +214,7 @@
                                             echo '  <td>';
                                             echo '      <div class="row">';
                                             echo '          <div class="col">';
-                                            echo '              <a href="../../controller/controller.php?action=alertdeletefoodcomment&id='.$comment['userid'].'&datetime='.$comment['datecoments'].'&role=user" class="col-xxl-11 col-11 btn btn-danger rounded-pill m-2">Xóa</a>';
+                                            echo '              <a href="../controller/controller.php?action=alertdeletefoodcomment&id='.$comment['userid'].'&datetime='.$comment['datecoments'].'&role=user" class="col-xxl-11 col-11 btn btn-danger rounded-pill m-2">Xóa</a>';
                                             echo '          </div>';
                                             echo '      </div>';
                                             echo '  </td>';
@@ -239,7 +239,7 @@
                                             echo '  <td>';
                                             echo '      <div class="row">';
                                             echo '          <div class="col">';
-                                            echo '              <a href="../../controller/controller.php?action=alertdeletedrinkcommend&id='.$comment['adminid'].'&datetime='.$comment['datecoments'].'&role=admin" class="col-xxl-11 col-11 btn btn-danger rounded-pill m-2">Xóa</a>';
+                                            echo '              <a href="../controller/controller.php?action=alertdeletedrinkcommend&id='.$comment['adminid'].'&datetime='.$comment['datecoments'].'&role=admin" class="col-xxl-11 col-11 btn btn-danger rounded-pill m-2">Xóa</a>';
                                             echo '          </div>';
                                             echo '      </div>';
                                             echo '  </td>';
@@ -264,7 +264,7 @@
                                             echo '  <td>';
                                             echo '      <div class="row">';
                                             echo '          <div class="col">';
-                                            echo '              <a href="../../controller/controller.php?action=alertdeletedrinkcommend&id='.$comment['userid'].'&datetime='.$comment['datecoments'].'&role=user" class="col-xxl-11 col-11 btn btn-danger rounded-pill m-2">Xóa</a>';
+                                            echo '              <a href="../controller/controller.php?action=alertdeletedrinkcommend&id='.$comment['userid'].'&datetime='.$comment['datecoments'].'&role=user" class="col-xxl-11 col-11 btn btn-danger rounded-pill m-2">Xóa</a>';
                                             echo '          </div>';
                                             echo '      </div>';
                                             echo '  </td>';
@@ -277,47 +277,6 @@
                     </div>
                 </div>
             </div>
-
-            <!-- <div class="modal" id="ModalDrink" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h6 class="modal-title text-danger" id="exampleModalLabel">Xóa drink</h6>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            Bạn Có Muốn Xóa Tài Khoản Không?
-                        </div>
-                        <div class="modal-footer">
-                            <?php
-                            // echo '<a href="../controller/controller.php?action=deleteuser&id=' . $user['id'] . '" class="btn btn-danger rounded-pill m-2">Xóa</a>';
-                            ?>
-                            <button type="button" class="btn btn-secondary rounded-pill" data-bs-dismiss="modal">Đóng</button>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
-
-            <!-- <div class="modal" id="ModalComment" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h6 class="modal-title text-danger" id="exampleModalLabel">Xóa Comment</h6>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            Bạn Có Muốn Xóa Tài Khoản Không?
-                        </div>
-                        <div class="modal-footer">
-                            <?php
-                            // echo '<a href="../controller/controller.php?action=deleteuser&id=' . $user['id'] . '" class="btn btn-danger rounded-pill m-2">Xóa</a>';
-                            ?>
-                            <button type="button" class="btn btn-secondary rounded-pill" data-bs-dismiss="modal">Đóng</button>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
-            <!-- Recent Sales End -->
 
             <!-- Footer Start -->
             <?php

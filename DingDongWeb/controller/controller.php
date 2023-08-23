@@ -338,7 +338,7 @@
                     $getCombo = 'select id, foodname, price, img, fooddescription, timeupload, timeupdate from food where foodname like "Combo%"';
                     $combofoodlist = $food->getallproduct($getCombo);
                     
-                    $category = $_GET['category'];
+                    $category = isset($_GET['category'])? $_GET['category']: "";
                     switch ($category) {
                         case 'comboHotpot':
                             include "../view/userview/food/category/comboHotpot.php";
@@ -438,7 +438,7 @@
                     $toppingList = 'select id, drinkname, price, img, drinkdescription from drink where drinkname like "Topping%" ';
                     $toppingList = $drink->getallproduct($toppingList);
 
-                    $category = $_GET['category'];
+                    $category = isset($_GET['category'])? $_GET['category']: "";
                     switch ($category) {
                         case 'cafe':
                             include "../view/userview/drink/category/cafe.php";

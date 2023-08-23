@@ -85,7 +85,7 @@
     <?php
     include './lib/jslib.php'
     ?>
-    <script src="../../js/validateProduct.js"></script>
+    <script src="../js/validateProduct.js"></script>
 </body>
 
 </html>

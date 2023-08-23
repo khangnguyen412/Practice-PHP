@@ -52,7 +52,7 @@
                             <h6 class="mb-0">Danh Mục Khách Hàng</h6>
                         </div>
                         <div class="col-12 col-sm-6 d-flex justify-content-sm-end justify-content-center">
-                            <a type="button" href="../dashboardview/adduser.php" class="btn btn-warning w-sm-100">Thêm Tài Khoản</a>
+                            <a type="button" href="../view/dashboardview/adduser.php" class="btn btn-warning w-sm-100">Thêm Tài Khoản</a>
                         </div>
                     </div>
                     <div class="table-responsive">

@@ -57,7 +57,7 @@
                             <button type="submit" value="login" name="useraction" class="btn btn-warning py-3 w-100 mb-4">Đăng Nhập</button>
                             <!-- <p class="text-center mb-0">Don't have an Account?  -->
                             <div class="text-center">
-                                <a href="../../dashboardview/signup.php" class="text-warning">Đăng Ký Tài Khoản</a>
+                                <a href="../../view/dashboardview/signup.php" class="text-warning">Đăng Ký Tài Khoản</a>
                             </div>
                         </form>
 

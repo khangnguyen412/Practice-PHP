@@ -45,26 +45,26 @@
             <div class="row">
                 <div class="col-md-6 align-self-center">
                     <div class="welcome-img justify-content-center">
-                        <img src="../assets/images/img/drink/tea/tea3.jpg" class="img-fluid" alt="">
+                        <img src="../../assets/images/img/drink/tea/tea3.jpg" class="img-fluid" alt="">
                     </div>
                 </div>
                 <div class="col-md-6 align-self-center">
                     <div class="welcome-text mt-5 mt-md-0">
                         <h1 style="color: #000;"><span class="style-change">Danh Mục</span> Nước Uống</h1>
-                        <a href="../controller/controller.php?action=showDrink" class="template-btn mt-3">Xem Danh Mục</a>
+                        <a href="../../controller/controller.php?action=showDrink" class="template-btn mt-3">Xem Danh Mục</a>
                     </div>
                 </div>
             </div>
             <div class="row mt-5">
                 <div class="col-md-6 align-self-center">
                     <div class="welcome-img ">
-                        <img src="../assets/images/img/food/food.jpg" class="img-fluid" alt="">
+                        <img src="../../assets/images/img/food/food.jpg" class="img-fluid" alt="">
                     </div>
                 </div>
                 <div class="col-md-6 align-self-center">
                     <div class="welcome-text mt-5 mt-md-0">
                         <h1 style="color: #000;"><span class="style-change">Danh Mục</span> Thức Ăn</h1>
-                        <a href="../controller/controller.php?action=showFood" class="template-btn mt-3">Xem Danh Mục</a>
+                        <a href="../../controller/controller.php?action=showFood" class="template-btn mt-3">Xem Danh Mục</a>
                     </div>
                 </div>
             </div>
@@ -117,7 +117,7 @@
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6 align-self-center mt-4 mt-md-0">
-                    <img src="../assets/images/img/drink/milkTea.jpg" alt="" class="img-fluid">
+                    <img src="../../assets/images/img/drink/milkTea.jpg" alt="" class="img-fluid">
                 </div>
             </div>
 
@@ -136,7 +136,7 @@
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6 align-self-center mt-4 mt-md-0">
-                    <img src="../assets/images/img/food/combo1.jpg" alt="" class="img-fluid">
+                    <img src="../../assets/images/img/food/combo1.jpg" alt="" class="img-fluid">
                 </div>
             </div>
         </div>

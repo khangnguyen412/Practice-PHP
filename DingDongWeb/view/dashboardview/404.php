@@ -5,7 +5,7 @@
     <title>Lỗi</title>
     <?php
     $url = '../';
-    include '../dashboardview/lib/head.php'
+    include '../view/dashboardview/lib/head.php'
     ?>
 </head>
 
@@ -22,7 +22,7 @@
 
         <!-- Sidebar Start -->
         <?php
-            include '../dashboardview/lib/sidebar.php'
+            include '../view/dashboardview/lib/sidebar.php'
         ?>
         <!-- Sidebar End -->
 
@@ -31,7 +31,7 @@
         <div class="content">
             <!-- Navbar Start -->
             <?php
-            include '../dashboardview/lib/navbar.php'
+            include '../view/dashboardview/lib/navbar.php'
             ?>
             <!-- Navbar End -->
 
@@ -67,7 +67,7 @@
 
             <!-- Footer Start -->
             <?php
-            include '../dashboardview/lib/footer.php'
+            include '../view/dashboardview/lib/footer.php'
             ?>
             <!-- Footer End -->
         </div>
@@ -75,7 +75,7 @@
     </div>
 
     <?php
-    include '../dashboardview/lib/jslib.php'
+    include '../view/dashboardview/lib/jslib.php'
     ?>
 </body>
 

@@ -5,7 +5,7 @@
     <title>Cập Nhật Khẩu</title>
     <?php
     $url = '../';
-    include '../../dashboardview/lib/head.php'
+    include '../view/dashboardview/lib/head.php'
     ?>
 </head>
 
@@ -25,11 +25,11 @@
             <div class="row h-100 align-items-center justify-content-center" style="min-height: 100vh;">
                 <div class="col-12 col-md-8 col-lg-6 ">
                     <div class="bg-secondary rounded p-4 p-sm-5 my-4 mx-3">
-                        <form action="../../controller/controller.php" method="post" onsubmit="return validateForm()">
+                        <form action="../controller/controller.php" method="post" onsubmit="return validateForm()">
                             <div class="d-flex align-items-center justify-content-between mb-3">
                                 <a href="index.html" class="">
                                     <h3 class="text-warning">
-                                        <img src="../../img/img/logo/LOGO-HOP-DEN.jpg" height="40" width="40" alt="" srcset="">
+                                        <img src="../img/img/logo/LOGO-HOP-DEN.jpg" height="40" width="40" alt="" srcset="">
                                         Ding Dong
                                     </h3>
                                 </a>
@@ -63,9 +63,9 @@
     </div>
 
     <?php
-    include '../../dashboardview/lib/jslib.php'
+    include '../view/dashboardview/lib/jslib.php'
     ?>
-    <script src="../../js/validateUser.js"></script>
+    <script src="../js/validateUser.js"></script>
 </body>
 
 </html>

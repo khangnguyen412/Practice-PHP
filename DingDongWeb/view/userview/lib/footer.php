@@ -7,7 +7,7 @@
                     <div class="single-widget single-widget1">
                         <div class="row align-content-center">
                             <div class="col-lg-4 d-flex justify-content-center align-content-center">
-                                <a href="index.html"><img height="50" width="50" src="<?php echo $url ?>assets/images/logo/LOGO-HOP-DEN.jpg" alt=""></a>
+                                <a href="index.php"><img height="50" width="50" src="<?php echo $url ?>assets/images/logo/LOGO-HOP-DEN.jpg" alt=""></a>
                             </div>
                             <div class="col-lg-8 d-flex justify-content-center align-items-center">
                                 <h5 style="color: white;">Trà Sữa Ding Dong</h5>

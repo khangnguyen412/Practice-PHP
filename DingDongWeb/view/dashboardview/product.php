@@ -55,7 +55,7 @@
                             <h6 class="mb-0">Danh Mục Thức Ăn</h6>
                         </div>
                         <div class="col-12 col-sm-6 d-flex justify-content-sm-end justify-content-center">
-                            <a type="button" href="../dashboardview/addfood.php" class="btn btn-warning w-sm-100">Thêm Mặt Hàng</a>
+                            <a type="button" href="../view/dashboardview/food/addfood.php" class="btn btn-warning w-sm-100">Thêm Mặt Hàng</a>
                         </div>
                     </div>
                     <div class="table-responsive">
@@ -108,7 +108,7 @@
                             <h6 class="mb-0">Danh Mục Nước Uống</h6>
                         </div>
                         <div class="col-12 col-sm-6 d-flex justify-content-sm-end justify-content-center">
-                            <a type="button" href="../dashboardview/adddrink.php" class="btn btn-warning w-sm-100">Thêm Mặt Hàng</a>
+                            <a type="button" href="../view/dashboardview/drink/adddrink.php" class="btn btn-warning w-sm-100">Thêm Mặt Hàng</a>
                         </div>
                     </div>
                     <div class="table-responsive">

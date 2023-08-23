@@ -2,9 +2,10 @@
 <html lang="en">
 
 <head>
-    <title>Trang Khách Hàng</title>
+    <title>Trang Quản Trị</title>
     <?php
     $url = '../';
+    $urlDashboard = "../view/";
     include '../view/dashboardview/lib/head.php'
     ?>
 </head>
@@ -22,7 +23,7 @@
 
         <!-- Sidebar Start -->
         <?php
-        include '../view/dashboardview/lib/sidebar.php'
+            include '../view/dashboardview/lib/sidebar.php'
         ?>
         <!-- Sidebar End -->
 
@@ -48,11 +49,34 @@
                     }
                     ?>
                     <div class="d-flex align-items-center justify-content-between mb-4 row">
+                        <!-- <div class="col-12 col-sm-6 col-md-6 d-flex justify-content-start">
+                            <h6 class="mb-0">Danh Mục Quản Trị Viên</h6>
+                        </div>
+                        <div class="col col-12 col-sm-6 col-md-6 d-flex justify-content-lg-end justify-content-sm-center justify-content-md-end">
+                            <div class="m-2">
+                                <?php
+                                // if (!isset($_SESSION)) {
+                                //     session_start();
+                                // }
+                                // if (isset($_SESSION["islogin"])) {
+                                //     $id = $_SESSION["id"];
+                                //     echo '<a type="button" href="../view/controller/controller.php?action=getadminid&id=' . $id . '" class="btn btn-warning w-100">Cập Nhật Tài Khoản</a>';
+                                // } else {
+                                //     header("Location: ../view/dashboardview/signin.php");
+                                // }
+                                ?>
+                            </div>
+                            <div class="m-2">
+                                <a type="button" href="../view/dashboardview/admin/addadmin.php" class="btn btn-warning w-100">Thêm Tài Khoản</a>
+                            </div>
+                        </div> -->
+                        <!-- <div class="row w-100">
+                        </div> -->
                         <div class="col-12 col-sm-6 d-flex justify-content-sm-start justify-content-center">
-                            <h6 class="mb-0">Danh Mục Khách Hàng</h6>
+                            <h6 class="mb-0">Danh Mục Quản Trị Viên</h6>
                         </div>
                         <div class="col-12 col-sm-6 d-flex justify-content-sm-end justify-content-center">
-                            <a type="button" href="../view/dashboardview/adduser.php" class="btn btn-warning w-sm-100">Thêm Tài Khoản</a>
+                            <a type="button" href="../view/dashboardview/admin/addadmin.php" class="btn btn-warning w-sm-100">Thêm Tài Khoản</a>
                         </div>
                     </div>
                     <div class="table-responsive">
@@ -62,13 +86,20 @@
                                     <!-- <th scope="col"><input class="form-check-input" type="checkbox"></th> -->
                                     <th scope="col">ID</th>
                                     <th scope="col">Tên Tài Khoản</th>
-                                    <th scope="col">Ngày Tạo Tài Khoản</th>
-                                    <!-- <th scope="col">Bình Luận</th> -->
+                                    <th scope="col">Thời Gian Tạo Tài Khoản</th>
                                     <th scope="col">Cập Nhật Gần Nhất</th>
-                                    <th scope="col">Thao Tác</th>
+                                    <!-- <th scope="col">Thao Tác</th> -->
                                 </tr>
                             </thead>
                             <tbody>
+                                <!-- <td>
+                                    <div class="row">
+                                        <div class=" col">
+                                            <a href="../view/controller/usercontroller.php?action=edit&id=' . $user['id'] . '"   class="col-lg-5 col-10 btn btn-success rounded-pill m-2">Cập Nhật</a>
+                                            <a href="../view/controller/usercontroller.php?action=edit&id=' . $user['id'] . '"   class="col-lg-5 col-10 btn btn-danger rounded-pill m-2">Xóa</a>
+                                        </div>
+                                    </div>
+                                </td> -->
                                 <?php
                                 if (isset($userlist)) {
                                     foreach ($userlist as $user) {
@@ -77,14 +108,14 @@
                                         echo '  <td>' . $user['username'] . '</td>';
                                         echo '  <td>' . $user['timecreate'] . '</td>';
                                         echo '  <td>' . $user['timeupdate'] . '</td>';
-                                        echo '  <td>';
-                                        echo '      <div class="row">';
-                                        echo '          <div class="col">';
-                                        echo '              <a href="../controller/controller.php?action=getuserid&id=' . $user['id'] . '"   class=" col-xxl-11 col-10 btn btn-success rounded-pill m-2">Cập Nhật</a>';
-                                        echo '              <a href="../controller/controller.php?action=alertdeleteuser&id=' . $user['id'] . '&name='.$user['username'].'" class=" col-xxl-11 col-10 btn btn-danger rounded-pill m-2">Xóa</a>';
-                                        echo '          </div>';
-                                        echo '      </div>';
-                                        echo '  </td>';
+                                        // echo '  <td>';
+                                        // echo '      <div class="row">';
+                                        // echo '          <div class="col">';
+                                        // echo '              <a href="../view/controller/controller.php?action=getadminid&id=' . $user['id'] . '"   class=" col-xxl-5 col-10 btn btn-success rounded-pill m-2">Cập Nhật</a>';
+                                        // echo '              <a href="../view/controller/controller.php?action=deleteadmin&id=' . $user['id'] . '"   class=" col-xxl-5 col-10 btn btn-danger rounded-pill m-2">Xóa</a>';
+                                        // echo '          </div>';
+                                        // echo '      </div>';
+                                        // echo '  </td>';
                                         echo '</tr>';
                                     }
                                 }

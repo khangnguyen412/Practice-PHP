@@ -49,7 +49,7 @@
                     $arr = array('id'=>$id);
                     $adminInfor = new usercontrol("", "", "");
                     $infor = $adminInfor->getuser($table, $arr);
-                    include '../view/dashboardview/updateadmin.php';
+                    include '../view/dashboardview/admin/updateadmin.php';
                     break;
 
                 // -----------------update admin------------------------------
@@ -77,7 +77,7 @@
                     $user = new usercontrol("", "", "");
                     $getuser = 'SELECT * FROM admins';
                     $userlist = $user->getalluser($getuser);
-                    include '../view/dashboardview/admin.php';
+                    include '../view/dashboardview/admin/admin.php';
                     break;
 
                 // -----------------signup------------------------------
@@ -101,7 +101,7 @@
                     $arr = array('id'=>$id);
                     $userInfor = new usercontrol("", "", "");
                     $infor = $userInfor->getuser($table, $arr);
-                    include '../view/dashboardview/updateuser.php';
+                    include '../view/dashboardview/user/updateuser.php';
                     break;
 
                 // -----------------update user------------------------------
@@ -129,7 +129,7 @@
                     $name = $_GET['name'];
                     $result = '<h4 class="text-warning"> Bạn muốn xóa người dùng: '.$name.' ?</h4>';
                     $button_back = '<a href="../controller/controller.php?action=deleteuser&id='.$id.'" class="btn btn-warning rounded-pill py-3 w-100 mb-4">Xóa Người Dùng</a>';
-                    include '../view/dashboardview/notification.php';
+                    include '../view/dashboardview/notification/notification.php';
                     break;
 
                 // -----------------delete user------------------------------
@@ -149,7 +149,7 @@
                     $user = new usercontrol("", "", "");
                     $getuser = 'SELECT * FROM users';
                     $userlist = $user->getalluser($getuser);
-                    include '../view/dashboardview/user.php';
+                    include '../view/dashboardview/user/user.php';
                     break;
 
                 // -----------------add food------------------------------
@@ -176,7 +176,7 @@
                     $arr = array('id'=>$id);
                     $getproduct = new product("", "", "", "");
                     $infor = $getproduct->getproduct($table, $arr);
-                    include '../view/dashboardview/updatefood.php';
+                    include '../view/dashboardview/food/updatefood.php';
                     break;
 
                 // -----------------update food------------------------------
@@ -209,7 +209,7 @@
                     $name = $_GET['name'];
                     $result = '<h4 class="text-warning"> Bạn Muốn Xóa Sản Phẩm '.$name.'?</h4>';
                     $button_back = '<a href="../controller/controller.php?action=deletefood&id='.$id.'" class="btn btn-warning rounded-pill py-3 w-100 mb-4">Xóa Sản Phẩm</a>';
-                    include '../view/dashboardview/notification.php';
+                    include '../view/dashboardview/notification/notification.php';
                     break;
 
                 // -----------------delete food------------------------------
@@ -247,7 +247,7 @@
                     $arr = array('id'=>$id);
                     $getproduct = new product("", "", "", "");
                     $infor = $getproduct->getproduct($table, $arr);
-                    include '../view/dashboardview/updatedrink.php';
+                    include '../view/dashboardview/drink/updatedrink.php';
                     break;
 
                 // -----------------update drink------------------------------
@@ -280,7 +280,7 @@
                     $name = $_GET['name'];
                     $result = '<h4 class="text-warning"> Bạn Muốn Xóa Sản Phẩm '.$name.'?</h4>';
                     $button_back = '<a href="../controller/controller.php?action=deletedrink&id='.$id.'" class="btn btn-warning rounded-pill py-3 w-100 mb-4">Xóa Sản Phẩm</a>';
-                    include '../view/dashboardview/notification.php';
+                    include '../view/dashboardview/notification/notification.php';
                     break;
                 
                 // -----------------delete drink------------------------------
@@ -395,7 +395,7 @@
                     $role = $_GET['role'];
                     $result = '<h4 class="text-warning"> Bạn Muốn Xóa Nhận Xét Này?</h4>';
                     $button_back = '<a href="../controller/controller.php?action=deletecommentFood&role='.$role.'&id='.$id.'&datetime='.$datetime.'" class="btn btn-warning rounded-pill py-3 w-100 mb-4">Xóa Sản Phẩm</a>';
-                    include '../view/dashboardview/notification.php';
+                    include '../view/dashboardview/notification/notification.php';
                     break;
                 
                 // -----------------delete comment------------------------------
@@ -511,7 +511,7 @@
                     $role = $_GET['role'];
                     $result = '<h4 class="text-warning"> Bạn Muốn Xóa Nhận Xét Này?</h4>';
                     $button_back = '<a href="../controller/controller.php?action=deletecommentDrink&&role='.$role.'&id='.$id.'&datetime='.$datetime.'" class="btn btn-warning rounded-pill py-3 w-100 mb-4">Xóa Sản Phẩm</a>';
-                    include '../view/dashboardview/notification.php';
+                    include '../view/dashboardview/notification/notification.php';
                     break;
 
                 // -----------------delete drink comment------------------------------
@@ -539,7 +539,7 @@
                     }else{
                         $result = '<h4 class="text-warning">Không Tìm Thấy Tài Khoản! Xin Vui Lòng Thử Lại</h4>';
                         $button_back = '<a href="../view/dashboardview/findaccount.php" class="btn btn-warning rounded-pill py-3 w-100 mb-4">Thử Lại</a>';
-                        include '../view/dashboardview/notification.php';
+                        include '../view/dashboardview/notification/notification.php';
                     }
                     break;
 
@@ -559,11 +559,11 @@
                     $mothCreate = $infoAccount[0]['month(timecreate)'];
                     $yearCreate = $infoAccount[0]['year(timecreate)'];
                     if($date == $dayCreate && $moth == $mothCreate && $year == $yearCreate){
-                        include '../view/dashboardview/updatepassword.php';
+                        include '../view/dashboardview/user/updatepassword.php';
                     }else{
                         $result = '<h4 class="text-warning">Xác Nhận Thông Tin Chưa Đúng! Xin Vui Lòng Thử Lại</h4>';
                         $button_back = '<a href="../view/dashboardview/findaccount.php" class="btn btn-warning rounded-pill py-3 w-100 mb-4">Thử Lại</a>';
-                        include '../view/dashboardview/notification.php';
+                        include '../view/dashboardview/notification/notification.php';
                     }
                     break;
 
@@ -589,7 +589,7 @@
                     $arr = array('id'=>$id);
                     $userInfor = new usercontrol("", "", "");
                     $infoAccount = $userInfor->getuser($table, $arr);
-                    include '../view/dashboardview/updatepassword.php';
+                    include '../view/dashboardview/user/updatepassword.php';
                     break;
 
                 // -----------------login------------------------------
@@ -713,27 +713,27 @@
                 case 1:
                     $result = '<h4 class="text-warning">'.$name.'</h4>';
                     $button_back = '<a type="submit" href="../view/dashboardview/signin.php" class="btn btn-warning py-3 w-100 mb-4">Quay Lại Trang Đăng Nhập</a>';
-                    include '../view/dashboardview/notification.php';
+                    include '../view/dashboardview/notification/notification.php';
                     break;
                 case 2:
                     $result = '<h4 class="text-warning">'.$name.'</h4>';
                     $button_back = '<a type="submit" href="../view/dashboardview/signup.php" class="btn btn-warning py-3 w-100 mb-4">Quay Lại Trang Đăng Nhập</a>';
-                    include '../view/dashboardview/notification.php';
+                    include '../view/dashboardview/notification/notification.php';
                     break;
                 case 3:
                     $result = '<h3 class="text-warning">'.$name.'</h3>';
                     $button_back = '<a type="submit" href="../view/dashboardview/addadmin.php" class="btn btn-warning rounded-pill py-3 px-5">Quay Lại Trang Đăng Ký</a>';
-                    include '../view/dashboardview/404.php';
+                    include '../view/dashboardview/notification/404.php';
                     break;
                 case 4:
                     $result = '<h3 class="text-warning">'.$name.'</h3>';
                     $button_back = '<a type="submit" href="../controller/controller.php?action=showadmin" class="btn btn-warning rounded-pill py-3 px-5">Quay Lại Trang Quản Trị</a>';
-                    include '../view/dashboardview/404.php';
+                    include '../view/dashboardview/notification/404.php';
                     break;
                 case 5:
                     $result = '<h4 class="text-warning">'.$name.'</h4>';
                     $button_back = '<a type="submit" href="../controller/controller.php?action=showadmin" class="btn btn-warning py-3 w-100 mb-4">Quay Lại Trang Đăng Nhập</a>';
-                    include '../view/dashboardview/notification.php';
+                    include '../view/dashboardview/notification/notification.php';
                     break;
             }
         }

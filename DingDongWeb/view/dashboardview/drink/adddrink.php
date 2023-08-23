@@ -4,8 +4,8 @@
 <head>
     <title>Thêm Đồ Uống</title>
     <?php
-    $url = "../../";
-    include './lib/head.php'
+    $url = "../../../";
+    include '../lib/head.php'
     ?>
 </head>
 
@@ -22,7 +22,7 @@
 
         <!-- Sidebar Start -->
         <?php
-            include './lib/sidebar.php'
+            include '../lib/sidebar.php'
         ?>
         <!-- Sidebar End -->
 
@@ -31,7 +31,7 @@
         <div class="content">
             <!-- Navbar Start -->
             <?php
-            include './lib/navbar.php'
+            include '../lib/navbar.php'
             ?>
             <!-- Navbar End -->
 
@@ -41,7 +41,7 @@
                     <div class="col-sm-12 col-xl-12">
                         <div class="bg-secondary rounded h-100 p-4">
                             <h6 class="mb-4">Thêm Đồ Uống</h6>
-                            <form action="../../controller/controller.php" method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
+                            <form action="../../../controller/controller.php" method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
                                 <div class="mb-3">
                                     <label for="drinkname" class="form-label">Tên Sản Phẩm</label>
                                     <input type="text" name="drinkname" class="form-control" id="productName">
@@ -71,7 +71,7 @@
 
             <!-- Footer Start -->
             <?php
-            include './lib/footer.php'
+            include '../lib/footer.php'
             ?>
             <!-- Footer End -->
         </div>
@@ -83,9 +83,9 @@
     </div>
 
     <?php
-    include './lib/jslib.php'
+    include '../lib/jslib.php'
     ?>
-    <script src="../js/validateProduct.js"></script>
+    <script src="../../../js/validateProduct.js"></script>
     <script>
 
     </script>

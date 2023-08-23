@@ -1,5 +1,6 @@
 <!-- Navbar Start -->
 <?php
+    $urlDashboard = (!empty($urlDashboard))? $urlDashboard : "../view/";
     if (!isset($_SESSION)) {
         session_start();
     }
@@ -24,7 +25,7 @@
                     if (isset($_SESSION["islogin"]) && $_SESSION["role"] == 'admins') {
                         echo '<h5 class="text-warning">' . $_SESSION["username"] . '</h5>';
                     } else {
-                        header("Location: ../view/dashboardview/signin.php");
+                        header("Location: ".$urlDashboard."dashboardview/signin.php");
                     }
                     ?>
                 </span>
@@ -44,7 +45,7 @@
                     echo '<a href="" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#exampleModal" >Xóa Tài Khoản</a>';
                     echo '<a href="'.$url.'controller/controller.php?action=logout" class="dropdown-item">Đăng xuất</a>';
                 } else {
-                    header("Location: ../view/dashboardview/signin.php");
+                    header("Location: ".$urlDashboard."dashboardview/signin.php");
                 }
                 ?>
             </div>
@@ -67,7 +68,7 @@
                     $id = $_SESSION["id"];
                     echo '<a href="'.$url.'controller/controller.php?action=deleteadmin&id=' . $id . '"   class="btn btn-danger rounded-pill m-2">Xóa</a>';
                 } else {
-                    header("Location: ../view/dashboardview/signin.php");
+                    header("Location: ".$urlDashboard."dashboardview/signin.php");
                 }
                 ?>
                 <button type="button" class="btn btn-secondary rounded-pill" data-bs-dismiss="modal">Đóng</button>

@@ -2,10 +2,10 @@
 <html lang="en">
 
 <head>
-    <title>Thêm Món Ăn</title>
+    <title>Thêm Quản Trị Viên</title>
     <?php
-    $url = "../../";
-    include './lib/head.php'
+    $url = "../../../";
+    include '../lib/head.php'
     ?>
 </head>
 
@@ -22,7 +22,7 @@
 
         <!-- Sidebar Start -->
         <?php
-            include './lib/sidebar.php'
+            include '../lib/sidebar.php'
         ?>
         <!-- Sidebar End -->
 
@@ -31,37 +31,36 @@
         <div class="content">
             <!-- Navbar Start -->
             <?php
-            include './lib/navbar.php'
+            include '../lib/navbar.php'
             ?>
             <!-- Navbar End -->
+
 
             <!-- Form Start -->
             <div class="container-fluid pt-4 px-4">
                 <div class="row">
                     <div class="col-sm-12 col-xl-12">
                         <div class="bg-secondary rounded h-100 p-4">
-                            <h6 class="mb-4">Thêm Món Ăn</h6>
-                            <form action="../../controller/controller.php" method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
+                            <h6 class="mb-4">Thêm Quản Trị Viên</h6>
+                            <form action="../../../controller/controller.php" method="post" onsubmit="return validateForm()">
                                 <div class="mb-3">
-                                    <label for="productName" class="form-label">Tên Món</label>
-                                    <input type="text" name="foodname" class="form-control" id="productName">
+                                    <label for="exampleInputUsername1" class="form-label">Tên Tài Khoản</label>
+                                    <input type="text" name="username" class="form-control" id="username">
                                     <span class="form-message" style="color: red;"></span>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="productPrice" class="form-label">Giá Tiền</label>
-                                    <input type="text" name="price" class="form-control" id="productPrice">
+                                    <label for="exampleInputPassword1" class="form-label">Mật Khẩu</label>
+                                    <input type="password" name="password" class="form-control" id="password">
                                     <span class="form-message" style="color: red;"></span>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="floatingTextarea">Chú Thích</label>
-                                    <textarea class="form-control" name="description" placeholder="Ghi Mô Tả Tại Đây" id="floatingTextarea" style="height: 150px;"></textarea>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="productImage" class="form-label">Chọn Ảnh</label>
-                                    <input class="form-control form-control-lg bg-dark" name="img" id="productImage" type="file">
+                                    <label for="exampleInputPassword1" class="form-label">Xác Nhận Mật Khẩu</label>
+                                    <input type="password" name="passwordconfirm" class="form-control" id="passwordConfirmation">
                                     <span class="form-message" style="color: red;"></span>
                                 </div>
-                                <button type="submit" name="useraction" value="addfood" class="btn btn-warning">Đăng Món Ăn</button>
+                                <div class="mb-3 d-flex justify-content-end">
+                                    <button type="submit" name="useraction" value="admincreate" class="btn btn-warning">Đăng Ký</button>
+                                </div>
                             </form>
                         </div>
                     </div>
@@ -69,23 +68,20 @@
             </div>
             <!-- Form End -->
 
+
             <!-- Footer Start -->
             <?php
-            include './lib/footer.php'
+            include '../lib/footer.php'
             ?>
             <!-- Footer End -->
         </div>
         <!-- Content End -->
-
-
-        <!-- Back to Top -->
-        <a href="#" class="btn btn-lg btn-warning btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
     </div>
 
     <?php
-    include './lib/jslib.php'
+    include '../lib/jslib.php'
     ?>
-    <script src="../js/validateProduct.js"></script>
+    <script src="../../../js/validateUser.js"></script>
 </body>
 
 </html>

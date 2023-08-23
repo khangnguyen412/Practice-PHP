@@ -2,10 +2,10 @@
 <html lang="en">
 
 <head>
-    <title>Thêm Quản Khách Hàng</title>
+    <title>Thêm Món Ăn</title>
     <?php
-    $url = "../../";
-    include './lib/head.php'
+    $url = "../../../";
+    include '../lib/head.php'
     ?>
 </head>
 
@@ -22,7 +22,7 @@
 
         <!-- Sidebar Start -->
         <?php
-            include './lib/sidebar.php'
+            include '../lib/sidebar.php'
         ?>
         <!-- Sidebar End -->
 
@@ -31,40 +31,37 @@
         <div class="content">
             <!-- Navbar Start -->
             <?php
-            include './lib/navbar.php'
+            include '../lib/navbar.php'
             ?>
             <!-- Navbar End -->
-
 
             <!-- Form Start -->
             <div class="container-fluid pt-4 px-4">
                 <div class="row">
                     <div class="col-sm-12 col-xl-12">
                         <div class="bg-secondary rounded h-100 p-4">
-                            <h6 class="mb-4">Thêm Khách Hàng</h6>
-                            <form action="../../controller/controller.php" method="post" onsubmit="return validateForm()">
+                            <h6 class="mb-4">Thêm Món Ăn</h6>
+                            <form action="../../../controller/controller.php" method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
                                 <div class="mb-3">
-                                    <label for="exampleInputUsername1" class="form-label">Tên Tài Khoản</label>
-                                    <input type="text" name="username" class="form-control" id="username">
+                                    <label for="productName" class="form-label">Tên Món</label>
+                                    <input type="text" name="foodname" class="form-control" id="productName">
                                     <span class="form-message" style="color: red;"></span>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="exampleInputPassword1" class="form-label">Mật Khẩu</label>
-                                    <input type="password" name="password" class="form-control" id="password">
+                                    <label for="productPrice" class="form-label">Giá Tiền</label>
+                                    <input type="text" name="price" class="form-control" id="productPrice">
                                     <span class="form-message" style="color: red;"></span>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="exampleInputPassword1" class="form-label">Xác Nhận Mật Khẩu</label>
-                                    <input type="password" name="otp" class="form-control" id="passwordConfirmation">
+                                    <label for="floatingTextarea">Chú Thích</label>
+                                    <textarea class="form-control" name="description" placeholder="Ghi Mô Tả Tại Đây" id="floatingTextarea" style="height: 150px;"></textarea>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="productImage" class="form-label">Chọn Ảnh</label>
+                                    <input class="form-control form-control-lg bg-dark" name="img" id="productImage" type="file">
                                     <span class="form-message" style="color: red;"></span>
                                 </div>
-                                <!-- <div class="mb-3">
-                                    <label for="formFileLg" class="form-label">Chọn Ảnh Đại Diện</label>
-                                    <input class="form-control form-control-lg bg-dark" id="formFileLg" type="file">
-                                </div> -->
-                                <div class="mb-3 d-flex justify-content-end">
-                                    <button type="submit" name="useraction" value="usercreate" class="btn btn-warning">Đăng Ký</button>
-                                </div>
+                                <button type="submit" name="useraction" value="addfood" class="btn btn-warning">Đăng Món Ăn</button>
                             </form>
                         </div>
                     </div>
@@ -72,20 +69,23 @@
             </div>
             <!-- Form End -->
 
-
             <!-- Footer Start -->
             <?php
-            include './lib/footer.php'
+            include '../lib/footer.php'
             ?>
             <!-- Footer End -->
         </div>
         <!-- Content End -->
+
+
+        <!-- Back to Top -->
+        <a href="#" class="btn btn-lg btn-warning btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
     </div>
 
     <?php
-    include './lib/jslib.php'
+    include '../lib/jslib.php'
     ?>
-    <script src="../../js/validateUser.js"></script>
+    <script src="../../../js/validateProduct.js"></script>
 </body>
 
 </html>

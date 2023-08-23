@@ -1,6 +1,7 @@
 <!-- Header Area Starts -->
 <?php
     $url = (!empty($url))? $url : "../";
+    $urlDashboard = (!empty($urlDashboard))? $urlDashboard : "../view/";
     if (!isset($_SESSION)) {
         session_start();
     }
@@ -64,7 +65,6 @@
 
                         <li>
                             <?php
-                                $urlDashboard = (!empty($urlDashboard))? $urlDashboard : "../view/";
                                 if (isset($_SESSION["islogin"])) {
                                     echo '<a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">Tài Khoản</a>';
                                 } else {

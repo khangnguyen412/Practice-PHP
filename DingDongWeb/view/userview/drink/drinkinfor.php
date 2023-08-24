@@ -154,7 +154,7 @@
                     foreach($commentlist as $comments){
                         echo '<div class="row m-2">';
                         echo '  <div class="col-lg-1 col-md-2 col-4">';
-                        echo '      <img src="../img/user.jpg" alt="" style="height: 100%; width: 100%">';
+                        echo '      <img src="../img/LOGO-HOP-DEN.jpg" alt="" style="height: 100%; width: 100%">';
                         echo '  </div>';
                         echo '  <div class="col-lg-11 col-md-10 col-8">';
                         echo '      <div class="col-lg-12 d-flex justify-content-between row">';

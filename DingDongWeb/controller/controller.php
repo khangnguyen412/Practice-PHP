@@ -25,7 +25,8 @@
                     $arr = array('username' => $username, 'password' => $password);
                     $adduser = new usercontrol("", "", "");
                     if($adduser->insertuser($table, $arr) == 'error'){
-                        $this->shownotification(4, 'Tên Tài Khoản Đã Được Đăng Ký Xin Vui Lòng Thử Lại');;
+                        // $this->shownotification(4, 'Tên Tài Khoản Đã Được Đăng Ký Xin Vui Lòng Thử Lại');
+                        header("Location: ../controller/controller.php?action=shownotification&notificationid=errorUniqueAdmin");
                     }else{
                         header("Location: ../controller/controller.php?action=showuser&notificationid=1");
                     }                            
@@ -722,7 +723,7 @@
                     break;
                 case 3:
                     $result = '<h3 class="text-warning">'.$name.'</h3>';
-                    $button_back = '<a type="submit" href="../view/dashboardview/addadmin.php" class="btn btn-warning rounded-pill py-3 px-5">Quay Lại Trang Đăng Ký</a>';
+                    $button_back = '<a type="submit" href="../view/dashboardview/admin/admin.php" class="btn btn-warning rounded-pill py-3 px-5">Quay Lại Trang Đăng Ký</a>';
                     include '../view/dashboardview/notification/404.php';
                     break;
                 case 4:

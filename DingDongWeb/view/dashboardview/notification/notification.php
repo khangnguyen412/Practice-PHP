@@ -50,7 +50,7 @@
                         if (!empty($button_back)) {
                             echo $button_back;
                         } else {
-                            echo '<a type="submit" href="../view/dashboardview/addadmin.php" class="btn btn-warning py-3 w-100 mb-4">Quay Lại Trang Đăng Ký</a>';
+                            echo '<a type="submit" href="../view/dashboardview/admin/addadmin.php" class="btn btn-warning py-3 w-100 mb-4">Quay Lại Trang Đăng Ký</a>';
                         }
                         // echo $button_back
                         ?>

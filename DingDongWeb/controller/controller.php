@@ -1,7 +1,7 @@
 <?php
     include_once '../model/model.php';
     include_once './lib/uploadfile.php';
-    include_once './lib/databaseprocess.php';
+    include_once '../model/lib/databaseprocess.php';
     include_once './adminController.php';
 
     class Controler{

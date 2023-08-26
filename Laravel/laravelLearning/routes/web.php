@@ -23,10 +23,13 @@ Route::get('/test', function () {
 Route::get('/admin/{name}', function ($name) { // truyền tham số vào view
     return view('admin.hello', ['name' => $name]);
 });
+Route::get('/callview/data', [adminController::class, 'index']);
+Route::get('/callview/add', [adminController::class, 'addDB']);
 Route::get('/callview', function () {
     return view('test2');
- });
+});
+Route::get('/insertuser/{id}/', [adminController::class, 'index']);
 // Route::get('info/{name}/{age}', 'adminController@index')->where(['name' => '[a-zA-Z]+', 'age' => '[0-9]+']);
 // Route::get('/info', [adminController::class, 'index']);
-Route::get('info/{name}/{age}', [adminController::class, 'index'])->where(['name' => '[a-zA-Z]+', 'age' => '[0-9]+']);
+Route::get('/info/{name}/{age}', [adminController::class, 'index'])->where(['name' => '[a-zA-Z]+', 'age' => '[0-9]+']);
 Route::redirect('/old-url', '/new-url');

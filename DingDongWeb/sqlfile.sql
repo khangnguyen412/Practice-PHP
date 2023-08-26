@@ -82,7 +82,7 @@ insert into users (username, passwords) values ('', '');
 SELECT * FROM users where username = "";
 update admins set username = '', passwords = "", timeupdate = now()  where id = 57;
 alter table admins drop column avt;
-delete from admins where id = 63;
+delete from users where id = 167;
 SET SQL_SAFE_UPDATES = 0;
 alter table admins add constraint UC_username unique (username);
 alter table users modify column passwords varchar(500) not null;

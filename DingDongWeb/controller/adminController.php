@@ -1,9 +1,14 @@
 <?php
-class AdminController{
-    public function __construct(){
+include_once './lib/notification.php';
+
+class AdminController
+{
+    public function __construct()
+    {
     }
 
-    public function adminCreate($param1, $param2){
+    public function adminCreate($param1, $param2)
+    {
         $table = 'admins';
         $arr = array('username' => $param1, 'password' => $param2);
         $adduser = new usercontrol("", "", "");
@@ -14,7 +19,8 @@ class AdminController{
         }
     }
 
-    public function userCreate($param1, $param2){
+    public function userCreate($param1, $param2)
+    {
         // $table = 'users';
         // $arr = array('username' => $param1, 'password' => $param2);
         // $adduser = new usercontrol("", "", "");

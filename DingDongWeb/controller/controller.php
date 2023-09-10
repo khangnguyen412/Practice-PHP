@@ -3,6 +3,7 @@
     include_once './lib/uploadfile.php';
     include_once '../model/lib/databaseprocess.php';
     include_once './adminController.php';
+    include_once './lib/notification.php';
 
     class Controler{
         public function __construct($action){
@@ -693,6 +694,12 @@
                             echo '';
                     }
                     break;
+                
+                case 'shownotificationN':
+                    $notificationid = $_GET['notificationid'];
+                    checkNotification($notificationid);
+                    break;
+
                 default:
                     echo 'lỗi';
                     // header("Location: ../view/dashboardview/signin.php");

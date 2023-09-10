@@ -33,3 +33,7 @@ Route::get('/insertuser/{id}/', [adminController::class, 'index']);
 // Route::get('/info', [adminController::class, 'index']);
 Route::get('/info/{name}/{age}', [adminController::class, 'index'])->where(['name' => '[a-zA-Z]+', 'age' => '[0-9]+']);
 Route::redirect('/old-url', '/new-url');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

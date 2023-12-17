@@ -32,3 +32,14 @@ lecture08: virtual host (chạy host trên http://127.0.0.1:8000)
 
 ======================
 lecture09: mở dự án trong PHP storm (chạy trên visual code)
+
+
+
+
+================= học laravel qua doc ==============
+link tài liệu laravel 5.3: https://toidicode.com/hoc-laravel
+link tài liệu laravel 8: https://toidicode.com/series/hoc-laravel-8
+
+
+lecture09: controller
+https://toidicode.com/controller-trong-laravel-10.html

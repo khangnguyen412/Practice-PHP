@@ -43,3 +43,5 @@ link tài liệu laravel 8: https://toidicode.com/series/hoc-laravel-8
 
 lecture09: controller
 https://toidicode.com/controller-trong-laravel-10.html
+lecture10: Query Builder trong Laravel
+https://toidicode.com/query-builder-trong-laravel-11.html

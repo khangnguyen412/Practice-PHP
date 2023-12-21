@@ -24,10 +24,10 @@ class adminController extends Controller
     // }
     public function addDB(): View
     {
-        DB::table('users')->insert([
-            ['username' => 'khangnguyen2', 'passwords' => 'khangnguyen2'],
+        DB::table('test')->insert([
+            ['fullName' => 'khangnguyen2', 'age' => '123'],
         ]);
-        $users = DB::table('users')->get();
-        return view('test2', ['users' => $users]);
+        $users = DB::table('test')->get();
+        return view('test2', ['test' => $users]);
     }
 }

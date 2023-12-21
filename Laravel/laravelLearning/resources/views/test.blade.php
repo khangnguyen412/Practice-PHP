@@ -6,5 +6,12 @@
 </head>
 <body>
     hi bạn
+    @if (@isset($users))
+        {{ $users }}
+        @foreach ($users as $user)
+            <p>This is fullname of user {{ $user->fullName }}</p>
+            <p>This is age of user {{ $user->age }} </p>
+        @endforeach
+    @endif
 </body>
 </html>

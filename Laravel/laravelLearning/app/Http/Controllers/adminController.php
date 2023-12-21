@@ -29,5 +29,9 @@ class adminController extends Controller
         ]);
         $users = DB::table('test')->get();
         return view('test2', ['test' => $users]);
+        // return Route::view('/test', $users);
+    }
+    public function showDB(){
+
     }
 }

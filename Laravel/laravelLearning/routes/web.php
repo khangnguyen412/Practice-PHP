@@ -1,7 +1,8 @@
 <?php
 
 use App\Http\Controllers\adminController;
-use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Route; // thư viện nhận route
+use Illuminate\Http\Request; // thư viện nhận tham số cho form post
 
 /*
 |--------------------------------------------------------------------------
@@ -14,16 +15,81 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+// view nằm trong đường dẫn: resources/views
+// controller nằm trong đường dẫn: app/http
+
+/**
+ * Các Loại Route:
+ * Route::get
+ * Route::post 
+ * Route::put
+ * Route::delete
+ * Route::match         kết hợp nhiều phương phức như POST,GET,PUT,..
+ * Route::any           nhận tất cả các phương thức.
+ * Route::group         tạo ra các nhóm route.
+ * Route::controller    gọi đến controller tương ứng mà chúng ta tự định.
+ * Route::resource      sử dụng với resource controller.
+ * 
+ * - Trong Đó:
+ * -> $url là đường dẫn trên web
+ * -> $action là một câu lệnh hoặc hàm nào đó khi được gọi tới đường dẫn trùng với $url
+ */
+
+/**
+ * Route::get
+ * cú pháp:     Route::get($url, $action);
+ * Trong Đó:
+ * -> $url là đường dẫn trên web
+ * -> $action là một câu lệnh hoặc hàm nào đó khi được gọi tới đường dẫn trùng với $url
+ */
+
+// gọi tới đường dẫn '/welcome' sẽ thực hiện 1 function ở phía sau
+Route::get('/welcome', function(){
+    return 'đây là khởi đầu quá trinh tự học framework của Khang';
+});
+
+/**
+ * Route::post
+ * tương tự như get nhưng khác nhau:
+ * - get có thể gọi trực tiếp từ url còn post chỉ đc gọi form
+ * 
+ * cú pháp:     Route::post($url, $action);
+ * Trong Đó:
+ * -> $url là đường dẫn trên web
+ * -> $action là một câu lệnh hoặc hàm nào đó khi được gọi tới đường dẫn trùng với $url
+ */
+
+// tạo 1 form nhập dữ liệu có method post tại file views/getFormPost.blade.php
+// trong form sẽ có phương thức post vào gọi tới url /testPostRoute
+Route::get('/getFormPost', function () {
+    return view('getFormPost');
+});
+// gọi tới đường dẫn '/testPostRoute' sẽ thực hiện 1 function ở phía sau nhưng sử dụng post
+Route::post('/testPostRoute', function( Request $arr){
+    $name = $arr -> input('name');
+    return "test route::post của laravel và có tham số là $name";
+});
+// để post nhận tham số, sử dụng thư viện
+
+Route::get('/', function () { 
     return view('welcome');
 });
-Route::get('/test', function () {
+// gọi tới đường dẫn '/' chính sẽ được chuyển tới views/welcome.blade.php
+
+Route::get('/test', function () { 
     return view('test');
 });
-Route::get('/admin/{name}', function ($name) { // truyền tham số vào view
-    return view('admin.hello', ['name' => $name]);
+// gọi tới đường dẫn '/test' chính sẽ được chuyển tới views/test.blade.php
+
+Route::get('/admin/{name}', function ($name) { 
+    return view('admin.hello', ['name' => $name]); 
+    // truyền thêm tham số name trong mãng ['name' => $name] vào view
 });
-Route::get('/callview/data', [adminController::class, 'index']);
+// truyền tham số /{name} vào views/admin/hello.blade.php qua tham số admin.hello
+
+Route::get('/callview/data', [adminController::class, 'index']); 
+// gọi tới controller có đường dẫn app/http/adminController.php và thực hiện hàm index
+
 Route::get('/callview/add', [adminController::class, 'addDB']);
 Route::get('/callview', function () {
     return view('test2');
@@ -32,6 +98,7 @@ Route::get('/insertuser/{id}/', [adminController::class, 'index']);
 // Route::get('info/{name}/{age}', 'adminController@index')->where(['name' => '[a-zA-Z]+', 'age' => '[0-9]+']);
 // Route::get('/info', [adminController::class, 'index']);
 Route::get('/info/{name}/{age}', [adminController::class, 'index'])->where(['name' => '[a-zA-Z]+', 'age' => '[0-9]+']);
+Route::get('/info2/{name}/{age}', [adminController::class, 'addDB'])->where(['name' => '[a-zA-Z]+', 'age' => '[0-9]+']);
 Route::redirect('/old-url', '/new-url');
 
 Auth::routes();

@@ -22,14 +22,14 @@ class adminController extends Controller
     //     $users = DB::table('users')->where('id', 2)->get();
     //     return view('test2', ['users' => $users]);
     // }
-    public function addDB(): View
+    public function addDB($name, $age): View
     {
         DB::table('test')->insert([
-            ['fullName' => 'khangnguyen2', 'age' => '123'],
+            ['fullName' => $name, 'age' => $age],
         ]);
-        $users = DB::table('test')->get();
-        return view('test2', ['test' => $users]);
-        // return Route::view('/test', $users);
+        $users = DB::table('test')->get(); // lấy tất cả dữ liệu từ database gán cho users 
+        // return view('test2', ['test' => $users]);
+        return view('test', ['users' => $users]); 
     }
     public function showDB(){
 

@@ -37,15 +37,25 @@ use Illuminate\Http\Request; // thư viện nhận tham số cho form post
 
 /**
  * Route::get
- * cú pháp:     Route::get($url, $action);
+ * Cú pháp:     Route::get($url, $action);
  * Trong Đó:
  * -> $url là đường dẫn trên web
  * -> $action là một câu lệnh hoặc hàm nào đó khi được gọi tới đường dẫn trùng với $url
  */
 
-// gọi tới đường dẫn '/welcome' sẽ thực hiện 1 function ở phía sau
-Route::get('/welcome', function(){
+// gọi tới đường dẫn '/helloWorld' sẽ thực hiện 1 function ở phía sau
+Route::get('/helloWorld', function(){
     return 'đây là khởi đầu quá trinh tự học framework của Khang';
+});
+
+// gọi tới đường dẫn '/' chính sẽ được chuyển tới views/welcome.blade.php
+Route::get('/', function () { 
+    return view('welcome');
+});
+
+// gọi tới đường dẫn '/testGetRoute' chính sẽ được chuyển tới views/testGetRoute.blade.php
+Route::get('/testGetRoute', function () { 
+    return view('testGetRoute');
 });
 
 /**
@@ -53,7 +63,7 @@ Route::get('/welcome', function(){
  * tương tự như get nhưng khác nhau:
  * - get có thể gọi trực tiếp từ url còn post chỉ đc gọi form
  * 
- * cú pháp:     Route::post($url, $action);
+ * Cú pháp:     Route::post($url, $action);
  * Trong Đó:
  * -> $url là đường dẫn trên web
  * -> $action là một câu lệnh hoặc hàm nào đó khi được gọi tới đường dẫn trùng với $url
@@ -64,22 +74,37 @@ Route::get('/welcome', function(){
 Route::get('/getFormPost', function () {
     return view('getFormPost');
 });
+
 // gọi tới đường dẫn '/testPostRoute' sẽ thực hiện 1 function ở phía sau nhưng sử dụng post
 Route::post('/testPostRoute', function( Request $arr){
     $name = $arr -> input('name');
-    return "test route::post của laravel và có tham số là $name";
+    return "test method post của laravel và post có tham số là $name";
 });
-// để post nhận tham số, sử dụng thư viện
+// để post sử dụng thư viện Request và nhận tham số của $arr
 
-Route::get('/', function () { 
-    return view('welcome');
+/**
+ * Route::match
+ * Chấp nhập tất cả phương thức được khai báo
+ * 
+ * Cú pháp:     Route::match('method', 'url', 'action');
+ * -> $method là phương thức có thể sử dụng trong route này
+ * -> $url là đường dẫn trên web
+ * -> $action là một câu lệnh hoặc hàm nào đó khi được gọi tới đường dẫn trùng với $url
+ */
+Route::get('/getFormMatch', function () {
+    return view('getFormMatch');
 });
-// gọi tới đường dẫn '/' chính sẽ được chuyển tới views/welcome.blade.php
+Route::match(['get', 'post'], '/testMatchRoute', function (Request $arr) {
+    $param1 = $arr -> input('name');
+    if(isset($param1)){
+        return "đã gọi vào thành công method match và kèm theo tham số $param1";
+    }
+    return 'đã gọi vào thành công method match';
+});
+// khi gọi trực tiếp tới url /testMatchRoute trên thanh url của gg, match nhận method get
+// khi gọi nhập số từ url /getFormMatch và submit, match nhận method post
 
-Route::get('/test', function () { 
-    return view('test');
-});
-// gọi tới đường dẫn '/test' chính sẽ được chuyển tới views/test.blade.php
+
 
 Route::get('/admin/{name}', function ($name) { 
     return view('admin.hello', ['name' => $name]); 
@@ -101,6 +126,6 @@ Route::get('/info/{name}/{age}', [adminController::class, 'index'])->where(['nam
 Route::get('/info2/{name}/{age}', [adminController::class, 'addDB'])->where(['name' => '[a-zA-Z]+', 'age' => '[0-9]+']);
 Route::redirect('/old-url', '/new-url');
 
-Auth::routes();
+// Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -37,7 +37,7 @@ use Illuminate\Http\Request; // thư viện nhận tham số cho form post
 
 /**
  * Route::get
- * Cú pháp:     Route::get($url, $action);
+ * Cú pháp:     Route::get('url', $action);
  * Trong Đó:
  * -> $url là đường dẫn trên web
  * -> $action là một câu lệnh hoặc hàm nào đó khi được gọi tới đường dẫn trùng với $url
@@ -63,7 +63,7 @@ Route::get('/testGetRoute', function () {
  * tương tự như get nhưng khác nhau:
  * - get có thể gọi trực tiếp từ url còn post chỉ đc gọi form
  * 
- * Cú pháp:     Route::post($url, $action);
+ * Cú pháp:     Route::post('url', $action);
  * Trong Đó:
  * -> $url là đường dẫn trên web
  * -> $action là một câu lệnh hoặc hàm nào đó khi được gọi tới đường dẫn trùng với $url
@@ -86,7 +86,7 @@ Route::post('/testPostRoute', function( Request $arr){
  * Route::match
  * Chấp nhập tất cả phương thức được khai báo
  * 
- * Cú pháp:     Route::match('method', 'url', 'action');
+ * Cú pháp:     Route::match([method], 'url', $action);
  * -> $method là phương thức có thể sử dụng trong route này
  * -> $url là đường dẫn trên web
  * -> $action là một câu lệnh hoặc hàm nào đó khi được gọi tới đường dẫn trùng với $url
@@ -103,6 +103,24 @@ Route::match(['get', 'post'], '/testMatchRoute', function (Request $arr) {
 });
 // khi gọi trực tiếp tới url /testMatchRoute trên thanh url của gg, match nhận method get
 // khi gọi nhập số từ url /getFormMatch và submit, match nhận method post
+
+/**
+ * Route::any
+ * Chấp nhập tất cả phương thức
+ * 
+ * Cú pháp:     Route::any('url', $action);
+ * -> $url là đường dẫn trên web
+ * -> $action là một câu lệnh hoặc hàm nào đó khi được gọi tới đường dẫn trùng với $url
+ */
+
+Route::any('/testRouteAny', function () { 
+    return 'đây là route any';
+});
+
+/**
+ * Route::resource()
+ * 
+ */
 
 
 

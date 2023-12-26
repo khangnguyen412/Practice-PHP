@@ -48,14 +48,22 @@ https://toidicode.com/laravel-la-gi-cach-cai-dat-laravel-1.html
 lecture02: cấu trúc thư mục của laravel
 https://toidicode.com/cau-truc-cua-laravel-53-2.html
 
-lecture03: routes (trong route/web.php)
+lecture03: routes 
 https://toidicode.com/route-trong-laravel-phan-1-3.html
+ghi chú bài học:
+- route/web.php
 
-lecture04: routes2
+lecture04: routes2 (trong route/web.php)
 https://toidicode.com/route-trong-laravel-phan-2-4.html
+ghi chú bài học:
+- route/web.php
+- app/Http/Controllers/testResourceRote.php
 
 lecture09: controller
 https://toidicode.com/controller-trong-laravel-10.html
+ghi chú bài học:
+
 
 lecture10: Query Builder trong Laravel
 https://toidicode.com/query-builder-trong-laravel-11.html
+ghi chú bài học:

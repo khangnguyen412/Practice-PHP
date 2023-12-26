@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\adminController;
+use App\Http\Controllers\testResourceRoute; //gọi controller testResourceRoute
 use Illuminate\Support\Facades\Route; // thư viện nhận route
 use Illuminate\Http\Request; // thư viện nhận tham số cho form post
 
@@ -18,6 +19,8 @@ use Illuminate\Http\Request; // thư viện nhận tham số cho form post
 // view nằm trong đường dẫn: resources/views
 // controller nằm trong đường dẫn: app/http
 
+
+/******************* lecture 3: route (part1) ****************************/
 /**
  * Các Loại Route:
  * Route::get
@@ -115,6 +118,7 @@ Route::any('/testRouteAny', function () {
     return 'đây là route any';
 });
 
+/******************* lecture 4: route (part2) ****************************/
 /**
  * Route::resource()
  * Là một chức năng giúp chúng ta xây dựng RESTful(websevice) một cách nhanh chóng.
@@ -125,8 +129,28 @@ Route::any('/testRouteAny', function () {
  * -> 'tencontroller' là tên của controller (không đi kèm đuôi .php).
  * -> $tuybien là các tùy biến phương thức được sử dụng trong Route, Tham số này có thể bỏ qua nếu không cần thiết.
  * 
- * * lưu ý: Để sử dụng được Route::resource() thì các bạn cần phải tạo ra một RESTful Controller
+ * * lưu ý: Để sử dụng được Route::resource() thì cần phải tạo ra một RESTful Controller và import ctrler vào đây
+ * 
+ * Để dùng route::resource tạo restful ta dùng lệnh:    php artisan make:controller TenController --resource
+ * Trong đó: 
+ * -> TenController là tên của controller bạn muốn tạo
  */
+
+// nhập url /getResourceRoute để nhận method index()
+// nhập url /getResourceRoute/create để nhận method create()
+// nhập url /getResourceRoute/ để nhận method store()
+// nhập url /getResourceRoute/{something} để nhận method show()
+// nhập url /getResourceRoute/{something}/edit để nhận method edit()
+// nhập url /getResourceRoute/{something} để nhận method update()
+// nhập url /getResourceRoute/{something} để nhận method destroy()
+Route::resource('/getResourceRoute', testResourceRoute::class);
+
+// ngoài ra có thể dùng tùy biến [only] để lọc các method()
+// chỉ nhận 3 method create(), show(). edit()
+Route::resource('/getResourceRouteOnly', testResourceRoute::class, ['only' => [ 'create', 'show', 'edit']]);
+// cấm method index(), gọi vào sẽ xuất lỗi
+Route::resource('/getResourceRouteExcept', testResourceRoute::class, ['except' => [ 'index']]);
+
 
 
 

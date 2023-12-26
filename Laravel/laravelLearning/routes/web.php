@@ -29,17 +29,13 @@ use Illuminate\Http\Request; // thư viện nhận tham số cho form post
  * Route::group         tạo ra các nhóm route.
  * Route::controller    gọi đến controller tương ứng mà chúng ta tự định.
  * Route::resource      sử dụng với resource controller.
- * 
- * - Trong Đó:
- * -> $url là đường dẫn trên web
- * -> $action là một câu lệnh hoặc hàm nào đó khi được gọi tới đường dẫn trùng với $url
  */
 
 /**
  * Route::get
  * Cú pháp:     Route::get('url', $action);
  * Trong Đó:
- * -> $url là đường dẫn trên web
+ * -> 'url' là đường dẫn trên web
  * -> $action là một câu lệnh hoặc hàm nào đó khi được gọi tới đường dẫn trùng với $url
  */
 
@@ -65,7 +61,7 @@ Route::get('/testGetRoute', function () {
  * 
  * Cú pháp:     Route::post('url', $action);
  * Trong Đó:
- * -> $url là đường dẫn trên web
+ * -> 'url' là đường dẫn trên web
  * -> $action là một câu lệnh hoặc hàm nào đó khi được gọi tới đường dẫn trùng với $url
  */
 
@@ -87,8 +83,9 @@ Route::post('/testPostRoute', function( Request $arr){
  * Chấp nhập tất cả phương thức được khai báo
  * 
  * Cú pháp:     Route::match([method], 'url', $action);
- * -> $method là phương thức có thể sử dụng trong route này
- * -> $url là đường dẫn trên web
+ * Trong đó:
+ * -> [method] là phương thức có thể sử dụng trong route này
+ * -> 'url' là đường dẫn trên web
  * -> $action là một câu lệnh hoặc hàm nào đó khi được gọi tới đường dẫn trùng với $url
  */
 Route::get('/getFormMatch', function () {
@@ -109,7 +106,8 @@ Route::match(['get', 'post'], '/testMatchRoute', function (Request $arr) {
  * Chấp nhập tất cả phương thức
  * 
  * Cú pháp:     Route::any('url', $action);
- * -> $url là đường dẫn trên web
+ * Trong đó:
+ * -> 'url' là đường dẫn trên web
  * -> $action là một câu lệnh hoặc hàm nào đó khi được gọi tới đường dẫn trùng với $url
  */
 
@@ -119,7 +117,15 @@ Route::any('/testRouteAny', function () {
 
 /**
  * Route::resource()
+ * Là một chức năng giúp chúng ta xây dựng RESTful(websevice) một cách nhanh chóng.
  * 
+ * Cú pháp:     Route::resource('url', 'tencontroller', $tuybien);
+ * Trong đó:
+ * -> 'url' là đường dẫn trên web
+ * -> 'tencontroller' là tên của controller (không đi kèm đuôi .php).
+ * -> $tuybien là các tùy biến phương thức được sử dụng trong Route, Tham số này có thể bỏ qua nếu không cần thiết.
+ * 
+ * * lưu ý: Để sử dụng được Route::resource() thì các bạn cần phải tạo ra một RESTful Controller
  */
 
 

@@ -150,10 +150,27 @@ Route::resource('/getResourceRoute', testResourceRoute::class);
 Route::resource('/getResourceRouteOnly', testResourceRoute::class, ['only' => [ 'create', 'show', 'edit']]);
 // cấm method index(), gọi vào sẽ xuất lỗi
 Route::resource('/getResourceRouteExcept', testResourceRoute::class, ['except' => [ 'index']]);
+// truyền tham số thêm vào route resource
+// cách truyền url /getResourceRouteWithParam/{param1}/author/{param2}
+Route::resource('/getResourceRouteWithParam.author', testResourceRoute::class);
+
+
+/**
+ * Route::group()
+ * Là một cách để nhóm các route lại với nhau, giúp bạn tổ chức mã nguồn một cách gọn gàng và cấu trúc.
+ * Điều này giúp quản lý và duy trì các route dễ dàng hơn, đặc biệt là khi bạn có nhiều route liên quan đến nhau.
+ * Ví dụ: admin/...
+ * 
+ * Cú pháp:     Route::group($attr, $handle);
+ * Trong đó
+ * - $attr là các mãng thành phần điều kiện
+ * - $handle là các câu lệnh hoặc hàm thực hiện chức năng cho route đó
+ */
 
 
 
 
+ 
 Route::get('/admin/{name}', function ($name) { 
     return view('admin.hello', ['name' => $name]); 
     // truyền thêm tham số name trong mãng ['name' => $name] vào view

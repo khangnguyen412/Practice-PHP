@@ -58,10 +58,14 @@ class testResourceRoute extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id, $param = null)
     {
         // gọi url /getResourceRoute/{something}
-        return "got method show() have parameter $id from route::resource";
+        if ( isset($param) ){
+            return "got method show() have arg id: $id and arg param: $param from route::resource";
+        }else{
+            return "got method show() have parameter $id from route::resource";
+        }
     }
 
     /**

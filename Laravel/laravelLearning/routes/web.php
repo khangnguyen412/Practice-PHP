@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\adminController;
-use App\Http\Controllers\testResourceRoute; //gọi controller testResourceRoute
+use App\Http\Controllers\testRouteResource; //gọi controller testRouteResource
 use Illuminate\Support\Facades\Route; // thư viện nhận route
 use Illuminate\Http\Request; // thư viện nhận tham số cho form post
 
@@ -46,15 +46,13 @@ use Illuminate\Http\Request; // thư viện nhận tham số cho form post
 Route::get('/helloWorld', function(){
     return 'đây là khởi đầu quá trinh tự học framework của Khang';
 });
-
 // gọi tới đường dẫn '/' chính sẽ được chuyển tới views/welcome.blade.php
 Route::get('/', function () { 
     return view('welcome');
 });
-
 // gọi tới đường dẫn '/testGetRoute' chính sẽ được chuyển tới views/testGetRoute.blade.php
-Route::get('/testGetRoute', function () { 
-    return view('testGetRoute');
+Route::get('/testRouteGet', function () { 
+    return view('testRouteGet');
 });
 
 /**
@@ -70,12 +68,12 @@ Route::get('/testGetRoute', function () {
 
 // tạo 1 form nhập dữ liệu có method post tại file views/getFormPost.blade.php
 // trong form sẽ có phương thức post vào gọi tới url /testPostRoute
-Route::get('/getFormPost', function () {
-    return view('getFormPost');
+Route::get('/getPostForm', function () {
+    return view('getPostForm');
 });
 
 // gọi tới đường dẫn '/testPostRoute' sẽ thực hiện 1 function ở phía sau nhưng sử dụng post
-Route::post('/testPostRoute', function( Request $arr){
+Route::post('/testRoutePost', function( Request $arr){
     $name = $arr -> input('name');
     return "test method post của laravel và post có tham số là $name";
 });
@@ -91,10 +89,11 @@ Route::post('/testPostRoute', function( Request $arr){
  * -> 'url' là đường dẫn trên web
  * -> $action là một câu lệnh hoặc hàm nào đó khi được gọi tới đường dẫn trùng với $url
  */
-Route::get('/getFormMatch', function () {
-    return view('getFormMatch');
+
+Route::get('/getMatchForm', function () {
+    return view('getMatchForm');
 });
-Route::match(['get', 'post'], '/testMatchRoute', function (Request $arr) {
+Route::match(['get', 'post'], '/testRouteMatch', function (Request $arr) {
     $param1 = $arr -> input('name');
     if(isset($param1)){
         return "đã gọi vào thành công method match và kèm theo tham số $param1";
@@ -118,6 +117,7 @@ Route::any('/testRouteAny', function () {
     return 'đây là route any';
 });
 
+
 /******************* lecture 4: route (part2) ****************************/
 /**
  * Route::resource()
@@ -136,24 +136,23 @@ Route::any('/testRouteAny', function () {
  * -> TenController là tên của controller bạn muốn tạo
  */
 
-// nhập url /getResourceRoute để nhận method index()
-// nhập url /getResourceRoute/create để nhận method create()
-// nhập url /getResourceRoute/ để nhận method store()
-// nhập url /getResourceRoute/{something} để nhận method show()
-// nhập url /getResourceRoute/{something}/edit để nhận method edit()
-// nhập url /getResourceRoute/{something} để nhận method update()
-// nhập url /getResourceRoute/{something} để nhận method destroy()
-Route::resource('/getResourceRoute', testResourceRoute::class);
+// nhập url /getRouteResource để nhận method index()
+// nhập url /getRouteResource/create để nhận method create()
+// nhập url /getRouteResource/ để nhận method store()
+// nhập url /getRouteResource/{something} để nhận method show()
+// nhập url /getRouteResource/{something}/edit để nhận method edit()
+// nhập url /getRouteResource/{something} để nhận method update()
+// nhập url /getRouteResource/{something} để nhận method destroy()
 
+Route::resource('/getRouteResource', testRouteResource::class);
 // ngoài ra có thể dùng tùy biến [only] để lọc các method()
 // chỉ nhận 3 method create(), show(). edit()
-Route::resource('/getResourceRouteOnly', testResourceRoute::class, ['only' => [ 'create', 'show', 'edit']]);
+Route::resource('/getRouteResourceOnly', testRouteResource::class, ['only' => [ 'create', 'show', 'edit']]);
 // cấm method index(), gọi vào sẽ xuất lỗi
-Route::resource('/getResourceRouteExcept', testResourceRoute::class, ['except' => [ 'index']]);
+Route::resource('/getRouteResourceExcept', testRouteResource::class, ['except' => [ 'index']]);
 // truyền tham số thêm vào route resource
-// cách truyền url /getResourceRouteWithParam/{param1}/author/{param2}
-Route::resource('/getResourceRouteWithParam.author', testResourceRoute::class);
-
+// cách truyền url /getRouteResourceWithParam/{param1}/author/{param2}
+Route::resource('/getRouteResourceWithParam.author', testRouteResource::class);
 
 /**
  * Route::group()
@@ -167,10 +166,19 @@ Route::resource('/getResourceRouteWithParam.author', testResourceRoute::class);
  * - $handle là các câu lệnh hoặc hàm thực hiện chức năng cho route đó
  */
 
+// sử dụng route::group()
+Route::prefix('testRouteGroup')->group(function () {
+    Route::get('get', function () {
+        return view("testRouteGroup");
+    });
+});
+
+
+/******************* lecture 5: route (part3) ****************************/
 
 
 
- 
+
 Route::get('/admin/{name}', function ($name) { 
     return view('admin.hello', ['name' => $name]); 
     // truyền thêm tham số name trong mãng ['name' => $name] vào view

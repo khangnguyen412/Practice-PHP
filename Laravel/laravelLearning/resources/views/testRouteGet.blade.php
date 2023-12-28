@@ -5,7 +5,7 @@
     <title>Document</title>
 </head>
 <body>
-    hi bạn
+    get route::get successfully
     @if (@isset($users))
         ddaa {{ $users }}
         @foreach ($users as $user)

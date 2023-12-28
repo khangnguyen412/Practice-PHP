@@ -16,7 +16,7 @@ use Illuminate\Http\Request;
  * - destroy($id):Xóa một dữ liệu theo tham số truyền vào.
  */
 
-class testResourceRoute extends Controller
+class testRouteResource extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -25,7 +25,7 @@ class testResourceRoute extends Controller
      */
     public function index()
     {
-        // gọi url /getResourceRoute
+        // gọi url /getRouteResource
         return 'got method index() from route::resource';
     }
 
@@ -36,7 +36,7 @@ class testResourceRoute extends Controller
      */
     public function create()
     {
-        // gọi url /getResourceRoute/create
+        // gọi url /getRouteResource/create
         return 'got method create() from route::resource';
     }
 
@@ -48,7 +48,7 @@ class testResourceRoute extends Controller
      */
     public function store(Request $request)
     {
-        // gọi url /getResourceRoute/store
+        // gọi url /getRouteResource/store
         return 'got method store() from route::resource';
     }
 
@@ -60,7 +60,7 @@ class testResourceRoute extends Controller
      */
     public function show($id, $param = null)
     {
-        // gọi url /getResourceRoute/{something}
+        // gọi url /getRouteResource/{something}
         if ( isset($param) ){
             return "got method show() have arg id: $id and arg param: $param from route::resource";
         }else{
@@ -76,7 +76,7 @@ class testResourceRoute extends Controller
      */
     public function edit($id)
     {
-        // gọi url /getResourceRoute/{something}/edit
+        // gọi url /getRouteResource/{something}/edit
         return "got method edit() have parameter $id from route::resource";
     }
 
@@ -89,7 +89,7 @@ class testResourceRoute extends Controller
      */
     public function update(Request $request, $id)
     {
-        // gọi url /getResourceRoute/{something}
+        // gọi url /getRouteResource/{something}
         return "got method update() have parameter $id from route::resource";
     }
 
@@ -101,7 +101,7 @@ class testResourceRoute extends Controller
      */
     public function destroy($id)
     {
-        // gọi url /getResourceRoute/{something}
+        // gọi url /getRouteResource/{something}
         return "got method destroy() have parameter $id from route::resource";
     }
 }

@@ -7,7 +7,7 @@
 </head>
 <body>
     {{-- tại đây form sẽ gọi tới method post có url /testPostRoute --}}
-    <form action="/testMatchRoute" method="post" >
+    <form action="/testRoutePost" method="post" >
         @csrf
         <label for="name"> Nhập Tên Vào Đây </label>
         <input type="text" name="name" id="name">

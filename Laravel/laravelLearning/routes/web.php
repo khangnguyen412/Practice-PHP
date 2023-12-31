@@ -167,7 +167,14 @@ Route::resource('/getRouteResourceWithParam.author', testRouteResource::class);
  */
 
 // sử dụng route::group()
+// cách 1
 Route::prefix('testRouteGroup')->group(function () {
+    Route::get('get', function () {
+        return view("testRouteGroup");
+    });
+});
+// cách 2
+Route::group(['prefix' => 'testRouteGroup2'],function () {
     Route::get('get', function () {
         return view("testRouteGroup");
     });
@@ -175,14 +182,31 @@ Route::prefix('testRouteGroup')->group(function () {
 
 
 /******************* lecture 5: route (part3) ****************************/
-
-
-
-
-Route::get('/admin/{name}', function ($name) { 
-    return view('admin.hello', ['name' => $name]); 
-    // truyền thêm tham số name trong mãng ['name' => $name] vào view
+// truyền biến vào route
+Route::get('/putArgInRoute/{param}', function ($param) { 
+    return view('lecture05.putArgInRoute', ['param' => $param]); 
+    /**
+     * {param} là tham số được truyền vào route
+     * truyền thêm tham số name trong mãng ['name' => $name] vào view
+     * nếu view có đường dẫn / thì dùng dấu . để phân cách 
+     */
 });
+
+// truyền nhiều tham số vào route
+Route::get('/putArgsInRoute/{param1}/{param2}', function ($param1, $param2) { 
+    return view('lecture05.putArgsInRoute', ['param1' => $param1, "param2" => $param2]); 
+});
+
+// truyền biến vào route có điều kiện, nếu đk không đúng => not found
+Route::get('/putArgsInRouteWithCondition/{param1}/{param2}', function ($param1, $param2) { 
+    return view('lecture05.putArgsInRoute', ['param1' => $param1, "param2" => $param2]); 
+})->where(['param1' => '[a-z]+', 'param2' => '[0-9]+']);
+
+
+/******************* lecture 6: view ****************************/
+
+
+
 // truyền tham số /{name} vào views/admin/hello.blade.php qua tham số admin.hello
 
 Route::get('/callview/data', [adminController::class, 'index']); 

@@ -5,7 +5,8 @@
     <title>Document</title>
 </head>
 <body>
-    admin <?php echo $name; ?> <br>
-    admin {{ $name }}
+    {{-- tham số sẽ được truyền vào từ route có tham số param --}}
+    Argument is <?php echo $param; ?> <br>
+    Argument is {{ $param }}
 </body>
 </html>

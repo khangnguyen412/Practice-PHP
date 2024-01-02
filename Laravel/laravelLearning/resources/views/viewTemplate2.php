@@ -7,10 +7,8 @@
     <link rel="stylesheet" href="">
 </head>
 <body>
-    @if (@isset($param))
-        gọi view qua route thành công có tham số là {{$param}} <br>
-    @else
-        gọi view qua route thành công <br>
-    @endif 
+    <?php
+        echo $param
+    ?>
 </body>
 </html>

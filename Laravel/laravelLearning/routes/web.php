@@ -205,14 +205,28 @@ Route::get('/putArgsInRouteWithCondition/{param1}/{param2}', function ($param1, 
 
 /******************* lecture 6: view ****************************/
 /**
- * View Trong Laravel thì bắt buộc phải được nằm trong thư mục resources/views
- * Đuôi của file view trong laravel có định dạng là .blade.php (blade template)
+ * -View Trong Laravel thì bắt buộc phải được nằm trong thư mục resources/views
+ * -Đuôi của file view trong laravel có định dạng là .blade.php (blade template)
+ * -Hoặc file .php, nếu blade.php thì phải dùng cú pháp của blade template
  * 
- * ví dụ: 
- * resources/views/viewTemplate.blade.php
+ * Ví dụ ở đường dẫn: resources/views/viewTemplate.blade.php
+ * 
+ * Cú pháp: view('url', 'param');
+ * Trong đó
+ * - 'url' là đường dẫn tới view
+ * - 'param' là tham số truyền vào view (nếu có)
  */
 
-// gọi view
+// gọi view trong route
+Route::get('testViewTemplate', function () {
+    return view('ViewTemplate');
+});
+// truyền biến vào view có file .php
+Route::get('testViewTemplate2/{param}', function ($param) {
+    return view('ViewTemplate2', ['param' => $param]);
+});
+// tạo view dùng chung
+
 
 
 

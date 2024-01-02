@@ -9,9 +9,9 @@
 <body>
     <div class="container">
         @section('content')
-            <p> Đây là phần content của master.blade.php</p>
+            <p> Đây là phần content của viewTemplate.blade.php</p>
         @show
-        <p> Đây là phần content của master</p>
+        <p> Đây là phần content của viewTemplate</p>
     </div>
 </body>
 </html>

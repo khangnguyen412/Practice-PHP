@@ -62,7 +62,7 @@ ghi chú bài học:
 lecture05: routes3 (trong route/web.php)
 https://toidicode.com/route-trong-laravel-phan-3-5.html
 ghi chú bài học:
-
+- route/web.php
 
 lecture09: controller
 https://toidicode.com/controller-trong-laravel-10.html

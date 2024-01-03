@@ -225,8 +225,15 @@ Route::get('testViewTemplate', function () {
 Route::get('testViewTemplate2/{param}', function ($param) {
     return view('ViewTemplate2', ['param' => $param]);
 });
-// tạo view dùng chung
+// tạo view dùng chung (trong app/Providers/AppServiceProvider.php.)
 
+/** 
+ * Dùng compact() truyền dữ liệu cho view
+ * 
+ * Cú Pháp:     compact('param')
+ * Trong đó 
+ * -param là đối số truyền vào
+*/
 
 
 

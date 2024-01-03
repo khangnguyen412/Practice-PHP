@@ -53,16 +53,22 @@ https://toidicode.com/route-trong-laravel-phan-1-3.html
 ghi chú bài học:
 - route/web.php
 
-lecture04: routes2 (trong route/web.php)
+lecture04: routes2 
 https://toidicode.com/route-trong-laravel-phan-2-4.html
 ghi chú bài học:
 - route/web.php
 - app/Http/Controllers/testResourceRote.php
 
-lecture05: routes3 (trong route/web.php)
+lecture05: routes3
 https://toidicode.com/route-trong-laravel-phan-3-5.html
 ghi chú bài học:
 - route/web.php
+
+lecture06: view
+https://toidicode.com/view-trong-laravel-6.html
+ghi chú bài học:
+- route/web.php
+- app/Providers/AppServiceProvider.php
 
 lecture09: controller
 https://toidicode.com/controller-trong-laravel-10.html

@@ -222,17 +222,31 @@ Route::get('testViewTemplate', function () {
     return view('ViewTemplate');
 });
 // truyền biến vào view có file .php
-Route::get('testViewTemplate2/{param}', function ($param) {
-    return view('ViewTemplate2', ['param' => $param]);
+Route::get('testViewTemplatePhpFile/{param}', function ($param) {
+    return view('ViewTemplatePhp', ['param' => $param]);
 });
 // tạo view dùng chung (trong app/Providers/AppServiceProvider.php.)
 
 /** 
  * Dùng compact() truyền dữ liệu cho view
  * 
- * Cú Pháp:     compact('param')
+ * Cú Pháp:     view('url', compact('param'));
  * Trong đó 
- * -param là đối số truyền vào
+ * - 'url' là đường dẫn tới view
+ * - param là đối số truyền vào
+*/
+Route::get('testViewTemplateWithCompact/{param}', function ($param) {
+    return view("viewTemplateWithCompact", compact('param'));
+});
+
+/** 
+ * Dùng with() truyền dữ liệu cho view
+ * 
+ * Cú Pháp:     view('url')->with('key', $value);
+ * Trong đó 
+ * - 'url' là đường dẫn tới view
+ * - 'key' là tên của đối số được truyền
+ * - $value là giá trì của đối số
 */
 
 

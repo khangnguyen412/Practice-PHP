@@ -261,10 +261,15 @@ Route::get('testViewTemplateUseWith/{param}', function ($param) {
  * - 'key' là tên của đối số được truyền
  * - $value là giá trì của đối số
 */
+Route::get('testViewTemplateUseArray/{param}', function ($param) {
+    return view("viewTemplateUseArray", ['param' => $param]);
+});
 
 
-
-
+/******************* lecture 7: blade template ****************************/
+/**
+ * blade template: là một view trong laravel đặt trong resources/views có đuôi file .blade.php 
+ */
 
 // truyền tham số /{name} vào views/admin/hello.blade.php qua tham số admin.hello
 

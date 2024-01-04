@@ -8,7 +8,7 @@
 </head>
 <body>
     <?php
-        echo $param
+        echo "this is a view template use with() and param is:" . $param
     ?>
 </body>
 </html>

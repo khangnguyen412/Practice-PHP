@@ -235,8 +235,8 @@ Route::get('testViewTemplatePhpFile/{param}', function ($param) {
  * - 'url' là đường dẫn tới view
  * - param là đối số truyền vào
 */
-Route::get('testViewTemplateWithCompact/{param}', function ($param) {
-    return view("viewTemplateWithCompact", compact('param'));
+Route::get('testViewTemplateUseCompact/{param}', function ($param) {
+    return view("viewTemplateUseCompact", compact('param'));
 });
 
 /** 
@@ -248,6 +248,21 @@ Route::get('testViewTemplateWithCompact/{param}', function ($param) {
  * - 'key' là tên của đối số được truyền
  * - $value là giá trì của đối số
 */
+Route::get('testViewTemplateUseWith/{param}', function ($param) {
+    return view("viewTemplateUseWith")->with('param', $param);
+});
+
+/** 
+ * Dùng mãng truyền dữ liệu cho view
+ * 
+ * Cú Pháp:     view('url', ['key' => $value]);
+ * Trong đó 
+ * - 'url' là đường dẫn tới view
+ * - 'key' là tên của đối số được truyền
+ * - $value là giá trì của đối số
+*/
+
+
 
 
 

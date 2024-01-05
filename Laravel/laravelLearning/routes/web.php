@@ -271,8 +271,22 @@ Route::get('testViewTemplateUseArray/{param}', function ($param) {
  * blade template: là một view trong laravel đặt trong resources/views có đuôi file .blade.php 
  */
 
-// truyền tham số /{name} vào views/admin/hello.blade.php qua tham số admin.hello
+/**
+ * sử dung blade template
+ * 
+ * cú pháp:     {{ $variable }}
+ * Trong đó
+ * - $variable là biến được truyền vào
+ */
 
+//  truyền tham số /{param} vào view template
+Route::get('testBladeTemplateView/{param}', function ($param) {
+    return view("testViewEngine", ["param" => $param]);
+});
+
+
+
+// truyền tham số /{name} vào views/admin/hello.blade.php qua tham số admin.hello
 Route::get('/callview/data', [adminController::class, 'index']); 
 // gọi tới controller có đường dẫn app/http/adminController.php và thực hiện hàm index
 

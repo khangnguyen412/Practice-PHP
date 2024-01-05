@@ -70,6 +70,11 @@ ghi chú bài học:
 - route/web.php
 - app/Providers/AppServiceProvider.php
 
+lecture07: blade template
+https://toidicode.com/blade-template-engine-trong-laravel-7.html
+ghi chú bài học:
+- route/web.php
+
 lecture09: controller
 https://toidicode.com/controller-trong-laravel-10.html
 ghi chú bài học:

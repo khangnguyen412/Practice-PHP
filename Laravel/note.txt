@@ -74,6 +74,7 @@ lecture07: blade template
 https://toidicode.com/blade-template-engine-trong-laravel-7.html
 ghi chú bài học:
 - route/web.php
+- resources/views/lecture07
 
 lecture09: controller
 https://toidicode.com/controller-trong-laravel-10.html

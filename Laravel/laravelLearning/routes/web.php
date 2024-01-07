@@ -34,6 +34,7 @@ use Illuminate\Http\Request; // thư viện nhận tham số cho form post
  * Route::resource      sử dụng với resource controller.
  */
 
+
 /**
  * Route::get
  * Cú pháp:     Route::get('url', $action);
@@ -41,7 +42,6 @@ use Illuminate\Http\Request; // thư viện nhận tham số cho form post
  * -> 'url' là đường dẫn trên web
  * -> $action là một câu lệnh hoặc hàm nào đó khi được gọi tới đường dẫn trùng với $url
  */
-
 // gọi tới đường dẫn '/helloWorld' sẽ thực hiện 1 function ở phía sau
 Route::get('/helloWorld', function(){
     return 'đây là khởi đầu quá trinh tự học framework của Khang';
@@ -50,10 +50,11 @@ Route::get('/helloWorld', function(){
 Route::get('/', function () { 
     return view('welcome');
 });
-// gọi tới đường dẫn '/testGetRoute' chính sẽ được chuyển tới views/testGetRoute.blade.php
+// gọi tới đường dẫn '/testGetRoute' chính sẽ được chuyển tới views/lecture03/testGetRoute.blade.php
 Route::get('/testRouteGet', function () { 
-    return view('testRouteGet');
+    return view('lecture03.testRouteGet');
 });
+
 
 /**
  * Route::post
@@ -65,13 +66,11 @@ Route::get('/testRouteGet', function () {
  * -> 'url' là đường dẫn trên web
  * -> $action là một câu lệnh hoặc hàm nào đó khi được gọi tới đường dẫn trùng với $url
  */
-
-// tạo 1 form nhập dữ liệu có method post tại file views/getFormPost.blade.php
+// tạo 1 form nhập dữ liệu có method post tại file views/lecture03/getFormPost.blade.php
 // trong form sẽ có phương thức post vào gọi tới url /testPostRoute
 Route::get('/getPostForm', function () {
-    return view('getPostForm');
+    return view('lecture03.getPostForm');
 });
-
 // gọi tới đường dẫn '/testPostRoute' sẽ thực hiện 1 function ở phía sau nhưng sử dụng post
 Route::post('/testRoutePost', function( Request $arr){
     $name = $arr -> input('name');
@@ -89,9 +88,8 @@ Route::post('/testRoutePost', function( Request $arr){
  * -> 'url' là đường dẫn trên web
  * -> $action là một câu lệnh hoặc hàm nào đó khi được gọi tới đường dẫn trùng với $url
  */
-
 Route::get('/getMatchForm', function () {
-    return view('getMatchForm');
+    return view('lecture03.getMatchForm');
 });
 Route::match(['get', 'post'], '/testRouteMatch', function (Request $arr) {
     $param1 = $arr -> input('name');
@@ -112,7 +110,6 @@ Route::match(['get', 'post'], '/testRouteMatch', function (Request $arr) {
  * -> 'url' là đường dẫn trên web
  * -> $action là một câu lệnh hoặc hàm nào đó khi được gọi tới đường dẫn trùng với $url
  */
-
 Route::any('/testRouteAny', function () { 
     return 'đây là route any';
 });
@@ -134,16 +131,15 @@ Route::any('/testRouteAny', function () {
  * Để dùng route::resource tạo restful ta dùng lệnh:    php artisan make:controller TenController --resource
  * Trong đó: 
  * -> TenController là tên của controller bạn muốn tạo
+ * 
+ * nhập url /getRouteResource để nhận method index()
+ * nhập url /getRouteResource/create để nhận method create()
+ * nhập url /getRouteResource/ để nhận method store()
+ * nhập url /getRouteResource/{something} để nhận method show()
+ * nhập url /getRouteResource/{something}/edit để nhận method edit()
+ * nhập url /getRouteResource/{something} để nhận method update()
+ * nhập url /getRouteResource/{something} để nhận method destroy()
  */
-
-// nhập url /getRouteResource để nhận method index()
-// nhập url /getRouteResource/create để nhận method create()
-// nhập url /getRouteResource/ để nhận method store()
-// nhập url /getRouteResource/{something} để nhận method show()
-// nhập url /getRouteResource/{something}/edit để nhận method edit()
-// nhập url /getRouteResource/{something} để nhận method update()
-// nhập url /getRouteResource/{something} để nhận method destroy()
-
 Route::resource('/getRouteResource', testRouteResource::class);
 // ngoài ra có thể dùng tùy biến [only] để lọc các method()
 // chỉ nhận 3 method create(), show(). edit()
@@ -153,6 +149,7 @@ Route::resource('/getRouteResourceExcept', testRouteResource::class, ['except' =
 // truyền tham số thêm vào route resource
 // cách truyền url /getRouteResourceWithParam/{param1}/author/{param2}
 Route::resource('/getRouteResourceWithParam.author', testRouteResource::class);
+
 
 /**
  * Route::group()
@@ -165,12 +162,11 @@ Route::resource('/getRouteResourceWithParam.author', testRouteResource::class);
  * - $attr là các mãng thành phần điều kiện
  * - $handle là các câu lệnh hoặc hàm thực hiện chức năng cho route đó
  */
-
 // sử dụng route::group()
 // cách 1
 Route::prefix('testRouteGroup')->group(function () {
     Route::get('get', function () {
-        return view("testRouteGroup");
+        return view("lecture04.testRouteGroup");
     });
 });
 // cách 2
@@ -191,12 +187,10 @@ Route::get('/putArgInRoute/{param}', function ($param) {
      * nếu view có đường dẫn / thì dùng dấu . để phân cách 
      */
 });
-
 // truyền nhiều tham số vào route
 Route::get('/putArgsInRoute/{param1}/{param2}', function ($param1, $param2) { 
     return view('lecture05.putArgsInRoute', ['param1' => $param1, "param2" => $param2]); 
 });
-
 // truyền biến vào route có điều kiện, nếu đk không đúng => not found
 Route::get('/putArgsInRouteWithCondition/{param1}/{param2}', function ($param1, $param2) { 
     return view('lecture05.putArgsInRoute', ['param1' => $param1, "param2" => $param2]); 
@@ -209,23 +203,23 @@ Route::get('/putArgsInRouteWithCondition/{param1}/{param2}', function ($param1, 
  * -Đuôi của file view trong laravel có định dạng là .blade.php (blade template)
  * -Hoặc file .php, nếu blade.php thì phải dùng cú pháp của blade template
  * 
- * Ví dụ ở đường dẫn: resources/views/viewTemplate.blade.php
+ * Ví dụ ở đường dẫn: resources/views/lecture06/viewTemplate.blade.php
  * 
  * Cú pháp: view('url', 'param');
  * Trong đó
  * - 'url' là đường dẫn tới view
  * - 'param' là tham số truyền vào view (nếu có)
  */
-
 // gọi view trong route
 Route::get('testViewTemplate', function () {
-    return view('ViewTemplate');
+    return view('lecture06.ViewTemplate');
 });
 // truyền biến vào view có file .php
 Route::get('testViewTemplatePhpFile/{param}', function ($param) {
-    return view('ViewTemplatePhp', ['param' => $param]);
+    return view('lecture06.ViewTemplatePhp', ['param' => $param]);
 });
 // tạo view dùng chung (trong app/Providers/AppServiceProvider.php.)
+
 
 /** 
  * Dùng compact() truyền dữ liệu cho view
@@ -236,8 +230,9 @@ Route::get('testViewTemplatePhpFile/{param}', function ($param) {
  * - param là đối số truyền vào
 */
 Route::get('testViewTemplateUseCompact/{param}', function ($param) {
-    return view("viewTemplateUseCompact", compact('param'));
+    return view("lecture06.viewTemplateUseCompact", compact('param'));
 });
+
 
 /** 
  * Dùng with() truyền dữ liệu cho view
@@ -249,8 +244,9 @@ Route::get('testViewTemplateUseCompact/{param}', function ($param) {
  * - $value là giá trì của đối số
 */
 Route::get('testViewTemplateUseWith/{param}', function ($param) {
-    return view("viewTemplateUseWith")->with('param', $param);
+    return view("lecture06.viewTemplateUseWith")->with('param', $param);
 });
+
 
 /** 
  * Dùng mãng truyền dữ liệu cho view
@@ -262,26 +258,22 @@ Route::get('testViewTemplateUseWith/{param}', function ($param) {
  * - $value là giá trì của đối số
 */
 Route::get('testViewTemplateUseArray/{param}', function ($param) {
-    return view("viewTemplateUseArray", ['param' => $param]);
+    return view("lecture06.viewTemplateUseArray", ['param' => $param]);
 });
 
 
 /******************* lecture 7: blade template ****************************/
 /**
  * blade template: là một view trong laravel đặt trong resources/views có đuôi file .blade.php 
- */
-
-/**
- * sử dung blade template
  * 
+ * sử dung blade template
  * cú pháp:     {{ $variable }}
  * Trong đó
  * - $variable là biến được truyền vào
  */
-
 //  truyền tham số /{param} vào view template
 Route::get('testBladeTemplateView/{param}', function ($param) {
-    return view("testViewEngine", ["param" => $param]);
+    return view("lecture07.testViewEngine", ["param" => $param]);
 });
 
 

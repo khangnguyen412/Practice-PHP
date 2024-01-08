@@ -25,13 +25,19 @@
         + vòng lặp for
         cú pháp:
             @for (điều kiện)
-                xuất nếu thỏa đk
+                câu lệnh nếu thỏa đk
             @endfor
     --}}
     @for($i = 0; $i < 10; $i++)
         <p> giá trị của i là {{ $i }} </p>
     @endfor
 
-    
+    {{-- 
+        + vòng lặp foreach
+        cú pháp:
+            @foreach(điều kiện)
+                câu lệnh nếu thỏa đk
+            @endforeach
+    --}}
 </body>
 </html>

@@ -65,5 +65,18 @@
     @empty
         <p> mãng không có phần tử </p>
     @endforelse
+
+    {{-- 
+        + vòng lặp while:
+        cú pháp: 
+            @while (điều kiện)
+                câu lệnh
+            @endwhile
+    --}}
+    @php ($i = 0)
+    @while ($i <= 10)
+        <p>hiện tại $i là {{ $i }}</p>
+        @php ( $i++ )
+    @endwhile
 </body>
 </html>

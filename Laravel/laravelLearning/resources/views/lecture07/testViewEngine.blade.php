@@ -33,11 +33,37 @@
     @endfor
 
     {{-- 
+        + tạo mãng trong blade template
+        cú pháp:
+            @php ($biến = ["các phần tử mãng"])
+    --}}
+    @php ($arr = [1, 2, 3])
+    
+    {{-- 
         + vòng lặp foreach
         cú pháp:
             @foreach(điều kiện)
                 câu lệnh nếu thỏa đk
             @endforeach
     --}}
+    @foreach($arr as $item)
+        <p> đây là phần tử thứ {{ $item }} của mãng</p>
+    @endforeach
+
+    {{-- 
+        + vòng lặp forelse
+        cú pháp:
+            @forelse($biến as $phần_tử_của_mãng)
+                câu lệnh nếu mãng truyền vào có phần tử
+            @empty
+                câu lênh nếu mãng truyền vào là mãng rỗng
+            @endforelse
+    --}}
+    @php ($arr1 = [])
+    @forelse($arr1 as $item)
+        <p> đây là phần tử thứ {{ $item }} của mãng</p>
+    @empty
+        <p> mãng không có phần tử </p>
+    @endforelse
 </body>
 </html>

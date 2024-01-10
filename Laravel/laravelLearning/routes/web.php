@@ -272,8 +272,16 @@ Route::get('testViewTemplateUseArray/{param}', function ($param) {
  * - $variable là biến được truyền vào
  */
 //  truyền tham số /{param} vào view template
-Route::get('testBladeTemplateView/{param}', function ($param) {
+Route::get('testBladeTemplate/{param}', function ($param) {
     return view("lecture07.testViewEngine", ["param" => $param]);
+});
+// câu lệnh vòng lặp trong blade template
+Route::get('testBladeTemplateWithLoop/', function () {
+    return view("lecture07.testViewEngineLoop");
+});
+// câu lệnh điều kiện trong blade template
+Route::get('testBladeTemplateWithCondition/', function () {
+    return view("lecture07.testViewEngineCondition");
 });
 
 

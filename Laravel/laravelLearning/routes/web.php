@@ -285,6 +285,17 @@ Route::get('testBladeTemplateWithCondition/', function () {
 });
 
 
+/******************* lecture 8: blade template (part2) ****************************/
+/**
+ * Template kế thừa (Template inheritance)
+ * ghi chứ bài học trong:
+ * - resources/views/lecture08/testViewTemplateInheritance.blade.php
+ * - resources/views/lecture08/parentTemplate.blade.php
+ */
+Route::get('testBladeTemplateInheritance/', function () {
+    return view("lecture08.testViewTemplateInheritance");
+});
+
 
 // truyền tham số /{name} vào views/admin/hello.blade.php qua tham số admin.hello
 Route::get('/callview/data', [adminController::class, 'index']); 

@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\adminController;
+use App\Http\Controllers\lecture09\adminController;
 use App\Http\Controllers\testRouteResource; //gọi controller testRouteResource
 use Illuminate\Support\Facades\Route; // thư viện nhận route
 use Illuminate\Http\Request; // thư viện nhận tham số cho form post
@@ -296,6 +296,18 @@ Route::get('testBladeTemplateInheritance/', function () {
     return view("lecture08.testViewTemplateInheritance");
 });
 
+/******************* lecture 9: controller trong laravel ****************************/
+/**
+ * tạo thư mục phụ trong controler:
+ * - trường hợp có file sẵn cấu trúc lại:
+ *      + tạo sub folder và kéo file vào
+ *      + tại file này khai báo lại đường dẫn, vd: App\Http\Controllers\lecture09\adminController;
+ *      + trong file đc kéo vào sub folder, khai báo lại 2 đường dẫn, ví dụ:
+ *          namespace App\Http\Controllers\lecture09;
+ *          use App\Http\Controllers\Controller;
+ * 
+ * - trường hợp chứ có file dùng lệnh: php artisan make:controller [tên sub folder]/[tên controller]
+ */
 
 // truyền tham số /{name} vào views/admin/hello.blade.php qua tham số admin.hello
 Route::get('/callview/data', [adminController::class, 'index']); 

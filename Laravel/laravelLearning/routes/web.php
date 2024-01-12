@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\lecture09\adminController;
+use App\Http\Controllers\lecture09\lecture09;
 use App\Http\Controllers\testRouteResource; //gọi controller testRouteResource
 use Illuminate\Support\Facades\Route; // thư viện nhận route
 use Illuminate\Http\Request; // thư viện nhận tham số cho form post
@@ -267,7 +267,7 @@ Route::get('testViewTemplateUseArray/{param}', function ($param) {
  * blade template: là một view trong laravel đặt trong resources/views có đuôi file .blade.php 
  * 
  * sử dung blade template
- * cú pháp:     {{ $variable }}
+ * Cú pháp:     {{ $variable }}
  * Trong đó
  * - $variable là biến được truyền vào
  */
@@ -307,11 +307,15 @@ Route::get('testBladeTemplateInheritance/', function () {
  *          use App\Http\Controllers\Controller;
  * 
  * - trường hợp chứ có file dùng lệnh: php artisan make:controller [tên sub folder]/[tên controller]
+ * 
+ * Cú pháp gọi controller:      [controllerClass::class, "function"]
+ * Trong đó
+ * - controllerClass lớp đối tượng được khai báo
+ * - function là hàm bên trong lớp đói tượng đó
  */
+// gọi tới controller có đường dẫn app/http/lecture09/lecture09.php và thực hiện hàm index
+Route::get('/testControler', [lecture09::class, 'index']); 
 
-// truyền tham số /{name} vào views/admin/hello.blade.php qua tham số admin.hello
-Route::get('/callview/data', [adminController::class, 'index']); 
-// gọi tới controller có đường dẫn app/http/adminController.php và thực hiện hàm index
 
 Route::get('/callview/add', [adminController::class, 'addDB']);
 Route::get('/callview', function () {

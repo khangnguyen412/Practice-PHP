@@ -9,7 +9,7 @@ use Illuminate\View\View;
 use Illuminate\Http\Request;
 use user;
 
-class adminController extends Controller
+class lecture09 extends Controller
 {
     public function index(){
         echo "hi";

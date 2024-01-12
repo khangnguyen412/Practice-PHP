@@ -267,7 +267,7 @@ Route::get('testViewTemplateUseArray/{param}', function ($param) {
  * blade template: là một view trong laravel đặt trong resources/views có đuôi file .blade.php 
  * 
  * sử dung blade template
- * cú pháp:     {{ $variable }}
+ * Cú pháp:     {{ $variable }}
  * Trong đó
  * - $variable là biến được truyền vào
  */
@@ -308,10 +308,16 @@ Route::get('testBladeTemplateInheritance/', function () {
  * 
  * - trường hợp chứ có file dùng lệnh: php artisan make:controller [tên sub folder]/[tên controller]
  */
-
-// truyền tham số /{name} vào views/admin/hello.blade.php qua tham số admin.hello
+/**
+ * Cú pháp gọi controller:      [controllerClass::class, "function"]
+ * Trong đó
+ * - controllerClass lớp đối tượng được khai báo
+ * - function là hàm bên trong lớp đói tượng đó
+ * 
+ * ví dụ: gọi tới controller có đường dẫn app/http/lecture09/adminController.php và thực hiện hàm index
+ */
 Route::get('/callview/data', [adminController::class, 'index']); 
-// gọi tới controller có đường dẫn app/http/adminController.php và thực hiện hàm index
+
 
 Route::get('/callview/add', [adminController::class, 'addDB']);
 Route::get('/callview', function () {

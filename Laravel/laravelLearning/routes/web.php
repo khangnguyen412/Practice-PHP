@@ -313,9 +313,10 @@ Route::get('testBladeTemplateInheritance/', function () {
  * - controllerClass lớp đối tượng được khai báo
  * - function là hàm bên trong lớp đói tượng đó
  */
-// gọi tới controller có đường dẫn app/http/lecture09/lecture09.php và thực hiện hàm index
-Route::get('/testControler', [lecture09::class, 'index']); 
 
+// truyền tham số /{name} vào views/admin/hello.blade.php qua tham số admin.hello
+Route::get('/callview/data', [adminController::class, 'index']); 
+// gọi tới controller có đường dẫn app/http/adminController.php và thực hiện hàm index
 
 Route::get('/callview/add', [adminController::class, 'addDB']);
 Route::get('/callview', function () {

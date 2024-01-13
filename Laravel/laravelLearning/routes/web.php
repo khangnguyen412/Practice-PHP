@@ -1,9 +1,11 @@
 <?php
 
-use App\Http\Controllers\lecture09\lecture09;
-use App\Http\Controllers\testRouteResource; //gọi controller testRouteResource
 use Illuminate\Support\Facades\Route; // thư viện nhận route
 use Illuminate\Http\Request; // thư viện nhận tham số cho form post
+
+// gọi thư viện
+use App\Http\Controllers\lecture04\testRouteResource; //gọi controller từ lecture04\testRouteResource
+use App\Http\Controllers\lecture09\controllerLecture09; // gọi controller cho lecture09
 
 /*
 |--------------------------------------------------------------------------
@@ -296,6 +298,7 @@ Route::get('testBladeTemplateInheritance/', function () {
     return view("lecture08.testViewTemplateInheritance");
 });
 
+
 /******************* lecture 9: controller trong laravel ****************************/
 /**
  * tạo thư mục phụ trong controler:
@@ -314,14 +317,20 @@ Route::get('testBladeTemplateInheritance/', function () {
  * - function là hàm bên trong lớp đói tượng đó
  */
 // gọi tới controller có đường dẫn app/http/lecture09/lecture09.php và thực hiện hàm index
-Route::get('/testControler', [lecture09::class, 'index']); 
+Route::get('/callControler', [controllerLecture09::class, 'index']); 
+// gọi tới hàm addDB trong controller 
+Route::get('/dataToControler', [controllerLecture09::class, 'addDB']);
+// truyền tham số {param} cho vào controler
+Route::get('/paramToController/{param}/', [controllerLecture09::class, 'getName']);
+// truyền tham số {param} cho vào controler kèm theo điều kiện regex
+// điều kiện sai => kết quả NOT FOUND
+Route::get('/paramToControllerWithCondition/{param}/', [controllerLecture09::class, 'getName']) -> where(['param' => '[a-zA-Z]+']);
 
 
-Route::get('/callview/add', [adminController::class, 'addDB']);
 Route::get('/callview', function () {
     return view('test2');
 });
-Route::get('/insertuser/{id}/', [adminController::class, 'index']);
+
 // Route::get('info/{name}/{age}', 'adminController@index')->where(['name' => '[a-zA-Z]+', 'age' => '[0-9]+']);
 // Route::get('/info', [adminController::class, 'index']);
 Route::get('/info/{name}/{age}', [adminController::class, 'index'])->where(['name' => '[a-zA-Z]+', 'age' => '[0-9]+']);

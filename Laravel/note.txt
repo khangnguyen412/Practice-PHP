@@ -51,7 +51,7 @@ lecture04: routes2
 https://toidicode.com/route-trong-laravel-phan-2-4.html
 ghi chú bài học:
 - route/web.php
-- app/Http/Controllers/testResourceRote.php
+- app/Http/Controllers/lecture04/testResourceRote.php
 
 ======================
 lecture05: routes3
@@ -86,7 +86,7 @@ lecture09: controller
 https://toidicode.com/controller-trong-laravel-10.html
 ghi chú bài học:
 - route/web.php
-- app/Http/Controllers/adminController.php
+- app/Http/Controllers/lecture09/controllerLecture09
 
 ======================
 lecture10: Query Builder trong Laravel

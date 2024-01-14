@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route; // thư viện nhận route
 use Illuminate\Http\Request; // thư viện nhận tham số cho form post
+use Illuminate\Support\Facades\DB; // add thư viện kết nối DB vào
 
 // gọi thư viện
 use App\Http\Controllers\lecture04\testRouteResource; //gọi controller từ lecture04\testRouteResource
@@ -45,15 +46,15 @@ use App\Http\Controllers\lecture09\controllerLecture09; // gọi controller cho 
  * -> $action là một câu lệnh hoặc hàm nào đó khi được gọi tới đường dẫn trùng với $url
  */
 // gọi tới đường dẫn '/helloWorld' sẽ thực hiện 1 function ở phía sau
-Route::get('/helloWorld', function(){
+Route::get('/helloWorld', function () {
     return 'đây là khởi đầu quá trinh tự học framework của Khang';
 });
 // gọi tới đường dẫn '/' chính sẽ được chuyển tới views/welcome.blade.php
-Route::get('/', function () { 
+Route::get('/', function () {
     return view('welcome');
 });
 // gọi tới đường dẫn '/testGetRoute' chính sẽ được chuyển tới views/lecture03/testGetRoute.blade.php
-Route::get('/testRouteGet', function () { 
+Route::get('/testRouteGet', function () {
     return view('lecture03.testRouteGet');
 });
 
@@ -74,8 +75,8 @@ Route::get('/getPostForm', function () {
     return view('lecture03.getPostForm');
 });
 // gọi tới đường dẫn '/testPostRoute' sẽ thực hiện 1 function ở phía sau nhưng sử dụng post
-Route::post('/testRoutePost', function( Request $arr){
-    $name = $arr -> input('name');
+Route::post('/testRoutePost', function (Request $arr) {
+    $name = $arr->input('name');
     return "test method post của laravel và post có tham số là $name";
 });
 // để post sử dụng thư viện Request và nhận tham số của $arr
@@ -94,8 +95,8 @@ Route::get('/getMatchForm', function () {
     return view('lecture03.getMatchForm');
 });
 Route::match(['get', 'post'], '/testRouteMatch', function (Request $arr) {
-    $param1 = $arr -> input('name');
-    if(isset($param1)){
+    $param1 = $arr->input('name');
+    if (isset($param1)) {
         return "đã gọi vào thành công method match và kèm theo tham số $param1";
     }
     return 'đã gọi vào thành công method match';
@@ -112,7 +113,7 @@ Route::match(['get', 'post'], '/testRouteMatch', function (Request $arr) {
  * -> 'url' là đường dẫn trên web
  * -> $action là một câu lệnh hoặc hàm nào đó khi được gọi tới đường dẫn trùng với $url
  */
-Route::any('/testRouteAny', function () { 
+Route::any('/testRouteAny', function () {
     return 'đây là route any';
 });
 
@@ -145,9 +146,9 @@ Route::any('/testRouteAny', function () {
 Route::resource('/getRouteResource', testRouteResource::class);
 // ngoài ra có thể dùng tùy biến [only] để lọc các method()
 // chỉ nhận 3 method create(), show(). edit()
-Route::resource('/getRouteResourceOnly', testRouteResource::class, ['only' => [ 'create', 'show', 'edit']]);
+Route::resource('/getRouteResourceOnly', testRouteResource::class, ['only' => ['create', 'show', 'edit']]);
 // cấm method index(), gọi vào sẽ xuất lỗi
-Route::resource('/getRouteResourceExcept', testRouteResource::class, ['except' => [ 'index']]);
+Route::resource('/getRouteResourceExcept', testRouteResource::class, ['except' => ['index']]);
 // truyền tham số thêm vào route resource
 // cách truyền url /getRouteResourceWithParam/{param1}/author/{param2}
 Route::resource('/getRouteResourceWithParam.author', testRouteResource::class);
@@ -172,7 +173,7 @@ Route::prefix('testRouteGroup')->group(function () {
     });
 });
 // cách 2
-Route::group(['prefix' => 'testRouteGroup2'],function () {
+Route::group(['prefix' => 'testRouteGroup2'], function () {
     Route::get('get', function () {
         return view("testRouteGroup");
     });
@@ -181,8 +182,8 @@ Route::group(['prefix' => 'testRouteGroup2'],function () {
 
 /******************* lecture 5: route (part3) ****************************/
 // truyền biến vào route
-Route::get('/putArgInRoute/{param}', function ($param) { 
-    return view('lecture05.putArgInRoute', ['param' => $param]); 
+Route::get('/putArgInRoute/{param}', function ($param) {
+    return view('lecture05.putArgInRoute', ['param' => $param]);
     /**
      * {param} là tham số được truyền vào route
      * truyền thêm tham số name trong mãng ['name' => $name] vào view
@@ -190,12 +191,12 @@ Route::get('/putArgInRoute/{param}', function ($param) {
      */
 });
 // truyền nhiều tham số vào route
-Route::get('/putArgsInRoute/{param1}/{param2}', function ($param1, $param2) { 
-    return view('lecture05.putArgsInRoute', ['param1' => $param1, "param2" => $param2]); 
+Route::get('/putArgsInRoute/{param1}/{param2}', function ($param1, $param2) {
+    return view('lecture05.putArgsInRoute', ['param1' => $param1, "param2" => $param2]);
 });
 // truyền biến vào route có điều kiện, nếu đk không đúng => not found
-Route::get('/putArgsInRouteWithCondition/{param1}/{param2}', function ($param1, $param2) { 
-    return view('lecture05.putArgsInRoute', ['param1' => $param1, "param2" => $param2]); 
+Route::get('/putArgsInRouteWithCondition/{param1}/{param2}', function ($param1, $param2) {
+    return view('lecture05.putArgsInRoute', ['param1' => $param1, "param2" => $param2]);
 })->where(['param1' => '[a-z]+', 'param2' => '[0-9]+']);
 
 
@@ -230,7 +231,7 @@ Route::get('testViewTemplatePhpFile/{param}', function ($param) {
  * Trong đó 
  * - 'url' là đường dẫn tới view
  * - param là đối số truyền vào
-*/
+ */
 Route::get('testViewTemplateUseCompact/{param}', function ($param) {
     return view("lecture06.viewTemplateUseCompact", compact('param'));
 });
@@ -244,7 +245,7 @@ Route::get('testViewTemplateUseCompact/{param}', function ($param) {
  * - 'url' là đường dẫn tới view
  * - 'key' là tên của đối số được truyền
  * - $value là giá trì của đối số
-*/
+ */
 Route::get('testViewTemplateUseWith/{param}', function ($param) {
     return view("lecture06.viewTemplateUseWith")->with('param', $param);
 });
@@ -258,7 +259,7 @@ Route::get('testViewTemplateUseWith/{param}', function ($param) {
  * - 'url' là đường dẫn tới view
  * - 'key' là tên của đối số được truyền
  * - $value là giá trì của đối số
-*/
+ */
 Route::get('testViewTemplateUseArray/{param}', function ($param) {
     return view("lecture06.viewTemplateUseArray", ['param' => $param]);
 });
@@ -317,22 +318,72 @@ Route::get('testBladeTemplateInheritance/', function () {
  * - function là hàm bên trong lớp đói tượng đó
  */
 // gọi tới controller có đường dẫn app/http/lecture09/lecture09.php và thực hiện hàm index
-Route::get('/callControler', [controllerLecture09::class, 'index']); 
+Route::get('/callControler', [controllerLecture09::class, 'index']);
 // gọi tới hàm addDB trong controller 
 Route::get('/dataToControler', [controllerLecture09::class, 'addDB']);
 // truyền tham số {param} cho vào controler
 Route::get('/paramToController/{param}/', [controllerLecture09::class, 'getName']);
 // truyền tham số {param} cho vào controler kèm theo điều kiện regex
 // điều kiện sai => kết quả NOT FOUND
-Route::get('/paramToControllerWithCondition/{param}/', [controllerLecture09::class, 'getName']) -> where(['param' => '[a-zA-Z]+']);
+Route::get('/paramToControllerWithCondition/{param}/', [controllerLecture09::class, 'getName'])->where(['param' => '[a-zA-Z]+']);
 
 
-Route::get('/callview', function () {
-    return view('test2');
+/******************* lecture 10: query builder trong laravel ****************************/
+/**
+ * cấu hình lại kết nối csdl trong file .env các dòng sau: 
+ * DB_CONNECTION=mysql
+ * DB_HOST= [địa chỉ kết tới csdl]
+ * DB_PORT= [cổng]
+ * DB_DATABASE= [tên csdl]
+ * DB_USERNAME= [tên đăng nhập]
+ * DB_PASSWORD= [mật khẩu]
+ * Trong đó
+ * - [địa chỉ kết tới csdl] là máy chủ kết nối tới vào csdl (localhost = 127.0.0.1)
+ * - [cổng] cổng kết nối tới csdl (mặc định là port 3306)
+ * - [tên csdl] là tên database
+ * - [tên đăng nhập] tên tài khoản để đăng nhập vào csdl 
+ * - [mật khẩu] mật khẩu để đăng nhập vào csdl 
+ */
+/**
+ * - Lấy bảng csdl và hiển thị ra
+ * Cú pháp:  DB::table('[table name]')->get();
+ * Trong đó: [table name] là tên bảng trong csdl
+ */
+Route::get('/getDB', function () {
+    // lấy bản test
+    $data = DB::table('test')->get();
+
+    // hiển thị data ra màn hình
+    header('Content-Type: application/json');
+    echo "<pre>"; 
+    echo json_encode($data, JSON_PRETTY_PRINT);
+    echo "</pre>";
+    
+    // hoặc
+    // echo "<pre>"; 
+    // var_dump($data);
+    // echo "</pre>"; 
 });
 
-// Route::get('info/{name}/{age}', 'adminController@index')->where(['name' => '[a-zA-Z]+', 'age' => '[0-9]+']);
-// Route::get('/info', [adminController::class, 'index']);
+
+/**
+ * - lấy cột trong bảng
+ * Cú pháp: DB::table('[table name]')->select('[columnfirst]', '[columnsecond]')->get();
+ * Trong đó: 
+ * - [table name] là tên bảng trong csdl
+ * - [columnfirst], [columnsecond] các cột được truy vấn
+ */
+Route::get('/getColDB', function () {
+    $data = DB::table('test')->select('fullName')->get();
+    
+    // hiển thị data ra màn hình
+    header('Content-Type: application/json');
+    echo "<pre>"; 
+    echo json_encode($data, JSON_PRETTY_PRINT);
+    echo "</pre>";
+});
+
+
 Route::get('/info/{name}/{age}', [adminController::class, 'index'])->where(['name' => '[a-zA-Z]+', 'age' => '[0-9]+']);
 Route::get('/info2/{name}/{age}', [adminController::class, 'addDB'])->where(['name' => '[a-zA-Z]+', 'age' => '[0-9]+']);
 Route::redirect('/old-url', '/new-url');

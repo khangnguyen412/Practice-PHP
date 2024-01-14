@@ -92,3 +92,5 @@ ghi chú bài học:
 lecture10: Query Builder trong Laravel
 https://toidicode.com/query-builder-trong-laravel-11.html
 ghi chú bài học:
+- route/web.php
+- .env

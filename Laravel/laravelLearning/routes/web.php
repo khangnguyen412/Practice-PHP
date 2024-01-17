@@ -384,8 +384,43 @@ Route::get('/getColDB', function () {
 });
 
 
-Route::get('/info/{name}/{age}', [adminController::class, 'index'])->where(['name' => '[a-zA-Z]+', 'age' => '[0-9]+']);
-Route::get('/info2/{name}/{age}', [adminController::class, 'addDB'])->where(['name' => '[a-zA-Z]+', 'age' => '[0-9]+']);
+/**
+ * - lấy cột trong bảng với điều kiện
+ * Cú pháp: DB::table('[table name]')->where('[columnfirst]', '[condition]', '[columnsecond]')->get();
+ * Trong đó: 
+ * - [table name] là tên bảng trong csdl
+ * - [columnfirst], [columnsecond] các cột được truy vấn
+ * - [condition] là điều kiện để chọn lọc với các toán tử > < <> lần lượt là lớn, bé, bằng 
+ * 
+ * * Lưu ý:
+ * - nếu không có toán tử mặc định sẽ chọn lọc kết quả = với chuỗi phía sau
+ * - thứ tự của câu lệnh sql (table -> select -> where -> get)
+ */
+ Route::get('/getDBWithCondition', function () {
+    $data = DB::table('test')->where('fullName', 'khang')->get();
+    
+    // hiển thị data ra màn hình
+    header('Content-Type: application/json');
+    echo "<pre>"; 
+    echo json_encode($data, JSON_PRETTY_PRINT);
+    echo "</pre>";
+});
+
+/**
+ * - lấy cột trong bảng với điều kiện lồng
+ * Cú pháp: DB::table('[table name]')->where('[columnfirst]', '[condition]', '[columnsecond]')->orWhere(...)->get();
+ * Trong đó: 
+ * - [table name] là tên bảng trong csdl
+ * - [columnfirst], [columnsecond] các cột được truy vấn
+ * - [condition] là điều kiện để chọn lọc với các toán tử > < <> lần lượt là lớn, bé, bằng 
+ * 
+ * * Lưu ý:
+ * - nếu không có toán tử mặc định sẽ chọn lọc kết quả = với chuỗi phía sau
+ * - thứ tự của câu lệnh sql (table -> select -> where -> get)
+ */
+
+
+
 Route::redirect('/old-url', '/new-url');
 
 // Auth::routes();

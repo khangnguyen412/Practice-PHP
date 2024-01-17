@@ -5,3 +5,4 @@ create table test(
 );
 select * from test;
 alter table test drop column id;
+drop table test;

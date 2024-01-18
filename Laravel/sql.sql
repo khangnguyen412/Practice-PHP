@@ -14,4 +14,6 @@ drop table test;
 select * from acc_transaction;
 select * from account;
 select * from account join acc_transaction on account.ACCOUNT_ID = acc_transaction.ACCOUNT_ID;
-select * from account where (AVAIL_BALANCE > 5000 and OPEN_BRANCH_ID = 1)
+select * from account where (AVAIL_BALANCE > 5000 or OPEN_BRANCH_ID = 1);
+select * from account where (AVAIL_BALANCE > 5000 and OPEN_BRANCH_ID = 1);
+

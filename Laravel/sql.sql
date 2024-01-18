@@ -13,7 +13,5 @@ drop table test;
 -- truy xuất db mẫu
 select * from acc_transaction;
 select * from account;
-
-select  acc_transaction.ACCOUNT_ID, account.ACCOUNT_ID, AVAIL_BALANCE, LAST_ACTIVITY_DATE, PENDING_BALANCE, AMOUNT from account 
-join acc_transaction 
-on account.ACCOUNT_ID = acc_transaction.ACCOUNT_ID
+select * from account join acc_transaction on account.ACCOUNT_ID = acc_transaction.ACCOUNT_ID;
+select * from account where (AVAIL_BALANCE > 5000 and OPEN_BRANCH_ID = 1)

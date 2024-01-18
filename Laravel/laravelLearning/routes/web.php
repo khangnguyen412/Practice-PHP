@@ -351,14 +351,14 @@ Route::get('/paramToControllerWithCondition/{param}/', [controllerLecture09::cla
  */
 Route::get('/getDB', function () {
     // lấy bản test
-    $data = DB::table('test')->get();
+    $data = DB::table('account')->get();
 
     // hiển thị data ra màn hình
     header('Content-Type: application/json');
-    echo "<pre>"; 
+    echo "<pre>";
     echo json_encode($data, JSON_PRETTY_PRINT);
     echo "</pre>";
-    
+
     // hoặc
     // echo "<pre>"; 
     // var_dump($data);
@@ -374,11 +374,11 @@ Route::get('/getDB', function () {
  * - [columnfirst], [columnsecond] các cột được truy vấn
  */
 Route::get('/getColDB', function () {
-    $data = DB::table('test')->select('fullName')->get();
-    
+    $data = DB::table('account')->select('ACCOUNT_ID', 'AVAIL_BALANCE')->get();
+
     // hiển thị data ra màn hình
     header('Content-Type: application/json');
-    echo "<pre>"; 
+    echo "<pre>";
     echo json_encode($data, JSON_PRETTY_PRINT);
     echo "</pre>";
 });
@@ -386,39 +386,47 @@ Route::get('/getColDB', function () {
 
 /**
  * - lấy cột trong bảng với điều kiện
- * Cú pháp: DB::table('[table name]')->where('[columnfirst]', '[condition]', '[columnsecond]')->get();
+ * Cú pháp: DB::table('[table name]')->where('[columnfirst]', '[condition]', '[filter]')->get();
  * Trong đó: 
  * - [table name] là tên bảng trong csdl
- * - [columnfirst], [columnsecond] các cột được truy vấn
- * - [condition] là điều kiện để chọn lọc với các toán tử > < <> lần lượt là lớn, bé, bằng 
+ * - [columnfirst] các cột được truy vấn
+ * - [condition] là các toán tử > < <> "like" lần lượt là lớn, bé, bằng 
+ * - [filter] vế sau của điều kiện
  * 
  * * Lưu ý:
  * - nếu không có toán tử mặc định sẽ chọn lọc kết quả = với chuỗi phía sau
  * - thứ tự của câu lệnh sql (table -> select -> where -> get)
  */
- Route::get('/getDBWithCondition', function () {
-    $data = DB::table('test')->where('fullName', 'khang')->get();
-    
-    // hiển thị data ra màn hình
+Route::get('/getDBWithCondition', function () {
+    // lấy data với điều kiện
+    $dataWithCondition = DB::table('account')
+        ->select('ACCOUNT_ID', 'AVAIL_BALANCE', 'OPEN_BRANCH_ID')
+        ->where('AVAIL_BALANCE', '>', '5000')->get();
     header('Content-Type: application/json');
-    echo "<pre>"; 
-    echo json_encode($data, JSON_PRETTY_PRINT);
+    echo "<pre>";
+    echo "lấy dữ liệu theo điều kiện: " . json_encode($dataWithCondition, JSON_PRETTY_PRINT);
+    echo "</pre></br>";
+
+    // lấy data với điều kiện lồng orwhere
+    $dataWithConditionOrWhere = DB::table('account')
+        ->select('ACCOUNT_ID', 'AVAIL_BALANCE', 'OPEN_BRANCH_ID')
+        ->where('AVAIL_BALANCE', '>', '5000')
+        ->orWhere('OPEN_BRANCH_ID', '=', '1')
+        ->get();
+    echo "<pre>";
+    echo "điều kiện lồng ->orwhere(): " . json_encode($dataWithConditionOrWhere, JSON_PRETTY_PRINT);
+    echo "</pre></br>";
+
+    // lấy data với điều kiện lồng andwhere
+    $dataWithConditionAndWhere = DB::table('account')
+        ->select('ACCOUNT_ID', 'AVAIL_BALANCE', 'OPEN_BRANCH_ID')
+        ->where('AVAIL_BALANCE', '>', '5000')
+        ->Where('OPEN_BRANCH_ID', '=', '1')
+        ->get();
+    echo "<pre>";
+    echo "điều kiện lồng where()where(): " . json_encode($dataWithConditionAndWhere, JSON_PRETTY_PRINT);
     echo "</pre>";
 });
-
-/**
- * - lấy cột trong bảng với điều kiện lồng
- * Cú pháp: DB::table('[table name]')->where('[columnfirst]', '[condition]', '[columnsecond]')->orWhere(...)->get();
- * Trong đó: 
- * - [table name] là tên bảng trong csdl
- * - [columnfirst], [columnsecond] các cột được truy vấn
- * - [condition] là điều kiện để chọn lọc với các toán tử > < <> lần lượt là lớn, bé, bằng 
- * 
- * * Lưu ý:
- * - nếu không có toán tử mặc định sẽ chọn lọc kết quả = với chuỗi phía sau
- * - thứ tự của câu lệnh sql (table -> select -> where -> get)
- */
-
 
 
 Route::redirect('/old-url', '/new-url');

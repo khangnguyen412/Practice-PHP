@@ -386,21 +386,21 @@ Route::get('/getColDB', function () {
 
 /**
  * - lấy cột trong bảng với điều kiện
- * Cú pháp: DB::table('[table name]')->where('[columnfirst]', '[condition]', '[filter]')->get();
+ * Cú pháp: DB::table('[table name]')->where('[column]', '[condition]', '[filter]')->get();
  * Trong đó: 
  * - [table name] là tên bảng trong csdl
- * - [columnfirst] các cột được truy vấn
+ * - [column] cột được truy vấn dùng để xét điều kiện
  * - [condition] là các toán tử > < <> "like" lần lượt là lớn, bé, bằng 
  * - [filter] vế sau của điều kiện
  * 
  * * Lưu ý:
- * - nếu không có toán tử mặc định sẽ chọn lọc kết quả = với chuỗi phía sau
+ * - nếu không vế [condition] => mặc định sẽ chọn lọc kết quả = với [filter] phía sau
  * - thứ tự của câu lệnh sql (table -> select -> where -> get)
  */
 Route::get('/getDBWithCondition', function () {
     // lấy data với điều kiện
     $dataWithCondition = DB::table('account')
-        ->select('ACCOUNT_ID', 'AVAIL_BALANCE', 'OPEN_BRANCH_ID')
+        ->select('ACCOUNT_ID', 'AVAIL_BALANCE', 'OPEN_BRANCH_ID', 'PRODUCT_CD')
         ->where('AVAIL_BALANCE', '>', '5000')->get();
     header('Content-Type: application/json');
     echo "<pre>";
@@ -426,6 +426,35 @@ Route::get('/getDBWithCondition', function () {
     echo "<pre>";
     echo "điều kiện lồng where()where(): " . json_encode($dataWithConditionAndWhere, JSON_PRETTY_PRINT);
     echo "</pre>";
+
+    // lấy dữ liệu với điều kiện like
+    $dataWithConditionLike = DB::table('account')
+        ->select('ACCOUNT_ID', 'AVAIL_BALANCE', 'OPEN_BRANCH_ID', 'PRODUCT_CD')
+        ->where('PRODUCT_CD', 'like', 'sa%')
+        ->get();
+    echo "<pre>";
+    echo "điều kiện like: " . json_encode($dataWithConditionLike, JSON_PRETTY_PRINT);
+    echo "</pre>";
+});
+
+
+/**
+ * - join bảng 
+ * Cú pháp: DB::table('[table name 1]')->join('[table name 2]', '[column]', '[condition]', '[filter]')->get();
+ * Trong đó: 
+ * - [table name 1] là tên bảng trong csdl
+ * - [table name 2] là tên bảng thứ 2 sau vế được join
+ * - [column] cột được truy vấn để xét điều kiện
+ * - [condition] là các toán tử > < <> "like" lần lượt là lớn, bé, bằng 
+ * - [filter] vế sau của điều kiện
+ */
+Route::get('/getDBWithJoin', function () {
+    $dataWithJoin = DB::table('account')->join('acc_transaction', 'account.ACCOUNT_ID', 'acc_transaction.ACCOUNT_ID')->get();
+    echo "<pre>";
+    echo "điều kiện like: " . json_encode($dataWithJoin, JSON_PRETTY_PRINT);
+    echo "</pre><br>";
+    echo sizeof($dataWithJoin);
+
 });
 
 

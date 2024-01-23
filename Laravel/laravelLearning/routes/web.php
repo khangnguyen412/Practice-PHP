@@ -355,11 +355,19 @@ Route::get('/getDB', function () {
 
     // hiển thị data ra màn hình
     header('Content-Type: application/json');
-    echo "<pre>";
-    echo json_encode($data, JSON_PRETTY_PRINT);
-    echo "</pre>";
 
-    // hoặc
+    // cách 1:
+    ?>
+        <pre>data: <?php echo json_encode($data, JSON_PRETTY_PRINT); ?></pre>
+        <p> tìm thấy <?php echo sizeof($data); ?> kết quả của truy vấn</p>
+    <?php
+
+    // cách 2:
+    // echo "<pre>";
+    // echo json_encode($data, JSON_PRETTY_PRINT);
+    // echo "</pre>";
+
+    // cách 3:
     // echo "<pre>"; 
     // var_dump($data);
     // echo "</pre>"; 
@@ -378,9 +386,10 @@ Route::get('/getColDB', function () {
 
     // hiển thị data ra màn hình
     header('Content-Type: application/json');
-    echo "<pre>";
-    echo json_encode($data, JSON_PRETTY_PRINT);
-    echo "</pre>";
+    ?>
+        <pre>lấy cột: <?php echo json_encode($data, JSON_PRETTY_PRINT); ?></pre>
+        <p> tìm thấy <?php echo sizeof($data); ?> kết quả của lấy cột</p>
+    <?php
 });
 
 
@@ -403,9 +412,10 @@ Route::get('/getDBWithCondition', function () {
         ->select('ACCOUNT_ID', 'AVAIL_BALANCE', 'OPEN_BRANCH_ID', 'PRODUCT_CD')
         ->where('AVAIL_BALANCE', '>', '5000')->get();
     header('Content-Type: application/json');
-    echo "<pre>";
-    echo "lấy dữ liệu theo điều kiện: " . json_encode($dataWithCondition, JSON_PRETTY_PRINT);
-    echo "</pre></br>";
+    ?>
+        <pre>truy xuất data với điều kiện: <?php echo json_encode($dataWithCondition, JSON_PRETTY_PRINT); ?></pre>
+        <p> tìm thấy <?php echo sizeof($dataWithCondition); ?> kết quả của truy xuất data với điều kiện</p>
+    <?php
 
     // lấy data với điều kiện lồng orwhere
     $dataWithConditionOrWhere = DB::table('account')
@@ -413,9 +423,10 @@ Route::get('/getDBWithCondition', function () {
         ->where('AVAIL_BALANCE', '>', '5000')
         ->orWhere('OPEN_BRANCH_ID', '=', '1')
         ->get();
-    echo "<pre>";
-    echo "điều kiện lồng ->orwhere(): " . json_encode($dataWithConditionOrWhere, JSON_PRETTY_PRINT);
-    echo "</pre></br>";
+    ?>
+        <pre>truy xuất data vs điều kiện lồng ->orwhere(): <?php echo json_encode($dataWithConditionOrWhere, JSON_PRETTY_PRINT); ?></pre>
+        <p> tìm thấy <?php echo sizeof($dataWithConditionOrWhere); ?> truy xuất data vs điều kiện lồng</p>
+    <?php
 
     // lấy data với điều kiện lồng andwhere
     $dataWithConditionAndWhere = DB::table('account')
@@ -423,18 +434,20 @@ Route::get('/getDBWithCondition', function () {
         ->where('AVAIL_BALANCE', '>', '5000')
         ->Where('OPEN_BRANCH_ID', '=', '1')
         ->get();
-    echo "<pre>";
-    echo "điều kiện lồng where()where(): " . json_encode($dataWithConditionAndWhere, JSON_PRETTY_PRINT);
-    echo "</pre>";
+    ?>
+        <pre>truy xuất data vs điều kiện lồng where()where(): <?php echo json_encode($dataWithConditionAndWhere, JSON_PRETTY_PRINT); ?></pre>
+        <p> tìm thấy <?php echo sizeof($dataWithConditionAndWhere); ?> truy xuất data vs điều kiện lồng</p>
+    <?php
 
     // lấy dữ liệu với điều kiện like
     $dataWithConditionLike = DB::table('account')
         ->select('ACCOUNT_ID', 'AVAIL_BALANCE', 'OPEN_BRANCH_ID', 'PRODUCT_CD')
         ->where('PRODUCT_CD', 'like', 'sa%')
         ->get();
-    echo "<pre>";
-    echo "điều kiện like: " . json_encode($dataWithConditionLike, JSON_PRETTY_PRINT);
-    echo "</pre>";
+    ?>
+        <pre>truy xuất data vs điều kiện like: <?php echo json_encode($dataWithConditionLike, JSON_PRETTY_PRINT); ?></pre>
+        <p> tìm thấy <?php echo sizeof($dataWithConditionLike); ?> truy xuất data vs điều kiện like</p>
+    <?php
 });
 
 
@@ -450,16 +463,36 @@ Route::get('/getDBWithCondition', function () {
  */
 Route::get('/getDBWithJoin', function () {
     $dataWithJoin = DB::table('account')->join('acc_transaction', 'account.ACCOUNT_ID', 'acc_transaction.ACCOUNT_ID')->get();
-    echo "<pre>";
-    echo "điều kiện like: " . json_encode($dataWithJoin, JSON_PRETTY_PRINT);
-    echo "</pre><br>";
-    echo sizeof($dataWithJoin);
+    ?>
+        <pre>truy xuất data với join: <?php echo json_encode($dataWithJoin, JSON_PRETTY_PRINT); ?></pre>
+        <p> tìm thấy <?php echo sizeof($dataWithJoin); ?> kết quả của join</p>
+    <?php
 
+    $dataWithLeftJoin = DB::table('account')->leftJoin('acc_transaction', 'account.ACCOUNT_ID', 'acc_transaction.ACCOUNT_ID')->get();
+    ?>
+        <pre>truy xuất data với left join: <?php echo json_encode($dataWithLeftJoin, JSON_PRETTY_PRINT); ?></pre>
+        <p> tìm thấy <?php echo sizeof($dataWithLeftJoin); ?> truy xuất data với left join</p>
+    <?php
+});
+
+/**
+ * - unions
+ * Cú pháp:
+ *      $firstData = DB::table('[table name 1]')->where('[column]', '[condition]', '[filter]')
+ *      $secondData = DB::table('[table name 2]')->where('[column]', '[condition]', '[filter]')->union($firstData)->get()
+ * Trong đó: 
+ * - [table name 1] là tên bảng trong csdl
+ * - [table name 2] là tên bảng thứ 2 sau vế được join
+ * - [column] cột được truy vấn để xét điều kiện
+ * - [condition] là các toán tử > < <> "like" lần lượt là lớn, bé, bằng 
+ * - [filter] vế sau của điều kiện
+ */
+Route::get('/getDBWithUnions', function () {
+    $firstData = DB::table('')->where("#");
+    $secondData = DB::table('')->where('#')->union($firstData)->get();
 });
 
 
 Route::redirect('/old-url', '/new-url');
-
 // Auth::routes();
-
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

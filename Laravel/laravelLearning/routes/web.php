@@ -488,8 +488,13 @@ Route::get('/getDBWithJoin', function () {
  * - [filter] vế sau của điều kiện
  */
 Route::get('/getDBWithUnions', function () {
-    $firstData = DB::table('')->where("#");
-    $secondData = DB::table('')->where('#')->union($firstData)->get();
+    $firstData = DB::table('business')->select("CUST_ID", "STATE_ID")->where("CUST_ID","10");
+    $secondData = DB::table('customer')->select("CUST_ID", "STATE")->where("CUST_ID","11")->union($firstData)->get();
+
+    ?>
+        <pre>truy xuất data với unions: <?php echo json_encode($secondData, JSON_PRETTY_PRINT); ?></pre>
+        <p> tìm thấy <?php echo sizeof($secondData); ?> truy xuất data với unions</p>
+    <?php
 });
 
 

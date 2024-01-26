@@ -475,6 +475,7 @@ Route::get('/getDBWithJoin', function () {
     <?php
 });
 
+
 /**
  * - unions
  * Cú pháp:
@@ -490,10 +491,27 @@ Route::get('/getDBWithJoin', function () {
 Route::get('/getDBWithUnions', function () {
     $firstData = DB::table('business')->select("CUST_ID", "STATE_ID")->where("CUST_ID","10");
     $secondData = DB::table('customer')->select("CUST_ID", "STATE")->where("CUST_ID","11")->union($firstData)->get();
-
     ?>
         <pre>truy xuất data với unions: <?php echo json_encode($secondData, JSON_PRETTY_PRINT); ?></pre>
         <p> tìm thấy <?php echo sizeof($secondData); ?> truy xuất data với unions</p>
+    <?php
+});
+
+
+/**
+ * - order by
+ * Cú pháp:
+ *      DB::table('[table name 1]')->orderBy( '[column]', '[desc/asc]')->get();
+ * Trong đó: 
+ * - [table name 1] là tên bảng trong csdl
+ * - [column] cột được truy vấn để xét điều kiện
+ * - [desc/asc] lọc theo thứ tự (desc:giảm dần)(asc:tăng dần)
+ */
+Route::get('/getDBWithOrderby', function () {
+    $dataWithOrderby = DB::table('account')->select('*')->orderBy('PENDING_BALANCE', 'asc')->get();
+    ?>
+        <pre>truy xuất data với Order By: <?php echo json_encode($dataWithOrderby, JSON_PRETTY_PRINT); ?></pre>
+        <p> tìm thấy <?php echo sizeof($dataWithOrderby); ?> truy xuất data với Order By</p>
     <?php
 });
 

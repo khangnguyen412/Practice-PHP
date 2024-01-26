@@ -22,3 +22,4 @@ select * from account where (AVAIL_BALANCE > 5000 and OPEN_BRANCH_ID = 1);
 select * from account where PRODUCT_CD like "sa%";
 select * from account left join acc_transaction on account.ACCOUNT_ID = acc_transaction.ACCOUNT_ID;
 select CUST_ID, STATE_ID from business where CUST_ID = '10' union select CUST_ID, STATE from customer where CUST_ID = 11;
+select * from account order by PENDING_BALANCE asc;

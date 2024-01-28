@@ -343,6 +343,10 @@ Route::get('/paramToControllerWithCondition/{param}/', [controllerLecture09::cla
  * - [tên csdl] là tên database
  * - [tên đăng nhập] tên tài khoản để đăng nhập vào csdl 
  * - [mật khẩu] mật khẩu để đăng nhập vào csdl 
+ * 
+ * lưu ý: để thực hiện các truy vấn, bắt buộc:
+ * - Kết nối với cơ sở dữ liệu.
+ * - Nếu truy vấn trong controllers thì các bạn cần phải khai báo use Illuminate\Support\Facades\DB; còn trong Route thì không cần.
  */
 /**
  * - Lấy bảng csdl và hiển thị ra
@@ -512,6 +516,116 @@ Route::get('/getDBWithOrderby', function () {
     ?>
         <pre>truy xuất data với Order By: <?php echo json_encode($dataWithOrderby, JSON_PRETTY_PRINT); ?></pre>
         <p> tìm thấy <?php echo sizeof($dataWithOrderby); ?> truy xuất data với Order By</p>
+    <?php
+});
+
+
+/**
+ * - random
+ * Cú pháp:
+ *      DB::table('[table name 1]')->inRandomOrder()->first();
+ * Trong đó: 
+ * - [table name 1] là tên bảng trong csdl
+ */
+Route::get('/getDBWithRandom', function () {
+    $dataWithRandom = DB::table('account')->inRandomOrder()->first();
+    ?>
+        <pre>truy xuất data với Random: <?php echo json_encode($dataWithRandom, JSON_PRETTY_PRINT); ?></pre>
+    <?php
+});
+
+/**
+ * - GroupBy/having
+ * Cú pháp:
+ *      DB::table('[table name 1]')
+ *      ->selectRaw('sum,avg,count([column]) as "[name_as]", n[column]')
+ *      ->groupBy('[column]')
+ *      ->havingRaw('sum,avg,count([column]) [condition] ?', [variable])->get();
+ * Trong đó: 
+ * - [table name 1] là tên bảng trong csdl
+ * - [column] cột được truy vấn
+ * - [name_as] định danh cột
+ * - [condition] là các toán tử > < <> "like" lần lượt là lớn, bé, bằng 
+ * - [variable] vế sau của điều kiện, có thể là 1 biến truyền vào
+ */
+Route::get('/getDBWithGroupbyHaving', function () {
+    $dataWithGroupBy = DB::table('account')
+    ->selectRaw('sum(AVAIL_BALANCE) as "SUM AVAIL BALANCE", PRODUCT_CD')
+    ->groupBy('PRODUCT_CD')
+    ->havingRaw('sum(AVAIL_BALANCE) > ?', [10000])->get();
+    ?>
+        <pre>truy xuất data với Group By - Having: <?php echo json_encode($dataWithGroupBy, JSON_PRETTY_PRINT); ?></pre>
+        <p> tìm thấy <?php echo sizeof($dataWithGroupBy); ?> truy xuất data với Group By - Having</p>
+    <?php
+});
+
+/**
+ * - insert 
+ * Cú pháp:
+ *      DB::table('[table name 1]')->insert('[key] => [value]')
+ * Trong đó: 
+ * - [table name 1] là tên bảng trong csdl
+ * - [key] tên cột
+ * - [value] giá trị
+ */
+Route::get('/insertDB', function () {
+    $data = [
+        'ACCOUNT_ID'   => 30,
+        'AVAIL_BALANCE'   => 6000,
+        'CLOSE_DATE'   => NULL,
+        'LAST_ACTIVITY_DATE'   => '2004-12-17',
+        'OPEN_DATE'   => '2004-12-15',
+        'PENDING_BALANCE'   => 6000,
+        'STATUS'   => 'ACTIVE',
+        'CUST_ID'   => 10,
+        'OPEN_BRANCH_ID'   => 1,
+        'OPEN_EMP_ID'   => 1,
+        'PRODUCT_CD'  => 'CD'
+    ];
+    DB::table('account')->insert( $data );
+    $dataInsert = DB::table('account')->where('ACCOUNT_ID', '30')->get();
+    ?>
+        <p> Thêm Dữ Liệu Thành Công</p>
+        <pre>Dữ Liệu Vừa Thêm: <?php echo json_encode($dataInsert, JSON_PRETTY_PRINT); ?></pre>
+    <?php
+});
+
+/**
+ * - update 
+ * Cú pháp:
+ *      DB::table('[table name 1]')->where('[column]', '[condition]', '[filter]')->update(['[column] => [value]'])
+ * Trong đó: 
+ * - [table name 1] là tên bảng trong csdl
+ * - [column] cột được truy vấn
+ * - [condition] là các toán tử > < <> "like" lần lượt là lớn, bé, bằng 
+ * - [filter] vế sau của điều kiện
+ * - [value] giá trị
+ */
+Route::get('/updateDB', function () {
+    DB::table('account')->where('ACCOUNT_ID', 30)->update(['STATUS' => 'INACTIVE']);
+    $dataUpdate = DB::table('account')->where('ACCOUNT_ID', '30')->get();
+    ?>
+        <p> Cập Nhật Dữ Liệu Thành Công</p>
+        <pre>Dữ Liệu Vừa Cập Nhật: <?php echo json_encode($dataUpdate, JSON_PRETTY_PRINT); ?></pre>
+    <?php
+});
+
+/**
+ * - delete 
+ * Cú pháp:
+ *      DB::table('[table name 1]')->where('[column]', '[condition]', '[filter]')->delete()
+ * Trong đó: 
+ * - [table name 1] là tên bảng trong csdl
+ * - [column] cột được truy vấn
+ * - [condition] là các toán tử > < <> "like" lần lượt là lớn, bé, bằng 
+ * - [filter] vế sau của điều kiện
+ */
+Route::get('/deleteDB', function () {
+    DB::table('account')->where('ACCOUNT_ID', 30)->delete();
+    $dataDelete = DB::table('account')->where('ACCOUNT_ID', '>','25')->get();
+    ?>
+        <p> Cập Nhật Dữ Liệu Thành Công</p>
+        <pre>Dữ Liệu Vừa Cập Nhật: <?php echo json_encode($dataDelete, JSON_PRETTY_PRINT); ?></pre>
     <?php
 });
 

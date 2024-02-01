@@ -95,7 +95,20 @@ ghi chú bài học:
 - route/web.php
 - .env
 
+======================
+lecture11: Model trong Laravel
+https://toidicode.com/model-trong-laravel-12.html
+ghi chú bài học:
+- route/web.php
+- app/Models/lecture11.php
 
+======================
+lecture12: Eloquent ORM trong Laravel
+https://toidicode.com/eloquent-orm-trong-laravel-13.html
+ghi chú bài học:
+- route/web.php
+- app/Models/lecture11.php
+- /app/Http/Controllers/lecture12/lectureController12.php
 
 ======================database mẫu======================
 https://openplanning.net/10235/co-so-du-lieu-mysql-mau-de-hoc-sql

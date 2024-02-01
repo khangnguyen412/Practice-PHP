@@ -1,0 +1,24 @@
+open localhost:  
+http://localhost/php/
+
+open mysql: 
+http://localhost/phpmyadmin/
+
+in và xuống dòng
+echo " ". "<br>";
+
+in mãng 
+echo '<pre>';
+print_r($arr);
+echo '</pre>'. "<br>";
+
+start laravel:  http://127.0.0.1:8000
+cd .\Laravel\laravelLearning\
+php artisan serve
+
+
+push git:
+git add .
+git status
+git commit
+git push origin main

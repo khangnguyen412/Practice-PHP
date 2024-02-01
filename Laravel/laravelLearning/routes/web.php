@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB; // add thư viện kết nối DB vào
 // gọi thư viện
 use App\Http\Controllers\lecture04\testRouteResource; //gọi controller từ lecture04\testRouteResource
 use App\Http\Controllers\lecture09\controllerLecture09; // gọi controller cho lecture09
+use App\Http\Controllers\lecture12\lectureController12;
 
 /*
 |--------------------------------------------------------------------------
@@ -629,6 +630,30 @@ Route::get('/deleteDB', function () {
     <?php
 });
 
+
+/******************* lecture 11: Model trong Laravel ****************************/
+/**
+ * Model được dặt ở trong thư mục /app
+ * 
+ * Để tạo tự động 1 model áp dụng 1 trong 2 lệnh sau:
+ * -> php artisan make:model [tên model]
+ * -> php arisan make:model [tên model] --migration
+ * Trong đó: 
+ * - [tên model] là tên của model được tạo
+ * 
+ * Khai báo các thông số tùy chỉnh: trong file ../app/Models/lecture11.php
+ */
+
+
+/******************* lecture 12: Eloquent ORM trong Laravel ****************************/
+/**
+ * Gọi model trong controller
+ * - Tạo controller qua đường dẫn: /app/Http/Controllers/lecture12/lectureController12.php
+ * 
+ * Note trong: /app/Http/Controllers/lecture12/lectureController12.php
+ */
+// gọi model từ controller
+Route::get('/callModel', [lectureController12::class, "callModel"]);
 
 Route::redirect('/old-url', '/new-url');
 // Auth::routes();

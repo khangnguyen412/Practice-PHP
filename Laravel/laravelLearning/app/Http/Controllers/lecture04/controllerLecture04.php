@@ -15,7 +15,7 @@ use Illuminate\Http\Request;
  * - destroy($id):Xóa một dữ liệu theo tham số truyền vào.
  */
 
-class testRouteResource extends Controller
+class controllerLecture04 extends Controller
 {
     /**
      * Display a listing of the resource.

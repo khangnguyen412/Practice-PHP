@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\lecture11; // Khi move file tới subfolder-> sửa lại namespace
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class lecture11 extends Model
+class modelLecture11 extends Model
 {
     use HasFactory;
 
@@ -23,8 +23,4 @@ class lecture11 extends Model
      * - Cho phép laravel tự động cập nhật các cột 'created_at' và 'updated_at'
      */
     public $timestamps = true;
-
-    public function test(){
-        return 'call from  model';
-    }
 }

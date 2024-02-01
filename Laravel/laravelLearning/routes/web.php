@@ -5,9 +5,9 @@ use Illuminate\Http\Request; // thư viện nhận tham số cho form post
 use Illuminate\Support\Facades\DB; // add thư viện kết nối DB vào
 
 // gọi thư viện
-use App\Http\Controllers\lecture04\testRouteResource; //gọi controller từ lecture04\testRouteResource
+use App\Http\Controllers\lecture04\controllerLecture04; //gọi controller từ lecture04\testRouteResource
 use App\Http\Controllers\lecture09\controllerLecture09; // gọi controller cho lecture09
-use App\Http\Controllers\lecture12\lectureController12;
+use App\Http\Controllers\lecture12\controllerLecture12;
 
 /*
 |--------------------------------------------------------------------------
@@ -144,15 +144,15 @@ Route::any('/testRouteAny', function () {
  * nhập url /getRouteResource/{something} để nhận method update()
  * nhập url /getRouteResource/{something} để nhận method destroy()
  */
-Route::resource('/getRouteResource', testRouteResource::class);
+Route::resource('/getRouteResource', controllerLecture04::class);
 // ngoài ra có thể dùng tùy biến [only] để lọc các method()
 // chỉ nhận 3 method create(), show(). edit()
-Route::resource('/getRouteResourceOnly', testRouteResource::class, ['only' => ['create', 'show', 'edit']]);
+Route::resource('/getRouteResourceOnly', controllerLecture04::class, ['only' => ['create', 'show', 'edit']]);
 // cấm method index(), gọi vào sẽ xuất lỗi
-Route::resource('/getRouteResourceExcept', testRouteResource::class, ['except' => ['index']]);
+Route::resource('/getRouteResourceExcept', controllerLecture04::class, ['except' => ['index']]);
 // truyền tham số thêm vào route resource
 // cách truyền url /getRouteResourceWithParam/{param1}/author/{param2}
-Route::resource('/getRouteResourceWithParam.author', testRouteResource::class);
+Route::resource('/getRouteResourceWithParam.author', controllerLecture04::class);
 
 
 /**
@@ -636,10 +636,11 @@ Route::get('/deleteDB', function () {
  * Model được dặt ở trong thư mục /app
  * 
  * Để tạo tự động 1 model áp dụng 1 trong 2 lệnh sau:
- * -> php artisan make:model [tên model]
- * -> php arisan make:model [tên model] --migration
+ * -> php artisan make:model [sub folder]\[model name]
+ * -> php artisan make:model [sub folder]\[model name] --migration
  * Trong đó: 
- * - [tên model] là tên của model được tạo
+ * - [model name] là tên của model được tạo
+ * - [sub folder] tên đường dẫn hoặc folder
  * 
  * Khai báo các thông số tùy chỉnh: trong file ../app/Models/lecture11.php
  */
@@ -653,7 +654,8 @@ Route::get('/deleteDB', function () {
  * Note trong: /app/Http/Controllers/lecture12/lectureController12.php
  */
 // gọi model từ controller
-Route::get('/callModel', [lectureController12::class, "callModel"]);
+Route::get('/callModel', [controllerLecture12::class, "getFunction"]);
+Route::get('/calldataModel', [controllerLecture12::class, "outputDB"]);
 
 Route::redirect('/old-url', '/new-url');
 // Auth::routes();

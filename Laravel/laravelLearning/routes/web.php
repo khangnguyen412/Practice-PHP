@@ -654,9 +654,9 @@ Route::get('/deleteDB', function () {
  * Note trong: /app/Http/Controllers/lecture12/lectureController12.php
  */
 // gọi model từ controller
-Route::get('/testModelLecture12', [controllerLecture12::class, "testModelLecture12"]);
-Route::get('/getDatabaseModelLecture12', [controllerLecture12::class, "getDatabaseModelLecture12"]);
-Route::get('/getLineDatabaseModelLecture12', [controllerLecture12::class, "getLineDatabaseModelLecture12"]);
+Route::get('/testModelLecture12', [controllerLecture12::class, "test"]);
+Route::get('/getDatabaseModelLecture12', [controllerLecture12::class, "getDatabase"]);
+Route::get('/getLineDatabaseModelLecture12', [controllerLecture12::class, "getOneLineDatabase"]);
 
 
 Route::redirect('/old-url', '/new-url');

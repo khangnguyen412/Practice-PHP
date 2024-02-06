@@ -319,7 +319,7 @@ Route::get('testBladeTemplateInheritance/', function () {
  * - function là hàm bên trong lớp đói tượng đó
  */
 // gọi tới controller có đường dẫn app/http/lecture09/lecture09.php và thực hiện hàm index
-Route::get('/callControler', [controllerLecture09::class, 'index']);
+Route::get('/callControler', [controllerLecture09::class, 'testController']);
 // gọi tới hàm addDB trong controller 
 Route::get('/dataToControler', [controllerLecture09::class, 'addDB']);
 // truyền tham số {param} cho vào controler
@@ -654,8 +654,10 @@ Route::get('/deleteDB', function () {
  * Note trong: /app/Http/Controllers/lecture12/lectureController12.php
  */
 // gọi model từ controller
-Route::get('/callModel', [controllerLecture12::class, "getFunction"]);
-Route::get('/calldataModel', [controllerLecture12::class, "outputDB"]);
+Route::get('/testModelLecture12', [controllerLecture12::class, "testModelLecture12"]);
+Route::get('/getDatabaseModelLecture12', [controllerLecture12::class, "getDatabaseModelLecture12"]);
+Route::get('/getLineDatabaseModelLecture12', [controllerLecture12::class, "getLineDatabaseModelLecture12"]);
+
 
 Route::redirect('/old-url', '/new-url');
 // Auth::routes();

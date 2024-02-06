@@ -12,9 +12,9 @@ use user;
 
 class controllerLecture09 extends Controller
 {
-    public function index()
+    public function testController()
     {
-        echo "hi";
+        echo "test success";
     }
 
     public function getName($name = NULL, $age = NULL)
@@ -44,10 +44,7 @@ class controllerLecture09 extends Controller
             ['fullName' => $name, 'age' => $age],
         ]);
         $users = DB::table('test')->get(); // lấy tất cả dữ liệu từ database gán cho users 
-        // return view('test2', ['test' => $users]);
+        
         return view('test', ['users' => $users]);
-    }
-    public function showDB()
-    {
     }
 }

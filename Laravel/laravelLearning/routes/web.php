@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB; // add thư viện kết nối DB vào
 use App\Http\Controllers\lecture04\controllerLecture04; //gọi controller từ lecture04\testRouteResource
 use App\Http\Controllers\lecture09\controllerLecture09; // gọi controller cho lecture09
 use App\Http\Controllers\lecture12\controllerLecture12;
+use Illuminate\Contracts\Session\Session;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,6 +37,11 @@ use App\Http\Controllers\lecture12\controllerLecture12;
  * Route::group         tạo ra các nhóm route.
  * Route::controller    gọi đến controller tương ứng mà chúng ta tự định.
  * Route::resource      sử dụng với resource controller.
+ * 
+ * Các route mà Laravel có hỗ trợ thêm:
+ * Route::redirect      dùng để chuyển hướng đường dẫn
+ * Route::view          Thay đổi và hiển thị view được chỉ định
+ * Route::prefix        Dùng tiền tố của đường dẫn
  */
 
 
@@ -166,18 +172,52 @@ Route::resource('/getRouteResourceWithParam.author', controllerLecture04::class)
  * - $attr là các mãng thành phần điều kiện
  * - $handle là các câu lệnh hoặc hàm thực hiện chức năng cho route đó
  */
-// sử dụng route::group()
-// cách 1
-Route::prefix('testRouteGroup')->group(function () {
+// sử dụng route::group(prefix)
+Route::group(['prefix' => 'testRouteGroup'], function () {
+    Route::get('get', function () {
+        return view("lecture04.testRouteGroup");
+    });
+    Route::get('return', function () {
+        return 'đây là phần tử của route group';
+    });
+});
+// sử dụng route::controller()
+Route::controller(controllerLecture04::class)->group(function () {
+    Route::get('/getRouteGrpWithCtrl/{param}', 'testGroup');
+    Route::get('/getRouteGrpWithCtrl', 'testGroup');
+});
+
+
+/**
+ * Route::prefix()
+ * Nhóm các route có cùng đường dẫn tiền tố 
+ * Ví dụ: admin/...
+ * 
+ * Cú pháp:     Route::prefix('[prefix/]')->group($handle);
+ * Trong đó
+ * - [prefix/] là tiền tố của đường dẫn, ví dụ: prefix/admin, prefix/user, prefix/...
+ * - $handle là các câu lệnh hoặc hàm thực hiện chức năng cho route đó
+ */
+Route::prefix('testRoutePrefix')->group(function () {
     Route::get('get', function () {
         return view("lecture04.testRouteGroup");
     });
 });
-// cách 2
-Route::group(['prefix' => 'testRouteGroup2'], function () {
-    Route::get('get', function () {
-        return view("testRouteGroup");
-    });
+
+
+/**
+ * Route::redirect()
+ * Cho phép chuyển hướng đường dẫn khác khi được gọi tới đường đẫn được chỉ định
+ * 
+ * Cú Pháp:     Route::redirect('[URI1]', '[URI2]', $status);
+ * Trong đó
+ * - [URI1] là các đường dẫn của route khi gọi tới
+ * - [URI2] là các đường dẫn của route sẽ được chuyển hướng tới sau khi gọi 
+ * - $status là trang thái của route khi gọi tới
+ */
+Route::redirect('testRouteRedirect', 'testRedirect', 301);
+Route::get('/testRedirect', function () {
+    return view('lecture04.testRouteRedirect');
 });
 
 
@@ -654,11 +694,20 @@ Route::get('/deleteDB', function () {
  * Note trong: /app/Http/Controllers/lecture12/lectureController12.php
  */
 // gọi model từ controller
-Route::get('/testModelLecture12', [controllerLecture12::class, "test"]);
-Route::get('/getDatabaseModelLecture12', [controllerLecture12::class, "getDatabase"]);
-Route::get('/getLineDatabaseModelLecture12', [controllerLecture12::class, "getOneLineDatabase"]);
+Route::get('/testModel12', [controllerLecture12::class, "test"]);
+// lấy tất cả datable trên bảng dữ liệu
+Route::get('/getDataModel12', [controllerLecture12::class, "getData"]);
+// lấy ra một dòng dữ liệu bằng khóa chính
+Route::get('/getByPrimaryKeyModel12', [controllerLecture12::class, "getByPrimaryKey"]);
+// lấy dữ liệu với điều kiện
+Route::get('/getByConditionModel12', [controllerLecture12::class, "getByCondition"]);
+// chọn cột dữ liệu được lấy
+Route::get('/getByColumnModel12', [controllerLecture12::class, "getByColumn"]);
+// đếm dữ liệu trong bảng 
+Route::get('/countDataModel12', [controllerLecture12::class, "countData"]);
+// thêm dữ liệu vào bảng
+Route::get('/addDataModel12', [controllerLecture12::class, ""]);
 
 
-Route::redirect('/old-url', '/new-url');
 // Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

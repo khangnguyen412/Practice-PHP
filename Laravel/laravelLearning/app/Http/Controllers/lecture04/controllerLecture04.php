@@ -4,6 +4,8 @@ namespace App\Http\Controllers\lecture04;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
+use function PHPUnit\Framework\isEmpty;
+
 /**
  * Sau khi dùng lệnh tạo controller, file này sẽ được tạo ra vào kèm các hàm sau:
  * - index(): Hiển thị một danh sách.
@@ -102,5 +104,12 @@ class controllerLecture04 extends Controller
     {
         // gọi url /getRouteResource/{something}
         return "got method destroy() have parameter $id from route::resource";
+    }
+
+    public function testGroup($param = null)
+    {
+        if( $param != null ){
+            return "test route group thành công và có đối số $param";
+        }else return view("lecture04.testRouteGroup");
     }
 }

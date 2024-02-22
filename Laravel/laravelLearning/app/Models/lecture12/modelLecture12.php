@@ -15,7 +15,20 @@ class modelLecture12 extends Model // Khi rename file -> sửa lại tên class
      */ 
     protected $table = 'account';
     protected $primaryKey = 'ACCOUNT_ID';
-    protected $fillable = ['ACCOUNT_ID', 'AVAIL_BALANCE', 'CLOSE_DATE'];
+    protected $fillable = [
+        'ACCOUNT_ID', 
+        'AVAIL_BALANCE', 
+        'CLOSE_DATE', 
+        'LAST_ACTIVITY_DATE', 
+        'OPEN_DATE', 
+        'PENDING_BALANCE', 
+        'PENDING_BALANCE', 
+        'STATUS', 
+        'CUST_ID', 
+        'OPEN_BRANCH_ID',
+        'OPEN_EMP_ID',
+        'PRODUCT_CD',
+    ];
     public $timestamps = false;
 
     public function getFormModel(){

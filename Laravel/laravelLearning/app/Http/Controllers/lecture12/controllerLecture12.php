@@ -83,6 +83,7 @@ class controllerLecture12 extends Controller
      * - Thêm dữ liệu vào bảng
      */
     public function addData(Request $request){
-
+        $data = new modelLecture12();
+        $data->ACCOUNT_ID = '31';
     }
 }

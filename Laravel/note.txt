@@ -109,6 +109,7 @@ ghi chú bài học:
 - route/web.php
 - app/Models/lecture11.php
 - /app/Http/Controllers/lecture12/lectureController12.php
+https://www.fundaofwebit.com/laravel-8/how-to-insert-data-in-laravel-8
 
 ======================database mẫu======================
 https://openplanning.net/10235/co-so-du-lieu-mysql-mau-de-hoc-sql

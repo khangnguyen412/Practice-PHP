@@ -110,6 +110,8 @@ ghi chú bài học:
 - app/Models/lecture11.php
 - /app/Http/Controllers/lecture12/lectureController12.php
 https://www.fundaofwebit.com/laravel-8/how-to-insert-data-in-laravel-8
+https://stackoverflow.com/questions/27095090/laravel-checking-if-a-record-exists
+https://laracasts.com/discuss/channels/laravel/127001-redirected-you-too-many-times
 
 ======================database mẫu======================
 https://openplanning.net/10235/co-so-du-lieu-mysql-mau-de-hoc-sql

@@ -11,7 +11,8 @@ use Illuminate\Support\Facades\Redirect;
 
 class controllerLecture12 extends Controller
 {
-    public function test(){
+    public function test()
+    {
         $getFunction = new modelLecture12; // Khai báo model trong controller 
         $getFirstModels = $getFunction->getFormModel(); // Gọi getInfo() từ models
         return $getFirstModels;
@@ -23,7 +24,8 @@ class controllerLecture12 extends Controller
      *      [tên class]::all();
      * - [tên class] là đối tượng model được gọi tới
      */
-    public function getData(){
+    public function getData()
+    {
         $data = modelLecture12::all();
         return $data;
     }
@@ -35,7 +37,8 @@ class controllerLecture12 extends Controller
      * - [id khóa chính] là stt khóa chính trên db
      * * lưu ý: khai báo biến $primaryKey để xác định khóa chính cho bản
      */
-    public function getByPrimaryKey(Request $data){
+    public function getByPrimaryKey(Request $data)
+    {
         $data = modelLecture12::find(2);
         // Hoặc 
         // $data = modelLecture12::take(2)->get();
@@ -53,7 +56,8 @@ class controllerLecture12 extends Controller
      * - [condition] là các toán tử > < <> "like" lần lượt là lớn, bé, bằng 
      * - [filter] vế sau của điều kiện 
      */
-    public function getByCondition(){
+    public function getByCondition()
+    {
         $data = modelLecture12::where('ACCOUNT_ID', 5)->get();
         return view('lecture12.viewLecture12', ['data' => $data]);
     }
@@ -64,7 +68,8 @@ class controllerLecture12 extends Controller
      *      [tên class]::select('[column1]', ..., '[columnN]')->get();
      * - [column1], [columnN] cột được truy vấn 
      */
-    public function getByColumn(){
+    public function getByColumn()
+    {
         $data = modelLecture12::select('ACCOUNT_ID', 'AVAIL_BALANCE', 'LAST_ACTIVITY_DATE', 'PRODUCT_CD')->get();
         return view('lecture12.viewLecture12', ['data' => $data]);
     }
@@ -74,7 +79,8 @@ class controllerLecture12 extends Controller
      * cú pháp: 
      *      [tên class]::all()->count();
      */
-    public function countData(){
+    public function countData()
+    {
         $data = modelLecture12::all()->count();
         return view('lecture12.viewLecture12', ['data' => $data]);
     }
@@ -82,8 +88,48 @@ class controllerLecture12 extends Controller
     /**
      * - Thêm dữ liệu vào bảng
      */
-    public function addData(Request $request){
-        $data = new modelLecture12();
-        $data->ACCOUNT_ID = '31';
+    public function addData(Request $request)
+    {
+        $data = modelLecture12::find(30);
+        if ($data != NULL) {
+            $data =  "user exist";
+        } else {
+            $data = new modelLecture12();
+            $data->ACCOUNT_ID = '30';
+            $data->AVAIL_BALANCE = 6001;
+            $data->CLOSE_DATE = NULL;
+            $data->LAST_ACTIVITY_DATE = '2004-12-17';
+            $data->OPEN_DATE = '2004-12-15';
+            $data->PENDING_BALANCE = 6000;
+            $data->STATUS = 'ACTIVE';
+            $data->CUST_ID = 10;
+            $data->OPEN_BRANCH_ID = 1;
+            $data->OPEN_EMP_ID = 1;
+            $data->PRODUCT_CD = 'CD';
+            $data->save();
+        }
+        return view('lecture12.viewLecture12', ['data' => $data]);
+    }
+
+    /**
+     * - Thêm dữ liệu vào bảng
+     */
+    public function updateData(Request $request)
+    {
+        $data = modelLecture12::find(30);
+        $data->AVAIL_BALANCE = 6002;
+        $data->save();
+        return view('lecture12.viewLecture12', ['data' => $data]);
+    }
+
+    /**
+     * - Xóa dữ liệu vào bảng
+     */
+    public function deleteData(Request $request)
+    {
+        $data = modelLecture12::find(30);
+        $data->delete();
+        $data = modelLecture12::all();
+        return view('lecture12.viewLecture12', ['data' => $data]);
     }
 }

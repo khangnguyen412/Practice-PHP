@@ -117,8 +117,12 @@ class controllerLecture12 extends Controller
     public function updateData(Request $request)
     {
         $data = modelLecture12::find(30);
-        $data->AVAIL_BALANCE = 6002;
-        $data->save();
+        if ($data != NULL) {
+            $data->AVAIL_BALANCE = 6002;
+            $data->save();
+        }else{
+            $data = "data isn't exist";
+        }
         return view('lecture12.viewLecture12', ['data' => $data]);
     }
 
@@ -128,8 +132,12 @@ class controllerLecture12 extends Controller
     public function deleteData(Request $request)
     {
         $data = modelLecture12::find(30);
-        $data->delete();
-        $data = modelLecture12::all();
+        if ($data != NULL) {
+            $data->delete();
+            $data = modelLecture12::all();
+        } else {
+            $data =  "user doesn't exist";
+        }
         return view('lecture12.viewLecture12', ['data' => $data]);
     }
 }

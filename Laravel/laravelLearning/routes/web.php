@@ -710,7 +710,6 @@ Route::get('/addDataModel12', [controllerLecture12::class, "addData"]);
 // cập nhật dữ liệu trong bảng
 Route::get('/updateDataModel12', [controllerLecture12::class, "updateData"]);
 // xóa dữ liệu trong bảng
-// https://stackoverflow.com/questions/17591181/how-to-get-the-current-url-inside-if-statement-blade-in-laravel-4
 Route::get('/deleteDataModel12', [controllerLecture12::class, "deleteData"]);
 
 

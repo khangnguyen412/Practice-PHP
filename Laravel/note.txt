@@ -105,13 +105,18 @@ ghi chú bài học:
 ======================
 lecture12: Eloquent ORM trong Laravel
 https://toidicode.com/eloquent-orm-trong-laravel-13.html
+add database: https://www.fundaofwebit.com/laravel-8/how-to-insert-data-in-laravel-8
+get current url: https://stackoverflow.com/questions/17591181/how-to-get-the-current-url-inside-if-statement-blade-in-laravel-4
+check data exist: https://stackoverflow.com/questions/27095090/laravel-checking-if-a-record-exists
 ghi chú bài học:
 - route/web.php
 - app/Models/lecture11.php
 - /app/Http/Controllers/lecture12/lectureController12.php
-https://www.fundaofwebit.com/laravel-8/how-to-insert-data-in-laravel-8
-https://stackoverflow.com/questions/27095090/laravel-checking-if-a-record-exists
-https://laracasts.com/discuss/channels/laravel/127001-redirected-you-too-many-times
+
+======================
+lecture13: Các mối quan hệ (Relationships) trong Eloquent
+https://toidicode.com/cac-moi-quan-he-relationships-trong-eloquent-14.html
+
 
 ======================database mẫu======================
 https://openplanning.net/10235/co-so-du-lieu-mysql-mau-de-hoc-sql

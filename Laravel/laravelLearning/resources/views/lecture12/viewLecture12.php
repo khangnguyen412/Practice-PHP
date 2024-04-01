@@ -8,11 +8,14 @@
 
 <body>
     <pre>Kết Quả: <?php echo json_encode($data, JSON_PRETTY_PRINT); ?></pre>
-    <script>
-        setTimeout(function() {
-            window.location.href = "/getDataModel12"
-        }, 2000); // 2 second
-    </script>
+    <?php
+    if ($_SERVER['REQUEST_URI'] == '/addDataModel12') { ?>
+        <script>
+            setTimeout(function() {
+                window.location.href = "/getDataModel12"
+            }, 5000); // sau 5 giây tự đông redirect về
+        </script>
+    <?php } ?>
 </body>
 
 </html>

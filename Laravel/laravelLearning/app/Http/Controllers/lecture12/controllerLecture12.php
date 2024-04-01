@@ -27,7 +27,8 @@ class controllerLecture12 extends Controller
     public function getData()
     {
         $data = modelLecture12::all();
-        return $data;
+        return view('lecture12.viewLecture12', ['data' => $data]);
+
     }
 
     /**

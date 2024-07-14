@@ -27,7 +27,8 @@ class controllerLecture12 extends Controller
     public function getData()
     {
         $data = modelLecture12::all();
-        return $data;
+        return view('lecture12.viewLecture12', ['data' => $data]);
+
     }
 
     /**
@@ -121,7 +122,7 @@ class controllerLecture12 extends Controller
             $data->AVAIL_BALANCE = 6002;
             $data->save();
         }else{
-            $data = "data isn't exist";
+            $data = "user doesn't exist";
         }
         return view('lecture12.viewLecture12', ['data' => $data]);
     }

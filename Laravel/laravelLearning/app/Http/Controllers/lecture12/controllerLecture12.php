@@ -112,7 +112,7 @@ class controllerLecture12 extends Controller
     }
 
     /**
-     * - Thêm dữ liệu vào bảng
+     * - Cập Nhật dữ liệu bảng
      */
     public function updateData(Request $request)
     {

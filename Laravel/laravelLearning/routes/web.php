@@ -712,6 +712,9 @@ Route::get('/updateDataModel12', [controllerLecture12::class, "updateData"]);
 // xóa dữ liệu trong bảng
 Route::get('/deleteDataModel12', [controllerLecture12::class, "deleteData"]);
 
+/******************* lecture 13: Các mối quan hệ (Relationships) trong Eloquent ****************************/
+
+
 
 // Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

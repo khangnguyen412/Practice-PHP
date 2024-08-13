@@ -88,6 +88,7 @@ class controllerLecture12 extends Controller
 
     /**
      * - Thêm dữ liệu vào bảng
+     * - Add qua model: https://www.fundaofwebit.com/laravel-8/how-to-insert-data-in-laravel-8
      */
     public function addData(Request $request)
     {

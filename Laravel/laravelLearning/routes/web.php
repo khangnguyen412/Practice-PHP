@@ -713,7 +713,13 @@ Route::get('/updateDataModel12', [controllerLecture12::class, "updateData"]);
 Route::get('/deleteDataModel12', [controllerLecture12::class, "deleteData"]);
 
 /******************* lecture 13: Các mối quan hệ (Relationships) trong Eloquent ****************************/
-
+/**
+ * Các mối quan hệ trong Eloquent.
+ * - Tạo controller qua đường dẫn: /app/Http/Controllers/lecture12/lectureController12.php
+ * - Tạo model: php artisan make:model lecture13\modelLecture13 --migration
+ * 
+ * Note trong: /app/Http/Controllers/lecture13/lectureController13.php
+ */
 
 
 // Auth::routes();

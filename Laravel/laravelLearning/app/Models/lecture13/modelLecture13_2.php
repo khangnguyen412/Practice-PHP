@@ -8,4 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class modelLecture13_2 extends Model
 {
     use HasFactory;
+    protected $table = 'Passport';
+    protected $field = [
+        'PassportID',
+        'PassportNumber',
+        'IssueDate',
+        'ExpiryDate',
+        'PersonID',
+    ];
+    public $timestamp = false;
 }

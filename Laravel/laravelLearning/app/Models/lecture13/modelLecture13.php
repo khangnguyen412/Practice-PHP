@@ -15,4 +15,8 @@ class modelLecture13 extends Model
         'DateOfBirth',
     ];
     public $timestamp = false;
+
+    public function Passport(){
+        return $this->hasOne(modelLecture13_2::class);
+    }
 }

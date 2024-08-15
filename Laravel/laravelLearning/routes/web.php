@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB; // add thư viện kết nối DB vào
 use App\Http\Controllers\lecture04\controllerLecture04; //gọi controller từ lecture04\testRouteResource
 use App\Http\Controllers\lecture09\controllerLecture09; // gọi controller cho lecture09
 use App\Http\Controllers\lecture12\controllerLecture12;
+use App\Http\Controllers\lecture13\controllerLecture13;
 use Illuminate\Contracts\Session\Session;
 
 /*
@@ -722,6 +723,7 @@ Route::get('/deleteDataModel12', [controllerLecture12::class, "deleteData"]);
  * /app/Http/Controllers/lecture13/lectureController13.php
  * /app/Models/lecture13
  */
+Route::get('/relationsEloquent13', [controllerLecture13::class, 'show_eloquent_relationship_13']);
 
 
 // Auth::routes();

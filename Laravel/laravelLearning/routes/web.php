@@ -722,6 +722,8 @@ Route::get('/deleteDataModel12', [controllerLecture12::class, "deleteData"]);
  * Note trong: 
  * /app/Http/Controllers/lecture13/lectureController13.php
  * /app/Models/lecture13
+ * 
+ * Link Fix Lỗi: viblo.asia/p/eloquent-relationships-in-laravel-phan-1-PdbGnoEdeyA
  */
 Route::get('/relationsEloquent13', [controllerLecture13::class, 'show_eloquent_relationship_13']);
 

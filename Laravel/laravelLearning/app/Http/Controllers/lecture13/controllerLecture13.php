@@ -9,8 +9,7 @@ use Illuminate\Http\Request;
 class controllerLecture13 extends Controller
 {
     public function show_eloquent_relationship_13(){
-        $data_user = modelLecture13::find(1);
-        $passport = $data_user->Passport;
-        return view('lecture13.viewLecture13', ['data' => $passport]);
+        $data_user = modelLecture13::find(1)->Passport;
+        return view('lecture13.viewLecture13', ['data' => $data_user]);
     }
 }

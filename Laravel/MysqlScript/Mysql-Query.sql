@@ -51,3 +51,4 @@ CREATE TABLE Passport (
 -- Thêm dữ liệu mẫu
 INSERT INTO Person (PersonID, FirstName, LastName, DateOfBirth) VALUES (1, 'Nguyễn', 'Văn A', '1990-01-15');
 INSERT INTO Passport (PassportID, PassportNumber, IssueDate, ExpiryDate, PersonID) VALUES (1, 'P123456', '2020-05-01', '2030-05-01', 1);
+select * from Passport

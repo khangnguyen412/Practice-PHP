@@ -54,3 +54,13 @@ class modelLecture13_2 extends Model
         return $this->belongsTo('\App\Models\lecture13\modelLecture13');
     }
 }
+
+
+/**
+ * Eloquent relationships One to Many
+ */
+class modelLecture13_3 extends Model
+{
+    use HasFactory;
+    
+}

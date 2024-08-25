@@ -38,13 +38,40 @@ CREATE TABLE Person (
     DateOfBirth DATE
 );
 
--- Tạo bảng Hộ chiếu
+-- Tạo bảng Hộ chiếu - quan hệ 1-n với person
 CREATE TABLE Passport (
     PassportID INT PRIMARY KEY,
     PassportNumber VARCHAR(20) UNIQUE,
     IssueDate DATE,
     ExpiryDate DATE,
     PersonID INT UNIQUE,
+    FOREIGN KEY (PersonID) REFERENCES Person(PersonID)
+);
+
+-- Tạo bảng Quốc Tịch - quan hệ n-n với với person
+CREATE TABLE Country (
+    CountryID INT PRIMARY KEY,
+    CountryName VARCHAR(100) UNIQUE
+);
+
+-- Tạo bảng trung gian vs Country - Person
+CREATE TABLE PersonCountry (
+    PersonID INT,
+    CountryID INT,
+    VisitDate DATE,
+    PRIMARY KEY (PersonID, CountryID),
+    FOREIGN KEY (PersonID) REFERENCES Person(PersonID),
+    FOREIGN KEY (CountryID) REFERENCES Country(CountryID)
+);
+
+-- Tạo bảng Visa - quan hệ 1-n với person
+CREATE TABLE Visa (
+    VisaID INT PRIMARY KEY,
+    VisaNumber VARCHAR(20) UNIQUE,
+    Country VARCHAR(50),
+    IssueDate DATE,
+    ExpiryDate DATE,
+    PersonID INT,
     FOREIGN KEY (PersonID) REFERENCES Person(PersonID)
 );
 

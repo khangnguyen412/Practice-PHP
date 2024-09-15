@@ -12,4 +12,8 @@ class controllerLecture13 extends Controller
         $data_user = modelLecture13::find(1)->Passport;
         return view('lecture13.viewLecture13', ['data' => $data_user]);
     }
+    public function show_eloquent_relationship_13_1(){
+        $data_user = modelLecture13::find(1)->Visa;
+        return view('lecture13.viewLecture13', ['data' => $data_user]);
+    }
 }

@@ -726,7 +726,7 @@ Route::get('/deleteDataModel12', [controllerLecture12::class, "deleteData"]);
  * Link Fix Lỗi: viblo.asia/p/eloquent-relationships-in-laravel-phan-1-PdbGnoEdeyA
  */
 Route::get('/relationsEloquent13', [controllerLecture13::class, 'show_eloquent_relationship_13']);
-
+Route::get('/relationsEloquent13-1', [controllerLecture13::class, 'show_eloquent_relationship_13_1']);
 
 // Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

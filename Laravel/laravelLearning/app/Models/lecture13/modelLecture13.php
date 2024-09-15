@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\App;
 
 /**
  * Eloquent relationships One to One
+ * Bảng person vs passport: 1-1
  */
 class modelLecture13 extends Model
 {
@@ -35,6 +36,12 @@ class modelLecture13 extends Model
          * $foreignKey: tên khóa ngoại của bảng
         */
     }
+    public function Visa(){
+        return $this->hasMany('\App\Models\lecture13\modelLecture13_3', 'PersonID');
+        /**
+         * hasMany: quan hệ 
+         */
+    }
 }
 class modelLecture13_2 extends Model
 {
@@ -58,9 +65,20 @@ class modelLecture13_2 extends Model
 
 /**
  * Eloquent relationships One to Many
+ * Bảng person - visa: 1-n
  */
 class modelLecture13_3 extends Model
 {
     use HasFactory;
-    
+    protected $table = 'Visa';
+    protected $field = [
+        "VisaID",
+        "visaNumber",
+        "Country",
+        "IssueDate",
+        "ExpiryDate",
+    ];
+    public function Person(){
+        return $this->belongsTo('\App\Models\lecture13\modelLecture13');
+    }
 }

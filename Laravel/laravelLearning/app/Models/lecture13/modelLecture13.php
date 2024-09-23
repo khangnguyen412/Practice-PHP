@@ -31,18 +31,30 @@ class modelLecture13 extends Model
     {
         return $this->hasOne('\App\Models\lecture13\modelLecture13_2', 'PersonID');
         /**
-         * hasOne($related, $foreignKey);
+         * hasOne($related, $foreignKey): quan hệ 1 - 1
          * $related: đường dẫn của [namespace hiện tại]\[class của bảng liên kết đối diện]\
          * $foreignKey: tên khóa ngoại của bảng
-        */
-    }
-    public function Visa(){
-        return $this->hasMany('\App\Models\lecture13\modelLecture13_3', 'PersonID');
-        /**
-         * hasMany: quan hệ 
          */
     }
+    public function Visa()
+    {
+        return $this->hasMany('\App\Models\lecture13\modelLecture13_3', 'PersonID');
+        /**
+         * hasMany($related, $foreignKey): quan hệ 1 - n
+         * $related: đường dẫn của [namespace hiện tại]\[class của bảng liên kết đối diện]\
+         * $foreignKey: tên khóa ngoại của bảng
+         */
+    }
+    public function Country()
+    {
+        return $this->belongsToMany('', '');
+    }
 }
+
+/**
+ * Eloquent relationships One to One
+ * Bảng person - Passport: 1-1
+ */
 class modelLecture13_2 extends Model
 {
     use HasFactory;
@@ -56,7 +68,7 @@ class modelLecture13_2 extends Model
     ];
     public $timestamp = false;
 
-    public function Person ()
+    public function Person()
     {
         return $this->belongsTo('\App\Models\lecture13\modelLecture13');
     }
@@ -78,7 +90,14 @@ class modelLecture13_3 extends Model
         "IssueDate",
         "ExpiryDate",
     ];
-    public function Person(){
+    public function Person()
+    {
         return $this->belongsTo('\App\Models\lecture13\modelLecture13');
     }
 }
+
+/**
+ * Eloquent relationships One to Many
+ * Bảng person - country: n-n
+ */
+class modelLecture13_4 extends Model {}

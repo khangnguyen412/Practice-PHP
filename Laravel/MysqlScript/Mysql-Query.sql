@@ -99,6 +99,10 @@ INSERT INTO PersonCountry (PersonID, CountryID, VisitDate) VALUES
 (2, 3, '2021-08-15'),  -- Jane Smith đã thăm UK
 (4, 4, '2020-10-05');  -- Alice Johnson đã thăm Australia
 
+select * from Person;
+select * from Passport;
 select * from Visa;
+select * from Country;
+select * from PersonCountry;
 
 SET SQL_SAFE_UPDATES = 0;

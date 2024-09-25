@@ -9,6 +9,7 @@ use App\Http\Controllers\lecture04\controllerLecture04; //gọi controller từ 
 use App\Http\Controllers\lecture09\controllerLecture09; // gọi controller cho lecture09
 use App\Http\Controllers\lecture12\controllerLecture12;
 use App\Http\Controllers\lecture13\controllerLecture13;
+use App\Http\Controllers\wpConnectApi\wpConnectApi;
 use Illuminate\Contracts\Session\Session;
 
 /*
@@ -730,3 +731,6 @@ Route::get('/relationsEloquent13-1', [controllerLecture13::class, 'show_eloquent
 
 // Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+/******************* connect api wp ****************************/
+Route::get('/wp-api', [wpConnectApi::class,'getWpApi']);

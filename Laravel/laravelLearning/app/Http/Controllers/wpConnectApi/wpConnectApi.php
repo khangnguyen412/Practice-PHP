@@ -9,7 +9,8 @@ use Illuminate\Support\Facades\Http;
 class wpConnectApi extends Controller
 {
     public function getWpApi(){
-        $data = Http::get('http://codetheme.top/ukonline/wp-json/wp/v2/pages');
-        return view('lecture13.viewLecture13', ['data' => $data]);
+        $response = Http::get('http://codetheme.top/ukonline/wp-json/wp/v2/pages/427');
+        $data = $response->json();
+        return view('wp-api.wpApi', ['data' => $data]);
     }
 }

@@ -47,7 +47,14 @@ class modelLecture13 extends Model
     }
     public function Country()
     {
-        return $this->belongsToMany('', '');
+        return $this->belongsToMany('\App\Models\lecture13\modelLecture13_4', '', '', '');
+        /**
+         * belongsToMany($related, $table, $foreignKey, $relatedKey): quan hệ n - n
+         * $related: đường dẫn của [namespace hiện tại]\[class của bảng liên kết đối diện]\
+         * $table: tên bảng trung gian
+         * $foreignKey: tên khóa ngoại của bảng n thứ 1
+         * $relatedKey: tên khóa ngoại của bảng n thứ 2
+         */
     }
 }
 
@@ -97,7 +104,9 @@ class modelLecture13_3 extends Model
 }
 
 /**
- * Eloquent relationships One to Many
+ * Eloquent relationships Many to Many
  * Bảng person - country: n-n
  */
-class modelLecture13_4 extends Model {}
+class modelLecture13_4 extends Model {
+    
+}

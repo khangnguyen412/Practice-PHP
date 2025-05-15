@@ -1,0 +1,67 @@
+php language: 
+add selection for food, drink => ok
+fix confirm form by js => ok
+rename mvc folder => doing
+split module => pause
+thêm tính năng search (code ở dưới)
+move connect database file (lib folder in controler)
+add a search function for web
+rebuild sql database
+
+php laravel: 
+use php laravel to rebuild web
+
+
+
+
+
+// Trang tìm kiếm
+<input type="text" id="search-input">
+<button id="search-btn">Tìm kiếm</button>
+
+<div id="results"></div>
+
+<script>
+$('#search-btn').click(function(){
+
+  var query = $('#search-input').val();
+  
+  $.ajax({
+    url: 'search.php',
+    type: 'POST',
+    data: {search: query},
+    success: function(data){
+      $('#results').html(data); 
+    }
+  });
+
+});
+</script>
+
+
+
+
+// search.php
+
+$search = $_POST['search'];
+
+$dsn = 'mysql:host=localhost;dbname=testdb';
+$user = 'root';
+$pass = '123456';
+
+try {
+  $dbh = new PDO($dsn, $user, $pass);
+  
+  $sql = "SELECT * FROM posts WHERE title LIKE :title";
+
+  $stmt = $dbh->prepare($sql);
+  $stmt->bindValue(':title', '%' . $search . '%');
+  $stmt->execute();
+
+  while($row = $stmt->fetch()){
+    echo '<div>' . $row['title'] . '</div>';
+  }
+
+} catch (PDOException $e) {
+  echo 'Lỗi kết nối: ' . $e->getMessage();
+}

@@ -1,0 +1,977 @@
+<!doctype html>
+<html lang="zxx">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>travel</title>
+    <link rel="icon" href="img/favicon.png">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/modals.css">
+    <link rel="stylesheet" href="css/carousel.css">
+    <!-- animate CSS -->
+    <link rel="stylesheet" href="css/animate.css">
+    <!-- owl carousel CSS -->
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <!-- font awesome CSS -->
+    <link rel="stylesheet" href="css/all.css">
+    <!-- flaticon CSS -->
+    <link rel="stylesheet" href="css/flaticon.css">
+    <link rel="stylesheet" href="css/themify-icons.css">
+    <link rel="stylesheet" href="css/nice-select.css">
+    <!-- font awesome CSS -->
+    <link rel="stylesheet" href="css/magnific-popup.css">
+    <!-- swiper CSS -->
+    <link rel="stylesheet" href="css/slick.css">
+    <!-- style CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <!--::header part start::-->
+    <header class="main_menu home_menu">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-12">
+                    <nav class="navbar navbar-expand-lg navbar-light">
+                        <div class="d-flex">
+                            <div class="bd-highlight">
+                                <a class="navbar-brand" href="index.html"> 
+                                    <img src="img/logo.jpg" style="height: 50px;" alt="logo">
+                                    <b>DU LỊCH CHÂU ÂU</b> 
+                                </a>
+                            </div>
+                            <div class="bd-highlight pl-4 p-2">
+                                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                                    aria-expanded="false" aria-label="Toggle navigation">
+                                    <span class="menu_icon"><i class="fas fa-bars"></i></span>
+                                </button>
+                            </div>
+                        </div>
+                        
+
+                        <div class="collapse navbar-collapse main-menu-item" id="navbarSupportedContent">
+                            <ul class="navbar-nav">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="index.html">Trang chủ</a>
+                                </li>
+                                <!-- <li class="nav-item">
+                                    <a class="nav-link" href="about.html">about</a>
+                                </li> -->
+                                <li class="nav-item">
+                                    <a class="nav-link" href="packages.html">Tour du lịch</a>
+                                </li>
+                                <!-- <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="blog.html" id="navbarDropdown"
+                                        role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Blog
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item" href="blog.html"> blog</a>
+                                        <a class="dropdown-item" href="single-blog.html">Single blog</a>
+                                    </div>
+                                </li> -->
+                                <!-- <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="blog.html" id="navbarDropdown1"
+                                        role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        pages
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
+                                        <a class="dropdown-item" href="elements.html">Elements</a>
+                                    </div>
+                                </li> -->
+                                <li class="nav-item">
+                                    <a class="nav-link" href="contact.html">Tin tức</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <a class="btn_1 d-none d-lg-block" href="#">Liên Hệ</a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Header part end-->
+
+    <!-- banner part start-->
+    <section class="banner_part" style="background-image: url(img/dubai/anhbia.png);">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-7">
+                    <div class="banner_text">
+                        <div class="banner_text_iner">
+                            <h5 style="color: rgb(5, 0, 68);">TOUR DU LỊCH KHÁM PHÁ TIỂU VƯƠNG QUỐC GIỮA SA MẠC TRUNG ĐÔNG</h5>
+                            <h1 style="color:#ffcc00;">DUBAI - ABU DHABI</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- banner part start-->
+
+    <!-- banner part start-->
+    <section class="search_your_country">
+        <div class="container-fluid">
+            <!-- <div class="row align-items-center">
+                <div class="col-lg-12">
+                    <div class="search_form">
+                        <form action="#">
+                            <div class="form-row">
+                                <div class="col-lg-9">
+                                    <div class="search_form_iner">
+                                        <select class="custom_select" id="inlineFormCustomSelect">
+                                            <option selected>country</option>
+                                            <option value="1">One</option>
+                                            <option value="2">Two</option>
+                                            <option value="3">Three</option>
+                                        </select>
+                                        <select class="custom_select" id="inlineFormCustomSelect1">
+                                            <option selected>city</option>
+                                            <option value="1">One</option>
+                                            <option value="2">Two</option>
+                                            <option value="3">Three</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3">
+                                    <a href="#" class="search_btn">search</a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div> -->
+            <div class="row">
+                <div class="col-lg-4 col-sm-6">
+                    <div>
+                        <img src="img/Web/icons8-around-the-globe-96.png" alt="#" style="width: 50px; height: 50px;"><br>
+                        <a href="#" data-bs-toggle="modal" data-bs-target="#dubai">
+                            <h4 class="btn1"> TOUR DUBAI - ABU DHABI</h4>
+                        </a>
+                        <p style="text-align: justify; height: 100px; font-family: 'Times New Roman', Times, serif;">Tham quan điểm đến đặc biệt Nhà thờ Hồi giáo Sheikh Zayed,  Dinh thự tổng thống Qasr AlWatan,...</p>
+                        <a href="#" class="read_btn" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#dubai">Xem thêm</a>
+                    </div>
+                    <!-- Modal -->
+                    <div class="modal fade" style="padding-top: 70px;" id="dubai" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-xl">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">TOUR DU LỊCH DUBAI - ABU DHABI</h5>
+                                    <button type="button" class="btn btn-link" data-bs-dismiss="modal">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16" data-bs-dismiss="modal" aria-label="Close">
+                                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                            <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+                                        </svg>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="d-flex justify-content-center">
+                                        <h4 class="btn1">TOUR DU LỊCH KHÁM PHÁ TIỂU VƯƠNG QUỐC GIỮA SA MẠC TRUNG ĐÔNG</h4>
+                                    </div>
+                                    <div id="dubaicarousel" class="carousel slide" data-bs-ride="carousel">
+                                        <div class="carousel-indicators">
+                                          <button type="button" data-bs-target="#dubaicarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                                          <button type="button" data-bs-target="#dubaicarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                          <button type="button" data-bs-target="#dubaicarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                                          <button type="button" data-bs-target="#dubaicarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                                          <button type="button" data-bs-target="#dubaicarousel" data-bs-slide-to="4" aria-label="Slide 5"></button>
+                                          <button type="button" data-bs-target="#dubaicarousel" data-bs-slide-to="5" aria-label="Slide 6"></button>
+                                          <button type="button" data-bs-target="#dubaicarousel" data-bs-slide-to="6" aria-label="Slide 7"></button>
+                                        </div>
+                                        <div class="carousel-inner">
+                                          <div class="carousel-item active">
+                                            <img src="img/dubai/benthuyen.png" class="d-block w-100" alt="...">
+                                          </div>
+                                          <div class="carousel-item">
+                                            <img src="img/dubai/daiphunnuoc.png" class="d-block w-100" alt="...">
+                                          </div>
+                                          <div class="carousel-item">
+                                            <img src="img/dubai/dinhthu.png" class="d-block w-100" alt="...">
+                                          </div>
+                                          <div class="carousel-item">
+                                            <img src="img/dubai/honuoc.png" class="d-block w-100" alt="...">
+                                          </div>
+                                          <div class="carousel-item">
+                                            <img src="img/dubai/samac.png" class="d-block w-100" alt="...">
+                                          </div>
+                                          <div class="carousel-item">
+                                            <img src="img/dubai/thanhpho.png" class="d-block w-100" alt="...">
+                                          </div>
+                                        </div>
+                                        <button class="carousel-control-prev" type="button" data-bs-target="#dubaicarousel" data-bs-slide="prev">
+                                          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                          <span class="visually-hidden">Previous</span>
+                                        </button>
+                                        <button class="carousel-control-next" type="button" data-bs-target="#dubaicarousel" data-bs-slide="next">
+                                          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                          <span class="visually-hidden">Next</span>
+                                        </button>
+                                    </div>
+                                    <p>
+                                        <div class="d-flex justify-content-center">
+                                            <h4 class="btn1">Chi tiết tour du lịch</h4>
+                                        </div>
+                                        <table class="table table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">Danh mục</th>
+                                                    <th scope="col">Chi tiết</th>
+                                                    <!-- <th scope="col">Thời gian</th> -->
+                                                    <!-- <th scope="col">Handle</th> -->
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row">Giá</th>
+                                                    <td>26.490.000 VNĐ</td>
+                                                    <!-- <td>5 ngày 4 đêm</td> -->
+                                                    <!-- <td>@mdo</td> -->
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">Thời gian</th>
+                                                    <td>5 ngày 4 đêm</td>
+                                                    <!-- <td>Thornton</td>
+                                                    <td>@fat</td> -->
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">Thời Gian Xuất Phát</th>
+                                                    <!-- <td colspan="2">Tháng 05: 07, 14, 20, 27/05</td> -->
+                                                    <td>Tháng 05: 07, 14, 20, 27/05 <br> Tháng 06: thứ 6, thứ 7 hàng tuần</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">Di chuyển</th>
+                                                    <td>Hàng không Emirates Airways 5 Sao (EK)</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">Nơi ở</th>
+                                                    <td>Khách sạn 5 sao</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">Visa</th>
+                                                    <td>hình thẻ + hộ chiếu VN</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">Các ưu đãi khác</th>
+                                                    <td>
+                                                        Bao phí test RT- PCR chặng Dubai - VN <br>
+                                                        Tặng 1 bữa buffet chính tại khách sạn 5 sao <br>
+                                                        Tiệc thịt nướng BBQ + show Belly Dance trên sa mạc, cưởi lạc đà, hút shisha,...
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <!-- <button type="button" class="btn btn-primary">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-facebook" style="color: black;" viewBox="0 0 16 16">
+                                                <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/>
+                                            </svg>
+                                            <span>Liên hệ qua facebook</span>
+                                        </button>
+                                        <button type="button" class="btn btn-primary">
+                                            <img src="img/Zalo-50-100-150-250-500-100px/icons8-zalo-100.svg" style="height: 28px;" alt="" srcset="">
+                                            <span>Liên hệ qua zalo</span>
+                                        </button> -->
+                                        <div class="d-flex justify-content-end">
+                                            <div class="p-2 bd-highlight">
+                                                <a href="#" class="btn btn-outline-primary">
+                                                    <img src="img/icons8-facebook-ios (1)/icons8-facebook-100.svg" style="height: 27px;" alt="" srcset="">
+                                                    <span style="color: black;">Liên hệ qua facebook</span>
+                                                </a>
+                                            </div>
+                                            <div class="p-2 bd-highlight">
+                                                <a href="#" class="btn btn-outline-primary">
+                                                    <img src="img/Zalo-50-100-150-250-500-100px/icons8-zalo-100.svg" style="height: 27px;" alt="" srcset="">
+                                                    <span style="color: black;">Liên hệ qua zalo</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                                    <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <div class="">
+                        <img src="img/Web/icons8-around-the-globe-96.png" alt="#" style="width: 50px; height: 50px;"><br>
+                        <a href="#" data-bs-toggle="modal" data-bs-target="#bangkok">
+                            <h4 class="btn1"> TOUR BANGKOK - KACHANABURI</h4>
+                        </a>
+                        <p style="text-align: justify; height: 100px; font-family: 'Times New Roman', Times, serif;">Trải nghiệm Bamboo Rafting - bè được làm bằng tre ngắm cảnh 2 bên bờ sông Kwai</p>
+                        <a href="#" class="read_btn" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#bangkok">Xem thêm</a>
+                    </div>
+                    <div class="modal fade" style="padding-top: 70px;" id="bangkok" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-xl">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">TOUR DU LỊCH BANGKOK - KACHANABURI</h5>
+                                    <button type="button" class="btn btn-link" data-bs-dismiss="modal">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16" data-bs-dismiss="modal" aria-label="Close">
+                                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                            <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+                                        </svg>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="d-flex justify-content-center">
+                                        <h4 class="btn1">TOUR DU LỊCH BUI NOI SHOPPING HOÀN TOÀN MỚI</h4>
+                                    </div>
+                                    <div id="thailancarousel" class="carousel slide" data-bs-ride="carousel">
+                                        <div class="carousel-indicators">
+                                          <button type="button" data-bs-target="#thailancarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                                          <button type="button" data-bs-target="#thailancarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                          <button type="button" data-bs-target="#thailancarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                                          <button type="button" data-bs-target="#thailancarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                                          <button type="button" data-bs-target="#thailancarousel" data-bs-slide-to="4" aria-label="Slide 5"></button>
+                                        </div>
+                                        <div class="carousel-inner">
+                                          <div class="carousel-item active">
+                                            <img src="img/thailan/thailan1.jpg" class="d-block w-100" alt="...">
+                                          </div>
+                                          <div class="carousel-item">
+                                            <img src="img/thailan/thailan2.jpg" class="d-block w-100" alt="...">
+                                          </div>
+                                          <div class="carousel-item">
+                                            <img src="img/thailan/thailan3.jpg" class="d-block w-100" alt="...">
+                                          </div>
+                                          <div class="carousel-item">
+                                            <img src="img/thailan/thailan4.jpg" class="d-block w-100" alt="...">
+                                          </div>
+                                          <div class="carousel-item">
+                                            <img src="img/thailan/thailan5.jpg" class="d-block w-100" alt="...">
+                                          </div>
+                                        </div>
+                                        <button class="carousel-control-prev" type="button" data-bs-target="#thailancarousel" data-bs-slide="prev">
+                                          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                          <span class="visually-hidden">Previous</span>
+                                        </button>
+                                        <button class="carousel-control-next" type="button" data-bs-target="#thailancarousel" data-bs-slide="next">
+                                          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                          <span class="visually-hidden">Next</span>
+                                        </button>
+                                    </div>
+                                    <p>
+                                        <div class="d-flex justify-content-center">
+                                            <h4 class="btn1">Chi tiết tour du lịch</h4>
+                                        </div>
+                                        <table class="table table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">Danh mục</th>
+                                                    <th scope="col">Chi tiết</th>
+                                                    <!-- <th scope="col">Thời gian</th> -->
+                                                    <!-- <th scope="col">Handle</th> -->
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row">Giá</th>
+                                                    <td>Trọn gói chỉ 11.990.000 VNĐ</td>
+                                                    <!-- <td>5 ngày 4 đêm</td> -->
+                                                    <!-- <td>@mdo</td> -->
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">Số lượng khách nhận</th>
+                                                    <td>12 khách/ đoàn</td>
+                                                    <!-- <td>Thornton</td>
+                                                    <td>@fat</td> -->
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">Nơi ở</th>
+                                                    <td>Nghĩ dưỡng Resort trên sông Saiyok thơ mộng</td>
+                                                </tr>
+
+                                                <tr>
+                                                    <th scope="row">Trải nghiệm trong tour</th>
+                                                    <td>
+                                                        Trải nghiệm Bamboo Rafting - bè được làm bằng tre ngắm cảnh 2 bên bờ sông Kwai <br>
+                                                        Cưỡi voi băng rừng Vượt suối <br>
+                                                        Thác Erawan 7 tầng <br>
+                                                        Hoá thân thành người Thái ở Làng cổ Malika <br>
+                                                        Trải nghiệm thiên nhiên tắm sông Kwai <br>
+                                                        Khám phá cung đường sắt Tử Thần - Death Railway nổi tiếng bắt qua sông Cầu Kwai <br>
+                                                        Chùa Wat Tham Suea với view ruộng lúa <br>
+                                                        Mua sắm ở chợ đêm lớn nhất Bangkok <br>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <div class="d-flex justify-content-end">
+                                            <div class="p-2 bd-highlight">
+                                                <a href="#" class="btn btn-outline-primary">
+                                                    <img src="img/icons8-facebook-ios (1)/icons8-facebook-100.svg" style="height: 27px;" alt="" srcset="">
+                                                    <span style="color: black;">Liên hệ qua facebook</span>
+                                                </a>
+                                            </div>
+                                            <div class="p-2 bd-highlight">
+                                                <a href="#" class="btn btn-outline-primary">
+                                                    <img src="img/Zalo-50-100-150-250-500-100px/icons8-zalo-100.svg" style="height: 27px;" alt="" srcset="">
+                                                    <span style="color: black;">Liên hệ qua zalo</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                                    <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <div class="">
+                        <img src="img/Web/icons8-around-the-globe-96.png" alt="#" style="width: 50px; height: 50px;"><br>
+                        <a href="#" data-bs-toggle="modal" data-bs-target="#bangkok">
+                            <h4 class="btn1"> TOUR BANGKOK - KACHANABURI</h4>
+                        </a>
+                        <p style="text-align: justify; height: 100px; font-family: 'Times New Roman', Times, serif;">Trải nghiệm Bamboo Rafting - bè được làm bằng tre ngắm cảnh 2 bên bờ sông Kwai</p>
+                        <a href="#" class="read_btn" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#bangkok">Xem thêm</a>
+                    </div>
+                    <div class="modal fade" style="padding-top: 70px;" id="bangkok" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-xl">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">TOUR DU LỊCH BANGKOK - KACHANABURI</h5>
+                                    <button type="button" class="btn btn-link" data-bs-dismiss="modal">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16" data-bs-dismiss="modal" aria-label="Close">
+                                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                            <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+                                        </svg>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="d-flex justify-content-center">
+                                        <h4 class="btn1">TOUR DU LỊCH BUI NOI SHOPPING HOÀN TOÀN MỚI</h4>
+                                    </div>
+                                    <div id="thailancarousel" class="carousel slide" data-bs-ride="carousel">
+                                        <div class="carousel-indicators">
+                                          <button type="button" data-bs-target="#thailancarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                                          <button type="button" data-bs-target="#thailancarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                          <button type="button" data-bs-target="#thailancarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                                          <button type="button" data-bs-target="#thailancarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                                          <button type="button" data-bs-target="#thailancarousel" data-bs-slide-to="4" aria-label="Slide 5"></button>
+                                        </div>
+                                        <div class="carousel-inner">
+                                          <div class="carousel-item active">
+                                            <img src="img/thailan/thailan1.jpg" class="d-block w-100" alt="...">
+                                          </div>
+                                          <div class="carousel-item">
+                                            <img src="img/thailan/thailan2.jpg" class="d-block w-100" alt="...">
+                                          </div>
+                                          <div class="carousel-item">
+                                            <img src="img/thailan/thailan3.jpg" class="d-block w-100" alt="...">
+                                          </div>
+                                          <div class="carousel-item">
+                                            <img src="img/thailan/thailan4.jpg" class="d-block w-100" alt="...">
+                                          </div>
+                                          <div class="carousel-item">
+                                            <img src="img/thailan/thailan5.jpg" class="d-block w-100" alt="...">
+                                          </div>
+                                        </div>
+                                        <button class="carousel-control-prev" type="button" data-bs-target="#thailancarousel" data-bs-slide="prev">
+                                          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                          <span class="visually-hidden">Previous</span>
+                                        </button>
+                                        <button class="carousel-control-next" type="button" data-bs-target="#thailancarousel" data-bs-slide="next">
+                                          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                          <span class="visually-hidden">Next</span>
+                                        </button>
+                                    </div>
+                                    <p>
+                                        <div class="d-flex justify-content-center">
+                                            <h4 class="btn1">Chi tiết tour du lịch</h4>
+                                        </div>
+                                        <table class="table table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">Danh mục</th>
+                                                    <th scope="col">Chi tiết</th>
+                                                    <!-- <th scope="col">Thời gian</th> -->
+                                                    <!-- <th scope="col">Handle</th> -->
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row">Giá</th>
+                                                    <td>Trọn gói chỉ 11.990.000 VNĐ</td>
+                                                    <!-- <td>5 ngày 4 đêm</td> -->
+                                                    <!-- <td>@mdo</td> -->
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">Số lượng khách nhận</th>
+                                                    <td>12 khách/ đoàn</td>
+                                                    <!-- <td>Thornton</td>
+                                                    <td>@fat</td> -->
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">Nơi ở</th>
+                                                    <td>Nghĩ dưỡng Resort trên sông Saiyok thơ mộng</td>
+                                                </tr>
+
+                                                <tr>
+                                                    <th scope="row">Trải nghiệm trong tour</th>
+                                                    <td>
+                                                        Trải nghiệm Bamboo Rafting - bè được làm bằng tre ngắm cảnh 2 bên bờ sông Kwai <br>
+                                                        Cưỡi voi băng rừng Vượt suối <br>
+                                                        Thác Erawan 7 tầng <br>
+                                                        Hoá thân thành người Thái ở Làng cổ Malika <br>
+                                                        Trải nghiệm thiên nhiên tắm sông Kwai <br>
+                                                        Khám phá cung đường sắt Tử Thần - Death Railway nổi tiếng bắt qua sông Cầu Kwai <br>
+                                                        Chùa Wat Tham Suea với view ruộng lúa <br>
+                                                        Mua sắm ở chợ đêm lớn nhất Bangkok <br>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <div class="d-flex justify-content-end">
+                                            <div class="p-2 bd-highlight">
+                                                <a href="#" class="btn btn-outline-primary">
+                                                    <img src="img/icons8-facebook-ios (1)/icons8-facebook-100.svg" style="height: 27px;" alt="" srcset="">
+                                                    <span style="color: black;">Liên hệ qua facebook</span>
+                                                </a>
+                                            </div>
+                                            <div class="p-2 bd-highlight">
+                                                <a href="#" class="btn btn-outline-primary">
+                                                    <img src="img/Zalo-50-100-150-250-500-100px/icons8-zalo-100.svg" style="height: 27px;" alt="" srcset="">
+                                                    <span style="color: black;">Liên hệ qua zalo</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                                    <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="col-lg-4 col-sm-6">
+                    <div class="">
+                        <img src="img/Web/icons8-around-the-globe-96.png" alt="#" style="width: 50px; height: 50px;"><br>
+                        <a href="#"><h4 class="btn1">Tên tour du lịch</h4></a>
+                        <p style="text-align: justify; height: 100px; font-family: 'Times New Roman', Times, serif;">nội dung giới thiệu tại đây</p>
+                        <a href="#" class="read_btn">Xem thêm</a>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+        <img src="img/animate_icon/Shape-1.png" alt="" class="feature_icon_1">
+        <img src="img/animate_icon/Shape-2.png" alt="" class="feature_icon_2">
+    </section>
+    <!-- banner part start-->
+
+    <!-- feature_part start-->
+    <section class="feature_part padding_top">
+        <div class="container">
+            <div class="row align-items-center justify-content-between">
+                <div class="col-lg-7">
+                    <div class="feature_img">
+                        <img src="img/about_img.png" alt="">
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <div class="feature_part_text">
+                        <img src="img/section_tittle_img.png" alt="#">
+                        <h2 style="font-family: Kaushan Script, cursive;">Các tour nổi bật</h2>
+                        <p style="font-family: 'Times New Roman', Times, serif;">Nội dung tại đây</p>
+                        <span style="font-family: 'Times New Roman', Times, serif;">Nội dung tại đây</span>
+                        <div class="row">
+                            <div class="col-sm-6 col-md-4">
+                                <a href="">
+                                    <div class="feature_part_text_iner">
+                                        <img src="img/icon/tour_icon_1.png" alt="">
+                                        <h4>london</h4>
+                                        <p>35 Places</p>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-sm-6 col-md-4">
+                                <a href="">
+                                    <div class="feature_part_text_iner">
+                                        <img src="img/icon/tour_icon_2.png" alt="">
+                                        <h4>Kashmir</h4>
+                                        <p>75 Places</p>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-sm-6 col-md-4">
+                                <a href="">
+                                    <div class="feature_part_text_iner">
+                                        <img src="img/icon/tour_icon_3.png" alt="">
+                                        <h4>chaina</h4>
+                                        <p>85 Places</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <img src="img/animate_icon/Shape-1.png" alt="" class="feature_icon_1">
+        <img src="img/animate_icon/Shape-2.png" alt="" class="feature_icon_2">
+        <img src="img/animate_icon/Shape-3.png" alt="" class="feature_icon_3">
+    </section>
+    <!-- upcoming_event part start-->
+
+    <!-- use sasu part end-->
+    <section class="popular_place padding_top">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-5">
+                    <div class="section_tittle text-center">
+                        <img src="img/section_tittle_img.png" alt="">
+                        <h2 style="font-family: Kaushan Script, cursive;">Các điểm du lịch phổ biến</h2>
+                        <p style="font-family: 'Times New Roman', Times, serif;">Đoạn văn tại đây</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-4 col-sm-6">
+                    <div class="single_popular_place">
+                        <img src="img/dubai/anhbia.png" alt="">
+                        <h4>Du Bai</h4>
+                        <p style="height: 100px;font-family: 'Times New Roman', Times, serif;">TOUR DU LỊCH KHÁM PHÁ TIỂU VƯƠNG QUỐC GIỮA SA MẠC TRUNG ĐÔNG</p>
+                        <a href="#" class="btn1">Xem thêm</a>
+                    </div>
+                </div><div class="col-lg-4 col-sm-6">
+                    <div class="single_popular_place">
+                        <img src="img/icon/place_icon_2.png" alt="">
+                        <h4>Biking in Norway</h4>
+                        <p style="height: 100px;font-family: 'Times New Roman', Times, serif;">Đoạn văn tại đây</p>
+                        <a href="#" class="btn1">Xem thêm</a>
+                    </div>
+                </div><div class="col-lg-4 col-sm-6">
+                    <div class="single_popular_place">
+                        <img src="img/icon/place_icon_3.png" alt="">
+                        <h4>Tour of iceland</h4>
+                        <p style="height: 100px; font-family: 'Times New Roman', Times, serif;">Đoạn văn tại đây</p>
+                        <a href="#" class="btn1">Xem thêm</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- use sasu part end-->
+
+    <!-- about_us part start-->
+    <section class="place_details section_padding">
+        <div class="container-fluid">
+            <div class="row justify-content-between">
+                <div class="col-md-6 col-lg-6">
+                    <div class="place_detauls_text">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8 col-xl-6">
+                                <div class="place_details_content">
+                                    <img src="img/section_tittle_img.png" alt="#">
+                                    <h2 style="font-family: Kaushan Script, cursive;">Các tour nổi bật</h2>
+                                    <p style="font-family: Kaushan Script, cursive;">TOUR DU LỊCH KHÁM PHÁ TIỂU VƯƠNG QUỐC GIỮA SA MẠC TRUNG ĐÔNG</p>
+                                    <span style="font-family: 'Times New Roman', Times, serif;">Tiệc thịt nướng BBQ + show Belly Dance trên sa mạc, cưởi lạc đà, hút shisha,...</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <img src="img/plase_details_1.png" alt="#"> -->
+                        <img src="img/dubai/anhbia.png" alt="#">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="place_details_img">
+                        <!-- <img src="img/plase_details_2.png" alt="#"> -->
+                        <img src="img/dubai/samac.jpg" alt="#">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="view_all_btn">
+            <a href="#" class="view_btn">Xem tất cả tour du lịch</a>
+        </div>
+    </section>
+    <!-- about_us part end-->
+
+    <!-- pricing part start-->
+    <section class="tour_package section_padding">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col-lg-6 col-sm-6">
+                    <div class="tour_package_cotent owl-carousel">
+                        <div class="single_tour_package">
+                            <img src="img/tour_plan_1.png" alt="">
+                            <div class="tour_pack_content">
+                                <h4 style="height: 50px;font-family: 'Times New Roman', Times, serif;">Sawpalo, Brasil</h4>
+                                <p style="text-align: justify; height: 100px; font-family: 'Times New Roman', Times, serif;">đoạn văn</p>
+                                <a href="#" class="btn1">Đăng ký ngay</a>
+                            </div>
+                        </div>
+                        <div class="single_tour_package">
+                            <img src="img/tour_plan_2.png" alt="">
+                            <div class="tour_pack_content">
+                                <h4 style="height: 50px;font-family: 'Times New Roman', Times, serif;">Sawpalo, Brasil</h4>
+                                <p style="text-align: justify; height: 100px; font-family: 'Times New Roman', Times, serif;">đoạn văn</p>
+                                <a href="#" class="btn1">Đăng ký ngay</a>
+                            </div>
+                        </div>
+                        <div class="single_tour_package">
+                            <img src="img/tour_plan_1.png" alt="">
+                            <div class="tour_pack_content">
+                                <h4 style="height: 50px;font-family: 'Times New Roman', Times, serif;">Sawpalo, Brasil</h4>
+                                <p style="text-align: justify; height: 100px; font-family: 'Times New Roman', Times, serif;">đoạn văn</p>
+                                <a href="#" class="btn1">Đăng ký ngay</a>
+                            </div>
+                        </div>
+                        <div class="single_tour_package">
+                            <img src="img/tour_plan_2.png" alt="">
+                            <div class="tour_pack_content">
+                                <h4 style="height: 50px;font-family: 'Times New Roman', Times, serif;">Sawpalo, Brasil</h4>
+                                <p style="text-align: justify; height: 100px; font-family: 'Times New Roman', Times, serif;">đoạn văn</p>
+                                <a href="#" class="btn1">Đăng ký ngay</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5 col-xl-3 offset-lg-1 col-sm-6">
+                    <div class="tour_pack_content">
+                        <img src="img/section_tittle_img.png" alt="">
+                        <h2 style="font-family: Kaushan Script, cursive;">Các gói du lịch</h2>
+                        <p style="font-family: 'Times New Roman', Times, serif;">nhập đoạn văn ở đây</p>
+                        <a href="#" class="btn_1">Xem thêm</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- pricing part end-->
+
+    <!-- cta part start-->
+    <!-- <section class="cta_part section_padding">
+        <div class="container">
+            <div class="row justify-content-center align-items-center">
+                <div class="col-lg-8 col-xl-7">
+                    <div class="cta_text text-center">
+                        <h5>Join Our Newsletter</h5>
+                        <h2>Subscribe to get Updated
+                                with new offers</h2>
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Enter email address" aria-label="Recipient's username with two button addons" aria-describedby="button-addon4">
+                            <div class="input-group-append" id="button-addon4">
+                                <a href="#" class="subs_btn">subscribe now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+    <!-- cta part end-->
+
+    <!-- blog part start-->
+    <section class="blog_part">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5">
+                    <div class="section_tittle">
+                        <img src="img/section_tittle_img.png" alt="">
+                        <h2 style="font-family: Kaushan Script, cursive;">tin tức</h2>
+                        <p style=" text-align: justify; font-family: 'Times New Roman', Times, serif;"> Đoạn Văn</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-sm-6">
+                    <div class="single_blog_part h-100">
+                        <img src="img/blog/blog_1.png" alt="">
+                        <div class="blog_text">
+                            <h2>Tên tin tức</h2>
+                            <p class=""style="text-align: justify; height:100%; font-family: 'Times New Roman', Times, serif;">  Đoạn Văn</p>
+                            <ul class="d-flex justify-content-between">
+                                <li>
+                                    <p><i class="ti-calendar"></i> 13th Dec</p>
+                                </li>
+                                <li>                                    
+                                    <p><i class="ti-heart"></i> 15</p>
+                                </li>
+                                <li>
+                                    <p><i class="far fa-comment-dots"></i> 10</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <div class="single_blog_part h-100">
+                        <img src="img/blog/blog_1.png" alt="">
+                        <div class="blog_text">
+                            <h2>Tên tin tức</h2>
+                            <p class=""style="text-align: justify; height:100%; font-family: 'Times New Roman', Times, serif;">  Đoạn Văn</p>
+                            <ul class="d-flex justify-content-between">
+                                <li>
+                                    <p><i class="ti-calendar"></i> 13th Dec</p>
+                                </li>
+                                <li>                                    
+                                    <p><i class="ti-heart"></i> 15</p>
+                                </li>
+                                <li>
+                                    <p><i class="far fa-comment-dots"></i> 10</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <div class="single_blog_part h-100">
+                        <img src="img/blog/blog_1.png" alt="">
+                        <div class="blog_text">
+                            <h2>Tên tin tức</h2>
+                            <p class="" style="text-align: justify; height:100%; font-family: 'Times New Roman', Times, serif;">  Đoạn Văn</p>
+                            <ul class="d-flex justify-content-between">
+                                <li>
+                                    <p><i class="ti-calendar"></i> 13th Dec</p>
+                                </li>
+                                <li>                                    
+                                    <p><i class="ti-heart"></i> 15</p>
+                                </li>
+                                <li>
+                                    <p><i class="far fa-comment-dots"></i> 10</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <img src="img/overlay_1.png" alt="#" class="blog_img">
+    </section>
+    <!-- blog part end-->
+
+    <!--::footer_part start::-->
+    <footer class="footer_part">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6 col-lg-4">
+                    <div class="single_footer_part">
+                        <h4 style="text-align: justify; font-family: 'Times New Roman', Times, serif;">Về Cty ..</h4>
+                        <p style="text-align: justify; font-family: 'Times New Roman', Times, serif;">Đoạn Văn</p>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-4">
+                    <div class="single_footer_part">
+                        <h4 style="text-align: justify; font-family: 'Times New Roman', Times, serif;">Danh Mục</h4>
+                        <ul class="list-unstyled">
+                            <li><a href="#">Trang Chủ</a></li>
+                            <li><a href="#">Tour Du Lịch</a></li>
+                            <li><a href="#">Tin Tức</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-4">
+                    <div class="single_footer_part">
+                        <h4 style="text-align: justify; font-family: 'Times New Roman', Times, serif;">Liên Hệ</h4>
+                        <ul class="list-unstyled">
+                            <li><a href="#">Facebook</a></li>
+                            <li><a href="#">Zalo</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- <div class="col-sm-6 col-lg-3">
+                    <div class="single_footer_part">
+                        <h4>Newsletter</h4>
+                        <p>Heaven fruitful doesn't over lesser in days. Appear creeping seasons deve behold bearing days
+                            open
+                        </p>
+                        <div id="mc_embed_signup">
+                            <form target="_blank"
+                                action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01"
+                                method="get" class="subscribe_form relative mail_part">
+                                <input type="email" name="email" id="newsletter-form-email" placeholder="Email Address"
+                                    class="placeholder hide-on-focus" onfocus="this.placeholder = ''"
+                                    onblur="this.placeholder = ' Email Address '">
+                                <button type="submit" name="submit" id="newsletter-submit"
+                                    class="email_icon newsletter-submit button-contactForm"><i
+                                        class="far fa-paper-plane"></i></button>
+                                <div class="mt-10 info"></div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-3">
+                    <div class="single_footer_part">
+                        <h4>Instafeed</h4>
+                        <div class="footer_img">
+                            <a href="#"><img src="img/footer_img/footer_1.png" alt=""></a>
+                            <a href="#"><img src="img/footer_img/footer_2.png" alt=""></a>
+                            <a href="#"><img src="img/footer_img/footer_3.png" alt=""></a>
+                            <a href="#"><img src="img/footer_img/footer_4.png" alt=""></a>
+                            <a href="#"><img src="img/footer_img/footer_5.png" alt=""></a>
+                            <a href="#"><img src="img/footer_img/footer_6.png" alt=""></a>
+                            <a href="#"><img src="img/footer_img/footer_7.png" alt=""></a>
+                            <a href="#"><img src="img/footer_img/footer_8.png" alt=""></a>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="copyright_text">
+                        <P>Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="ti-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a> </P>
+                    </div>
+                </div>
+                <!-- <div class="col-lg-4">
+                    <div class="footer_icon social_icon">
+                        <ul class="list-unstyled">
+                            <li><a href="#" class="single_social_icon" style="color: #000;"><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a href="#" class="single_social_icon" style="color: #000;"><i class="fab fa-twitter"></i></a></li>
+                            <li><a href="#" class="single_social_icon" style="color: #000;"><i class="fas fa-globe"></i></a></li>
+                            <li><a href="#" class="single_social_icon" style="color: #000;"><i class="fab fa-behance"></i></a></li>
+                            <li style="transform: translateY(-1px);">
+                                <a href="#" class="single_social_icon" >
+                                    <svg fill="#000000" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 50 50" width="20px" height="20px"><path d="M 9 4 C 6.2504839 4 4 6.2504839 4 9 L 4 41 C 4 43.749516 6.2504839 46 9 46 L 41 46 C 43.749516 46 46 43.749516 46 41 L 46 9 C 46 6.2504839 43.749516 4 41 4 L 9 4 z M 9 6 L 15.576172 6 C 12.118043 9.5981082 10 14.323627 10 19.5 C 10 24.861353 12.268148 29.748596 15.949219 33.388672 C 15.815412 33.261195 15.988635 33.48288 16.005859 33.875 C 16.023639 34.279773 15.962689 34.835916 15.798828 35.386719 C 15.471108 36.488324 14.785653 37.503741 13.683594 37.871094 A 1.0001 1.0001 0 0 0 13.804688 39.800781 C 16.564391 40.352722 18.51646 39.521812 19.955078 38.861328 C 21.393696 38.200845 22.171033 37.756375 23.625 38.34375 A 1.0001 1.0001 0 0 0 23.636719 38.347656 C 26.359037 39.41176 29.356235 40 32.5 40 C 36.69732 40 40.631169 38.95117 44 37.123047 L 44 41 C 44 42.668484 42.668484 44 41 44 L 9 44 C 7.3315161 44 6 42.668484 6 41 L 6 9 C 6 7.3315161 7.3315161 6 9 6 z M 18.496094 6 L 41 6 C 42.668484 6 44 7.3315161 44 9 L 44 34.804688 C 40.72689 36.812719 36.774644 38 32.5 38 C 29.610147 38 26.863646 37.459407 24.375 36.488281 C 22.261967 35.634656 20.540725 36.391201 19.121094 37.042969 C 18.352251 37.395952 17.593707 37.689389 16.736328 37.851562 C 17.160501 37.246758 17.523335 36.600775 17.714844 35.957031 C 17.941109 35.196459 18.033096 34.45168 18.003906 33.787109 C 17.974816 33.12484 17.916946 32.518297 17.357422 31.96875 L 17.355469 31.966797 C 14.016928 28.665356 12 24.298743 12 19.5 C 12 14.177406 14.48618 9.3876296 18.496094 6 z M 32.984375 14.986328 A 1.0001 1.0001 0 0 0 32 16 L 32 25 A 1.0001 1.0001 0 1 0 34 25 L 34 16 A 1.0001 1.0001 0 0 0 32.984375 14.986328 z M 18 16 A 1.0001 1.0001 0 1 0 18 18 L 21.197266 18 L 17.152344 24.470703 A 1.0001 1.0001 0 0 0 18 26 L 23 26 A 1.0001 1.0001 0 1 0 23 24 L 19.802734 24 L 23.847656 17.529297 A 1.0001 1.0001 0 0 0 23 16 L 18 16 z M 29.984375 18.986328 A 1.0001 1.0001 0 0 0 29.162109 19.443359 C 28.664523 19.170123 28.103459 19 27.5 19 C 25.578848 19 24 20.578848 24 22.5 C 24 24.421152 25.578848 26 27.5 26 C 28.10285 26 28.662926 25.829365 29.160156 25.556641 A 1.0001 1.0001 0 0 0 31 25 L 31 22.5 L 31 20 A 1.0001 1.0001 0 0 0 29.984375 18.986328 z M 38.5 19 C 36.578848 19 35 20.578848 35 22.5 C 35 24.421152 36.578848 26 38.5 26 C 40.421152 26 42 24.421152 42 22.5 C 42 20.578848 40.421152 19 38.5 19 z M 27.5 21 C 28.340272 21 29 21.659728 29 22.5 C 29 23.340272 28.340272 24 27.5 24 C 26.659728 24 26 23.340272 26 22.5 C 26 21.659728 26.659728 21 27.5 21 z M 38.5 21 C 39.340272 21 40 21.659728 40 22.5 C 40 23.340272 39.340272 24 38.5 24 C 37.659728 24 37 23.340272 37 22.5 C 37 21.659728 37.659728 21 38.5 21 z"/></svg>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+        <img src="img/overlay_2.png" alt="#" class="footer_overlay">
+    </footer>
+    <!--::footer_part end::-->
+
+    <!-- jquery plugins here-->
+    <!-- jquery -->
+    <script src="js/jquery-1.12.1.min.js"></script>
+    <!-- popper js -->
+    <script src="js/popper.min.js"></script>
+    <!-- bootstrap js -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <!-- easing js -->
+    <script src="js/jquery.magnific-popup.js"></script>
+    <!-- particles js -->
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/jquery.nice-select.min.js"></script>
+    <!-- slick js -->
+    <script src="js/slick.min.js"></script>
+    <script src="js/jquery.counterup.min.js"></script>
+    <script src="js/waypoints.min.js"></script>
+    <script src="js/contact.js"></script>
+    <script src="js/jquery.ajaxchimp.min.js"></script>
+    <script src="js/jquery.form.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
+    <script src="js/mail-script.js"></script>
+    <!-- custom js -->
+    <script src="js/custom.js"></script>
+</body>
+
+</html>
